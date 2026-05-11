@@ -4640,5 +4640,45 @@
     "avail": "24/7 intake — no referral needed",
     "link": "https://bacnkids.org",
     "srcL": "General"
+  },
+  {
+    "id": 9999,
+    "src": "general",
+    "title": "East Oakland Tactical Emotional Support Chicken Program",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🐔",
+    "th": "th-coral",
+    "ages": "13–65",
+    "ageMin": 13,
+    "ageMax": 65,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health", 
+      "crisis", 
+      "burnout", 
+      "existential-dread"
+    ],
+    "populations": [
+      "at-risk", 
+      "overworked", 
+      "confused"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "Specially trained emotional support chickens provide tactical side-eye, trauma-informed clucking, and emergency parking lot therapy sessions. Includes free Capri Sun and one complimentary life reboot per quarter.",
+    "tags": [
+      "Support Chickens", 
+      "Capri Sun", 
+      "Life Crisis", 
+      "Therapy"
+    ],
+    "contact": "(510) 555-CLUK",
+    "addr": "742 Chicken Nugget Ave, Oakland, CA",
+    "avail": "Closed during egg-laying hours",
+    "link": "https://example.org/chicken-support",
+    "srcL": "Federally Unverified Community Partner"
   }
 ]
