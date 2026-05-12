@@ -282,6 +282,143 @@ header[style], footer[style]{background:#043f4d!important;}
 footer, footer *, footer div, footer span, footer p{color:#ffffff!important;}
 footer a{color:#ffffff!important;text-decoration:underline!important;text-underline-offset:3px;}
 
+
+/* ================================
+   ADA CARD CONTRAST FIX
+   Added to improve WCAG contrast on resource cards
+================================ */
+.card{
+  background:#ffffff !important;
+  border:1px solid #cfd8df !important;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08) !important;
+}
+
+.card:hover{
+  box-shadow:0 8px 24px rgba(0,0,0,0.15) !important;
+}
+
+.card h3{
+  color:#1e293b !important;
+  font-size:1.08rem !important;
+  font-weight:800 !important;
+  line-height:1.35 !important;
+}
+
+.card p{
+  color:#334155 !important;
+  font-size:.92rem !important;
+  line-height:1.75 !important;
+  font-weight:500 !important;
+}
+
+.card-meta,
+.card-contact,
+.card-addr{
+  color:#334155 !important;
+  font-size:.78rem !important;
+  font-weight:500 !important;
+}
+
+.card-addr{
+  color:#475569 !important;
+}
+
+.tag{
+  background:#e2e8f0 !important;
+  color:#1e293b !important;
+  border:1px solid #cbd5e1 !important;
+  font-size:.72rem !important;
+  font-weight:600 !important;
+  padding:4px 10px !important;
+}
+
+.ages-pill{
+  color:#0f172a !important;
+  background:#cfe8ef !important;
+  font-size:.76rem !important;
+  font-weight:700 !important;
+  padding:4px 10px !important;
+}
+
+.cat{
+  font-size:.72rem !important;
+  font-weight:800 !important;
+  padding:5px 10px !important;
+}
+
+.src-lbl{
+  color:#475569 !important;
+  font-size:.7rem !important;
+  font-weight:600 !important;
+}
+
+.cta{
+  background:#0b5f73 !important;
+  color:#ffffff !important;
+  font-size:.82rem !important;
+  font-weight:700 !important;
+  padding:9px 16px !important;
+}
+
+.cta:hover,
+.cta:focus{
+  background:#084c5c !important;
+}
+
+.th-teal .cat{
+  background:#d7edf3 !important;
+  color:#0f172a !important;
+}
+
+.th-amber .cat{
+  background:#fde7b0 !important;
+  color:#422006 !important;
+}
+
+.th-coral .cat{
+  background:#f8d7c5 !important;
+  color:#3b1b10 !important;
+}
+
+.th-purple .cat{
+  background:#eadcf9 !important;
+  color:#24104f !important;
+}
+
+.th-blue .cat{
+  background:#dbe8ef !important;
+  color:#0f172a !important;
+}
+
+.th-pink .cat{
+  background:#f8d8e4 !important;
+  color:#4a1024 !important;
+}
+
+.th-red .cat{
+  background:#f8d0d0 !important;
+  color:#4a0f0f !important;
+}
+
+/* Filter pill active fix */
+.fpill.active,
+button.fpill.active{
+  background:#084c5c !important;
+  border-color:#084c5c !important;
+  color:#ffffff !important;
+}
+
+/* Keep primary teal buttons AAA-friendlier */
+.btn-primary{
+  background:#084c5c !important;
+  color:#ffffff !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus{
+  background:#063b47 !important;
+}
+
 </style>
 </head>
 <body>
