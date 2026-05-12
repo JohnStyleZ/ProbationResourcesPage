@@ -1,29 +1,54 @@
-# GitHub JSON Backend Demo
+# Probation Resources Page
 
-## Required Environment Variables
+This version keeps the original one-page Resource Hub UI and uses GitHub as the JSON data store.
 
-Add these in Vercel:
+## Files
 
-- GITHUB_TOKEN
-- GITHUB_OWNER
-- GITHUB_REPO
-- GITHUB_BRANCH
+- `index.html` - full website and built-in admin panel
+- `resources.json` - resource database
+- `api/updateResources.js` - Vercel backend function that updates `resources.json` in GitHub
 
-Example:
+## Vercel Environment Variables
 
-GITHUB_OWNER=johnstylez
-GITHUB_REPO=my-resource-site
+Add these in Vercel Project Settings → Environment Variables:
+
+```txt
+GITHUB_TOKEN=github_pat_your_token_here
+GITHUB_OWNER=JohnStyleZ
+GITHUB_REPO=ProbationResourcesPage
 GITHUB_BRANCH=main
+```
 
-## GitHub Token Permissions
+Optional:
 
-Your GitHub token needs:
+```txt
+GITHUB_JSON_PATH=resources.json
+```
 
-- Contents: Read and Write
+The GitHub token needs repository Contents permission: Read and Write.
 
-## Deploy
+## How it works
 
-1. Upload files to GitHub
-2. Import repo into Vercel
-3. Add environment variables
-4. Deploy
+1. The website loads data from:
+
+```txt
+https://raw.githubusercontent.com/JohnStyleZ/ProbationResourcesPage/refs/heads/main/resources.json
+```
+
+2. The Admin button opens the built-in admin panel.
+3. Save or Delete sends the full updated resource array to `/api/updateResources`.
+4. The backend function commits the updated `resources.json` back to GitHub.
+
+## Admin code
+
+The current admin code inside `index.html` is:
+
+```txt
+FUTURE2025
+```
+
+You can change it by editing:
+
+```js
+const ADMIN_CODE = 'FUTURE2025';
+```

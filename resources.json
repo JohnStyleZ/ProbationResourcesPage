@@ -1,7 +1,4644 @@
 [
   {
-    "id": 9999,
-    "title": "East Oakland Tactical Emotional Support Chicken Program",
-    "desc": "Specially trained emotional support chickens provide tactical side-eye and emergency parking lot therapy sessions."
+    "id": 1,
+    "src": "probation-oakland",
+    "title": "Carl B. Metoyer Center for Family Counseling",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🧠",
+    "th": "th-teal",
+    "ages": "14–21",
+    "ageMin": 14,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "justice-involved",
+      "violence",
+      "crisis"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Therapeutic counseling, crisis intervention, case management, and diversion for Oakland youth.",
+    "tags": [
+      "Counseling",
+      "Crisis Intervention",
+      "Diversion",
+      "Case Management"
+    ],
+    "contact": "(510) 562-3731",
+    "addr": "9925 International Blvd, Suite 6, Oakland",
+    "avail": "Referrals accepted",
+    "link": "mailto:admin@cbmcffc.org",
+    "srcL": "AC Probation – Oakland"
+  },
+  {
+    "id": 2,
+    "src": "probation-oakland",
+    "title": "Catholic Charities of the East Bay",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "✝️",
+    "th": "th-teal",
+    "ages": "8–21",
+    "ageMin": 8,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "justice-involved",
+      "crisis",
+      "family"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk",
+      "immigrant"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Therapeutic counseling, crisis intervention, case management, and diversion for Oakland youth and families.",
+    "tags": [
+      "Counseling",
+      "Crisis",
+      "Case Management",
+      "Diversion"
+    ],
+    "contact": "(510) 768-3100",
+    "addr": "433 Jefferson St, Oakland",
+    "avail": "Contact for referral",
+    "link": "mailto:lguzman@cceb.org",
+    "srcL": "AC Probation – Oakland"
+  },
+  {
+    "id": 3,
+    "src": "probation-oakland",
+    "title": "Centerforce – Youth Court & Restorative Justice",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "⚖️",
+    "th": "th-purple",
+    "ages": "8–21",
+    "ageMin": 8,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "first-offense"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Youth court for first-time juvenile offenders. Restorative justice education, parenting classes, and justice system education.",
+    "tags": [
+      "Youth Court",
+      "Restorative Justice",
+      "Parenting",
+      "Diversion"
+    ],
+    "contact": "(510) 834-3457 x401",
+    "addr": "1904 Franklin St, Suite 418, Oakland",
+    "avail": "Referrals accepted",
+    "link": "mailto:referral@centerforce1.org",
+    "srcL": "AC Probation – Oakland"
+  },
+  {
+    "id": 4,
+    "src": "probation-oakland",
+    "title": "East Bay Agency for Children (EBAC) – Oakland",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌱",
+    "th": "th-teal",
+    "ages": "8–21",
+    "ageMin": 8,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "justice-involved",
+      "crisis"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Therapeutic counseling, crisis intervention, case management, and diversion for Oakland youth.",
+    "tags": [
+      "Counseling",
+      "Crisis",
+      "Diversion",
+      "Case Management"
+    ],
+    "contact": "jose.padilla-hernandez@ebac.org | (510) 913-4696 | DPN referrals: dpnreferrals@ebac.org",
+    "addr": "2828 Ford St, Oakland",
+    "avail": "DPN referrals",
+    "link": "mailto:dpnreferrals@ebac.org",
+    "srcL": "AC Probation – Oakland"
+  },
+  {
+    "id": 5,
+    "src": "probation-oakland",
+    "title": "Fresh Lifelines for Youth (FLY)",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "📋",
+    "th": "th-amber",
+    "ages": "14–18",
+    "ageMin": 14,
+    "ageMax": 18,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "school-dropout"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "planning",
+    "zipcodes": "north",
+    "desc": "12-week law education and life skills training. Leadership Training Program includes wilderness retreat, service learning, and coaching.",
+    "tags": [
+      "Law Education",
+      "Life Skills",
+      "Leadership"
+    ],
+    "contact": "(408) 263-2630",
+    "addr": "333 Hegenberger Rd, Suite 350, Oakland",
+    "avail": "Program enrollments open",
+    "link": "mailto:acprogramsreferral@flyprogram.org",
+    "srcL": "AC Probation – Oakland"
+  },
+  {
+    "id": 6,
+    "src": "probation-oakland",
+    "title": "Safe Passages – Life & Career Roadmap",
+    "cat": "workforce",
+    "catL": "Workforce",
+    "icon": "💼",
+    "th": "th-teal",
+    "ages": "14–19",
+    "ageMin": 14,
+    "ageMax": 19,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "unemployment",
+      "justice-involved"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Job readiness workshops, intensive career coaching, internship/work experience with financial incentives. Jobs 12+ months.",
+    "tags": [
+      "Job Readiness",
+      "Career Coaching",
+      "Internship",
+      "Financial Incentives"
+    ],
+    "contact": "(510) 238-4914",
+    "addr": "250 Frank H. Ogawa Plaza, Suite 6306, Oakland",
+    "avail": "Open",
+    "link": "mailto:PYEP@Safepassages.org",
+    "srcL": "AC Probation – Oakland"
+  },
+  {
+    "id": 7,
+    "src": "probation-oakland",
+    "title": "Youth ALIVE! – Teens on Target",
+    "cat": "violence",
+    "catL": "Violence Prevention",
+    "icon": "🎯",
+    "th": "th-purple",
+    "ages": "8–21",
+    "ageMin": 8,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "violence",
+      "gang",
+      "school-dropout"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Violence prevention peer educator program at Castlemont & Fremont High Schools. Speakers Bureau and Community Youth Leadership Council.",
+    "tags": [
+      "Violence Prevention",
+      "Leadership",
+      "Peer Education"
+    ],
+    "contact": "(510) 594-2588 x302",
+    "addr": "3300 Elm St, Oakland",
+    "avail": "School year program",
+    "link": "mailto:dpn@youthalive.org",
+    "srcL": "AC Probation – Oakland"
+  },
+  {
+    "id": 8,
+    "src": "probation-oakland",
+    "title": "Youth Employment Partnership (YEP)",
+    "cat": "workforce",
+    "catL": "Workforce",
+    "icon": "💡",
+    "th": "th-amber",
+    "ages": "14–24",
+    "ageMin": 14,
+    "ageMax": 24,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "unemployment",
+      "justice-involved"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Paid job readiness workshops and employment opportunities with nonprofits, government agencies, and businesses in Oakland.",
+    "tags": [
+      "Job Training",
+      "Paid Work",
+      "Internship",
+      "Career"
+    ],
+    "contact": "pyep-referrals@yep.org | (510) 533-3447",
+    "addr": "2300 International Blvd, Oakland",
+    "avail": "Open",
+    "link": "mailto:rrose@yep.org",
+    "srcL": "AC Probation – Oakland"
+  },
+  {
+    "id": 9,
+    "src": "probation-oakland",
+    "title": "Youth UpRising (YU)",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🚀",
+    "th": "th-coral",
+    "ages": "8–21",
+    "ageMin": 8,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "unemployment",
+      "mental-health",
+      "gang",
+      "housing"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Integrated services: career & education, health & wellness, arts & expression, life skills. Drop-ins 9am–5pm daily. Social enterprise training.",
+    "tags": [
+      "Career",
+      "Arts",
+      "Life Skills",
+      "Drop-In"
+    ],
+    "contact": "(510) 777-9909 x111",
+    "addr": "8711 MacArthur Blvd, Oakland",
+    "avail": "Drop-ins 9am–5pm daily",
+    "link": "mailto:dpn@youthuprising.org",
+    "srcL": "AC Probation – Oakland"
+  },
+  {
+    "id": 10,
+    "src": "probation-oakland",
+    "title": "Alameda County Crisis Receiving Home",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🏠",
+    "th": "th-red",
+    "ages": "8–17",
+    "ageMin": 8,
+    "ageMax": 17,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "crisis",
+      "housing",
+      "mental-health"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "24/7 emergency shelter for youth in crisis. Meals, hygiene, counseling, case management. NOT for probation or foster youth. Law enforcement contact required.",
+    "tags": [
+      "Emergency Shelter",
+      "Crisis",
+      "24/7",
+      "Family Counseling"
+    ],
+    "contact": "Eden Counseling: (510) 247-9831",
+    "addr": "Confidential – contact Eden Counseling",
+    "avail": "24/7 – law enforcement contact required",
+    "link": "https://www.edencounseling.org",
+    "srcL": "AC Probation – Oakland"
+  },
+  {
+    "id": 11,
+    "src": "probation-county",
+    "title": "Community Works West – Restorative Justice",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "🤝",
+    "th": "th-purple",
+    "ages": "9–21",
+    "ageMin": 9,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "violence"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Restorative justice and civic engagement for North County youth — accountability, repairing harm, and leadership.",
+    "tags": [
+      "Restorative Justice",
+      "Civic Engagement",
+      "North County"
+    ],
+    "contact": "pyd@communityworkswest.org | (510) 268-8116 | Probation referrals: 949.310.8175",
+    "addr": "110 Broadway, Oakland",
+    "avail": "Contact for referral",
+    "link": "mailto:info@communityworkswest.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 12,
+    "src": "probation-county",
+    "title": "Dream Youth Clinic – Cognitive Behavior Intervention",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🧩",
+    "th": "th-blue",
+    "ages": "9–21",
+    "ageMin": 9,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "justice-involved",
+      "substance-use"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Cognitive behavior intervention helping North County youth manage emotions and make positive choices.",
+    "tags": [
+      "Cognitive Behavior",
+      "Mental Health",
+      "North County"
+    ],
+    "contact": "contact@dreamyouthclinic.org | (510) 839-0929",
+    "addr": "583 5th St, Suite A, Oakland",
+    "avail": "Contact for referral",
+    "link": "mailto:contact@dreamyouthclinic.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 13,
+    "src": "probation-county",
+    "title": "EBAC – Life Skills & Support Services",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🌟",
+    "th": "th-teal",
+    "ages": "9–21",
+    "ageMin": 9,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "school-dropout",
+      "unemployment",
+      "justice-involved"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Life skills and support services: practical skills, financial literacy, education support, and independence resources.",
+    "tags": [
+      "Life Skills",
+      "Financial Literacy",
+      "North County"
+    ],
+    "contact": "(510) 495-5754",
+    "addr": "2828 Ford St, Oakland (mobile)",
+    "avail": "Contact for referral",
+    "link": "mailto:danielle.clark@ebac.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 14,
+    "src": "probation-county",
+    "title": "Family Paths – Parenting Classes",
+    "cat": "family",
+    "catL": "Family",
+    "icon": "👨‍👩‍👧",
+    "th": "th-coral",
+    "ages": "Parents",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "family",
+      "parent"
+    ],
+    "populations": [
+      "parent"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Parenting classes with practical child care, positive discipline, and family wellness skills. 24/7 Parenting Stress Helpline.",
+    "tags": [
+      "Parenting",
+      "Family Support",
+      "Stress Helpline"
+    ],
+    "contact": "probationrefs@familypaths.org | (510) 893-2074 | Helpline: 1-800-829-3777",
+    "addr": "1727 MLK Jr. Blvd, Oakland",
+    "avail": "Open",
+    "link": "#",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 15,
+    "src": "probation-county",
+    "title": "Oakland Natives Give Back – Gender Responsive",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "✊",
+    "th": "th-pink",
+    "ages": "9–21",
+    "ageMin": 9,
+    "ageMax": 21,
+    "genders": [
+      "female"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "mental-health"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Gender-responsive programming for young women — self-esteem, confidence, and empowerment in North County Oakland.",
+    "tags": [
+      "Gender Responsive",
+      "Girls",
+      "Empowerment"
+    ],
+    "contact": "keisha@oaklandnatives.org | (510) 225-6420",
+    "addr": "426 17th St, 5th Floor, Oakland",
+    "avail": "Contact for referral",
+    "link": "mailto:keisha@oaklandnatives.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 16,
+    "src": "probation-county",
+    "title": "OK Program of Oakland – Mentoring",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🌠",
+    "th": "th-amber",
+    "ages": "9–21",
+    "ageMin": 9,
+    "ageMax": 21,
+    "genders": [
+      "male"
+    ],
+    "riskFactors": [
+      "mentorship",
+      "justice-involved",
+      "gang"
+    ],
+    "populations": [
+      "african-american",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Mentoring for African American boys — culturally aware adult guidance and positive role modeling. North County Oakland.",
+    "tags": [
+      "Mentoring",
+      "African American Youth",
+      "Boys"
+    ],
+    "contact": "info@okprogramofoakland.org | (925) 336-9788",
+    "addr": "6220 International Blvd, Oakland",
+    "avail": "African American boys only",
+    "link": "mailto:compliance@okprogramofoakland.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 17,
+    "src": "probation-county",
+    "title": "Positive Communication Practices – Group/Network Intervention",
+    "cat": "violence",
+    "catL": "Violence Prevention",
+    "icon": "🔗",
+    "th": "th-purple",
+    "ages": "9–21",
+    "ageMin": 9,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "gang",
+      "violence",
+      "justice-involved"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Group and network intervention to break cycles of violence and gang involvement through counseling and conflict resolution.",
+    "tags": [
+      "Gang Intervention",
+      "Conflict Resolution",
+      "Violence Prevention"
+    ],
+    "contact": "gkkillens@gmail.com | (510) 917-1505",
+    "addr": "1441 Franklin St, Oakland",
+    "avail": "Contact for referral",
+    "link": "mailto:pcpassistant@gmail.com",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 18,
+    "src": "probation-county",
+    "title": "Youth Spirit Artworks – Multi-Service",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🎨",
+    "th": "th-amber",
+    "ages": "9–21",
+    "ageMin": 9,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "mental-health",
+      "gang"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Arts-based multi-service: anger management, civic engagement, cognitive behavior, and gender-responsive programming.",
+    "tags": [
+      "Anger Management",
+      "Arts",
+      "Civic Engagement",
+      "Gender Responsive"
+    ],
+    "contact": "karini@youthspiritartworks.org | (341) 732-9347",
+    "addr": "1740 Alcatraz Ave, Berkeley",
+    "avail": "Contact for referral",
+    "link": "mailto:info@youthspiritartworks.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 19,
+    "src": "probation-county",
+    "title": "Youth Uprising – Diversion (JJCPA)",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🔄",
+    "th": "th-coral",
+    "ages": "9–21",
+    "ageMin": 9,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "first-offense"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "JJCPA-funded diversion — early intervention to keep North County youth out of the juvenile justice system.",
+    "tags": [
+      "Diversion",
+      "Early Intervention",
+      "Justice System"
+    ],
+    "contact": "referrals@youthuprising.org | (510) 777-9909",
+    "addr": "8711 MacArthur Blvd, Oakland",
+    "avail": "Contact for referral",
+    "link": "mailto:qcanada@youthuprising.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 20,
+    "src": "probation-county",
+    "title": "Berkeley Youth Alternatives (BYA) – Life Skills & Mentoring",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "📖",
+    "th": "th-blue",
+    "ages": "9–21",
+    "ageMin": 9,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mentorship",
+      "school-dropout"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Life skills support and mentoring for North County youth — practical skills and supportive adults for independence.",
+    "tags": [
+      "Life Skills",
+      "Mentoring",
+      "North County"
+    ],
+    "contact": "counseling@byaonline.org | (510) 845-9010",
+    "addr": "1255 Allston Way, Berkeley",
+    "avail": "Contact for referral",
+    "link": "mailto:kthomas@byaonline.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 21,
+    "src": "probation-county",
+    "title": "Eden Counseling Services – Multi-Service (South County)",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌿",
+    "th": "th-teal",
+    "ages": "12–21",
+    "ageMin": 12,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "substance-use",
+      "mental-health",
+      "justice-involved",
+      "parent"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk",
+      "parent"
+    ],
+    "urgency": "any",
+    "zipcodes": "south",
+    "desc": "South County: cognitive behavior, parenting, outpatient drug treatment, anger management, and diversion.",
+    "tags": [
+      "Drug Treatment",
+      "Anger Management",
+      "Cognitive Behavior",
+      "South County"
+    ],
+    "contact": "referrals@edencounseling.org | (510) 247-9831",
+    "addr": "20253 Redwood Rd, Suite A, Castro Valley",
+    "avail": "Referrals accepted",
+    "link": "mailto:referrals@edencounseling.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 22,
+    "src": "acoe",
+    "title": "ACOE Infant & Family Support Program",
+    "cat": "family",
+    "catL": "Family",
+    "icon": "👶",
+    "th": "th-blue",
+    "ages": "Birth–3 years",
+    "ageMin": 0,
+    "ageMax": 3,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "disability",
+      "family"
+    ],
+    "populations": [
+      "parent"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Free early intervention for infants and toddlers with special needs. Part of California Early Start. No cost to families.",
+    "tags": [
+      "Early Intervention",
+      "Special Needs",
+      "Infants",
+      "Free",
+      "California Early Start"
+    ],
+    "contact": "Oakland: (510) 619-0536 | Hayward: (510) 670-4170",
+    "addr": "5908 Foothill Blvd, Oakland (North County)",
+    "avail": "Free – open enrollment",
+    "link": "https://acoe.org/48361_2",
+    "srcL": "ACOE Schools"
+  },
+  {
+    "id": 23,
+    "src": "acoe",
+    "title": "Butler Academic Center – JJC Education",
+    "cat": "education",
+    "catL": "Education",
+    "icon": "🎓",
+    "th": "th-blue",
+    "ages": "Detained youth",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "school-dropout"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Accredited education at the Juvenile Justice Center — GED prep, college credits via Merritt College, special education.",
+    "tags": [
+      "GED",
+      "Juvenile Justice",
+      "College Credits",
+      "Special Education"
+    ],
+    "contact": "(510) 670-7609",
+    "addr": "2500 Fairmont Dr, San Leandro",
+    "avail": "Referred by Juvenile Court / Probation",
+    "link": "https://acoe.org/48392_2",
+    "srcL": "ACOE Schools"
+  },
+  {
+    "id": 24,
+    "src": "acoe",
+    "title": "Camp Sweeney Academic Center",
+    "cat": "education",
+    "catL": "Education",
+    "icon": "🏕️",
+    "th": "th-blue",
+    "ages": "15–19 males",
+    "ageMin": 15,
+    "ageMax": 19,
+    "genders": [
+      "male"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "school-dropout"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Residential education for adolescent males at the JJC. Individualized instruction, special education, and personal responsibility development.",
+    "tags": [
+      "Residential",
+      "Juvenile Justice",
+      "Education",
+      "Special Education"
+    ],
+    "contact": "(510) 670-7669",
+    "addr": "2600 Fairmont Dr, San Leandro",
+    "avail": "Referred by Juvenile Court / Probation",
+    "link": "https://acoe.org/48392_2",
+    "srcL": "ACOE Schools"
+  },
+  {
+    "id": 25,
+    "src": "acoe",
+    "title": "Quest Academy – Independent Study (Grades 7–12)",
+    "cat": "education",
+    "catL": "Education",
+    "icon": "📐",
+    "th": "th-blue",
+    "ages": "Grades 7–12",
+    "ageMin": 12,
+    "ageMax": 19,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "school-dropout",
+      "justice-involved"
+    ],
+    "populations": [
+      "justice-involved",
+      "foster",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Alternative independent study for expelled, probation-involved, and foster youth in Alameda County. Oakland and Hayward locations.",
+    "tags": [
+      "Independent Study",
+      "Alternative Education",
+      "Foster Youth",
+      "Oakland"
+    ],
+    "contact": "(510) 670-7610",
+    "addr": "750 International Blvd, Oakland",
+    "avail": "Referred by districts, probation, or child welfare",
+    "link": "https://acoe.org/65461_2",
+    "srcL": "ACOE Schools"
+  },
+  {
+    "id": 26,
+    "src": "dvp-healing",
+    "title": "BOSS – Community Healing",
+    "cat": "violence",
+    "catL": "Violence Prevention",
+    "icon": "🌅",
+    "th": "th-purple",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "violence",
+      "grief",
+      "community-violence"
+    ],
+    "populations": [
+      "at-risk",
+      "survivor"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Community healing for families impacted by homicide and neighborhoods affected by violence.",
+    "tags": [
+      "Community Healing",
+      "Homicide",
+      "Family Support"
+    ],
+    "contact": "(510) 649-1930",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://self-sufficiency.org",
+    "srcL": "Oakland DVP – Healing"
+  },
+  {
+    "id": 27,
+    "src": "dvp-healing",
+    "title": "Roots Community Health Center – Healing",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌳",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "grief",
+      "community-violence"
+    ],
+    "populations": [
+      "at-risk",
+      "survivor"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Therapeutic support for violence-impacted community — psychotherapy, healing practices, support groups.",
+    "tags": [
+      "Therapy",
+      "Homicide Support",
+      "Healing",
+      "Mental Health"
+    ],
+    "contact": "(510) 533-1248",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://rootscommunityhealth.org",
+    "srcL": "Oakland DVP – Healing"
+  },
+  {
+    "id": 28,
+    "src": "dvp-healing",
+    "title": "Destiny Arts Center",
+    "cat": "violence",
+    "catL": "Violence Prevention",
+    "icon": "🎭",
+    "th": "th-amber",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "community-violence",
+      "grief"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Healing circles, marches, vigils, and community dialogues that shift norms around violence. Financial support for homicide-bereaved families.",
+    "tags": [
+      "Arts",
+      "Healing Circles",
+      "Vigils",
+      "Community Events"
+    ],
+    "contact": "(510) 597-1619",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://destinyarts.org",
+    "srcL": "Oakland DVP – Healing"
+  },
+  {
+    "id": 29,
+    "src": "dvp-healing",
+    "title": "TRYBE – Neighborhood Community Team",
+    "cat": "violence",
+    "catL": "Violence Prevention",
+    "icon": "🔥",
+    "th": "th-coral",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "violence",
+      "gang",
+      "community-violence"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Visible community team — mediating conflicts, hosting neighborhood events, connecting people to resources after violence.",
+    "tags": [
+      "Community Team",
+      "Violence Mediation",
+      "Neighborhood"
+    ],
+    "contact": "(510) 985-9915",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://oaklandtrybe.org",
+    "srcL": "Oakland DVP – Healing"
+  },
+  {
+    "id": 30,
+    "src": "dvp-healing",
+    "title": "East Oakland Boxing Association (EOBA)",
+    "cat": "violence",
+    "catL": "Violence Prevention",
+    "icon": "🥊",
+    "th": "th-red",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "community-violence",
+      "grief",
+      "mentorship"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Community healing in East Oakland for families impacted by violence — safe spaces and positive community connection.",
+    "tags": [
+      "Boxing",
+      "East Oakland",
+      "Community Healing"
+    ],
+    "contact": "(510) 430-8056",
+    "addr": "East Oakland",
+    "avail": "Open",
+    "link": "https://eoba.org",
+    "srcL": "Oakland DVP – Healing"
+  },
+  {
+    "id": 31,
+    "src": "dvp-healing",
+    "title": "CURYJ – Community Healing",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "🕊️",
+    "th": "th-purple",
+    "ages": "Youth & families",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "community-violence",
+      "grief"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Restorative justice and community healing for youth and families impacted by violence.",
+    "tags": [
+      "Restorative Justice",
+      "Youth",
+      "Healing"
+    ],
+    "contact": "(501) 232-7230",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://curyj.org",
+    "srcL": "Oakland DVP – Healing"
+  },
+  {
+    "id": 32,
+    "src": "dvp-healing",
+    "title": "Urban Peace Movement",
+    "cat": "violence",
+    "catL": "Violence Prevention",
+    "icon": "☮️",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "community-violence",
+      "grief"
+    ],
+    "populations": [
+      "at-risk",
+      "survivor"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Community healing and neighborhood cohesion — healing circles, family support after violence incidents.",
+    "tags": [
+      "Peace",
+      "Community Healing",
+      "Family Support"
+    ],
+    "contact": "(510) 444-5400",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://urbanpeacemovement.org",
+    "srcL": "Oakland DVP – Healing"
+  },
+  {
+    "id": 33,
+    "src": "dvp-healing",
+    "title": "Restorative Justice for Oakland Youth (RJOY)",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "🌈",
+    "th": "th-purple",
+    "ages": "Youth & families",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "grief",
+      "community-violence"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Healing activities and financial support for homicide-bereaved families, plus community dialogues and restorative events.",
+    "tags": [
+      "Restorative Justice",
+      "Homicide Families",
+      "Financial Support"
+    ],
+    "contact": "rjoy@rjoyoakland.org | (510) 931-7569",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://rjoyoakland.org",
+    "srcL": "Oakland DVP – Healing"
+  },
+  {
+    "id": 34,
+    "src": "dvp-healing",
+    "title": "Youth ALIVE! – Town Nights & Healing",
+    "cat": "violence",
+    "catL": "Violence Prevention",
+    "icon": "❤️‍🔥",
+    "th": "th-red",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "community-violence",
+      "grief",
+      "mental-health"
+    ],
+    "populations": [
+      "at-risk",
+      "survivor"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Therapeutic support for homicide-affected families and Town Nights — Friday evening community events in summer.",
+    "tags": [
+      "Town Nights",
+      "Therapy",
+      "Homicide",
+      "Community Events"
+    ],
+    "contact": "(510) 594-2588",
+    "addr": "3300 Elm St, Oakland",
+    "avail": "Open",
+    "link": "https://youthalive.org",
+    "srcL": "Oakland DVP – Healing"
+  },
+  {
+    "id": 35,
+    "src": "dvp-gbv",
+    "title": "Ruby's Place – Domestic Violence Services",
+    "cat": "housing",
+    "catL": "Housing",
+    "icon": "🔑",
+    "th": "th-pink",
+    "ages": "Adults",
+    "ageMin": 18,
+    "ageMax": null,
+    "genders": [
+      "female",
+      "lgbtq"
+    ],
+    "riskFactors": [
+      "domestic-violence",
+      "housing",
+      "crisis"
+    ],
+    "populations": [
+      "survivor"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Emergency shelter, legal advocacy, therapy, and transitional housing for survivors of intimate partner violence.",
+    "tags": [
+      "Emergency Shelter",
+      "Domestic Violence",
+      "Transitional Housing",
+      "Legal Aid"
+    ],
+    "contact": "(510) 581-5626",
+    "addr": "Oakland area",
+    "avail": "Open",
+    "link": "https://rubysplace.org",
+    "srcL": "Oakland DVP – GBV"
+  },
+  {
+    "id": 36,
+    "src": "dvp-gbv",
+    "title": "Serenity House Oakland",
+    "cat": "housing",
+    "catL": "Housing",
+    "icon": "🏡",
+    "th": "th-pink",
+    "ages": "Adults",
+    "ageMin": 18,
+    "ageMax": null,
+    "genders": [
+      "female",
+      "lgbtq"
+    ],
+    "riskFactors": [
+      "domestic-violence",
+      "housing"
+    ],
+    "populations": [
+      "survivor"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Transitional housing for GBV survivors — up to 18 months of safe temporary housing and support securing permanent housing.",
+    "tags": [
+      "Transitional Housing",
+      "GBV Survivors",
+      "Permanent Housing"
+    ],
+    "contact": "(510) 891-0464",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://serenityhouseoakland.org",
+    "srcL": "Oakland DVP – GBV"
+  },
+  {
+    "id": 37,
+    "src": "dvp-gbv",
+    "title": "Family Violence Law Center (FVLC)",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "⚖️",
+    "th": "th-pink",
+    "ages": "Adults",
+    "ageMin": 18,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "domestic-violence",
+      "legal"
+    ],
+    "populations": [
+      "survivor"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "Legal advocacy — legal advice, restraining orders, court representation for intimate partner violence survivors. 24/7 crisis line.",
+    "tags": [
+      "Legal Aid",
+      "Restraining Orders",
+      "Court Representation",
+      "Crisis Line 24/7"
+    ],
+    "contact": "(510) 208-0220 | Crisis: (800) 947-8301",
+    "addr": "Oakland",
+    "avail": "Crisis line 24/7",
+    "link": "https://fvlc.org",
+    "srcL": "Oakland DVP – GBV"
+  },
+  {
+    "id": 38,
+    "src": "dvp-gbv",
+    "title": "Young Women's Freedom Center",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "💜",
+    "th": "th-pink",
+    "ages": "Youth & young adults",
+    "ageMin": 14,
+    "ageMax": 24,
+    "genders": [
+      "female",
+      "lgbtq"
+    ],
+    "riskFactors": [
+      "sexual-exploitation",
+      "domestic-violence",
+      "mental-health"
+    ],
+    "populations": [
+      "survivor",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Life coaching and safe space for young women who have experienced commercial sexual exploitation. Skill development and family strengthening.",
+    "tags": [
+      "Life Coaching",
+      "Sexual Exploitation",
+      "Young Women",
+      "Safe Space"
+    ],
+    "contact": "(510) 350-7411",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://youngwomenfree.org/location/oakland",
+    "srcL": "Oakland DVP – GBV"
+  },
+  {
+    "id": 39,
+    "src": "dvp-gbv",
+    "title": "BOSS – Gender-Based Violence Services",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "💪",
+    "th": "th-pink",
+    "ages": "Adults",
+    "ageMin": 18,
+    "ageMax": null,
+    "genders": [
+      "female",
+      "lgbtq"
+    ],
+    "riskFactors": [
+      "domestic-violence",
+      "housing",
+      "sexual-exploitation"
+    ],
+    "populations": [
+      "survivor"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Emergency shelter and resource navigation for survivors of intimate partner violence and commercial sexual exploitation.",
+    "tags": [
+      "Emergency Shelter",
+      "GBV",
+      "Survivor Support"
+    ],
+    "contact": "(510) 649-1930",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://self-sufficiency.org",
+    "srcL": "Oakland DVP – GBV"
+  },
+  {
+    "id": 40,
+    "src": "dvp-gbv",
+    "title": "Covenant House California",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🏠",
+    "th": "th-pink",
+    "ages": "Youth up to 24",
+    "ageMin": null,
+    "ageMax": 24,
+    "genders": [
+      "lgbtq",
+      "all"
+    ],
+    "riskFactors": [
+      "sexual-exploitation",
+      "housing",
+      "lgbtq"
+    ],
+    "populations": [
+      "lgbtq",
+      "survivor",
+      "at-risk"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Safe space for LGBTQ+ and gender-nonconforming youth who have experienced sexual exploitation — food, hygiene, support groups, rest.",
+    "tags": [
+      "LGBTQ+",
+      "Youth Shelter",
+      "Safe Space"
+    ],
+    "contact": "(510) 379-1010 | (800) 379-1114",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://covenanthousecalifornia.org",
+    "srcL": "Oakland DVP – GBV"
+  },
+  {
+    "id": 41,
+    "src": "dvp-gbv",
+    "title": "East Bay Asian Youth Center (EBAYC) – GBV",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌸",
+    "th": "th-pink",
+    "ages": "Youth & adults",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "domestic-violence",
+      "crisis"
+    ],
+    "populations": [
+      "survivor",
+      "immigrant"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Bedside advocacy, accompaniment, and 24/7 crisis hotline for GBV-impacted individuals — culturally responsive for Asian communities.",
+    "tags": [
+      "Bedside Advocacy",
+      "Crisis Hotline",
+      "Asian Community"
+    ],
+    "contact": "(510) 533-1092",
+    "addr": "Oakland",
+    "avail": "24/7 crisis support",
+    "link": "https://ebayc.org",
+    "srcL": "Oakland DVP – GBV"
+  },
+  {
+    "id": 42,
+    "src": "dvp-gbv",
+    "title": "Oakland LGBTQ Community Center",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🏳️‍🌈",
+    "th": "th-pink",
+    "ages": "LGBTQ+ all ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "lgbtq"
+    ],
+    "riskFactors": [
+      "lgbtq",
+      "domestic-violence",
+      "mental-health"
+    ],
+    "populations": [
+      "lgbtq",
+      "survivor"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Safe space and therapeutic support for LGBTQ+ individuals impacted by gender-based violence.",
+    "tags": [
+      "LGBTQ+",
+      "Safe Space",
+      "Therapy"
+    ],
+    "contact": "(510) 882-2286",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://oaklandlgbtqcenter.org",
+    "srcL": "Oakland DVP – GBV"
+  },
+  {
+    "id": 43,
+    "src": "dvp-gbv",
+    "title": "OUSD Office of Equity – GBV Support",
+    "cat": "education",
+    "catL": "Education",
+    "icon": "🏫",
+    "th": "th-pink",
+    "ages": "OUSD students",
+    "ageMin": 5,
+    "ageMax": 18,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "domestic-violence",
+      "school-dropout"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "GBV support within Oakland Unified School District — resources and advocacy for students impacted by intimate partner violence.",
+    "tags": [
+      "OUSD",
+      "School-Based",
+      "GBV",
+      "Students"
+    ],
+    "contact": "(510) 879-8429",
+    "addr": "OUSD schools, Oakland",
+    "avail": "School-based",
+    "link": "https://ousd.org/equity",
+    "srcL": "Oakland DVP – GBV"
+  },
+  {
+    "id": 44,
+    "src": "dvp-group",
+    "title": "Abode Services – Emergency Relocation",
+    "cat": "housing",
+    "catL": "Housing",
+    "icon": "🚪",
+    "th": "th-coral",
+    "ages": "Adults",
+    "ageMin": 18,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "violence",
+      "gang",
+      "housing",
+      "crisis"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Emergency relocation for individuals in immediate lethal danger from group violence — transportation, hotel, and initial rent.",
+    "tags": [
+      "Emergency Relocation",
+      "Group Violence",
+      "Safety"
+    ],
+    "contact": "(510) 657-7409",
+    "addr": "Oakland",
+    "avail": "Emergency response",
+    "link": "https://abode.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 45,
+    "src": "dvp-group",
+    "title": "Community & Youth Outreach (CYO) – Violence Interruption",
+    "cat": "violence",
+    "catL": "Violence Prevention",
+    "icon": "🛑",
+    "th": "th-coral",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "gang",
+      "violence",
+      "crisis"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Violence interrupters respond to shootings and homicides to prevent retaliation and connect victims to services.",
+    "tags": [
+      "Violence Interruption",
+      "Shooting Response",
+      "Retaliation Prevention"
+    ],
+    "contact": "(510) 969-8708",
+    "addr": "Oakland",
+    "avail": "Rapid response",
+    "link": "https://cyoinc.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 46,
+    "src": "dvp-group",
+    "title": "Community Works West – Youth Diversion (DVP)",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "🔄",
+    "th": "th-coral",
+    "ages": "Youth",
+    "ageMin": null,
+    "ageMax": 24,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "gang",
+      "first-offense"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Youth diversion from the justice system through accountability and healing programs.",
+    "tags": [
+      "Youth Diversion",
+      "Justice Alternatives",
+      "Accountability"
+    ],
+    "contact": "(510) 268-8116",
+    "addr": "110 Broadway, Oakland",
+    "avail": "Open",
+    "link": "https://communityworkswest.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 47,
+    "src": "dvp-group",
+    "title": "Safe Passages – Group Violence Life Coaching",
+    "cat": "violence",
+    "catL": "Violence Prevention",
+    "icon": "🛡️",
+    "th": "th-coral",
+    "ages": "Youth & adults",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "gang",
+      "violence",
+      "unemployment"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Life coaching and employment for individuals at the center of group violence — financial incentives, goal-setting, frequent contact.",
+    "tags": [
+      "Life Coaching",
+      "Employment",
+      "Group Violence"
+    ],
+    "contact": "(510) 817-4625",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://safepassages.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 48,
+    "src": "dvp-group",
+    "title": "East Bay Asian Youth Center (EBAYC) – Group Violence",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🏮",
+    "th": "th-coral",
+    "ages": "Youth",
+    "ageMin": null,
+    "ageMax": 24,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "gang",
+      "violence",
+      "school-dropout",
+      "unemployment"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Youth life coaching and employment for youth at high risk of group violence — school attendance, graduation, and goals.",
+    "tags": [
+      "Youth Life Coaching",
+      "Employment",
+      "School Attendance"
+    ],
+    "contact": "(510) 533-1092",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://ebayc.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 49,
+    "src": "dvp-group",
+    "title": "Lao Family Community Development – Employment",
+    "cat": "workforce",
+    "catL": "Workforce",
+    "icon": "🌺",
+    "th": "th-coral",
+    "ages": "Adults",
+    "ageMin": 18,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "unemployment",
+      "gang",
+      "immigrant"
+    ],
+    "populations": [
+      "at-risk",
+      "immigrant"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Adult employment for high-risk-of-violence individuals — pre-employment training, paid work, job placement with retention support.",
+    "tags": [
+      "Employment",
+      "Job Training",
+      "Southeast Asian",
+      "Refugee Services"
+    ],
+    "contact": "(510) 533-8850",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://lfcd.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 50,
+    "src": "dvp-group",
+    "title": "Center for Employment Opportunities (CEO)",
+    "cat": "workforce",
+    "catL": "Workforce",
+    "icon": "🏗️",
+    "th": "th-amber",
+    "ages": "Adults (justice-involved)",
+    "ageMin": 18,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "unemployment",
+      "gang"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Pre-employment training and paid work for adults with justice involvement at high risk for violence. Job placement and retention.",
+    "tags": [
+      "Justice-Involved",
+      "Job Placement",
+      "Reentry",
+      "Employment"
+    ],
+    "contact": "(510) 251-2240",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://ceoworks.org/oakland-ca",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 51,
+    "src": "dvp-group",
+    "title": "The Mentoring Center",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "⭐",
+    "th": "th-amber",
+    "ages": "Youth & young adults",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mentorship",
+      "gang",
+      "violence"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Life coaching and mentoring for individuals at the center of group violence — positive relationships and referrals to reduce violence risk.",
+    "tags": [
+      "Mentoring",
+      "Life Coaching",
+      "Violence Reduction"
+    ],
+    "contact": "(510) 891-0427",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://mentor.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 52,
+    "src": "dvp-group",
+    "title": "National Institute for Criminal Justice Reform (NICJR)",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "📊",
+    "th": "th-coral",
+    "ages": "Adults",
+    "ageMin": 18,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "gang",
+      "violence"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Adult life coaching and case management for gun violence-centered individuals — individualized goal-setting and service navigation.",
+    "tags": [
+      "Life Coaching",
+      "Criminal Justice Reform",
+      "Case Management"
+    ],
+    "contact": "(510) 746-6111",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://nicjr.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 53,
+    "src": "dvp-group",
+    "title": "CURYJ – Group Violence Diversion",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "✊",
+    "th": "th-coral",
+    "ages": "Youth",
+    "ageMin": null,
+    "ageMax": 24,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "gang",
+      "first-offense"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Youth diversion and restorative justice for youth involved in group violence — alternatives to prosecution, accountability, healing.",
+    "tags": [
+      "Youth Diversion",
+      "Restorative Justice",
+      "Group Violence"
+    ],
+    "contact": "(501) 232-7230",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://curyj.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 54,
+    "src": "dvp-group",
+    "title": "Oakland Kids First – Youth Employment",
+    "cat": "workforce",
+    "catL": "Workforce",
+    "icon": "🌟",
+    "th": "th-amber",
+    "ages": "Youth",
+    "ageMin": null,
+    "ageMax": 24,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "unemployment",
+      "gang",
+      "school-dropout"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Pre-employment training, career exploration, paid work, and academic case management for youth at high risk for violence.",
+    "tags": [
+      "Youth Employment",
+      "Career Exploration",
+      "Paid Work"
+    ],
+    "contact": "(510) 452-2043",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://oaklandkidsfirst.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 55,
+    "src": "dvp-group",
+    "title": "Oakland Private Industry Council (PIC)",
+    "cat": "workforce",
+    "catL": "Workforce",
+    "icon": "🏢",
+    "th": "th-amber",
+    "ages": "Adults & youth",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "unemployment",
+      "gang"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Workforce development for Oakland individuals at high risk of violence — job training, placement, and retention through employer partnerships.",
+    "tags": [
+      "Workforce Development",
+      "Job Placement",
+      "Employer Partnerships"
+    ],
+    "contact": "(510) 858-6742",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://oaklandpic.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 56,
+    "src": "dvp-group",
+    "title": "TRYBE – Group Violence Life Coaching",
+    "cat": "violence",
+    "catL": "Violence Prevention",
+    "icon": "🔥",
+    "th": "th-coral",
+    "ages": "Youth & adults",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "gang",
+      "violence",
+      "mentorship"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Youth and adult life coaching for individuals at the center of group violence — financial incentives and frequent contact for positive change.",
+    "tags": [
+      "Life Coaching",
+      "Group Violence",
+      "Financial Incentives"
+    ],
+    "contact": "(510) 985-9915",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://oaklandtrybe.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 57,
+    "src": "dvp-group",
+    "title": "Youth ALIVE! – Hospital Response & Life Coaching",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🏥",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "violence",
+      "crisis",
+      "gang"
+    ],
+    "populations": [
+      "at-risk",
+      "survivor"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Hospital responders visit shooting victims and connect them to services. Youth life coaching for those at risk of violence.",
+    "tags": [
+      "Hospital Response",
+      "Shooting Victims",
+      "Life Coaching"
+    ],
+    "contact": "(510) 594-2588",
+    "addr": "3300 Elm St, Oakland",
+    "avail": "Open",
+    "link": "https://youthalive.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 58,
+    "src": "dvp-group",
+    "title": "Youth Employment Partnership (YEP) – Group Violence",
+    "cat": "workforce",
+    "catL": "Workforce",
+    "icon": "💡",
+    "th": "th-amber",
+    "ages": "Youth",
+    "ageMin": null,
+    "ageMax": 24,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "unemployment",
+      "gang",
+      "school-dropout"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Youth employment — pre-employment training, career exploration, paid work, and academic case management to support school completion.",
+    "tags": [
+      "Youth Employment",
+      "Career",
+      "High-Risk Youth"
+    ],
+    "contact": "(510) 533-3447",
+    "addr": "2300 International Blvd, Oakland",
+    "avail": "Open",
+    "link": "https://yep.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 59,
+    "src": "dvp-group",
+    "title": "Roots Community Health Center – Group Violence",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌱",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "gang",
+      "violence",
+      "mental-health"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Adult life coaching and culturally responsive health services for individuals at the center of group violence.",
+    "tags": [
+      "Life Coaching",
+      "Health",
+      "Culturally Responsive"
+    ],
+    "contact": "(510) 533-1248",
+    "addr": "Oakland",
+    "avail": "Open",
+    "link": "https://rootscommunityhealth.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 60,
+    "src": "dvp-group",
+    "title": "OUSD JJC – Youth Diversion",
+    "cat": "education",
+    "catL": "Education",
+    "icon": "🎒",
+    "th": "th-coral",
+    "ages": "Youth",
+    "ageMin": null,
+    "ageMax": 18,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "school-dropout",
+      "gang"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "School-based youth diversion through OUSD's Juvenile Justice Center — academic support and diversion programming.",
+    "tags": [
+      "Youth Diversion",
+      "OUSD",
+      "Academic Support"
+    ],
+    "contact": "(510) 295-5375",
+    "addr": "OUSD Juvenile Justice Center, Oakland",
+    "avail": "School-based",
+    "link": "https://ousd.org",
+    "srcL": "Oakland DVP – Group Violence"
+  },
+  {
+    "id": 61,
+    "src": "general",
+    "title": "Emergency Rental Assistance",
+    "cat": "financial",
+    "catL": "Financial Aid",
+    "icon": "🏠",
+    "th": "th-coral",
+    "ages": "Adults",
+    "ageMin": 18,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "housing",
+      "unemployment",
+      "crisis"
+    ],
+    "populations": [
+      "at-risk",
+      "parent"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "Short-term rental relief grants for households facing eviction due to job loss or medical hardship.",
+    "tags": [
+      "Rental Aid",
+      "Eviction Prevention",
+      "Emergency"
+    ],
+    "contact": "",
+    "addr": "",
+    "avail": "Limited slots",
+    "link": "#",
+    "srcL": "General"
+  },
+  {
+    "id": 62,
+    "src": "general",
+    "title": "Small Business Launch Grant",
+    "cat": "financial",
+    "catL": "Financial Aid",
+    "icon": "💡",
+    "th": "th-amber",
+    "ages": "Adults",
+    "ageMin": 18,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "unemployment"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "planning",
+    "zipcodes": "all",
+    "desc": "Up to $5,000 in seed funding plus free mentoring to help local entrepreneurs start or grow a small business.",
+    "tags": [
+      "Grants",
+      "Entrepreneurship",
+      "Mentoring"
+    ],
+    "contact": "",
+    "addr": "",
+    "avail": "Applications open",
+    "link": "#",
+    "srcL": "General"
+  },
+  {
+    "id": 63,
+    "src": "general",
+    "title": "Free Legal Aid Clinic",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "⚖️",
+    "th": "th-purple",
+    "ages": "Adults",
+    "ageMin": 18,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "legal",
+      "housing",
+      "immigrant"
+    ],
+    "populations": [
+      "at-risk",
+      "immigrant"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Free consultations on immigration, landlord disputes, wage theft, and benefits appeals.",
+    "tags": [
+      "Legal Help",
+      "Immigration",
+      "Tenant Rights"
+    ],
+    "contact": "",
+    "addr": "",
+    "avail": "Thursdays 5–8pm",
+    "link": "#",
+    "srcL": "General"
+  },
+  {
+    "id": 64,
+    "src": "general",
+    "title": "Adult Education & GED Prep",
+    "cat": "education",
+    "catL": "Education",
+    "icon": "📚",
+    "th": "th-amber",
+    "ages": "Adults",
+    "ageMin": 18,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "school-dropout"
+    ],
+    "populations": [
+      "at-risk",
+      "immigrant"
+    ],
+    "urgency": "planning",
+    "zipcodes": "all",
+    "desc": "Free GED prep, ESL instruction, and adult literacy programs with evening and weekend schedules.",
+    "tags": [
+      "GED",
+      "ESL",
+      "Adult Literacy"
+    ],
+    "contact": "",
+    "addr": "",
+    "avail": "Enrolling now",
+    "link": "#",
+    "srcL": "General"
+  },
+  {
+    "id": 65,
+    "src": "general",
+    "title": "Mental Health & Counseling",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🧠",
+    "th": "th-purple",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "crisis"
+    ],
+    "populations": [
+      "at-risk",
+      "survivor"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Sliding-scale therapy, support groups, and crisis intervention in English and Spanish.",
+    "tags": [
+      "Therapy",
+      "Crisis Line",
+      "Bilingual"
+    ],
+    "contact": "",
+    "addr": "",
+    "avail": "Same-week appts",
+    "link": "#",
+    "srcL": "General"
+  },
+  {
+    "id": 66,
+    "src": "general",
+    "title": "Food Pantry Network",
+    "cat": "family",
+    "catL": "Family",
+    "icon": "🥦",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "food-insecurity",
+      "family"
+    ],
+    "populations": [
+      "at-risk",
+      "parent"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "Fresh produce, shelf-stable groceries, and hot meals at community pantries across the region.",
+    "tags": [
+      "Food Access",
+      "Fresh Produce",
+      "Community"
+    ],
+    "contact": "",
+    "addr": "",
+    "avail": "Daily hours",
+    "link": "#",
+    "srcL": "General"
+  },
+  {
+    "id": 67,
+    "src": "acoe",
+    "title": "ACOE PACT – Positive Attendance Care Team",
+    "cat": "education",
+    "catL": "Education",
+    "icon": "📋",
+    "th": "th-blue",
+    "ages": "K–12",
+    "ageMin": 5,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "truancy",
+      "school-disconnected",
+      "chronic-absence",
+      "justice-involved",
+      "foster"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved",
+      "foster"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "ACOE's Probation-funded outreach team deploys Education Liaisons to homes of chronically absent or disconnected youth. Root-cause assessment, family support, barrier removal (up to $5K/student), and re-engagement planning.",
+    "tags": [
+      "Truancy",
+      "Home Visit",
+      "Chronic Absence",
+      "Re-engagement",
+      "Education Liaison"
+    ],
+    "contact": "pact@acoe.org",
+    "addr": "Field-based — countywide",
+    "avail": "Internal referral via ACOE staff or school district",
+    "link": "https://acoe.org/pact",
+    "srcL": "ACOE Schools"
+  },
+  {
+    "id": 68,
+    "src": "acoe",
+    "title": "ACOE Opportunity Academy – Alternative Education",
+    "cat": "education",
+    "catL": "Education",
+    "icon": "🎓",
+    "th": "th-blue",
+    "ages": "16–21",
+    "ageMin": 16,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "school-disconnected",
+      "truancy",
+      "credit-deficiency",
+      "justice-involved",
+      "foster"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved",
+      "foster"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "ACOE's alternative diploma program for students 16 and older who are significantly over-age/under-credited. Flexible scheduling, credit recovery, and post-secondary preparation in Oakland and Hayward.",
+    "tags": [
+      "Credit Recovery",
+      "GED Alternative",
+      "Diploma",
+      "Flexible Schedule",
+      "Over-Age"
+    ],
+    "contact": "(510) 670-7585",
+    "addr": "Oakland & Hayward locations",
+    "avail": "Open enrollment — referrals from districts, probation, or child welfare",
+    "link": "https://acoe.org/opportunity",
+    "srcL": "ACOE Schools"
+  },
+  {
+    "id": 69,
+    "src": "acoe",
+    "title": "ACOE Community Education Space – My FUTURE Center",
+    "cat": "education",
+    "catL": "Education",
+    "icon": "🏫",
+    "th": "th-blue",
+    "ages": "14–21",
+    "ageMin": 14,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "school-disconnected",
+      "truancy",
+      "credit-deficiency",
+      "iep-sped",
+      "housing"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk",
+      "foster"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Post-release education adjacent to My FUTURE Center for youth returning from JJC who are not ready for traditional school. Structured school day M–F 8:30am–2:30pm with meals, Special Ed support, literacy intervention, and after-school CTE/Laney College connections.",
+    "tags": [
+      "JJC Reentry",
+      "Post-Release",
+      "Credit Recovery",
+      "IEP",
+      "Community Education"
+    ],
+    "contact": "(510) 670-7609",
+    "addr": "Adjacent to My FUTURE Center, Oakland",
+    "avail": "Referral via ACOE Education Liaison or JJC Transition Center",
+    "link": "https://acoe.org",
+    "srcL": "ACOE Schools"
+  },
+  {
+    "id": 70,
+    "src": "acoe",
+    "title": "ACOE Parenting Teen Program (PTP)",
+    "cat": "education",
+    "catL": "Education",
+    "icon": "🤱",
+    "th": "th-blue",
+    "ages": "13–19",
+    "ageMin": 13,
+    "ageMax": 19,
+    "genders": [
+      "female",
+      "all"
+    ],
+    "riskFactors": [
+      "parent",
+      "school-disconnected",
+      "truancy"
+    ],
+    "populations": [
+      "parent",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "School and support services for pregnant and parenting teens to continue their education. Includes childcare coordination, health services, parenting classes, and diploma completion.",
+    "tags": [
+      "Pregnant Teen",
+      "Parenting Teen",
+      "Diploma",
+      "Childcare"
+    ],
+    "contact": "(510) 670-7585",
+    "addr": "Multiple Alameda County locations",
+    "avail": "Open enrollment",
+    "link": "https://acoe.org/ptp",
+    "srcL": "ACOE Schools"
+  },
+  {
+    "id": 71,
+    "src": "general",
+    "title": "Covenant House California – TAY Shelter",
+    "cat": "housing",
+    "catL": "Housing",
+    "icon": "🏠",
+    "th": "th-amber",
+    "ages": "18–24",
+    "ageMin": 18,
+    "ageMax": 24,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "housing",
+      "foster-care",
+      "aging-out",
+      "crisis"
+    ],
+    "populations": [
+      "foster",
+      "at-risk"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Emergency shelter, transitional housing, and wraparound services for youth ages 18–24 experiencing homelessness. Special programming for youth aging out of foster care. Food, hygiene, case management, job training.",
+    "tags": [
+      "TAY Shelter",
+      "Foster Care",
+      "Aging Out",
+      "Emergency Housing"
+    ],
+    "contact": "(510) 379-1010",
+    "addr": "1695 Elmhurst Ave, Oakland",
+    "avail": "Drop-in and intake 24/7",
+    "link": "https://covenanthousecalifornia.org",
+    "srcL": "General"
+  },
+  {
+    "id": 72,
+    "src": "general",
+    "title": "Alameda County Social Services – Foster Care",
+    "cat": "family",
+    "catL": "Family",
+    "icon": "🏡",
+    "th": "th-amber",
+    "ages": "Youth in foster care",
+    "ageMin": null,
+    "ageMax": 24,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "foster-care",
+      "housing",
+      "truancy",
+      "school-disconnected"
+    ],
+    "populations": [
+      "foster"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Alameda County child welfare services — foster placement, Independent Living Program (ILP) for youth aging out, Medi-Cal, CalWORKs, and education rights support for foster youth.",
+    "tags": [
+      "Foster Care",
+      "Independent Living",
+      "ILP",
+      "Education Rights"
+    ],
+    "contact": "(510) 268-7600",
+    "addr": "1000 San Leandro Blvd, San Leandro",
+    "avail": "Open",
+    "link": "https://socialservices.acgov.org",
+    "srcL": "General"
+  },
+  {
+    "id": 73,
+    "src": "general",
+    "title": "Building Futures – TAY Transitional Housing",
+    "cat": "housing",
+    "catL": "Housing",
+    "icon": "🔑",
+    "th": "th-amber",
+    "ages": "18–25",
+    "ageMin": 18,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "housing",
+      "foster-care",
+      "aging-out",
+      "domestic-violence"
+    ],
+    "populations": [
+      "foster",
+      "survivor",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "south",
+    "desc": "Transitional housing and supportive services for young adults 18–25 in South County, including those aging out of foster care. Rent assistance, case management, and life skills.",
+    "tags": [
+      "Transitional Housing",
+      "South County",
+      "Aging Out",
+      "Life Skills"
+    ],
+    "contact": "(510) 357-0205",
+    "addr": "San Leandro / Hayward area",
+    "avail": "Open — income-based eligibility",
+    "link": "https://buildingfuturesinc.org",
+    "srcL": "General"
+  },
+  {
+    "id": 74,
+    "src": "general",
+    "title": "Abode Services – Youth Rapid Rehousing",
+    "cat": "housing",
+    "catL": "Housing",
+    "icon": "🚪",
+    "th": "th-amber",
+    "ages": "18–24",
+    "ageMin": 18,
+    "ageMax": 24,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "housing",
+      "foster-care",
+      "aging-out",
+      "crisis"
+    ],
+    "populations": [
+      "foster",
+      "at-risk"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "Rapid rehousing and rental assistance for unhoused young adults, with priority for youth aging out of foster care. Security deposit, first/last month's rent, and ongoing case management.",
+    "tags": [
+      "Rapid Rehousing",
+      "Rental Assistance",
+      "Foster Youth",
+      "TAY"
+    ],
+    "contact": "(510) 657-7409",
+    "addr": "Alameda County countywide",
+    "avail": "Referral-based — contact for eligibility",
+    "link": "https://abode.org",
+    "srcL": "General"
+  },
+  {
+    "id": 75,
+    "src": "general",
+    "title": "Oakland Public Library – Community Learning Centers",
+    "cat": "education",
+    "catL": "Education",
+    "icon": "📚",
+    "th": "th-blue",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "truancy",
+      "school-disconnected",
+      "credit-deficiency",
+      "school-dropout"
+    ],
+    "populations": [
+      "at-risk",
+      "immigrant"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Free tutoring, homework help, GED prep, digital literacy, and adult education at branches across Oakland. Safe drop-in spaces and library card access for all residents.",
+    "tags": [
+      "Tutoring",
+      "GED Prep",
+      "Adult Ed",
+      "Digital Literacy",
+      "Free"
+    ],
+    "contact": "(510) 238-3134",
+    "addr": "Multiple Oakland branches",
+    "avail": "Open — no referral needed",
+    "link": "https://oaklandlibrary.org",
+    "srcL": "General"
+  },
+  {
+    "id": 76,
+    "src": "general",
+    "title": "Laney College – Dual Enrollment & Credit Recovery",
+    "cat": "education",
+    "catL": "Education",
+    "icon": "🎓",
+    "th": "th-blue",
+    "ages": "15–21",
+    "ageMin": 15,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "credit-deficiency",
+      "school-disconnected",
+      "truancy",
+      "school-dropout"
+    ],
+    "populations": [
+      "at-risk",
+      "foster",
+      "justice-involved"
+    ],
+    "urgency": "planning",
+    "zipcodes": "north",
+    "desc": "Dual enrollment for high school students to earn college credits, plus credit recovery courses and vocational certificates. Free tuition for eligible students. Strong CTE pathway connections.",
+    "tags": [
+      "Community College",
+      "Dual Enrollment",
+      "CTE",
+      "Credit Recovery",
+      "Free Tuition"
+    ],
+    "contact": "(510) 834-5740",
+    "addr": "900 Fallon St, Oakland",
+    "avail": "Semester enrollment — open to dual enrollment by referral",
+    "link": "https://laney.edu",
+    "srcL": "General"
+  },
+  {
+    "id": 77,
+    "src": "general",
+    "title": "Oakland USD – Linked Learning & CTE Pathways",
+    "cat": "workforce",
+    "catL": "Workforce",
+    "icon": "🔧",
+    "th": "th-amber",
+    "ages": "14–18",
+    "ageMin": 14,
+    "ageMax": 18,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "truancy",
+      "school-disconnected",
+      "credit-deficiency",
+      "unemployment"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "OUSD's career-connected learning pathways — Health, Engineering, Arts, Business, and Skilled Trades. Real-world projects, internships, and industry credentials alongside diploma credits. Strong re-engagement hook for students unmotivated by traditional academics.",
+    "tags": [
+      "CTE",
+      "Internship",
+      "Trades",
+      "Linked Learning",
+      "High School"
+    ],
+    "contact": "(510) 879-8100",
+    "addr": "Multiple OUSD schools, Oakland",
+    "avail": "School enrollment required — re-engagement pathway available",
+    "link": "https://ousd.org/linkedlearning",
+    "srcL": "General"
+  },
+  {
+    "id": 78,
+    "src": "general",
+    "title": "Eden ROP – Career & Technical Education",
+    "cat": "workforce",
+    "catL": "Workforce",
+    "icon": "🏗️",
+    "th": "th-amber",
+    "ages": "16–21",
+    "ageMin": 16,
+    "ageMax": 21,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "unemployment",
+      "credit-deficiency",
+      "school-disconnected",
+      "truancy"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "south",
+    "desc": "Free CTE courses in Skilled Trades, Health Careers, IT, and Business for Alameda County students and young adults. Industry certifications, paid internships, and articulation to community college. South County focus.",
+    "tags": [
+      "CTE",
+      "Skilled Trades",
+      "Health Careers",
+      "IT",
+      "Free Certification"
+    ],
+    "contact": "(510) 784-2325",
+    "addr": "Hayward / South County",
+    "avail": "Open — semester enrollment",
+    "link": "https://edenrop.org",
+    "srcL": "General"
+  },
+  {
+    "id": 79,
+    "src": "general",
+    "title": "Alameda County Community Food Bank",
+    "cat": "family",
+    "catL": "Family",
+    "icon": "🥫",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "food-insecurity",
+      "housing",
+      "family"
+    ],
+    "populations": [
+      "at-risk",
+      "parent"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "Free groceries, produce, and emergency food boxes at over 350 distribution sites across Alameda County. No documentation required. Home delivery available for some areas.",
+    "tags": [
+      "Food Bank",
+      "Free Groceries",
+      "Emergency Food",
+      "No ID Required"
+    ],
+    "contact": "(510) 635-3663",
+    "addr": "7900 Edgewater Dr, Oakland (main warehouse)",
+    "avail": "Distribution sites open countywide — find nearest at accfb.org",
+    "link": "https://accfb.org",
+    "srcL": "General"
+  },
+  {
+    "id": 80,
+    "src": "general",
+    "title": "CalFresh / SNAP Food Benefits",
+    "cat": "family",
+    "catL": "Family",
+    "icon": "🛒",
+    "th": "th-teal",
+    "ages": "Adults & families",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "food-insecurity",
+      "housing",
+      "unemployment"
+    ],
+    "populations": [
+      "at-risk",
+      "parent",
+      "immigrant"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "California's food assistance program. Eligible households receive monthly EBT benefits for groceries. Youth 18+ may qualify independently. Fast application available online. Many immigrant families qualify.",
+    "tags": [
+      "CalFresh",
+      "SNAP",
+      "EBT",
+      "Monthly Benefits",
+      "Food Assistance"
+    ],
+    "contact": "(888) 999-4347",
+    "addr": "Online application or in-person at ACSSA offices",
+    "avail": "Apply anytime — benefits typically start within 30 days",
+    "link": "https://getcalfresh.org",
+    "srcL": "General"
+  },
+  {
+    "id": 81,
+    "src": "general",
+    "title": "Marin/Sonoma/Napa Street Violence – WIC",
+    "cat": "family",
+    "catL": "Family",
+    "icon": "👶",
+    "th": "th-teal",
+    "ages": "Infants, children & pregnant women",
+    "ageMin": null,
+    "ageMax": 5,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "parent",
+      "food-insecurity",
+      "housing"
+    ],
+    "populations": [
+      "parent"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "WIC (Women, Infants & Children) provides free nutritious foods, nutrition education, breastfeeding support, and healthcare referrals for pregnant women, new mothers, infants, and children up to age 5.",
+    "tags": [
+      "WIC",
+      "Infant Nutrition",
+      "Pregnant",
+      "Free Food",
+      "Healthcare Referrals"
+    ],
+    "contact": "(510) 267-8000",
+    "addr": "Multiple Alameda County locations",
+    "avail": "Open — income-based eligibility",
+    "link": "https://cdph.ca.gov/Programs/CFH/DWICSN",
+    "srcL": "General"
+  },
+  {
+    "id": 84,
+    "src": "probation-county",
+    "title": "A Step Forward, Inc.",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌱",
+    "th": "th-teal",
+    "ages": "13–25",
+    "ageMin": 13,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "justice-involved",
+      "at-risk"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Behavioral health services and population-specific programs for at-promise and justice-involved youth in Berkeley and countywide.",
+    "tags": [
+      "Behavioral Health",
+      "At-Promise Youth",
+      "Population Specific"
+    ],
+    "contact": "(510) 526-5444",
+    "addr": "1664 Solano Ave, Berkeley, CA 94705",
+    "avail": "Contact for referral",
+    "link": "https://www.astepforwardinc.com",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 85,
+    "src": "probation-county",
+    "title": "Alameda County Behavioral Health – CYASOC",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🧠",
+    "th": "th-teal",
+    "ages": "All ages (0–25)",
+    "ageMin": 0,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "crisis",
+      "justice-involved"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "County mental health system of care for children and youth. Therapeutic services, crisis intervention, case management, and life skills for at-promise and justice-involved youth across all ages.",
+    "tags": [
+      "Mental Health",
+      "Crisis Intervention",
+      "County Services",
+      "Case Management",
+      "Life Skills"
+    ],
+    "contact": "(510) 567-8100",
+    "addr": "2000 Embarcadero Cove, Suite 400, Oakland, CA 94606",
+    "avail": "County referral process — contact for intake",
+    "link": "https://www.acbhcs.org/mental-health/child-youth-services-0-24-years/",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 86,
+    "src": "probation-county",
+    "title": "Alameda County Day Reporting Center",
+    "cat": "workforce",
+    "catL": "Workforce",
+    "icon": "📍",
+    "th": "th-amber",
+    "ages": "18–25",
+    "ageMin": 18,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "unemployment",
+      "housing",
+      "school-disconnected"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Comprehensive reentry day program for justice-involved young adults 18–25. Academic support, job training and placement, case management, housing navigation, life skills, and basic needs — all in one location. Operated by CenterPoint Inc.",
+    "tags": [
+      "Reentry",
+      "Day Reporting",
+      "Job Training",
+      "Case Management",
+      "Basic Needs",
+      "Justice-Involved Adults"
+    ],
+    "contact": "(510) 625-8955",
+    "addr": "3333 Telegraph Ave, Oakland, CA 94609",
+    "avail": "Justice-involved referral required",
+    "link": "https://www.cpinc.org/services/other-services/day-reporting-center/",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 87,
+    "src": "probation-county",
+    "title": "Alameda County Family Justice Center",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "🏛️",
+    "th": "th-purple",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "domestic-violence",
+      "housing",
+      "crisis",
+      "mental-health",
+      "legal"
+    ],
+    "populations": [
+      "survivor",
+      "at-risk"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "One-stop center for survivors of domestic violence, sexual assault, and other crimes. On-site services include basic needs, behavioral health, housing advocacy, legal services, and restorative justice. Countywide.",
+    "tags": [
+      "Domestic Violence",
+      "Sexual Assault",
+      "Legal Aid",
+      "One-Stop Center",
+      "Housing",
+      "Survivor Services"
+    ],
+    "contact": "(510) 267-8800",
+    "addr": "470 27th Street, Oakland, CA 94612",
+    "avail": "Walk-in and referral — open to all survivors",
+    "link": "https://acfjc.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 88,
+    "src": "probation-county",
+    "title": "Alameda County Victim-Witness Assistance",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "🕊️",
+    "th": "th-purple",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "community-violence",
+      "domestic-violence",
+      "crisis",
+      "grief"
+    ],
+    "populations": [
+      "survivor"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "Alameda County DA office program providing crisis intervention, behavioral health support, and legal navigation for crime victims and their families. Countywide services, all victims served.",
+    "tags": [
+      "Victim Services",
+      "Crisis Support",
+      "Legal Navigation",
+      "DA Office"
+    ],
+    "contact": "(510) 272-6180",
+    "addr": "1401 Lakeside Dr, Suite 802, Oakland, CA 94612",
+    "avail": "Open to all crime victims — walk-in and referral",
+    "link": "https://da.alamedacountyca.gov/victim-witness/",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 89,
+    "src": "probation-county",
+    "title": "CASA of Alameda County",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "⭐",
+    "th": "th-blue",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "foster-care",
+      "justice-involved",
+      "mentorship",
+      "aging-out"
+    ],
+    "populations": [
+      "foster",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Court Appointed Special Advocates — trained volunteer mentors for youth in foster care and the justice system. Provides guidance, advocacy, and consistent trusted adult relationships. Countywide.",
+    "tags": [
+      "CASA",
+      "Foster Care",
+      "Volunteer Mentors",
+      "Advocacy",
+      "Court Appointed"
+    ],
+    "contact": "(510) 347-5480",
+    "addr": "1000 San Leandro Blvd, Suite 300, San Leandro, CA 94577",
+    "avail": "Court referral or CWS referral required",
+    "link": "https://casaofalamedacounty.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 90,
+    "src": "probation-county",
+    "title": "Alameda County Bar Association – Legal Services",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "⚖️",
+    "th": "th-purple",
+    "ages": "6–17",
+    "ageMin": 6,
+    "ageMax": 17,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "first-offense",
+      "legal"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Legal education, restorative justice, and diversion programming for at-promise and justice-involved youth ages 6–17. Countywide.",
+    "tags": [
+      "Legal",
+      "Diversion",
+      "Restorative Justice",
+      "Youth"
+    ],
+    "contact": "(415) 982-1600",
+    "addr": "548 Market Street PMB 22692, San Francisco, CA 94104",
+    "avail": "Contact for referral",
+    "link": "https://www.acbanet.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 91,
+    "src": "probation-county",
+    "title": "Bay Area Legal Aid",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "📜",
+    "th": "th-purple",
+    "ages": "13–25",
+    "ageMin": 13,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "housing",
+      "legal",
+      "immigrant",
+      "domestic-violence"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk",
+      "immigrant",
+      "survivor"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Free civil legal services for low-income youth and adults — housing, immigration, public benefits, and domestic violence legal advocacy. Countywide Alameda County.",
+    "tags": [
+      "Free Legal Aid",
+      "Housing",
+      "Immigration",
+      "Civil Rights",
+      "Public Benefits"
+    ],
+    "contact": "(510) 663-4744",
+    "addr": "1735 Telegraph Ave, Oakland, CA 94612",
+    "avail": "Open — contact for intake",
+    "link": "https://baylegal.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 92,
+    "src": "probation-county",
+    "title": "Banteay Srei – Asian Youth & Women",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🌸",
+    "th": "th-pink",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "female",
+      "lgbtq"
+    ],
+    "riskFactors": [
+      "sexual-exploitation",
+      "domestic-violence",
+      "mental-health",
+      "immigrant"
+    ],
+    "populations": [
+      "survivor",
+      "at-risk",
+      "immigrant"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Culturally grounded life skills, mentoring, and prevention for Southeast Asian girls and young women in Oakland. Addresses trafficking, sexual exploitation, and gender-based harm with culturally responsive programming.",
+    "tags": [
+      "Asian Youth",
+      "Southeast Asian",
+      "Girls Program",
+      "Sexual Exploitation",
+      "Culturally Responsive",
+      "Life Skills"
+    ],
+    "contact": "(510) 986-0050",
+    "addr": "310 E 8th St, Oakland, CA 94606",
+    "avail": "Contact for referral",
+    "link": "https://banteaysrei.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 93,
+    "src": "probation-county",
+    "title": "Center for Empowering Refugees & Immigrants (CERI)",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌍",
+    "th": "th-teal",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "immigrant",
+      "community-violence"
+    ],
+    "populations": [
+      "at-risk",
+      "immigrant"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Behavioral health, life skills, mentoring, and culturally responsive programming for refugee and immigrant youth across Alameda County. Addresses trauma, acculturation, and community belonging.",
+    "tags": [
+      "Refugee",
+      "Immigrant",
+      "Behavioral Health",
+      "Life Skills",
+      "Culturally Responsive"
+    ],
+    "contact": "(510) 452-2374",
+    "addr": "554 Grand Ave, Oakland, CA 94610",
+    "avail": "Contact for referral",
+    "link": "https://www.cerieastbay.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 94,
+    "src": "probation-county",
+    "title": "Choices for Freedom Inc.",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🔓",
+    "th": "th-teal",
+    "ages": "6–17",
+    "ageMin": 6,
+    "ageMax": 17,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "housing",
+      "school-disconnected",
+      "truancy"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "East Oakland-based academic support, housing navigation, physical health, life skills, recreation, and restorative justice for at-promise and justice-involved youth ages 6–17.",
+    "tags": [
+      "Academic Support",
+      "Housing",
+      "Life Skills",
+      "Restorative Justice",
+      "East Oakland"
+    ],
+    "contact": "(510) 482-0690",
+    "addr": "3542 Fruitvale Ave #252, Oakland, CA 94602",
+    "avail": "Contact for referral",
+    "link": "https://www.choicesforfreedom.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 95,
+    "src": "probation-county",
+    "title": "Fred Finch Youth & Family Services",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌿",
+    "th": "th-teal",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "housing",
+      "crisis",
+      "foster-care",
+      "justice-involved"
+    ],
+    "populations": [
+      "foster",
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Comprehensive mental health, housing, case management, career training, life skills, and crisis services for at-promise and justice-involved youth across Alameda County. Deep experience with foster youth.",
+    "tags": [
+      "Mental Health",
+      "Housing",
+      "Foster Youth",
+      "Case Management",
+      "Career",
+      "Crisis"
+    ],
+    "contact": "(510) 482-2244",
+    "addr": "3800 Coolidge Ave, Oakland, CA 94602",
+    "avail": "Contact for referral",
+    "link": "https://www.fredfinch.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 96,
+    "src": "probation-county",
+    "title": "Girls Inc of Alameda County",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "💜",
+    "th": "th-pink",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "female"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "school-disconnected",
+      "unemployment"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Programming for girls and young women — academic support, behavioral health, career training, life skills, physical health, and recreation. Countywide with Oakland focus. Empowerment and education centered.",
+    "tags": [
+      "Girls Program",
+      "Academic Support",
+      "Career",
+      "Life Skills",
+      "Empowerment"
+    ],
+    "contact": "(510) 268-8866",
+    "addr": "510 16th Street, Oakland, CA 94612",
+    "avail": "Open enrollment — contact for referral",
+    "link": "https://www.girlsinc-alameda.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 97,
+    "src": "probation-county",
+    "title": "Greater New Beginnings",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🌅",
+    "th": "th-amber",
+    "ages": "6–17",
+    "ageMin": 6,
+    "ageMax": 17,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "housing",
+      "food-insecurity",
+      "crisis",
+      "mental-health"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Oakland-based comprehensive services for justice-involved youth ages 6–17: basic needs, housing, case management, crisis support, academic support, career readiness, and life skills.",
+    "tags": [
+      "Basic Needs",
+      "Housing",
+      "Case Management",
+      "Justice-Involved",
+      "Crisis"
+    ],
+    "contact": "(510) 436-1900",
+    "addr": "1625 Filbert Street, Oakland, CA 94607",
+    "avail": "Contact for referral",
+    "link": "https://www.greaternewbeginnings.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 98,
+    "src": "probation-county",
+    "title": "H.A.A.R.T – Humanistic Alternatives to Addiction",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "💊",
+    "th": "th-teal",
+    "ages": "18–25",
+    "ageMin": 18,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "substance-use",
+      "mental-health",
+      "crisis"
+    ],
+    "populations": [
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Oakland-based behavioral health, case management, crisis intervention, life skills, and physical health services for at-promise youth 18–25 with substance use and co-occurring needs.",
+    "tags": [
+      "Substance Use",
+      "Addiction",
+      "Behavioral Health",
+      "Life Skills",
+      "East Oakland"
+    ],
+    "contact": "(510) 436-3100",
+    "addr": "10850 MacArthur Blvd, Oakland, CA 94605",
+    "avail": "Contact for intake",
+    "link": "http://www.haartoakland.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 99,
+    "src": "probation-county",
+    "title": "Jewish Family & Community Services East Bay",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🕎",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "housing",
+      "food-insecurity",
+      "immigrant",
+      "crisis"
+    ],
+    "populations": [
+      "at-risk",
+      "immigrant"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Comprehensive services countywide: behavioral health, basic needs, housing, career training, case management, crisis, and legal support for youth and families regardless of background or religion.",
+    "tags": [
+      "Comprehensive Services",
+      "Mental Health",
+      "Housing",
+      "Basic Needs",
+      "Refugee",
+      "Countywide"
+    ],
+    "contact": "(510) 558-7800",
+    "addr": "2484 Shattuck Ave, Suite 210, Berkeley, CA 94704",
+    "avail": "Open — contact for intake",
+    "link": "https://jfcs-eastbay.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 100,
+    "src": "probation-county",
+    "title": "La Clinica de la Raza",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🏥",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "food-insecurity",
+      "housing",
+      "immigrant",
+      "crisis"
+    ],
+    "populations": [
+      "at-risk",
+      "immigrant"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Culturally competent health and mental health services for Oakland and Fruitvale communities. Basic needs, behavioral health, case management, housing navigation, life skills, and primary care for all ages.",
+    "tags": [
+      "Health Clinic",
+      "Mental Health",
+      "Fruitvale",
+      "Bilingual",
+      "Basic Needs",
+      "Community Health"
+    ],
+    "contact": "(510) 535-4000",
+    "addr": "3451 East 12th Street, Oakland, CA 94601",
+    "avail": "Open — sliding scale and Medi-Cal accepted",
+    "link": "https://laclinica.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 101,
+    "src": "probation-county",
+    "title": "La Familia Counseling Center",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "👨‍👩‍👧",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "justice-involved",
+      "family",
+      "truancy",
+      "school-disconnected"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "south",
+    "desc": "Comprehensive behavioral health, academic support, career training, case management, and life skills for youth and families in Hayward and countywide. Bilingual services. Probation employment contact: MOgundare@LiveLaFamilia.org | (510) 300-3111.",
+    "tags": [
+      "Behavioral Health",
+      "Academic Support",
+      "Bilingual",
+      "Family Support",
+      "South County",
+      "Career"
+    ],
+    "contact": "MOgundare@LiveLaFamilia.org | (510) 300-3111 | (510) 881-5921",
+    "addr": "24301 Southland Dr, Suite 300, Hayward, CA 94545",
+    "avail": "Open — contact for referral",
+    "link": "https://livelafamilia.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 102,
+    "src": "probation-county",
+    "title": "Lincoln Families",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🏘️",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "crisis",
+      "housing",
+      "justice-involved",
+      "family"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Mental health, case management, crisis intervention, life skills, and academic support for youth and families across Alameda County. Serves at-promise and justice-involved youth of all ages.",
+    "tags": [
+      "Mental Health",
+      "Case Management",
+      "Crisis",
+      "Academic Support",
+      "Family"
+    ],
+    "contact": "(510) 273-4700",
+    "addr": "150 Linden St, Oakland, CA 94607",
+    "avail": "Contact for referral",
+    "link": "https://www.lincolnfamilies.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 103,
+    "src": "probation-county",
+    "title": "Men of Valor Academy",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🏆",
+    "th": "th-amber",
+    "ages": "18–25",
+    "ageMin": 18,
+    "ageMax": 25,
+    "genders": [
+      "male"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "unemployment",
+      "housing",
+      "school-disconnected"
+    ],
+    "populations": [
+      "justice-involved",
+      "african-american"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Oakland-based program for justice-involved young men 18–25. Academic support, behavioral health, career training, housing, and life skills. Navigating Chance reentry program.",
+    "tags": [
+      "Young Men",
+      "Reentry",
+      "Career",
+      "Housing",
+      "Academic Support",
+      "East Oakland"
+    ],
+    "contact": "(510) 383-7450",
+    "addr": "6118 International Blvd, Oakland, CA 94621",
+    "avail": "Contact for referral",
+    "link": "https://probation.acgov.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 104,
+    "src": "probation-county",
+    "title": "Millie’s Youth Services",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🌟",
+    "th": "th-amber",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "housing",
+      "food-insecurity",
+      "crisis",
+      "mental-health",
+      "school-disconnected"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Comprehensive services for at-promise and justice-involved youth in East Oakland: basic needs, housing, case management, crisis support, behavioral health, academic support, and life skills.",
+    "tags": [
+      "Basic Needs",
+      "Housing",
+      "Case Management",
+      "East Oakland",
+      "Crisis",
+      "Academic"
+    ],
+    "contact": "(510) 632-3523",
+    "addr": "2512 Havenscourt Blvd, Oakland, CA 94605",
+    "avail": "Contact for referral",
+    "link": "https://millies.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 105,
+    "src": "probation-county",
+    "title": "Misssey Inc – Commercial Sexual Exploitation",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🛡️",
+    "th": "th-pink",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "female",
+      "lgbtq"
+    ],
+    "riskFactors": [
+      "sexual-exploitation",
+      "housing",
+      "mental-health",
+      "justice-involved"
+    ],
+    "populations": [
+      "survivor",
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "north",
+    "desc": "Oakland-based specialized services for commercially sexually exploited children and youth. Housing, behavioral health, life skills, and restorative justice for youth ages 6–25, with focus on girls and LGBTQ+ youth.",
+    "tags": [
+      "Sexual Exploitation",
+      "CSEC",
+      "Housing",
+      "Girls",
+      "LGBTQ+",
+      "Survivor Services"
+    ],
+    "contact": "(510) 318-7333",
+    "addr": "424 Jefferson St, Oakland, CA 94607",
+    "avail": "Referral-based — urgent intake available",
+    "link": "https://www.misssey.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 106,
+    "src": "probation-county",
+    "title": "Native American Health Center",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🦅",
+    "th": "th-teal",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "crisis",
+      "substance-use"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Culturally grounded behavioral health, physical health, crisis intervention, and population-specific programs for Native American and all youth in Oakland. Holistic wellness and traditional healing approaches.",
+    "tags": [
+      "Native American",
+      "Culturally Grounded",
+      "Behavioral Health",
+      "Physical Health",
+      "Holistic"
+    ],
+    "contact": "(510) 535-4400",
+    "addr": "2950 International Blvd, Oakland, CA 94601",
+    "avail": "Open — contact for intake",
+    "link": "https://www.nativehealth.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 107,
+    "src": "probation-county",
+    "title": "Our SafeHaven Inc.",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🏡",
+    "th": "th-teal",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "food-insecurity",
+      "housing",
+      "crisis",
+      "mental-health"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "south",
+    "desc": "Castro Valley-based comprehensive services for at-promise and justice-involved youth: basic needs, behavioral health, crisis support, life skills, restorative justice, and academic support. Countywide.",
+    "tags": [
+      "Basic Needs",
+      "Crisis",
+      "Restorative Justice",
+      "Castro Valley",
+      "South County"
+    ],
+    "contact": "(510) 537-0727",
+    "addr": "P.O. Box 2061, Castro Valley, CA 94546",
+    "avail": "Contact for referral",
+    "link": "http://www.oursafehaveninc.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 108,
+    "src": "probation-county",
+    "title": "R.E.F.U.G.E Family Services",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🤲",
+    "th": "th-teal",
+    "ages": "6–17",
+    "ageMin": 6,
+    "ageMax": 17,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "justice-involved",
+      "family",
+      "crisis"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "East Oakland behavioral health and case management services for at-promise and justice-involved youth ages 6–17 and their families. Trauma-informed, culturally responsive.",
+    "tags": [
+      "Behavioral Health",
+      "Case Management",
+      "Family Services",
+      "East Oakland",
+      "Youth"
+    ],
+    "contact": "(510) 427-0706",
+    "addr": "3906 Loma Vista Ave, Oakland, CA 94619",
+    "avail": "Contact for referral",
+    "link": "https://www.therefugeinc.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 109,
+    "src": "probation-county",
+    "title": "REACH Ashland Youth Center",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "🌱",
+    "th": "th-teal",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "school-disconnected",
+      "truancy",
+      "unemployment",
+      "mental-health",
+      "food-insecurity"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "south",
+    "desc": "San Leandro-based comprehensive youth center: academic support, basic needs, behavioral health, career training, life skills, and physical health for at-promise youth. BACR operated.",
+    "tags": [
+      "Academic Support",
+      "Career Training",
+      "Life Skills",
+      "San Leandro",
+      "Ashland",
+      "Basic Needs"
+    ],
+    "contact": "zgreen@bacr.org | (510) 393-4581",
+    "addr": "16335 E 14th St, San Leandro, CA 94578",
+    "avail": "Open — contact BACR for referral",
+    "link": "https://reachashland.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 110,
+    "src": "probation-county",
+    "title": "Restorative Pathways",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "🌿",
+    "th": "th-purple",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "housing",
+      "mental-health",
+      "school-disconnected"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "any",
+    "zipcodes": "south",
+    "desc": "Castro Valley-based restorative justice, academic support, behavioral health, case management, housing assistance, and life skills for at-promise and justice-involved youth. Countywide reach.",
+    "tags": [
+      "Restorative Justice",
+      "Academic Support",
+      "Housing",
+      "Castro Valley",
+      "South County"
+    ],
+    "contact": "(510) 581-7625",
+    "addr": "20880 Baker Rd, Castro Valley, CA 94546",
+    "avail": "Contact for referral",
+    "link": "https://restorativepathways.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 111,
+    "src": "probation-county",
+    "title": "Safe Alternatives to Violent Environments (SAVE)",
+    "cat": "housing",
+    "catL": "Housing",
+    "icon": "🏠",
+    "th": "th-pink",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "female",
+      "lgbtq",
+      "all"
+    ],
+    "riskFactors": [
+      "domestic-violence",
+      "housing",
+      "crisis",
+      "mental-health"
+    ],
+    "populations": [
+      "survivor"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "south",
+    "desc": "Fremont-based domestic violence services: emergency shelter, behavioral health, crisis intervention, life skills, basic needs, and prevention for survivors in South Alameda County.",
+    "tags": [
+      "Domestic Violence",
+      "Emergency Shelter",
+      "Fremont",
+      "South County",
+      "Crisis",
+      "Survivor"
+    ],
+    "contact": "(510) 794-6055",
+    "addr": "1900 Mowry Ave, Suite 201, Fremont, CA 94538",
+    "avail": "Crisis line 24/7",
+    "link": "https://save-dv.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 112,
+    "src": "probation-county",
+    "title": "Seneca Family of Agencies",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌲",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "housing",
+      "crisis",
+      "justice-involved",
+      "foster-care"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved",
+      "foster"
+    ],
+    "urgency": "any",
+    "zipcodes": "all",
+    "desc": "Comprehensive mental health, housing, case management, crisis, and life skills services for at-promise, justice-involved, and foster youth across all ages in Alameda County. YSC case management contact: AlamedaICMReferrals@senecacenter.org | (510) 504-6836.",
+    "tags": [
+      "Mental Health",
+      "Housing",
+      "Foster Youth",
+      "Case Management",
+      "Crisis",
+      "All Ages"
+    ],
+    "contact": "AlamedaICMReferrals@senecacenter.org | (510) 504-6836",
+    "addr": "8945 Golf Links Rd, Oakland, CA 94605",
+    "avail": "Contact for referral",
+    "link": "https://senecafoa.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 113,
+    "src": "probation-county",
+    "title": "Terra Firma Diversion",
+    "cat": "legal",
+    "catL": "Legal & Justice",
+    "icon": "🔄",
+    "th": "th-purple",
+    "ages": "18–25",
+    "ageMin": 18,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "mental-health",
+      "first-offense"
+    ],
+    "populations": [
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "south",
+    "desc": "Hayward-based behavioral health, case management, life skills, and restorative justice diversion for at-promise and justice-involved young adults 18–25. South County focus.",
+    "tags": [
+      "Diversion",
+      "Behavioral Health",
+      "Case Management",
+      "Hayward",
+      "South County",
+      "Young Adults"
+    ],
+    "contact": "(510) 538-3444",
+    "addr": "30086 Mission Blvd, Hayward, CA 94544",
+    "avail": "Contact for referral",
+    "link": "https://www.terrafirmadiversion.com",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 114,
+    "src": "probation-county",
+    "title": "Thunder Road Adolescent Treatment Center",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "⚡",
+    "th": "th-teal",
+    "ages": "13–25",
+    "ageMin": 13,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "substance-use",
+      "mental-health",
+      "justice-involved"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Intensive outpatient and residential substance use treatment for adolescents and young adults 13–25. Dual diagnosis care for co-occurring mental health needs. Oakland.",
+    "tags": [
+      "Substance Use Treatment",
+      "Adolescents",
+      "Residential",
+      "Outpatient",
+      "Dual Diagnosis"
+    ],
+    "contact": "(510) 653-5040",
+    "addr": "390 40th Street, Oakland, CA 94609",
+    "avail": "Contact for intake — insurance and Medi-Cal accepted",
+    "link": "https://mentalhealth.networkofcare.org/Alameda/services/agency?pid=ThunderRoadAdolescentTreatment_344_2_0",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 115,
+    "src": "probation-county",
+    "title": "WestCoast Childrens’s Clinic",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🧩",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "trauma",
+      "justice-involved"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved",
+      "foster"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Behavioral health and trauma-informed mental health services for children, youth, and families across Alameda County. Serves foster youth, justice-involved youth, and others with complex trauma histories.",
+    "tags": [
+      "Behavioral Health",
+      "Trauma-Informed",
+      "Children",
+      "Foster Youth",
+      "Mental Health"
+    ],
+    "contact": "(510) 269-9030",
+    "addr": "3301 E 12th St, Oakland, CA 94601",
+    "avail": "Contact for referral — Medi-Cal accepted",
+    "link": "https://www.westcoastcc.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 116,
+    "src": "probation-county",
+    "title": "Youth Advocate Programs (YAP)",
+    "cat": "youth",
+    "catL": "Youth Services",
+    "icon": "📣",
+    "th": "th-coral",
+    "ages": "18–25",
+    "ageMin": 18,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "justice-involved",
+      "crisis",
+      "mental-health",
+      "violence"
+    ],
+    "populations": [
+      "justice-involved",
+      "at-risk"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "Intensive community-based advocacy and crisis response for justice-involved young adults. Life skills, behavioral health, crisis intervention, and restorative justice alternatives to incarceration. Countywide.",
+    "tags": [
+      "Advocacy",
+      "Crisis Response",
+      "Intensive Support",
+      "Justice-Involved Adults",
+      "Life Skills",
+      "Restorative Justice"
+    ],
+    "contact": "(510) 430-7800",
+    "addr": "100 Hegenberger Rd, Suite 280, Oakland, CA 94607",
+    "avail": "Justice-involved referral — contact for intake",
+    "link": "https://www.yapinc.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 117,
+    "src": "probation-county",
+    "title": "Alameda Family Services",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "💙",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "crisis",
+      "food-insecurity",
+      "justice-involved"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "north",
+    "desc": "Alameda city-based behavioral health, basic needs, crisis intervention, and physical health for youth and families. YSC therapeutic counseling: bhcs@alamedafs.org | (510) 629-6364.",
+    "tags": [
+      "Behavioral Health",
+      "Basic Needs",
+      "Crisis",
+      "Alameda City",
+      "Therapeutic Counseling"
+    ],
+    "contact": "bhcs@alamedafs.org | (510) 629-6364",
+    "addr": "2325 Clement Ave, Suite A, Alameda, CA 94501",
+    "avail": "Contact for referral",
+    "link": "https://www.alamedafs.org",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 118,
+    "src": "probation-county",
+    "title": "City of Fremont – Youth & Family Services",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌉",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "justice-involved",
+      "family",
+      "truancy"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "south",
+    "desc": "Fremont city-operated behavioral health and counseling for youth and families. YSC therapeutic and case management services. Probation referrals: yfs@fremont.gov | (510) 675-5817.",
+    "tags": [
+      "Fremont",
+      "Behavioral Health",
+      "Family",
+      "Counseling",
+      "South County"
+    ],
+    "contact": "yfs@fremont.gov | (510) 675-5817",
+    "addr": "39155 Liberty St, Suite E500, Fremont, CA 94538",
+    "avail": "Probation and school referrals — contact for intake",
+    "link": "https://www.fremont.gov/government/departments/human-services/youth-services",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 119,
+    "src": "probation-county",
+    "title": "City of Hayward – Youth & Family Services Bureau",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌇",
+    "th": "th-teal",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "justice-involved",
+      "family",
+      "truancy",
+      "domestic-violence"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "south",
+    "desc": "Hayward city services: behavioral health, case management, crisis, diversion, gender-responsive programming, and restorative justice for Hayward youth. YSC and CP services. Contact: yfsb@hayward-ca.gov | (510) 293-7048.",
+    "tags": [
+      "Hayward",
+      "Behavioral Health",
+      "Diversion",
+      "Gender Responsive",
+      "Restorative Justice",
+      "South County"
+    ],
+    "contact": "yfsb@hayward-ca.gov | (510) 293-7048",
+    "addr": "300 W Winton Ave, Hayward, CA 94544",
+    "avail": "Probation and community referrals",
+    "link": "https://www.hayward-ca.gov/police-department/public-services/youth-family-services-bureau",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 120,
+    "src": "probation-county",
+    "title": "City of Union City – Youth & Family Services",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌆",
+    "th": "th-teal",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "justice-involved",
+      "family",
+      "truancy"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "south",
+    "desc": "Union City youth services: behavioral health, career training, crisis intervention, life skills, diversion, and gender-responsive programming for Fremont/Newark/Union City youth. Contact: YFS@unioncity.org | (510) 675-5217.",
+    "tags": [
+      "Union City",
+      "Fremont",
+      "Newark",
+      "Behavioral Health",
+      "Diversion",
+      "Gender Responsive"
+    ],
+    "contact": "YFS@unioncity.org | (510) 675-5217",
+    "addr": "725 Whipple Rd, Union City, CA 94587",
+    "avail": "Probation and community referrals",
+    "link": "https://www.unioncity.org/182/Youth-Family-Services",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 121,
+    "src": "probation-county",
+    "title": "City of Livermore – Horizons Family Counseling",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🌄",
+    "th": "th-teal",
+    "ages": "6–25",
+    "ageMin": 6,
+    "ageMax": 25,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "crisis",
+      "family",
+      "justice-involved"
+    ],
+    "populations": [
+      "at-risk",
+      "justice-involved"
+    ],
+    "urgency": "any",
+    "zipcodes": "south",
+    "desc": "Livermore city counseling for youth and families in the Tri-Valley. Case management, crisis intervention, and therapeutic support for Dublin, Livermore, Pleasanton, and Sunol. Contact: mtemores@livermoreca.gov | (925) 371-4742.",
+    "tags": [
+      "Livermore",
+      "Tri-Valley",
+      "Counseling",
+      "Crisis",
+      "Dublin",
+      "Pleasanton"
+    ],
+    "contact": "mtemores@livermoreca.gov | (925) 371-4742",
+    "addr": "1112 S Livermore Ave, Livermore, CA 94550",
+    "avail": "Probation referrals — contact for intake",
+    "link": "https://police.livermoreca.gov/about-us/horizons-family-counseling",
+    "srcL": "AC Probation – County"
+  },
+  {
+    "id": 82,
+    "src": "general",
+    "title": "Crisis Support Services of Alameda County",
+    "cat": "health",
+    "catL": "Health & Wellness",
+    "icon": "🆘",
+    "th": "th-red",
+    "ages": "All ages",
+    "ageMin": null,
+    "ageMax": null,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "crisis",
+      "mental-health",
+      "community-violence",
+      "grief"
+    ],
+    "populations": [
+      "at-risk",
+      "survivor"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "24/7 crisis hotline and mobile crisis response for individuals in mental health crisis. Connects to emergency services, crisis counseling, and next-step resources. Free and confidential.",
+    "tags": [
+      "Crisis Line",
+      "24/7",
+      "Mobile Crisis",
+      "Mental Health",
+      "Free"
+    ],
+    "contact": "(800) 309-2131 | Text HOME to 741741 | crisissupport.org",
+    "addr": "Countywide — mobile response available",
+    "avail": "24/7 — call or text anytime",
+    "link": "https://crisissupport.org",
+    "srcL": "General"
+  },
+  {
+    "id": 83,
+    "src": "general",
+    "title": "Bay Area Crisis Nursery",
+    "cat": "family",
+    "catL": "Family",
+    "icon": "🍼",
+    "th": "th-coral",
+    "ages": "Children birth–5 & families",
+    "ageMin": 0,
+    "ageMax": 5,
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "parent",
+      "crisis",
+      "housing",
+      "food-insecurity"
+    ],
+    "populations": [
+      "parent"
+    ],
+    "urgency": "immediate",
+    "zipcodes": "all",
+    "desc": "Free, voluntary crisis childcare for children birth–5 when families face temporary crises (hospitalization, domestic violence, homelessness). Up to 30 days. No referral needed.",
+    "tags": [
+      "Crisis Childcare",
+      "Free",
+      "No Referral",
+      "Emergency",
+      "Young Children"
+    ],
+    "contact": "(510) 893-5444",
+    "addr": "Oakland & East Bay",
+    "avail": "24/7 intake — no referral needed",
+    "link": "https://bacnkids.org",
+    "srcL": "General"
   }
 ]
