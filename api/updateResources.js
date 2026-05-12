@@ -1,21 +1,33 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ success:false, error:'Method not allowed' });
+    return res.status(405).json({
+      success: false,
+      error: 'Method not allowed'
+    });
   }
 
   try {
     const { password, resources } = req.body || {};
 
     if (!process.env.ADMIN_PASSWORD) {
-      return res.status(500).json({ success:false, error:'ADMIN_PASSWORD is not configured' });
+      return res.status(500).json({
+        success: false,
+        error: 'ADMIN_PASSWORD is not configured'
+      });
     }
 
     if (!password || password !== process.env.ADMIN_PASSWORD) {
-      return res.status(401).json({ success:false, error:'Invalid admin access code' });
+      return res.status(401).json({
+        success: false,
+        error: 'Invalid admin access code'
+      });
     }
 
     if (!Array.isArray(resources)) {
-      return res.status(400).json({ success:false, error:'resources must be an array' });
+      return res.status(400).json({
+        success: false,
+        error: 'resources must be an array'
+      });
     }
 
     const owner = process.env.GITHUB_OWNER;
@@ -25,7 +37,10 @@ export default async function handler(req, res) {
     const path = process.env.GITHUB_JSON_PATH || 'resources.json';
 
     if (!owner || !repo || !token) {
-      return res.status(500).json({ success:false, error:'GitHub environment variables are missing' });
+      return res.status(500).json({
+        success: false,
+        error: 'GitHub environment variables are missing'
+      });
     }
 
     const currentFile = await fetch(
@@ -43,13 +58,15 @@ export default async function handler(req, res) {
 
     if (!currentFile.ok) {
       return res.status(currentFile.status).json({
-        success:false,
-        error:'Could not read resources.json from GitHub',
+        success: false,
+        error: 'Could not read resources.json from GitHub',
         github: currentData
       });
     }
 
-    const updatedContent = Buffer.from(JSON.stringify(resources, null, 2)).toString('base64');
+    const updatedContent = Buffer
+      .from(JSON.stringify(resources, null, 2))
+      .toString('base64');
 
     const githubResponse = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
@@ -74,15 +91,21 @@ export default async function handler(req, res) {
 
     if (!githubResponse.ok) {
       return res.status(githubResponse.status).json({
-        success:false,
-        error:'Could not update resources.json on GitHub',
+        success: false,
+        error: 'Could not update resources.json on GitHub',
         github: githubResult
       });
     }
 
-    return res.status(200).json({ success:true, githubResult });
+    return res.status(200).json({
+      success: true,
+      githubResult
+    });
 
   } catch (err) {
-    return res.status(500).json({ success:false, error:err.message });
+    return res.status(500).json({
+      success: false,
+      error: err.message
+    });
   }
 }
