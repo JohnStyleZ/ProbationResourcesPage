@@ -3,35 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alameda County Resource Hub · ACOE & Probation</title>
+<title>Alameda County Resource Hub Â· ACOE & Probation</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* ── ACOE Primary Colors ── */
+  /* â”€â”€ ACOE Primary Colors â”€â”€ */
   --teal:#0B7691;--teal-light:#E0F3F8;--teal-dark:#085566;--teal-mid:#0e8dac;
   --amber:#F5BB4C;--amber-light:#FEF6DC;
   --coral:#E5763A;--coral-light:#FDEDE3;
-  /* ── ACOE Secondary Colors ── */
+  /* â”€â”€ ACOE Secondary Colors â”€â”€ */
   --purple:#DB383B;--purple-light:#FCEAEA;
   --blue:#9BAB8E;--blue-light:#EEF2EB;
   --green:#73B661;--green-light:#EAF5E6;
   --pink:#D4537E;--pink-light:#FBEAF0;
   --red:#DB383B;--red-light:#FCEAEA;
-  /* ── Neutrals ── */
+  /* â”€â”€ Neutrals â”€â”€ */
   --ink:#1a2332;--ink-soft:#4a5568;--ink-faint:#8a97a8;
   --mist:#f5f7f9;--white:#ffffff;--border:rgba(0,0,0,0.09);--border2:rgba(0,0,0,0.15);
   --card-r:18px;--pill:100px;
   --shadow:0 2px 16px rgba(0,0,0,0.07),0 1px 3px rgba(0,0,0,0.05);
   --shadow-h:0 8px 32px rgba(0,0,0,0.13),0 2px 8px rgba(0,0,0,0.07);
-  /* ── ACOE Font Stack ── */
+  /* â”€â”€ ACOE Font Stack â”€â”€ */
   --font-head:'Montserrat','Century Gothic','Avenir',sans-serif;
   --font-body:'Montserrat','Century Gothic','Avenir',sans-serif;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--mist);color:var(--ink);min-height:100vh;line-height:1.6}
 
-/* ── HEADER ── */
+/* â”€â”€ HEADER â”€â”€ */
 header{background:var(--white);border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo-mark{width:36px;height:36px;background:var(--teal);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -42,7 +42,7 @@ nav{display:flex;gap:.25rem}
 nav button{background:none;border:none;padding:6px 14px;border-radius:var(--pill);font-family:var(--font-body);font-size:.875rem;font-weight:500;color:var(--ink-soft);cursor:pointer;transition:all .15s}
 nav button:hover,nav button.nav-active{background:var(--teal-light);color:var(--teal-dark)}
 
-/* ── HERO ── */
+/* â”€â”€ HERO â”€â”€ */
 .hero{background:var(--white);padding:3.5rem 2rem 2.5rem;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(13,158,117,.08) 0%,transparent 70%);pointer-events:none}
 .eyebrow{display:inline-flex;align-items:center;gap:6px;background:var(--teal-light);color:var(--teal-dark);font-size:.8rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;padding:5px 14px;border-radius:var(--pill);margin-bottom:1.25rem}
@@ -55,7 +55,7 @@ nav button:hover,nav button.nav-active{background:var(--teal-light);color:var(--
 .btn-secondary{background:transparent;color:var(--teal-dark);border:1.5px solid var(--teal);border-radius:var(--pill);padding:11px 24px;font-family:var(--font-body);font-size:.95rem;font-weight:500;cursor:pointer;transition:all .15s}
 .btn-secondary:hover{background:var(--teal-light)}
 
-/* ── SEARCH BAR ── */
+/* â”€â”€ SEARCH BAR â”€â”€ */
 .search-wrap{max-width:600px;margin:0 auto;position:relative}
 .search-wrap input{width:100%;padding:13px 52px 13px 20px;border-radius:var(--pill);border:1.5px solid var(--border);background:var(--white);font-family:var(--font-body);font-size:.95rem;color:var(--ink);outline:none;box-shadow:var(--shadow);transition:border-color .2s,box-shadow .2s}
 .search-wrap input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,158,117,.12)}
@@ -64,22 +64,22 @@ nav button:hover,nav button.nav-active{background:var(--teal-light);color:var(--
 .search-btn:hover{background:var(--teal-dark)}
 .search-btn svg{width:15px;height:15px;stroke:white;stroke-width:2.5;fill:none}
 
-/* ── FILTERS ── */
+/* â”€â”€ FILTERS â”€â”€ */
 .filters{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center;padding:1.4rem 2rem 0}
 .fpill{background:var(--white);border:1px solid var(--border);border-radius:var(--pill);padding:5px 14px;font-size:.8rem;font-weight:500;cursor:pointer;transition:all .15s;color:var(--ink-soft)}
 .fpill:hover{border-color:var(--teal);color:var(--teal-dark)}
 .fpill.active{background:var(--teal);border-color:var(--teal);color:white}
 
-/* ── MAIN ── */
+/* â”€â”€ MAIN â”€â”€ */
 main{max-width:1240px;margin:0 auto;padding:2.5rem 2rem 4rem}
 
-/* ── VIEW TOGGLE ── */
+/* â”€â”€ VIEW TOGGLE â”€â”€ */
 .view-toggle{display:flex;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:4px;gap:4px;margin-bottom:2rem;width:fit-content}
 .vtab{padding:8px 20px;border-radius:8px;border:none;background:none;font-family:var(--font-body);font-size:.85rem;font-weight:500;cursor:pointer;color:var(--ink-soft);transition:all .15s;display:flex;align-items:center;gap:6px}
 .vtab.active{background:var(--teal);color:white}
 .vtab svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2}
 
-/* ── SMART MATCH WIZARD ── */
+/* â”€â”€ SMART MATCH WIZARD â”€â”€ */
 #matcher-view{display:none}
 #matcher-view.visible{display:block}
 #browse-view{display:block}
@@ -116,7 +116,7 @@ main{max-width:1240px;margin:0 auto;padding:2.5rem 2rem 4rem}
 .wiz-opt.selected .check{background:var(--teal);border-color:var(--teal)}
 .wiz-opt.selected .check::after{content:'';width:6px;height:6px;background:white;border-radius:50%}
 
-/* Risk factors — chip style */
+/* Risk factors â€” chip style */
 .risk-grid{display:flex;flex-wrap:wrap;gap:.5rem}
 .risk-chip{background:var(--mist);border:1.5px solid var(--border2);border-radius:var(--pill);padding:8px 16px;cursor:pointer;font-family:var(--font-body);font-size:.84rem;font-weight:500;color:var(--ink-soft);transition:all .15s;display:flex;align-items:center;gap:6px}
 .risk-chip:hover{border-color:var(--teal);color:var(--teal-dark)}
@@ -140,7 +140,7 @@ main{max-width:1240px;margin:0 auto;padding:2.5rem 2rem 4rem}
 .wiz-next svg{width:14px;height:14px;stroke:white;fill:none;stroke-width:2.5}
 .wiz-next:disabled{background:#ccc;cursor:not-allowed}
 
-/* ── MATCH RESULTS ── */
+/* â”€â”€ MATCH RESULTS â”€â”€ */
 #match-results{display:none}
 #match-results.visible{display:block}
 .match-header{background:var(--white);border-radius:18px;border:1px solid var(--border);padding:1.75rem 2rem;margin-bottom:1.5rem;box-shadow:var(--shadow);display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap}
@@ -157,22 +157,22 @@ main{max-width:1240px;margin:0 auto;padding:2.5rem 2rem 4rem}
 .score-badge.med{background:var(--amber-light);color:#633806}
 .score-badge svg{width:11px;height:11px;fill:currentColor;stroke:none}
 
-/* ── SOURCE TABS ── */
+/* â”€â”€ SOURCE TABS â”€â”€ */
 .source-tabs{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:1.5rem}
 .stab{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:6px 13px;font-size:.78rem;font-weight:500;cursor:pointer;color:var(--ink-soft);transition:all .15s;display:flex;align-items:center;gap:5px}
 .stab:hover{border-color:var(--teal);color:var(--teal-dark)}
 .stab.active{background:var(--teal-light);border-color:var(--teal);color:var(--teal-dark)}
 .sdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 
-/* ── SEC HEADER ── */
+/* â”€â”€ SEC HEADER â”€â”€ */
 .sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.5rem}
 .sec-hdr h2{font-family:var(--font-head);font-size:1.25rem;font-weight:700}
 .cnt{font-size:.8rem;color:var(--ink-soft);background:var(--white);border:1px solid var(--border);border-radius:var(--pill);padding:2px 10px}
 
-/* ── RESOURCE GRID ── */
+/* â”€â”€ RESOURCE GRID â”€â”€ */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.2rem}
 
-/* ── CARD ── */
+/* â”€â”€ CARD â”€â”€ */
 .card{background:var(--white);border-radius:var(--card-r);border:1px solid var(--border);padding:1.4rem;display:flex;flex-direction:column;gap:.85rem;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;animation:fadeUp .35s ease both}
 .card:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
 .accent{position:absolute;top:0;left:0;right:0;height:4px;border-radius:var(--card-r) var(--card-r) 0 0}
@@ -197,7 +197,7 @@ main{max-width:1240px;margin:0 auto;padding:2.5rem 2rem 4rem}
 /* match reason tag */
 .match-reason{font-size:.7rem;background:var(--green-light);color:var(--green);border-radius:var(--pill);padding:3px 10px;border:1px solid rgba(99,153,34,.2);font-weight:500}
 
-/* ── THEMES ── */
+/* â”€â”€ THEMES â”€â”€ */
 .th-teal .accent{background:var(--teal)}.th-teal .cicon{background:var(--teal-light)}.th-teal .cat{background:var(--teal-light);color:var(--teal-dark)}
 .th-amber .accent{background:var(--amber)}.th-amber .cicon{background:var(--amber-light)}.th-amber .cat{background:var(--amber-light);color:#633806}
 .th-coral .accent{background:var(--coral)}.th-coral .cicon{background:var(--coral-light)}.th-coral .cat{background:var(--coral-light);color:#4A1B0C}
@@ -206,15 +206,15 @@ main{max-width:1240px;margin:0 auto;padding:2.5rem 2rem 4rem}
 .th-pink .accent{background:var(--pink)}.th-pink .cicon{background:var(--pink-light)}.th-pink .cat{background:var(--pink-light);color:#4B1528}
 .th-red .accent{background:var(--red)}.th-red .cicon{background:var(--red-light)}.th-red .cat{background:var(--red-light);color:#501313}
 
-/* ── NO RESULTS ── */
+/* â”€â”€ NO RESULTS â”€â”€ */
 .nores{display:none;text-align:center;padding:3rem;color:var(--ink-soft)}
 .nores h3{font-family:var(--font-head);font-weight:700;margin-bottom:.5rem}
 
-/* ── FOOTER ── */
+/* â”€â”€ FOOTER â”€â”€ */
 footer{font-size:.8rem}
 footer strong{color:white;font-family:var(--font-head)}
 
-/* ── EMPTY WIZARD STATE ── */
+/* â”€â”€ EMPTY WIZARD STATE â”€â”€ */
 .start-card{text-align:center;padding:3rem 2rem;background:var(--white);border-radius:22px;border:1px solid var(--border);box-shadow:var(--shadow)}
 .start-card .big-icon{font-size:3rem;margin-bottom:1rem}
 .start-card h2{font-family:var(--font-head);font-size:1.5rem;font-weight:800;margin-bottom:.5rem}
@@ -232,9 +232,23 @@ footer strong{color:white;font-family:var(--font-head)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
 .wiz-body{animation:slideIn .25s ease}
+
+/* Accessibility improvements */
+.skip-link{position:absolute;left:1rem;top:-48px;background:#fff;color:#0B7691;border:2px solid #0B7691;border-radius:8px;padding:.65rem 1rem;z-index:9999;font-weight:700;text-decoration:none;transition:top .15s}
+.skip-link:focus{top:1rem}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #F5BB4C!important;outline-offset:3px!important;box-shadow:0 0 0 5px rgba(11,118,145,.35)!important}
+button[aria-pressed="true"],.active{font-weight:700}
+footer,footer div,footer p{color:rgba(255,255,255,.92)!important}
+footer a{color:#FFE08A!important;text-decoration:underline!important;text-underline-offset:3px}
+header button{color:#fff!important}
+.cicon{font-size:22px;line-height:1}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header style="background:linear-gradient(135deg,#0B7691 0%,#085566 100%);border-bottom:3px solid #F5BB4C;height:auto;padding:.6rem 2rem;flex-direction:column;align-items:stretch;gap:0">
   <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
@@ -252,20 +266,20 @@ footer strong{color:white;font-family:var(--font-head)}
           <span style="background:rgba(245,187,76,.2);border:1px solid rgba(245,187,76,.4);border-radius:3px;padding:1px 5px;color:#F5BB4C">ACOE</span>
           <span style="color:rgba(255,255,255,.35)">+</span>
           <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:3px;padding:1px 5px;color:rgba(255,255,255,.8)">AC Probation</span>
-          <span style="color:rgba(255,255,255,.35)">·</span>
+          <span style="color:rgba(255,255,255,.35)">Â·</span>
           <span style="color:rgba(255,255,255,.5)">Youth &amp; Family Resources</span>
         </div>
       </div>
     </a>
-    <nav style="display:flex;align-items:center;gap:.35rem;flex-wrap:wrap">
-      <button class="nav-active" onclick="showView('browse',this)" style="color:white;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:var(--pill);padding:6px 16px;font-family:var(--font-body);font-size:.82rem;font-weight:600;cursor:pointer;transition:all .15s">Browse All</button>
-      <button onclick="showView('matcher',this)" style="color:rgba(255,255,255,.8);background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:var(--pill);padding:6px 16px;font-family:var(--font-body);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s">Smart Match</button>
-      <button onclick="showAdmin()" style="color:rgba(255,255,255,.65);background:transparent;border:1px solid rgba(255,255,255,.15);border-radius:var(--pill);padding:5px 14px;font-family:var(--font-body);font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s">⚙ Admin</button>
+    <nav aria-label="Main navigation" style="display:flex;align-items:center;gap:.35rem;flex-wrap:wrap">
+      <button type="button" class="nav-active" aria-pressed="true" onclick="showView('browse',this)" style="color:white;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:var(--pill);padding:6px 16px;font-family:var(--font-body);font-size:.82rem;font-weight:600;cursor:pointer;transition:all .15s">Browse All</button>
+      <button type="button" aria-pressed="false" onclick="showView('matcher',this)" style="color:rgba(255,255,255,.8);background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:var(--pill);padding:6px 16px;font-family:var(--font-body);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s">Smart Match</button>
+      <button type="button" aria-label="Open admin panel" onclick="showAdmin()" style="color:rgba(255,255,255,.65);background:transparent;border:1px solid rgba(255,255,255,.15);border-radius:var(--pill);padding:5px 14px;font-family:var(--font-body);font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s">âš™ Admin</button>
     </nav>
   </div>
   <!-- Co-brand tagline bar -->
   <div style="margin-top:.5rem;padding:.35rem 0 0;border-top:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem">
-    <div style="font-size:.7rem;color:rgba(255,255,255,.5);font-style:italic">A joint initiative of the Alameda County Office of Education &amp; the Alameda County Probation Department &nbsp;·&nbsp; acoe.org</div>
+    <div style="font-size:.7rem;color:rgba(255,255,255,.5);font-style:italic">A joint initiative of the Alameda County Office of Education &amp; the Alameda County Probation Department &nbsp;Â·&nbsp; acoe.org</div>
     <div style="display:flex;align-items:center;gap:.5rem">
       <span style="font-size:.65rem;font-weight:700;color:#F5BB4C;text-transform:uppercase;letter-spacing:.06em">Co-led by</span>
       <span style="font-size:.68rem;background:rgba(245,187,76,.15);border:1px solid rgba(245,187,76,.3);border-radius:4px;padding:2px 7px;color:#F5BB4C;font-weight:600">ACOE</span>
@@ -274,35 +288,35 @@ footer strong{color:white;font-family:var(--font-head)}
     </div>
   </div>
 </header>
-<div style="text-align:center;padding:5px 1rem;font-size:.73rem;background:#E0F3F8;border-bottom:1px solid rgba(11,118,145,.15);min-height:26px;color:#085566" id="sheet-status"></div>
+<div style="text-align:center;padding:5px 1rem;font-size:.73rem;background:#E0F3F8;border-bottom:1px solid rgba(11,118,145,.15);min-height:26px;color:#085566" id="sheet-status" role="status" aria-live="polite"></div>
 
 <section class="hero" style="background:linear-gradient(160deg,#E0F3F8 0%,#f5f7f9 60%)">
   <div class="eyebrow" style="background:#FEF6DC;color:#7a5200;border:1px solid rgba(245,187,76,.3)">
     <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
-    A joint initiative of ACOE &amp; Alameda County Probation · 121 Resources
+    A joint initiative of ACOE &amp; Alameda County Probation Â· 121 Resources
   </div>
   <h1 style="color:#0B7691">Find resources built<br>for <em style="font-style:normal;color:#E5763A">your</em> situation</h1>
-  <p>Answer a few questions and we'll surface the programs most relevant to your age, location, and needs — across all of Alameda County.</p>
+  <p>Answer a few questions and we'll surface the programs most relevant to your age, location, and needs â€” across all of Alameda County.</p>
   <div class="hero-btns">
-    <button class="btn-primary" onclick="showView('matcher',document.querySelectorAll('nav button')[1])">Get My Personalized Match →</button>
-    <button class="btn-secondary" onclick="showView('browse',document.querySelectorAll('nav button')[0])">Browse All Resources</button>
+    <button type="button" class="btn-primary" onclick="showView('matcher',document.querySelectorAll('nav button')[1])">Get My Personalized Match â†’</button>
+    <button type="button" class="btn-secondary" onclick="showView('browse',document.querySelectorAll('nav button')[0])">Browse All Resources</button>
   </div>
 </section>
 
-<main>
+<main id="main-content" tabindex="-1">
 
-<!-- ═══════════════════════════════════════
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      SMART MATCH VIEW
-════════════════════════════════════════ -->
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div id="matcher-view">
 
   <!-- WIZARD (shown until complete) -->
   <div id="wizard-shell">
     <div class="start-card" id="wizard-start">
-      <div class="big-icon">🎯</div>
+      <div class="big-icon">ðŸŽ¯</div>
       <h2>Let's find your best resources</h2>
-      <p>Answer 5 quick steps about who you are and what you need. We'll score every resource and show you the ones that fit best — ranked for you.</p>
-      <button class="btn-primary" onclick="startWizard()">Start Matching →</button>
+      <p>Answer 5 quick steps about who you are and what you need. We'll score every resource and show you the ones that fit best â€” ranked for you.</p>
+      <button type="button" class="btn-primary" onclick="startWizard()">Start Matching â†’</button>
     </div>
     <div id="wizard" style="display:none">
       <div class="wizard-wrap">
@@ -313,8 +327,8 @@ footer strong{color:white;font-family:var(--font-head)}
         </div>
         <div class="wiz-body" id="wiz-body"></div>
         <div class="wiz-nav">
-          <button class="wiz-back" id="wiz-back" onclick="wizBack()">← Back</button>
-          <button class="wiz-next" id="wiz-next" onclick="wizNext()">
+          <button type="button" class="wiz-back" id="wiz-back" onclick="wizBack()">â† Back</button>
+          <button type="button" class="wiz-next" id="wiz-next" onclick="wizNext()">
             Continue <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -330,66 +344,67 @@ footer strong{color:white;font-family:var(--font-head)}
         <p id="match-summary"></p>
         <div class="profile-pills" id="profile-pills"></div>
       </div>
-      <button class="match-again-btn" onclick="resetWizard()">↩ Update My Profile</button>
+      <button type="button" class="match-again-btn" onclick="resetWizard()">â†© Update My Profile</button>
     </div>
 
     <!-- Sub-filters for matched results -->
     <div class="source-tabs" id="match-source-tabs">
-      <button class="stab active" onclick="setMatchSrc('all',this)">All Matched</button>
-      <button class="stab" onclick="setMatchSrc('probation-oakland',this)"><span class="sdot" style="background:#0D9E75"></span>Probation – Oakland</button>
-      <button class="stab" onclick="setMatchSrc('probation-county',this)"><span class="sdot" style="background:#378ADD"></span>Probation – County</button>
-      <button class="stab" onclick="setMatchSrc('acoe',this)"><span class="sdot" style="background:#7F77DD"></span>ACOE Schools</button>
-      <button class="stab" onclick="setMatchSrc('dvp-healing',this)"><span class="sdot" style="background:#EF9F27"></span>DVP – Healing</button>
-      <button class="stab" onclick="setMatchSrc('dvp-gbv',this)"><span class="sdot" style="background:#D4537E"></span>DVP – GBV</button>
-      <button class="stab" onclick="setMatchSrc('dvp-group',this)"><span class="sdot" style="background:#D85A30"></span>DVP – Group Violence</button>
-      <button class="stab" onclick="setMatchSrc('general',this)"><span class="sdot" style="background:#888"></span>General</button>
+      <button type="button" class="stab active" onclick="setMatchSrc('all',this)">All Matched</button>
+      <button type="button" class="stab" onclick="setMatchSrc('probation-oakland',this)"><span class="sdot" style="background:#0D9E75"></span>Probation â€“ Oakland</button>
+      <button type="button" class="stab" onclick="setMatchSrc('probation-county',this)"><span class="sdot" style="background:#378ADD"></span>Probation â€“ County</button>
+      <button type="button" class="stab" onclick="setMatchSrc('acoe',this)"><span class="sdot" style="background:#7F77DD"></span>ACOE Schools</button>
+      <button type="button" class="stab" onclick="setMatchSrc('dvp-healing',this)"><span class="sdot" style="background:#EF9F27"></span>DVP â€“ Healing</button>
+      <button type="button" class="stab" onclick="setMatchSrc('dvp-gbv',this)"><span class="sdot" style="background:#D4537E"></span>DVP â€“ GBV</button>
+      <button type="button" class="stab" onclick="setMatchSrc('dvp-group',this)"><span class="sdot" style="background:#D85A30"></span>DVP â€“ Group Violence</button>
+      <button type="button" class="stab" onclick="setMatchSrc('general',this)"><span class="sdot" style="background:#888"></span>General</button>
     </div>
 
     <div class="sec-hdr">
       <h2>Best matches for you</h2>
-      <span class="cnt" id="match-cnt">—</span>
+      <span class="cnt" id="match-cnt" role="status" aria-live="polite">â€”</span>
     </div>
     <div class="grid" id="match-grid"></div>
     <div class="nores" id="match-nores"><h3>No resources found for this filter</h3><p>Try "All Matched" to see your full results.</p></div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      BROWSE VIEW
-════════════════════════════════════════ -->
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div id="browse-view">
   <div style="margin-bottom:1.5rem">
     <div class="search-wrap">
-      <input type="text" id="sinput" placeholder="Search by name, service, or keyword…">
-      <button class="search-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
+      <label for="sinput" class="sr-only">Search resources by name, service, or keyword</label>
+      <input type="search" id="sinput" placeholder="Search by name, service, or keywordâ€¦" autocomplete="off" aria-describedby="browse-cnt">
+      <button type="button" class="search-btn" aria-label="Search resources"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
     </div>
   </div>
   <div class="filters">
-    <button class="fpill active" onclick="setFilter('all',this)">All</button>
-    <button class="fpill" onclick="setFilter('workforce',this)">Workforce</button>
-    <button class="fpill" onclick="setFilter('education',this)">Education</button>
-    <button class="fpill" onclick="setFilter('youth',this)">Youth Services</button>
-    <button class="fpill" onclick="setFilter('violence',this)">Violence Prevention</button>
-    <button class="fpill" onclick="setFilter('housing',this)">Housing</button>
-    <button class="fpill" onclick="setFilter('health',this)">Health &amp; Wellness</button>
-    <button class="fpill" onclick="setFilter('family',this)">Family</button>
-    <button class="fpill" onclick="setFilter('legal',this)">Legal &amp; Justice</button>
-    <button class="fpill" onclick="setFilter('financial',this)">Financial Aid</button>
+    <button type="button" class="fpill active" onclick="setFilter('all',this)">All</button>
+    <button type="button" class="fpill" onclick="setFilter('workforce',this)">Workforce</button>
+    <button type="button" class="fpill" onclick="setFilter('education',this)">Education</button>
+    <button type="button" class="fpill" onclick="setFilter('youth',this)">Youth Services</button>
+    <button type="button" class="fpill" onclick="setFilter('violence',this)">Violence Prevention</button>
+    <button type="button" class="fpill" onclick="setFilter('housing',this)">Housing</button>
+    <button type="button" class="fpill" onclick="setFilter('health',this)">Health &amp; Wellness</button>
+    <button type="button" class="fpill" onclick="setFilter('family',this)">Family</button>
+    <button type="button" class="fpill" onclick="setFilter('legal',this)">Legal &amp; Justice</button>
+    <button type="button" class="fpill" onclick="setFilter('financial',this)">Financial Aid</button>
   </div>
   <div style="margin-top:1.5rem">
     <div class="source-tabs">
-      <button class="stab active" onclick="setSrc('all',this)">All Sources</button>
-      <button class="stab" onclick="setSrc('probation-oakland',this)"><span class="sdot" style="background:#0D9E75"></span>Probation – Oakland</button>
-      <button class="stab" onclick="setSrc('probation-county',this)"><span class="sdot" style="background:#378ADD"></span>Probation – County</button>
-      <button class="stab" onclick="setSrc('acoe',this)"><span class="sdot" style="background:#7F77DD"></span>ACOE Schools</button>
-      <button class="stab" onclick="setSrc('dvp-healing',this)"><span class="sdot" style="background:#EF9F27"></span>DVP – Healing</button>
-      <button class="stab" onclick="setSrc('dvp-gbv',this)"><span class="sdot" style="background:#D4537E"></span>DVP – GBV</button>
-      <button class="stab" onclick="setSrc('dvp-group',this)"><span class="sdot" style="background:#D85A30"></span>DVP – Group Violence</button>
-      <button class="stab" onclick="setSrc('general',this)"><span class="sdot" style="background:#888"></span>General</button>
+      <button type="button" class="stab active" onclick="setSrc('all',this)">All Sources</button>
+      <button type="button" class="stab" onclick="setSrc('probation-oakland',this)"><span class="sdot" style="background:#0D9E75"></span>Probation â€“ Oakland</button>
+      <button type="button" class="stab" onclick="setSrc('probation-county',this)"><span class="sdot" style="background:#378ADD"></span>Probation â€“ County</button>
+      <button type="button" class="stab" onclick="setSrc('acoe',this)"><span class="sdot" style="background:#7F77DD"></span>ACOE Schools</button>
+      <button type="button" class="stab" onclick="setSrc('dvp-healing',this)"><span class="sdot" style="background:#EF9F27"></span>DVP â€“ Healing</button>
+      <button type="button" class="stab" onclick="setSrc('dvp-gbv',this)"><span class="sdot" style="background:#D4537E"></span>DVP â€“ GBV</button>
+      <button type="button" class="stab" onclick="setSrc('dvp-group',this)"><span class="sdot" style="background:#D85A30"></span>DVP â€“ Group Violence</button>
+      <button type="button" class="stab" onclick="setSrc('general',this)"><span class="sdot" style="background:#888"></span>General</button>
     </div>
     <div class="sec-hdr">
       <h2>All Resources</h2>
-      <span class="cnt" id="browse-cnt">—</span>
+      <span class="cnt" id="browse-cnt" role="status" aria-live="polite">â€”</span>
     </div>
     <div class="grid" id="browse-grid"></div>
     <div class="nores" id="browse-nores"><h3>No resources found</h3><p>Try a different search or filter.</p></div>
@@ -426,13 +441,13 @@ footer strong{color:white;font-family:var(--font-head)}
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;flex-wrap:wrap">
       <div>
         <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#F5BB4C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">About ACOE</div>
-        <div style="font-size:.76rem;color:rgba(255,255,255,.62);line-height:1.65">The Alameda County Office of Education, under Superintendent Alysse Castro, operates schools serving the county's most vulnerable students — including Court Schools at the JJC, Quest Academies, Community Schools, and the Parenting Teens Program.</div>
-        <div style="margin-top:.65rem"><a href="https://www.acoe.org" target="_blank" style="color:#F5BB4C;text-decoration:none;font-weight:600;font-size:.78rem">www.acoe.org ↗</a></div>
+        <div style="font-size:.76rem;color:rgba(255,255,255,.62);line-height:1.65">The Alameda County Office of Education, under Superintendent Alysse Castro, operates schools serving the county's most vulnerable students â€” including Court Schools at the JJC, Quest Academies, Community Schools, and the Parenting Teens Program.</div>
+        <div style="margin-top:.65rem"><a href="https://www.acoe.org" target="_blank" style="color:#F5BB4C;text-decoration:none;font-weight:600;font-size:.78rem">www.acoe.org â†—</a></div>
       </div>
       <div>
         <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#F5BB4C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">About AC Probation</div>
-        <div style="font-size:.76rem;color:rgba(255,255,255,.62);line-height:1.65">The Alameda County Probation Department, under Chief Brian K. Ford, provides supervision, intervention, and support for justice-involved youth through its Positive Youth Development division — including YVRC, the Ubuntu Justice Initiative, and the My FUTURE Center.</div>
-        <div style="margin-top:.65rem"><a href="https://probation.acgov.org" target="_blank" style="color:#F5BB4C;text-decoration:none;font-weight:600;font-size:.78rem">probation.acgov.org ↗</a></div>
+        <div style="font-size:.76rem;color:rgba(255,255,255,.62);line-height:1.65">The Alameda County Probation Department, under Chief Brian K. Ford, provides supervision, intervention, and support for justice-involved youth through its Positive Youth Development division â€” including YVRC, the Ubuntu Justice Initiative, and the My FUTURE Center.</div>
+        <div style="margin-top:.65rem"><a href="https://probation.acgov.org" target="_blank" style="color:#F5BB4C;text-decoration:none;font-weight:600;font-size:.78rem">probation.acgov.org â†—</a></div>
       </div>
       <div>
         <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#F5BB4C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">Our Vision</div>
@@ -444,20 +459,20 @@ footer strong{color:white;font-family:var(--font-head)}
 </footer>
 
 <script>
-// ═══════════════════════════════════════════════════════════════
-//  RESOURCE DATA — each resource has matching criteria:
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+//  RESOURCE DATA â€” each resource has matching criteria:
 //  ageMin/ageMax: numeric age range (null = no restriction)
 //  genders: array of applicable genders ('male','female','lgbtq','all')
 //  riskFactors: array of risk tags this resource addresses
 //  zipcodes: 'all' or array of Oakland/AC zip groups ('north','south','east','all')
 //  populations: array ('justice-involved','foster','pregnant','parent','veteran','immigrant','unhoused','survivor','at-risk','african-american')
 //  urgency: 'immediate','short-term','planning','any'
-// ═══════════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  GOOGLE SHEETS CONNECTION
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 let SHEET_URL = localStorage.getItem('rm_sheet_url') || '';
 // Change this if your data file is hosted somewhere else, for example:
 // const DATA_URL = 'https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/resources.json';
@@ -494,7 +509,7 @@ async function loadResources() {
 
   try {
     if (statusEl) {
-      statusEl.textContent = '⟳ Loading latest resources from GitHub…';
+      statusEl.textContent = 'âŸ³ Loading latest resources from GitHubâ€¦';
       statusEl.style.color = 'var(--teal)';
     }
 
@@ -515,7 +530,7 @@ async function loadResources() {
     localStorage.setItem('rm_cache', JSON.stringify(R));
 
     if (statusEl) {
-      statusEl.textContent = '✓ Loaded ' + R.length + ' resources from GitHub';
+      statusEl.textContent = 'âœ“ Loaded ' + R.length + ' resources from GitHub';
       statusEl.style.color = 'var(--teal)';
     }
   } catch (e) {
@@ -525,23 +540,24 @@ async function loadResources() {
     }
 
     if (statusEl) {
-      statusEl.textContent = '⚠ Could not load latest GitHub JSON. Showing ' + R.length + ' cached resources.';
+      statusEl.textContent = 'âš  Could not load latest GitHub JSON. Showing ' + R.length + ' cached resources.';
       statusEl.style.color = 'var(--amber)';
     }
   }
 
   renderBrowse();
+  applyAccessibilityState();
 }
 
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  ADMIN PANEL
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const ADMIN_CODE = 'FUTURE2025';
 async function saveResourcesToGitHub(actionLabel) {
   const statusEl = document.getElementById('admin-conn-status');
 
   if (statusEl) {
-    statusEl.textContent = '⟳ Saving to GitHub resources.json…';
+    statusEl.textContent = 'âŸ³ Saving to GitHub resources.jsonâ€¦';
     statusEl.style.color = 'var(--teal)';
   }
 
@@ -556,7 +572,7 @@ async function saveResourcesToGitHub(actionLabel) {
   if (!response.ok || !result.success) {
     const msg = result.error || result.githubError || ('HTTP ' + response.status);
     if (statusEl) {
-      statusEl.textContent = '⚠ GitHub save failed: ' + msg;
+      statusEl.textContent = 'âš  GitHub save failed: ' + msg;
       statusEl.style.color = 'var(--red)';
     }
     throw new Error(msg);
@@ -565,7 +581,7 @@ async function saveResourcesToGitHub(actionLabel) {
   localStorage.setItem('rm_cache', JSON.stringify(R));
 
   if (statusEl) {
-    statusEl.textContent = '✓ ' + actionLabel + ' saved to GitHub. The page now loads the latest JSON after refresh.';
+    statusEl.textContent = 'âœ“ ' + actionLabel + ' saved to GitHub. The page now loads the latest JSON after refresh.';
     statusEl.style.color = 'var(--teal)';
   }
 
@@ -593,7 +609,7 @@ async function adminConnect() {
   if (!url.startsWith('https://script.google.com/')) { alert('Please paste a valid Apps Script Web App URL.'); return; }
   SHEET_URL = url; localStorage.setItem('rm_sheet_url', url);
   const st = document.getElementById('admin-conn-status');
-  if (st) { st.textContent = '✓ URL saved. Click Reload to fetch resources.'; st.style.color = 'var(--teal)'; }
+  if (st) { st.textContent = 'âœ“ URL saved. Click Reload to fetch resources.'; st.style.color = 'var(--teal)'; }
 }
 
 async function adminTest() {
@@ -603,27 +619,27 @@ async function adminTest() {
   const r = await callSheet({action:'ping'});
   SHEET_URL = prev;
   const st = document.getElementById('admin-conn-status');
-  if (r && r.ok) { alert('✓ Connection successful!'); if(st){st.textContent='✓ Connection confirmed.';st.style.color='var(--teal)';} }
-  else { alert('❌ No response. Check: (1) URL is correct, (2) access = Anyone (not "with Google account"), (3) you created a new deployment after editing the script.'); }
+  if (r && r.ok) { alert('âœ“ Connection successful!'); if(st){st.textContent='âœ“ Connection confirmed.';st.style.color='var(--teal)';} }
+  else { alert('âŒ No response. Check: (1) URL is correct, (2) access = Anyone (not "with Google account"), (3) you created a new deployment after editing the script.'); }
 }
 
 async function adminReload() {
   const st = document.getElementById('admin-conn-status');
-  if (st) st.textContent = '⟳ Loading…';
+  if (st) st.textContent = 'âŸ³ Loadingâ€¦';
   await loadResources();
   renderResourceTable();
   const cnt = document.getElementById('admin-cnt');
   if (cnt) cnt.textContent = R.length;
-  if (st) { st.textContent = '✓ Loaded ' + R.length + ' resources.'; st.style.color='var(--teal)'; }
+  if (st) { st.textContent = 'âœ“ Loaded ' + R.length + ' resources.'; st.style.color='var(--teal)'; }
 }
 
 async function adminSeedSheet() {
   if (!SHEET_URL) { alert('Connect a Sheet URL first, then click Connect.'); return; }
-  if (!confirm('This will write all ' + R.length + ' resources to your Google Sheet one by one. This takes about 60–90 seconds. Continue?')) return;
+  if (!confirm('This will write all ' + R.length + ' resources to your Google Sheet one by one. This takes about 60â€“90 seconds. Continue?')) return;
   const st = document.getElementById('admin-conn-status');
   let success = 0, fail = 0;
   for (let i = 0; i < R.length; i++) {
-    if (st) st.textContent = 'Writing resource ' + (i+1) + ' of ' + R.length + '…';
+    if (st) st.textContent = 'Writing resource ' + (i+1) + ' of ' + R.length + 'â€¦';
     try {
       const result = await callSheet({ action: 'write', data: encodeURIComponent(JSON.stringify(R[i])) });
       if (result && result.ok) { success++; }
@@ -634,7 +650,7 @@ async function adminSeedSheet() {
   }
   if (st) {
     if (fail === 0) {
-      st.textContent = '✓ All ' + success + ' resources written to Sheet!';
+      st.textContent = 'âœ“ All ' + success + ' resources written to Sheet!';
       st.style.color = 'var(--teal)';
     } else {
       st.textContent = success + ' resources written, ' + fail + ' failed. Try again for any that failed.';
@@ -642,9 +658,9 @@ async function adminSeedSheet() {
     }
   }
   if (fail === 0) {
-    alert('✓ All ' + success + ' resources are now in your Google Sheet. You can edit them directly in the spreadsheet anytime.');
+    alert('âœ“ All ' + success + ' resources are now in your Google Sheet. You can edit them directly in the spreadsheet anytime.');
   } else {
-    alert(success + ' of ' + R.length + ' resources written. ' + fail + ' failed — click Seed Sheet again to retry.');
+    alert(success + ' of ' + R.length + ' resources written. ' + fail + ' failed â€” click Seed Sheet again to retry.');
   }
 }
 
@@ -661,7 +677,7 @@ function renderResourceTable() {
     '<td style="padding:.5rem .8rem;color:#555;font-size:.76rem">' + (r.catL||r.cat||'') + '</td>' +
     '<td style="padding:.5rem .8rem;color:#777;font-size:.72rem;font-family:monospace;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + (r.contact||'') + '</td>' +
     '<td style="padding:.5rem .8rem;color:#888;font-size:.72rem">' + (r.srcL||'') + '</td>' +
-    '<td style="padding:.5rem .8rem;white-space:nowrap"><button class="abtn" onclick="editResource(' + r.id + ')" style="margin-right:.25rem">Edit</button><button class="abtn abtn-d" onclick="deleteResource(' + r.id + ')">✕</button></td>' +
+    '<td style="padding:.5rem .8rem;white-space:nowrap"><button type="button" class="abtn" onclick="editResource(' + r.id + ')" style="margin-right:.25rem">Edit</button><button type="button" class="abtn abtn-d" onclick="deleteResource(' + r.id + ')">âœ•</button></td>' +
     '</tr>'
   ).join('');
 }
@@ -734,7 +750,7 @@ async function saveResource() {
     resetAdminForm();
     renderResourceTable();
     renderBrowse();
-    alert('✓ Saved to GitHub resources.json');
+    alert('âœ“ Saved to GitHub resources.json');
   } catch (err) {
     try { R = JSON.parse(previous); } catch(e) {}
     renderResourceTable();
@@ -754,7 +770,7 @@ async function deleteResource(id) {
     await saveResourcesToGitHub('Resource delete');
     renderResourceTable();
     renderBrowse();
-    alert('✓ Deleted from GitHub resources.json');
+    alert('âœ“ Deleted from GitHub resources.json');
   } catch (err) {
     try { R = JSON.parse(previous); } catch(e) {}
     renderResourceTable();
@@ -765,9 +781,9 @@ async function deleteResource(id) {
 
 
 
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  BROWSE STATE
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 let aF='all', aS='all', searchQ='';
 
 function renderBrowse(){
@@ -785,33 +801,34 @@ function renderBrowse(){
   if(!f.length){grid.innerHTML='';nores.style.display='block';return;}
   nores.style.display='none';
   grid.innerHTML=f.map((r,i)=>cardHTML(r,i,null)).join('');
+  applyAccessibilityState();
 }
 
-function setFilter(f,el){aF=f;document.querySelectorAll('.fpill').forEach(p=>p.classList.remove('active'));el.classList.add('active');renderBrowse();}
-function setSrc(s,el){aS=s;document.querySelectorAll('#browse-view .stab').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderBrowse();}
+function setFilter(f,el){aF=f;document.querySelectorAll('.fpill').forEach(p=>{p.classList.remove('active');p.setAttribute('aria-pressed','false');});el.classList.add('active');el.setAttribute('aria-pressed','true');renderBrowse();}
+function setSrc(s,el){aS=s;document.querySelectorAll('#browse-view .stab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-pressed','false');});el.classList.add('active');el.setAttribute('aria-pressed','true');renderBrowse();}
 document.getElementById('sinput').addEventListener('input',e=>{searchQ=e.target.value;renderBrowse();});
 
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  CARD HTML
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 function cardHTML(r,i,scoreInfo){
   const scoreTag=scoreInfo?`<span class="score-badge ${scoreInfo.level}">
     <svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="5"/></svg>
     ${scoreInfo.pct}% match
   </span>`:'';
   const reasonTags=scoreInfo&&scoreInfo.reasons.length?scoreInfo.reasons.slice(0,3).map(reason=>`<span class="match-reason">${reason}</span>`).join(''):'';
-  return`<div class="card ${r.th}" style="animation-delay:${Math.min(i*.05,.5)}s">
-    <div class="accent"></div>
+  return`<article class="card ${r.th}" role="article" aria-labelledby="resource-title-${r.id}" style="animation-delay:${Math.min(i*.05,.5)}s">
+    <div class="accent" aria-hidden="true"></div>
     ${scoreTag}
     <div class="card-top">
-      <div class="cicon">${r.icon}</div>
+      <div class="cicon" aria-hidden="true">${r.icon}</div>
       <div class="badges">
         <span class="cat">${r.catL}</span>
         <span class="src-lbl">${r.srcL}</span>
       </div>
     </div>
     <div>
-      <h3>${r.title}</h3>
+      <h3 id="resource-title-${r.id}">${r.title}</h3>
       ${r.ages?`<span class="ages-pill">Ages: ${r.ages}</span>`:''}
     </div>
     <p>${r.desc}</p>
@@ -825,29 +842,30 @@ function cardHTML(r,i,scoreInfo){
         ${r.contact?`<div class="card-contact">${r.contact}</div>`:''}
         ${r.addr?`<div class="card-addr">${r.addr}</div>`:''}
       </div>
-      ${r.link&&r.link!=='#'?`<a href="${r.link}" target="_blank" class="cta">Learn more</a>`:`<span class="cta cta-gray">Contact us</span>`}
+      ${r.link&&r.link!=='#'?`<a href="${r.link}" target="_blank" rel="noopener noreferrer" class="cta" aria-label="Learn more about ${r.title}">Learn more</a>`:`<span class="cta cta-gray" role="note">Contact us</span>`}
     </div>
-  </div>`;
+  </article>`;
 }
 
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  VIEW TOGGLE
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 function showView(view,btn){
   document.getElementById('matcher-view').classList.toggle('visible',view==='matcher');
   document.getElementById('browse-view').style.display=view==='browse'?'block':'none';
-  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('nav-active'));
-  if(btn)btn.classList.add('nav-active');
+  document.querySelectorAll('nav button').forEach(b=>{b.classList.remove('nav-active');b.setAttribute('aria-pressed','false');});
+  if(btn){btn.classList.add('nav-active');btn.setAttribute('aria-pressed','true');}
+  const main=document.getElementById('main-content'); if(main) main.focus({preventScroll:true});
 }
 
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  WIZARD STATE
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 let wStep=0, profile={};
 let matchSrcFilter='all';
 
 const STEPS=[
-  // STEP 0 — About You
+  // STEP 0 â€” About You
   {
     label:'About You', pct:20,
     render:()=>`
@@ -869,7 +887,7 @@ const STEPS=[
       <div>
         <span class="input-label">Which area of Oakland / Alameda County are you in?</span>
         <div class="opt-grid cols-auto" style="max-width:520px">
-          ${[['north','🏙️','North Oakland / Downtown','94601–94612, 94618–94619'],['east','🌆','East Oakland','94603, 94605, 94606, 94621'],['south','🏘️','South County','Hayward, San Leandro, Fremont…'],['all','🗺️','Not sure / Any area','Show all locations']].map(([v,icon,label,sub])=>`
+          ${[['north','ðŸ™ï¸','North Oakland / Downtown','94601â€“94612, 94618â€“94619'],['east','ðŸŒ†','East Oakland','94603, 94605, 94606, 94621'],['south','ðŸ˜ï¸','South County','Hayward, San Leandro, Fremontâ€¦'],['all','ðŸ—ºï¸','Not sure / Any area','Show all locations']].map(([v,icon,label,sub])=>`
           <button class="wiz-opt ${profile.area===v?'selected':''}" onclick="pickOne('area','${v}',this)">
             <div class="check"></div>
             <div class="opt-icon">${icon}</div>
@@ -884,41 +902,41 @@ const STEPS=[
     },
     valid:()=>true
   },
-  // STEP 1 — Situation
+  // STEP 1 â€” Situation
   {
     label:'Your Situation', pct:40,
     render:()=>`
       <h2>What's your current situation?</h2>
-      <p class="sub">Select everything that applies — we use this to find programs built for your needs.</p>
+      <p class="sub">Select everything that applies â€” we use this to find programs built for your needs.</p>
       <div class="risk-grid" id="risk-chips">
         ${[
-          ['justice-involved','⚖️','Involved with justice system'],
-          ['first-offense','🔰','First-time offense / diversion'],
-          ['gang','🏘️','Gang-involved or at risk'],
-          ['violence','🛡️','Affected by violence'],
-          ['domestic-violence','⚠️','Domestic / intimate partner violence'],
-          ['sexual-exploitation','🚨','Commercial sexual exploitation'],
-          ['community-violence','💔','Lost someone to violence'],
-          ['mental-health','🧠','Mental health challenges'],
-          ['substance-use','💊','Substance use / addiction'],
-          ['truancy','📅','Chronically absent / truant'],
-          ['school-disconnected','🚪','Out of school / disconnected'],
-          ['credit-deficiency','📝','Behind on credits / need diploma'],
-          ['iep-sped','♿','Has an IEP / Special Education needs'],
-          ['school-dropout','📚','Dropped out of school'],
-          ['foster-care','🏡','In or aging out of foster care'],
-          ['aging-out','🔑','Aging out of foster care system'],
-          ['unemployment','💼','Unemployed / need work'],
-          ['housing','🏠','Housing unstable / unhoused'],
-          ['food-insecurity','🥗','Struggling to afford food'],
-          ['family','👨‍👩‍👧','Family / parenting challenges'],
-          ['parent','👶','Pregnant or a parent'],
-          ['grief','🕯️','Grieving / loss'],
-          ['crisis','🆘','In crisis right now'],
-          ['lgbtq','🏳️‍🌈','LGBTQ+ specific needs'],
-          ['immigrant','🌍','Immigrant / language barriers'],
-          ['disability','♿','Disability or developmental delay'],
-          ['mentorship','🌟','Looking for a mentor'],
+          ['justice-involved','âš–ï¸','Involved with justice system'],
+          ['first-offense','ðŸ”°','First-time offense / diversion'],
+          ['gang','ðŸ˜ï¸','Gang-involved or at risk'],
+          ['violence','ðŸ›¡ï¸','Affected by violence'],
+          ['domestic-violence','âš ï¸','Domestic / intimate partner violence'],
+          ['sexual-exploitation','ðŸš¨','Commercial sexual exploitation'],
+          ['community-violence','ðŸ’”','Lost someone to violence'],
+          ['mental-health','ðŸ§ ','Mental health challenges'],
+          ['substance-use','ðŸ’Š','Substance use / addiction'],
+          ['truancy','ðŸ“…','Chronically absent / truant'],
+          ['school-disconnected','ðŸšª','Out of school / disconnected'],
+          ['credit-deficiency','ðŸ“','Behind on credits / need diploma'],
+          ['iep-sped','â™¿','Has an IEP / Special Education needs'],
+          ['school-dropout','ðŸ“š','Dropped out of school'],
+          ['foster-care','ðŸ¡','In or aging out of foster care'],
+          ['aging-out','ðŸ”‘','Aging out of foster care system'],
+          ['unemployment','ðŸ’¼','Unemployed / need work'],
+          ['housing','ðŸ ','Housing unstable / unhoused'],
+          ['food-insecurity','ðŸ¥—','Struggling to afford food'],
+          ['family','ðŸ‘¨â€ðŸ‘©â€ðŸ‘§','Family / parenting challenges'],
+          ['parent','ðŸ‘¶','Pregnant or a parent'],
+          ['grief','ðŸ•¯ï¸','Grieving / loss'],
+          ['crisis','ðŸ†˜','In crisis right now'],
+          ['lgbtq','ðŸ³ï¸â€ðŸŒˆ','LGBTQ+ specific needs'],
+          ['immigrant','ðŸŒ','Immigrant / language barriers'],
+          ['disability','â™¿','Disability or developmental delay'],
+          ['mentorship','ðŸŒŸ','Looking for a mentor'],
         ].map(([v,icon,label])=>`
           <button class="risk-chip ${(profile.risks||[]).includes(v)?'selected':''}" onclick="toggleRisk('${v}',this)">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
@@ -928,23 +946,23 @@ const STEPS=[
     save:()=>{},
     valid:()=>true
   },
-  // STEP 2 — Goals
+  // STEP 2 â€” Goals
   {
     label:'Your Goals', pct:60,
     render:()=>`
       <h2>What do you most need right now?</h2>
-      <p class="sub">Pick your top priorities — you can choose more than one.</p>
+      <p class="sub">Pick your top priorities â€” you can choose more than one.</p>
       <div class="opt-grid cols-2">
         ${[
-          ['workforce','💼','Find a job or job training','Employment, paid work, career coaching'],
-          ['education','📚','Go back to school / get diploma','Credit recovery, GED, alternative school, college prep'],
-          ['youth','🚀','Youth development services','Life skills, leadership, drop-in support'],
-          ['violence','🛡️','Violence prevention & safety','Interruption, life coaching, healing'],
-          ['housing','🏠','Stable housing','Emergency relocation, shelter, transitional housing'],
-          ['health','🧠','Mental health & wellness','Counseling, therapy, crisis support'],
-          ['legal','⚖️','Legal help / justice support','Diversion, restorative justice, legal aid'],
-          ['family','👨‍👩‍👧','Family & parenting support','Parenting classes, childcare, food access'],
-          ['financial','💰','Financial assistance','Rental aid, CalFresh, emergency funds'],
+          ['workforce','ðŸ’¼','Find a job or job training','Employment, paid work, career coaching'],
+          ['education','ðŸ“š','Go back to school / get diploma','Credit recovery, GED, alternative school, college prep'],
+          ['youth','ðŸš€','Youth development services','Life skills, leadership, drop-in support'],
+          ['violence','ðŸ›¡ï¸','Violence prevention & safety','Interruption, life coaching, healing'],
+          ['housing','ðŸ ','Stable housing','Emergency relocation, shelter, transitional housing'],
+          ['health','ðŸ§ ','Mental health & wellness','Counseling, therapy, crisis support'],
+          ['legal','âš–ï¸','Legal help / justice support','Diversion, restorative justice, legal aid'],
+          ['family','ðŸ‘¨â€ðŸ‘©â€ðŸ‘§','Family & parenting support','Parenting classes, childcare, food access'],
+          ['financial','ðŸ’°','Financial assistance','Rental aid, CalFresh, emergency funds'],
         ].map(([v,icon,label,sub])=>`
           <button class="wiz-opt ${(profile.goals||[]).includes(v)?'selected':''}" onclick="toggleGoal('${v}',this)">
             <div class="check"></div>
@@ -956,7 +974,7 @@ const STEPS=[
     save:()=>{},
     valid:()=>(profile.goals||[]).length>0
   },
-  // STEP 3 — Urgency
+  // STEP 3 â€” Urgency
   {
     label:'Timeline', pct:80,
     render:()=>`
@@ -964,9 +982,9 @@ const STEPS=[
       <p class="sub">This helps us surface programs that can respond at your pace.</p>
       <div class="opt-grid cols-auto" style="max-width:520px">
         ${[
-          ['immediate','🚨','Right now','I need help today or this week'],
-          ['short-term','📅','Within a month','I\'m actively looking'],
-          ['planning','🗓️','Planning ahead','I want to prepare for the future'],
+          ['immediate','ðŸš¨','Right now','I need help today or this week'],
+          ['short-term','ðŸ“…','Within a month','I\'m actively looking'],
+          ['planning','ðŸ—“ï¸','Planning ahead','I want to prepare for the future'],
         ].map(([v,icon,label,sub])=>`
           <button class="wiz-opt ${profile.urgency===v?'selected':''}" onclick="pickOne('urgency','${v}',this)">
             <div class="check"></div>
@@ -978,7 +996,7 @@ const STEPS=[
     save:()=>{},
     valid:()=>!!profile.urgency
   },
-  // STEP 4 — Identity (optional)
+  // STEP 4 â€” Identity (optional)
   {
     label:'More About You', pct:95,
     render:()=>`
@@ -986,16 +1004,16 @@ const STEPS=[
       <p class="sub">Some programs are designed for specific populations. Sharing this helps us find the most targeted match.</p>
       <div class="risk-grid">
         ${[
-          ['african-american','✊','African American / Black'],
-          ['foster','🏡','In or formerly in foster care'],
-          ['aging-out','🔑','Aging out of foster care (18+)'],
-          ['veteran','🎖️','Veteran or military family'],
-          ['immigrant','🌍','Immigrant / refugee / DACA'],
-          ['lgbtq','🏳️‍🌈','LGBTQ+ community member'],
-          ['unhoused','🛖','Currently unhoused'],
-          ['survivor','💜','Violence survivor'],
-          ['parent','👶','Parent or caregiver of young child'],
-          ['justice-involved','⚖️','Justice-involved / on probation'],
+          ['african-american','âœŠ','African American / Black'],
+          ['foster','ðŸ¡','In or formerly in foster care'],
+          ['aging-out','ðŸ”‘','Aging out of foster care (18+)'],
+          ['veteran','ðŸŽ–ï¸','Veteran or military family'],
+          ['immigrant','ðŸŒ','Immigrant / refugee / DACA'],
+          ['lgbtq','ðŸ³ï¸â€ðŸŒˆ','LGBTQ+ community member'],
+          ['unhoused','ðŸ›–','Currently unhoused'],
+          ['survivor','ðŸ’œ','Violence survivor'],
+          ['parent','ðŸ‘¶','Parent or caregiver of young child'],
+          ['justice-involved','âš–ï¸','Justice-involved / on probation'],
         ].map(([v,icon,label])=>`
           <button class="risk-chip ${(profile.populations||[]).includes(v)?'selected':''}" onclick="togglePop('${v}',this)">
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1024,7 +1042,7 @@ function renderStep(){
   document.getElementById('wiz-back').style.visibility=wStep===0?'hidden':'visible';
   const nextBtn=document.getElementById('wiz-next');
   if(wStep===STEPS.length-1){
-    nextBtn.innerHTML='Find My Matches ✨';
+    nextBtn.innerHTML='Find My Matches âœ¨';
     nextBtn.onclick=finishWizard;
   } else {
     nextBtn.innerHTML='Continue <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
@@ -1067,9 +1085,9 @@ function togglePop(val,btn){
   else{profile.populations.push(val);btn.classList.add('selected');}
 }
 
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  SCORING ENGINE
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 function scoreResource(r,p){
   let score=0, maxScore=0, reasons=[];
 
@@ -1135,9 +1153,9 @@ function scoreResource(r,p){
   return{score,pct,reasons:[...new Set(reasons)],level:pct>=75?'high':pct>=50?'med':'low'};
 }
 
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  FINISH & RENDER RESULTS
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 let matchedResults=[];
 
 function finishWizard(){
@@ -1163,7 +1181,7 @@ function finishWizard(){
 
   const total=scored.length;
   const high=scored.filter(x=>x.info.level==='high').length;
-  document.getElementById('match-summary').textContent=`Found ${total} resources for your profile — ${high} strong matches highlighted.`;
+  document.getElementById('match-summary').textContent=`Found ${total} resources for your profile â€” ${high} strong matches highlighted.`;
 
   renderMatchGrid();
 }
@@ -1177,12 +1195,13 @@ function renderMatchGrid(){
   if(!f.length){grid.innerHTML='';nores.style.display='block';return;}
   nores.style.display='none';
   grid.innerHTML=f.map((x,i)=>cardHTML(x.r,i,x.info)).join('');
+  applyAccessibilityState();
 }
 
 function setMatchSrc(s,el){
   matchSrcFilter=s;
-  document.querySelectorAll('#match-source-tabs .stab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
+  document.querySelectorAll('#match-source-tabs .stab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-pressed','false');});
+  el.classList.add('active');el.setAttribute('aria-pressed','true');
   renderMatchGrid();
 }
 
@@ -1194,10 +1213,26 @@ function resetWizard(){
   renderStep();
 }
 
-// ════════════════════════════════════════
+
+function applyAccessibilityState(){
+  document.querySelectorAll('.fpill,.stab,.wiz-opt,.risk-chip').forEach(btn=>{
+    if(!btn.hasAttribute('type')) btn.setAttribute('type','button');
+    btn.setAttribute('aria-pressed',btn.classList.contains('active')||btn.classList.contains('selected')?'true':'false');
+  });
+  document.querySelectorAll('svg').forEach(svg=>{svg.setAttribute('aria-hidden','true');svg.setAttribute('focusable','false');});
+  document.querySelectorAll('label.afl').forEach(label=>{
+    const field=label.parentElement&&label.parentElement.querySelector('input,select,textarea');
+    if(field&&!label.htmlFor){ if(!field.id) field.id='field-'+Math.random().toString(36).slice(2); label.htmlFor=field.id; }
+  });
+  document.querySelectorAll('a[target="_blank"]').forEach(a=>{ if(!a.rel) a.rel='noopener noreferrer'; });
+}
+document.addEventListener('DOMContentLoaded',applyAccessibilityState);
+
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 //  INIT
-// ════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 loadResources();
+setTimeout(applyAccessibilityState,500);
 </script>
 
 <style>
@@ -1215,11 +1250,11 @@ textarea.afi{resize:vertical;min-height:72px;line-height:1.5}
 #admin-ov.open{display:block}
 </style>
 
-<div id="admin-ov">
+<div id="admin-ov" role="dialog" aria-modal="true" aria-labelledby="admin-title">
   <div style="max-width:880px;margin:0 auto;background:white;border-radius:18px;padding:1.85rem;box-shadow:0 20px 60px rgba(0,0,0,.3)">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.4rem">
-      <h2 style="font-family:var(--font-head);font-size:1.25rem;font-weight:800">⚙ Resource Admin Panel</h2>
-      <button onclick="closeAdmin()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:#888;line-height:1">✕</button>
+      <h2 id="admin-title" style="font-family:var(--font-head);font-size:1.25rem;font-weight:800">âš™ Resource Admin Panel</h2>
+      <button type="button" aria-label="Close admin panel" onclick="closeAdmin()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:#444;line-height:1">âœ•</button>
     </div>
 
     <!-- SHEET SETUP -->
@@ -1227,7 +1262,7 @@ textarea.afi{resize:vertical;min-height:72px;line-height:1.5}
       <h3 style="font-family:var(--font-head);font-size:.9rem;font-weight:700;color:var(--teal-dark);margin-bottom:.55rem">GitHub JSON Connection</h3>
       <p style="font-size:.78rem;color:#555;margin-bottom:.75rem;line-height:1.6">This admin panel saves changes to GitHub through the backend function at <strong>/api/updateResources</strong>. Add your GitHub token as a Vercel environment variable. Do not place the token in this HTML file.</p>
       <details style="margin-bottom:.75rem">
-        <summary style="font-size:.78rem;font-weight:600;cursor:pointer;color:var(--teal-dark);user-select:none">Required Vercel Environment Variables ↓</summary>
+        <summary style="font-size:.78rem;font-weight:600;cursor:pointer;color:var(--teal-dark);user-select:none">Required Vercel Environment Variables â†“</summary>
         <div style="margin-top:.5rem;background:#1a1a2e;color:#7effd4;font-family:monospace;font-size:.72rem;border-radius:8px;padding:.75rem;line-height:1.75;white-space:pre-wrap">GITHUB_TOKEN=github_pat_your_token_here
 GITHUB_OWNER=JohnStyleZ
 GITHUB_REPO=ProbationResourcesPage
@@ -1235,29 +1270,29 @@ GITHUB_BRANCH=main</div>
         <p style="font-size:.73rem;color:#666;margin-top:.4rem">The token needs GitHub repository Contents permission set to Read and Write.</p>
       </details>
       <div style="display:flex;gap:.4rem;flex-wrap:wrap">
-        <button class="abtn" onclick="adminReload()">↻ Reload JSON</button>
-        <button class="abtn abtn-p" onclick="newResource()">+ Add Resource</button>
+        <button type="button" class="abtn" onclick="adminReload()">â†» Reload JSON</button>
+        <button type="button" class="abtn abtn-p" onclick="newResource()">+ Add Resource</button>
       </div>
       <input id="admin-url-inp" type="hidden">
-      <div id="admin-conn-status" style="font-size:.74rem;margin-top:.4rem;color:#888"></div>
+      <div id="admin-conn-status" role="status" aria-live="polite" style="font-size:.74rem;margin-top:.4rem;color:#888"></div>
     </div>
 
     <!-- RESOURCE TABLE -->
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.65rem;flex-wrap:wrap;gap:.4rem">
       <h3 style="font-family:var(--font-head);font-size:.9rem;font-weight:700">All Resources (<span id="admin-cnt">121</span>)</h3>
       <div style="display:flex;gap:.35rem">
-        <input id="admin-search" placeholder="Search…" oninput="renderResourceTable()" style="border:1.5px solid #cbd5e1;border-radius:20px;padding:4px 12px;font-size:.79rem;outline:none;width:180px">
-        <button class="abtn abtn-p" onclick="newResource()">+ Add Resource</button>
+        <input id="admin-search" aria-label="Search admin resource table" placeholder="Searchâ€¦" oninput="renderResourceTable()" style="border:1.5px solid #cbd5e1;border-radius:20px;padding:4px 12px;font-size:.79rem;outline:none;width:180px">
+        <button type="button" class="abtn abtn-p" onclick="newResource()">+ Add Resource</button>
       </div>
     </div>
     <div style="overflow-x:auto;border:1px solid #e2e8f0;border-radius:10px;margin-bottom:1.1rem;max-height:320px;overflow-y:auto">
       <table style="width:100%;border-collapse:collapse;font-size:.77rem">
         <thead style="position:sticky;top:0;z-index:1"><tr style="background:#f8fafc">
-          <th style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Name</th>
-          <th style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Category</th>
-          <th style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Contact</th>
-          <th style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Source</th>
-          <th style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600"></th>
+          <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Name</th>
+          <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Category</th>
+          <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Contact</th>
+          <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Source</th>
+          <th scope="col" aria-label="Actions" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#64748b;border-bottom:1px solid #e2e8f0;font-weight:600"></th>
         </tr></thead>
         <tbody id="admin-tbody"></tbody>
       </table>
@@ -1269,31 +1304,31 @@ GITHUB_BRANCH=main</div>
       <form id="admin-res-form" onsubmit="event.preventDefault()">
         <input type="hidden" id="af-id">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:.65rem">
-          <div style="grid-column:1/-1"><label class="afl">Name *</label><input class="afi" id="af-title" placeholder="Full organization name" required></div>
-          <div><label class="afl">Category</label><select class="afi" id="af-cat"><option value="health">Health & Wellness</option><option value="legal">Legal & Justice</option><option value="youth">Youth Services</option><option value="workforce">Workforce</option><option value="violence">Violence Prevention</option><option value="housing">Housing</option><option value="family">Family</option><option value="education">Education</option><option value="food">Food & Basic Needs</option></select></div>
-          <div><label class="afl">Category Label</label><input class="afi" id="af-catL" placeholder="e.g. Health &amp; Wellness"></div>
-          <div><label class="afl">Icon (emoji)</label><input class="afi" id="af-icon" placeholder="🌟"></div>
-          <div><label class="afl">Card Theme</label><select class="afi" id="af-th"><option value="th-teal">th-teal</option><option value="th-amber">th-amber</option><option value="th-coral">th-coral</option><option value="th-purple">th-purple</option><option value="th-blue">th-blue</option><option value="th-pink">th-pink</option><option value="th-red">th-red</option><option value="th-green">th-green</option></select></div>
-          <div><label class="afl">Ages Served</label><input class="afi" id="af-ages" placeholder="14–21"></div>
+          <div style="grid-column:1/-1"><label class="afl" for="af-title">Name *</label><input class="afi" id="af-title" placeholder="Full organization name" required></div>
+          <div><label class="afl" for="af-cat">Category</label><select class="afi" id="af-cat"><option value="health">Health & Wellness</option><option value="legal">Legal & Justice</option><option value="youth">Youth Services</option><option value="workforce">Workforce</option><option value="violence">Violence Prevention</option><option value="housing">Housing</option><option value="family">Family</option><option value="education">Education</option><option value="food">Food & Basic Needs</option></select></div>
+          <div><label class="afl" for="af-catL">Category Label</label><input class="afi" id="af-catL" placeholder="e.g. Health &amp; Wellness"></div>
+          <div><label class="afl" for="af-icon">Icon (emoji)</label><input class="afi" id="af-icon" placeholder="ðŸŒŸ"></div>
+          <div><label class="afl" for="af-th">Card Theme</label><select class="afi" id="af-th"><option value="th-teal">th-teal</option><option value="th-amber">th-amber</option><option value="th-coral">th-coral</option><option value="th-purple">th-purple</option><option value="th-blue">th-blue</option><option value="th-pink">th-pink</option><option value="th-red">th-red</option><option value="th-green">th-green</option></select></div>
+          <div><label class="afl" for="af-ages">Ages Served</label><input class="afi" id="af-ages" placeholder="14â€“21"></div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem">
-            <div><label class="afl">Age Min</label><input class="afi" type="number" id="af-ageMin" placeholder="14"></div>
-            <div><label class="afl">Age Max</label><input class="afi" type="number" id="af-ageMax" placeholder="21"></div>
+            <div><label class="afl" for="af-ageMin">Age Min</label><input class="afi" type="number" id="af-ageMin" placeholder="14"></div>
+            <div><label class="afl" for="af-ageMax">Age Max</label><input class="afi" type="number" id="af-ageMax" placeholder="21"></div>
           </div>
-          <div><label class="afl">Urgency</label>
+          <div><label class="afl" for="af-urgency">Urgency</label>
             <select class="afi" id="af-urgency"><option value="any">Any</option><option value="immediate">Immediate</option><option value="short-term">Short-term</option><option value="planning">Planning</option></select>
           </div>
-          <div><label class="afl">Coverage</label>
+          <div><label class="afl" for="af-zipcodes">Coverage</label>
             <select class="afi" id="af-zipcodes"><option value="all">All Alameda County</option><option value="north">North / Oakland</option><option value="south">South / Hayward</option><option value="east">East County</option></select>
           </div>
-          <div style="grid-column:1/-1"><label class="afl">Description</label><textarea class="afi" id="af-desc" rows="2" placeholder="Brief description of services…"></textarea></div>
-          <div><label class="afl">Contact</label><input class="afi" id="af-contact" placeholder="(510) 555-0000 | org@email.com"></div>
-          <div><label class="afl">Address</label><input class="afi" id="af-addr" placeholder="123 Main St, Oakland"></div>
-          <div><label class="afl">Availability</label><input class="afi" id="af-avail" placeholder="Open, Referrals accepted…"></div>
-          <div><label class="afl">Link</label><input class="afi" id="af-link" placeholder="https:// or mailto:"></div>
-          <div><label class="afl">Source ID</label><input class="afi" id="af-src" placeholder="probation-oakland"></div>
-          <div><label class="afl">Source Label</label><input class="afi" id="af-srcL" placeholder="AC Probation – Oakland"></div>
-          <div><label class="afl">Tags (comma separated)</label><input class="afi" id="af-tags" placeholder="Counseling, Crisis, Diversion"></div>
-          <div><label class="afl">Genders (all or male|female)</label><input class="afi" id="af-genders" placeholder="all"></div>
+          <div style="grid-column:1/-1"><label class="afl" for="af-desc">Description</label><textarea class="afi" id="af-desc" rows="2" placeholder="Brief description of servicesâ€¦"></textarea></div>
+          <div><label class="afl" for="af-contact">Contact</label><input class="afi" id="af-contact" placeholder="(510) 555-0000 | org@email.com"></div>
+          <div><label class="afl" for="af-addr">Address</label><input class="afi" id="af-addr" placeholder="123 Main St, Oakland"></div>
+          <div><label class="afl" for="af-avail">Availability</label><input class="afi" id="af-avail" placeholder="Open, Referrals acceptedâ€¦"></div>
+          <div><label class="afl" for="af-link">Link</label><input class="afi" id="af-link" placeholder="https:// or mailto:"></div>
+          <div><label class="afl" for="af-src">Source ID</label><input class="afi" id="af-src" placeholder="probation-oakland"></div>
+          <div><label class="afl" for="af-srcL">Source Label</label><input class="afi" id="af-srcL" placeholder="AC Probation â€“ Oakland"></div>
+          <div><label class="afl" for="af-tags">Tags (comma separated)</label><input class="afi" id="af-tags" placeholder="Counseling, Crisis, Diversion"></div>
+          <div><label class="afl" for="af-genders">Genders (all or male|female)</label><input class="afi" id="af-genders" placeholder="all"></div>
         </div>
         <div style="margin-bottom:.65rem"><label class="afl" style="margin-bottom:.4rem">Risk Factors</label>
           <div style="display:flex;flex-wrap:wrap;gap:.3rem"><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-mental-health" value="mental-health"> mental-health</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-substance-use" value="substance-use"> substance-use</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-justice-involved" value="justice-involved"> justice-involved</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-violence" value="violence"> violence</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-gang" value="gang"> gang</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-housing" value="housing"> housing</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-school-dropout" value="school-dropout"> school-dropout</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-unemployment" value="unemployment"> unemployment</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-family" value="family"> family</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-mentorship" value="mentorship"> mentorship</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-immigration" value="immigration"> immigration</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-crisis" value="crisis"> crisis</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-truancy" value="truancy"> truancy</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-school-disconnected" value="school-disconnected"> school-disconnected</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-credit-deficiency" value="credit-deficiency"> credit-deficiency</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-IEP-sped" value="IEP-sped"> IEP-sped</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-foster-care" value="foster-care"> foster-care</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-aging-out" value="aging-out"> aging-out</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-first-offense" value="first-offense"> first-offense</label><label style="display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;background:#f1f5f9;border-radius:20px;padding:3px 9px;cursor:pointer"><input type="checkbox" id="rf-parent" value="parent"> parent</label></div>
@@ -1309,7 +1344,7 @@ GITHUB_BRANCH=main</div>
     </div>
 
     <div style="text-align:right;margin-top:.9rem">
-      <button class="abtn" onclick="closeAdmin()">Close</button>
+      <button type="button" class="abtn" onclick="closeAdmin()">Close</button>
     </div>
   </div>
 </div>
