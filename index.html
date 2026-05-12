@@ -273,6 +273,15 @@ footer a{text-decoration:underline!important;text-underline-offset:3px}
 [style*="rgba(255,255,255,.3)"],[style*="rgba(255,255,255,.35)"],[style*="rgba(255,255,255,.5)"],[style*="rgba(255,255,255,.55)"],[style*="rgba(255,255,255,.6)"],[style*="rgba(255,255,255,.62)"],[style*="rgba(255,255,255,.65)"],[style*="rgba(255,255,255,.7)"],[style*="rgba(255,255,255,.75)"],[style*="rgba(255,255,255,.8)"]{color:#fff!important}
 [style*="color:#F5BB4C"],[style*="color:#FFE08A"]{color:#fff!important}
 
+
+/* Final WCAG contrast overrides */
+.fpill.active, button.fpill.active{background:#085566!important;border-color:#085566!important;color:#ffffff!important;}
+.btn-primary, .wiz-next, .cta{background:#085566!important;color:#ffffff!important;}
+.btn-primary:hover, .wiz-next:hover, .cta:hover{background:#043f4d!important;}
+header[style], footer[style]{background:#043f4d!important;}
+footer, footer *, footer div, footer span, footer p{color:#ffffff!important;}
+footer a{color:#ffffff!important;text-decoration:underline!important;text-underline-offset:3px;}
+
 </style>
 </head>
 <body>
@@ -441,7 +450,7 @@ footer a{text-decoration:underline!important;text-underline-offset:3px}
 
 </main>
 
-<footer style="background:#0B7691;color:rgba(255,255,255,.7);text-align:left;padding:2.5rem 2rem;font-size:.82rem;line-height:1.7">
+<footer style="background:#043f4d;color:rgba(255,255,255,.7);text-align:left;padding:2.5rem 2rem;font-size:.82rem;line-height:1.7">
   <div style="max-width:900px;margin:0 auto">
 
     <!-- Co-brand header bar -->
@@ -470,12 +479,12 @@ footer a{text-decoration:underline!important;text-underline-offset:3px}
       <div>
         <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#F5BB4C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">About ACOE</div>
         <div style="font-size:.76rem;color:rgba(255,255,255,.62);line-height:1.65">The Alameda County Office of Education, under Superintendent Alysse Castro, operates schools serving the county's most vulnerable students — including Court Schools at the JJC, Quest Academies, Community Schools, and the Parenting Teens Program.</div>
-        <div style="margin-top:.65rem"><a href="https://www.acoe.org" target="_blank" style="color:#F5BB4C;text-decoration:none;font-weight:600;font-size:.78rem">www.acoe.org ↗</a></div>
+        <div style="margin-top:.65rem"><a href="https://www.acoe.org" target="_blank" aria-label="ACOE website opens in a new window" title="Opens in a new window" rel="noopener noreferrer" style="color:#F5BB4C;text-decoration:none;font-weight:600;font-size:.78rem">www.acoe.org <span class="sr-only">opens in a new window</span>↗</a></div>
       </div>
       <div>
         <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#F5BB4C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">About AC Probation</div>
         <div style="font-size:.76rem;color:rgba(255,255,255,.62);line-height:1.65">The Alameda County Probation Department, under Chief Brian K. Ford, provides supervision, intervention, and support for justice-involved youth through its Positive Youth Development division — including YVRC, the Ubuntu Justice Initiative, and the My FUTURE Center.</div>
-        <div style="margin-top:.65rem"><a href="https://probation.acgov.org" target="_blank" style="color:#F5BB4C;text-decoration:none;font-weight:600;font-size:.78rem">probation.acgov.org ↗</a></div>
+        <div style="margin-top:.65rem"><a href="https://probation.acgov.org" target="_blank" aria-label="AC Probation website opens in a new window" title="Opens in a new window" rel="noopener noreferrer" style="color:#F5BB4C;text-decoration:none;font-weight:600;font-size:.78rem">probation.acgov.org <span class="sr-only">opens in a new window</span>↗</a></div>
       </div>
       <div>
         <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#F5BB4C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">Our Vision</div>
