@@ -569,7 +569,7 @@ footer [style*="color:#FFFFFF"]{
 <section class="hero" style="background:linear-gradient(160deg,#E0F3F8 0%,#f5f7f9 60%)" aria-labelledby="hero-title">
   <div class="eyebrow" style="background:#FEF6DC;color:#7a5200;border:1px solid rgba(245,187,76,.3)">
     <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
-    A joint initiative of ACOE &amp; Alameda County Probation · 121 Resources
+    A joint initiative of ACOE &amp; Alameda County Probation · <span id="hero-resource-count">Loading resources</span>
   </div>
   <h1 id="hero-title" style="color:#0B7691">Find resources built<br>for <em style="font-style:normal;color:#E5763A">your</em> situation</h1>
   <p>Answer a few questions and we'll surface the programs most relevant to your age, location, and needs — across all of Alameda County.</p>
@@ -1658,6 +1658,55 @@ GITHUB_BRANCH=main</div>
     setTimeout(fixLoadedStatus, 200);
     return response;
   };
+})();
+</script>
+
+
+<script>
+/* ================================
+   DYNAMIC HERO RESOURCE COUNT
+================================ */
+(function(){
+  function getResourceCount(){
+    try {
+      if (Array.isArray(window.R)) return window.R.length;
+      if (typeof R !== "undefined" && Array.isArray(R)) return R.length;
+    } catch(e) {}
+    return null;
+  }
+
+  function updateHeroResourceCount(){
+    const el = document.getElementById("hero-resource-count");
+    if (!el) return;
+
+    const count = getResourceCount();
+
+    if (typeof count === "number" && count > 0) {
+      el.textContent = `${count} Resources`;
+    }
+  }
+
+  window.addEventListener("load", function(){
+    updateHeroResourceCount();
+    setTimeout(updateHeroResourceCount, 300);
+    setTimeout(updateHeroResourceCount, 1000);
+    setTimeout(updateHeroResourceCount, 2000);
+  });
+
+  document.addEventListener("DOMContentLoaded", updateHeroResourceCount);
+
+  const oldFetch = window.fetch;
+  if (!window.__heroCountFetchPatched) {
+    window.__heroCountFetchPatched = true;
+    window.fetch = async function(){
+      const response = await oldFetch.apply(this, arguments);
+      setTimeout(updateHeroResourceCount, 100);
+      setTimeout(updateHeroResourceCount, 500);
+      return response;
+    };
+  }
+
+  window.updateHeroResourceCount = updateHeroResourceCount;
 })();
 </script>
 
