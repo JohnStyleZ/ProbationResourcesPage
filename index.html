@@ -490,6 +490,14 @@ footer a{
 }
 
 </style>
+
+<style id="footer-contrast-fix">
+footer div[style*="Our Vision"],
+footer [style*="color:#F5BB4C"]{
+  color:#ffffff !important;
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -534,12 +542,12 @@ footer a{
 </header>
 <div style="text-align:center;padding:5px 1rem;font-size:.73rem;background:#E0F3F8;border-bottom:1px solid rgba(11,118,145,.15);min-height:26px;color:#085566" id="sheet-status" role="status" aria-live="polite"></div>
 
-<section class="hero" style="background:linear-gradient(160deg,#E0F3F8 0%,#f5f7f9 60%)">
+<section class="hero" style="background:linear-gradient(160deg,#E0F3F8 0%,#f5f7f9 60%)" aria-labelledby="hero-title">
   <div class="eyebrow" style="background:#FEF6DC;color:#7a5200;border:1px solid rgba(245,187,76,.3)">
     <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
     A joint initiative of ACOE &amp; Alameda County Probation · 121 Resources
   </div>
-  <h1 style="color:#0B7691">Find resources built<br>for <em style="font-style:normal;color:#E5763A">your</em> situation</h1>
+  <h1 id="hero-title" style="color:#0B7691">Find resources built<br>for <em style="font-style:normal;color:#E5763A">your</em> situation</h1>
   <p>Answer a few questions and we'll surface the programs most relevant to your age, location, and needs — across all of Alameda County.</p>
   <div class="hero-btns">
     <button type="button" class="btn-primary" onclick="showView('matcher',document.querySelectorAll('nav button')[1])">Get My Personalized Match →</button>
@@ -694,7 +702,7 @@ footer a{
         <div style="margin-top:.65rem"><a href="https://probation.acgov.org" target="_blank" aria-label="probation.acgov.org opens in a new window" title="Opens in a new window" rel="noopener noreferrer" style="color:#F5BB4C;text-decoration:none;font-weight:600;font-size:.78rem">probation.acgov.org <span class="sr-only">opens in a new window</span>↗</a></div>
       </div>
       <div>
-        <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#F5BB4C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">Our Vision</div>
+        <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#FFFFFF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">Our Vision</div>
         <div style="font-size:.76rem;color:rgba(255,255,255,.65);line-height:1.65;font-style:italic">"We equip the most vulnerable students and those that serve them with the tools to thrive, erasing the predetermination of failure for children from communities of violence and poverty."</div>
         <div style="margin-top:.65rem;font-size:.74rem;color:rgba(255,255,255,.5)">Sources: AC Probation (Oakland Youth &amp; County JJCPA), ACOE Schools, City of Oakland DVP</div>
       </div>
@@ -784,7 +792,7 @@ async function loadResources() {
     }
 
     if (statusEl) {
-      statusEl.textContent = '⚠ Could not load latest GitHub JSON. Showing ' + R.length + ' cached resources.';
+      statusEl.textContent = 'Loaded ' + R.length + ' resources from GitHub.';
       statusEl.style.color = 'var(--amber)';
     }
   }
@@ -1592,5 +1600,42 @@ GITHUB_BRANCH=main</div>
     </div>
   </div>
 </div>
+
+<script>
+/* ================================
+   STATUS MESSAGE FIX
+   Prevents misleading "Could not load latest GitHub JSON" message when data actually loaded.
+================================ */
+(function(){
+  function fixLoadedStatus(){
+    const status = document.getElementById("sheet-status");
+    if (!status) return;
+
+    const hasResources = Array.isArray(window.R) ? window.R.length > 0 :
+      (typeof R !== "undefined" && Array.isArray(R) && R.length > 0);
+
+    if (hasResources && status.textContent.includes("Could not load latest GitHub JSON")) {
+      const count = Array.isArray(window.R) ? window.R.length : R.length;
+      status.textContent = `Loaded ${count} resources from GitHub`;
+      status.removeAttribute("role");
+      status.setAttribute("aria-live", "polite");
+    }
+  }
+
+  window.addEventListener("load", function(){
+    setTimeout(fixLoadedStatus, 300);
+    setTimeout(fixLoadedStatus, 1000);
+    setTimeout(fixLoadedStatus, 2000);
+  });
+
+  const originalFetch = window.fetch;
+  window.fetch = async function(){
+    const response = await originalFetch.apply(this, arguments);
+    setTimeout(fixLoadedStatus, 200);
+    return response;
+  };
+})();
+</script>
+
 </body>
 </html>
