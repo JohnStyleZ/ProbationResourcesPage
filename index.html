@@ -419,6 +419,76 @@ button.fpill.active{
   background:#063b47 !important;
 }
 
+
+/* ================================
+   AAA HEADER/NAV CONTRAST FIX
+   Fixes white text on translucent white backgrounds
+================================ */
+header nav button,
+header nav button.nav-active,
+header nav button[aria-current="page"]{
+  background:#063b47 !important;
+  color:#ffffff !important;
+  border:2px solid #ffffff !important;
+  font-weight:700 !important;
+}
+
+header nav button:hover,
+header nav button:focus{
+  background:#021f26 !important;
+  color:#ffffff !important;
+  border-color:#ffffff !important;
+}
+
+header a.logo,
+header a.logo *,
+header [style*="color:white"],
+header [style*="color: white"]{
+  color:#ffffff !important;
+}
+
+header [style*="rgba(255,255,255,.65)"],
+header [style*="rgba(255,255,255,.8)"],
+header [style*="rgba(255,255,255,.75)"],
+header [style*="rgba(255,255,255,.7)"],
+header [style*="rgba(255,255,255,.6)"],
+header [style*="rgba(255,255,255,.55)"],
+header [style*="rgba(255,255,255,.5)"]{
+  color:#ffffff !important;
+}
+
+header [style*="background:rgba(255,255,255,.15)"],
+header [style*="background:rgba(255,255,255,.1)"],
+header [style*="background:rgba(255,255,255,.08)"]{
+  background:#063b47 !important;
+  color:#ffffff !important;
+  border-color:#ffffff !important;
+}
+
+header .nav-active{
+  background:#021f26 !important;
+  color:#ffffff !important;
+  border-color:#ffffff !important;
+}
+
+/* Footer AAA contrast support */
+footer{
+  background:#063b47 !important;
+  color:#ffffff !important;
+}
+
+footer div,
+footer span,
+footer strong,
+footer a{
+  color:#ffffff !important;
+}
+
+footer a{
+  text-decoration:underline !important;
+  font-weight:800 !important;
+}
+
 </style>
 </head>
 <body>
@@ -446,9 +516,9 @@ button.fpill.active{
       </div>
     </a>
     <nav aria-label="Main navigation" style="display:flex;align-items:center;gap:.35rem;flex-wrap:wrap">
-      <button type="button" class="nav-active" aria-pressed="true" onclick="showView('browse',this)" style="color:white;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:var(--pill);padding:6px 16px;font-family:var(--font-body);font-size:.82rem;font-weight:600;cursor:pointer;transition:all .15s">Browse All</button>
-      <button type="button" aria-pressed="false" onclick="showView('matcher',this)" style="color:rgba(255,255,255,.8);background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:var(--pill);padding:6px 16px;font-family:var(--font-body);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s">Smart Match</button>
-      <button type="button" aria-label="Open admin panel" onclick="showAdmin()" style="color:rgba(255,255,255,.65);background:transparent;border:1px solid rgba(255,255,255,.15);border-radius:var(--pill);padding:5px 14px;font-family:var(--font-body);font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s">⚙ Admin</button>
+      <button type="button" class="nav-active" aria-pressed="true" onclick="showView('browse',this)" style="color:white;background:#021f26;border:2px solid #ffffff;border-radius:var(--pill);padding:6px 16px;font-family:var(--font-body);font-size:.82rem;font-weight:600;cursor:pointer;transition:all .15s">Browse All</button>
+      <button type="button" aria-pressed="false" onclick="showView('matcher',this)" style="color:rgba(255,255,255,.8);background:#063b47;border:2px solid #ffffff;border-radius:var(--pill);padding:6px 16px;font-family:var(--font-body);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s">Smart Match</button>
+      <button type="button" aria-label="Open admin panel" onclick="showAdmin()" style="color:rgba(255,255,255,.65);background:#063b47;border:2px solid #ffffff;border-radius:var(--pill);padding:5px 14px;font-family:var(--font-body);font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s">⚙ Admin</button>
     </nav>
   </div>
   <!-- Co-brand tagline bar -->
