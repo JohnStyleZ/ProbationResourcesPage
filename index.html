@@ -532,6 +532,164 @@ footer [style*="color"]{
   display:block !important;
 }
 
+
+/* ================================
+   BUILT-IN ADMIN MODAL
+================================ */
+#admin-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:1rem;
+}
+
+#admin-modal.visible{
+  display:flex !important;
+}
+
+.admin-box{
+  width:min(980px,96vw);
+  max-height:92vh;
+  overflow:auto;
+  background:#ffffff;
+  color:#1e293b;
+  border-radius:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  border:1px solid #cbd5e1;
+}
+
+.admin-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1rem 1.25rem;
+  border-bottom:1px solid #cbd5e1;
+  background:#063b47;
+  color:#ffffff;
+  border-radius:18px 18px 0 0;
+}
+
+.admin-head h2{
+  font-size:1.1rem;
+  margin:0;
+  color:#ffffff;
+}
+
+.admin-close{
+  background:#ffffff;
+  color:#063b47;
+  border:0;
+  border-radius:999px;
+  padding:.45rem .8rem;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.admin-body{
+  padding:1.25rem;
+}
+
+.admin-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+
+.admin-field{
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+}
+
+.admin-field.full{
+  grid-column:1 / -1;
+}
+
+.admin-field label{
+  font-weight:700;
+  color:#1e293b;
+  font-size:.85rem;
+}
+
+.admin-field input,
+.admin-field textarea,
+.admin-field select{
+  width:100%;
+  border:1px solid #94a3b8;
+  border-radius:10px;
+  padding:.7rem .8rem;
+  font:inherit;
+  color:#1e293b;
+  background:#ffffff;
+}
+
+.admin-field textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.admin-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.65rem;
+  margin-top:1rem;
+  padding-top:1rem;
+  border-top:1px solid #cbd5e1;
+}
+
+.admin-actions button{
+  border:0;
+  border-radius:999px;
+  padding:.7rem 1rem;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.admin-save{
+  background:#063b47;
+  color:#ffffff;
+}
+
+.admin-new{
+  background:#334155;
+  color:#ffffff;
+}
+
+.admin-delete{
+  background:#7f1d1d;
+  color:#ffffff;
+}
+
+.admin-list{
+  margin-top:1rem;
+  border-top:1px solid #cbd5e1;
+  padding-top:1rem;
+}
+
+.admin-list select{
+  width:100%;
+  padding:.7rem;
+  border-radius:10px;
+  border:1px solid #94a3b8;
+}
+
+.admin-note{
+  margin-top:.8rem;
+  color:#334155;
+  font-size:.85rem;
+}
+
+@media(max-width:700px){
+  .admin-grid{
+    grid-template-columns:1fr;
+  }
+}
+
 </style>
 
 <style id="footer-contrast-fix">
@@ -888,58 +1046,7 @@ const ALL_RISK = ["mental-health","substance-use","justice-involved","violence",
 const ALL_POP  = ["justice-involved","foster","pregnant","parent","veteran","immigrant","unhoused","survivor","at-risk","african-american"];
 
 
-function showAdmin(){
-  (async function(){
-    const verified = sessionStorage.getItem('resource_admin_verified') === 'true'
-      || await window.secureAdminLogin();
-
-    if (!verified) return;
-
-    sessionStorage.setItem('resource_admin_verified', 'true');
-
-    const possibleSelectors = [
-      '#admin-modal',
-      '#adminModal',
-      '#admin-panel',
-      '#adminPanel',
-      '#admin-view',
-      '#adminView',
-      '.admin-modal',
-      '.admin-panel',
-      '.admin-view'
-    ];
-
-    let opened = false;
-
-    possibleSelectors.forEach(selector => {
-      document.querySelectorAll(selector).forEach(el => {
-        el.style.display = selector.toLowerCase().includes('modal') ? 'flex' : 'block';
-        el.hidden = false;
-        el.removeAttribute('hidden');
-        el.setAttribute('aria-hidden', 'false');
-        el.classList.add('visible');
-        el.classList.add('open');
-        opened = true;
-      });
-    });
-
-    if (typeof renderAdminList === 'function') renderAdminList();
-    if (typeof renderAdmin === 'function') renderAdmin();
-    if (typeof populateAdmin === 'function') populateAdmin();
-
-    const firstAdminInput = document.querySelector(
-      '#admin-modal input, #adminModal input, #admin-panel input, #adminPanel input, .admin-modal input, .admin-panel input'
-    );
-
-    if (firstAdminInput) {
-      setTimeout(() => firstAdminInput.focus(), 100);
-    }
-
-    if (!opened) {
-      alert('Admin verified, but no admin panel container was found. The login worked, but the admin panel markup may be missing.');
-    }
-  })();
-}
+/* showAdmin replaced by built-in admin modal logic */
 
 function closeAdmin() { document.getElementById('admin-ov').classList.remove('open'); resetAdminForm(); }
 
@@ -1820,6 +1927,369 @@ window.requireAdminBeforeSave = async function(){
 
   return await window.secureAdminLogin();
 };
+</script>
+
+
+<div id="admin-modal" role="dialog" aria-modal="true" aria-labelledby="admin-title" hidden>
+  <div class="admin-box">
+    <div class="admin-head">
+      <h2 id="admin-title">Resource Admin Panel</h2>
+      <button type="button" class="admin-close" onclick="closeAdmin()">Close</button>
+    </div>
+    <div class="admin-body">
+      <div class="admin-list">
+        <label for="admin-resource-select"><strong>Edit existing resource</strong></label>
+        <select id="admin-resource-select" onchange="adminLoadSelected()"></select>
+        <div class="admin-note">Select a resource, edit the fields, then click Save to GitHub.</div>
+      </div>
+
+      <div class="admin-grid" style="margin-top:1rem">
+        <div class="admin-field">
+          <label for="admin-id">ID</label>
+          <input id="admin-id" type="number">
+        </div>
+
+        <div class="admin-field">
+          <label for="admin-src">Source</label>
+          <input id="admin-src" placeholder="general">
+        </div>
+
+        <div class="admin-field full">
+          <label for="admin-title-input">Title</label>
+          <input id="admin-title-input" placeholder="Resource title">
+        </div>
+
+        <div class="admin-field">
+          <label for="admin-cat">Category key</label>
+          <input id="admin-cat" placeholder="health, education, workforce">
+        </div>
+
+        <div class="admin-field">
+          <label for="admin-catL">Category label</label>
+          <input id="admin-catL" placeholder="Health & Wellness">
+        </div>
+
+        <div class="admin-field">
+          <label for="admin-icon">Icon</label>
+          <input id="admin-icon" placeholder="🧠">
+        </div>
+
+        <div class="admin-field">
+          <label for="admin-th">Theme class</label>
+          <input id="admin-th" placeholder="th-teal">
+        </div>
+
+        <div class="admin-field">
+          <label for="admin-ages">Ages display</label>
+          <input id="admin-ages" placeholder="12–25">
+        </div>
+
+        <div class="admin-field">
+          <label for="admin-link">Link</label>
+          <input id="admin-link" placeholder="https://example.org">
+        </div>
+
+        <div class="admin-field full">
+          <label for="admin-desc">Description</label>
+          <textarea id="admin-desc"></textarea>
+        </div>
+
+        <div class="admin-field">
+          <label for="admin-tags">Tags, comma separated</label>
+          <input id="admin-tags" placeholder="Counseling, Youth, Support">
+        </div>
+
+        <div class="admin-field">
+          <label for="admin-contact">Contact</label>
+          <input id="admin-contact">
+        </div>
+
+        <div class="admin-field full">
+          <label for="admin-addr">Address</label>
+          <input id="admin-addr">
+        </div>
+
+        <div class="admin-field">
+          <label for="admin-avail">Availability</label>
+          <input id="admin-avail">
+        </div>
+
+        <div class="admin-field">
+          <label for="admin-srcL">Source label</label>
+          <input id="admin-srcL" placeholder="Community Partner">
+        </div>
+      </div>
+
+      <div class="admin-actions">
+        <button type="button" class="admin-save" onclick="adminSaveResource()">Save to GitHub</button>
+        <button type="button" class="admin-new" onclick="adminNewResource()">New Resource</button>
+        <button type="button" class="admin-delete" onclick="adminDeleteResource()">Delete Resource</button>
+      </div>
+
+      <div id="admin-status" class="admin-note" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+/* ================================
+   BUILT-IN ADMIN MODAL LOGIC
+================================ */
+function closeAdmin(){
+  const modal = document.getElementById('admin-modal');
+  if (!modal) return;
+  modal.classList.remove('visible');
+  modal.style.display = 'none';
+  modal.hidden = true;
+  modal.setAttribute('aria-hidden', 'true');
+}
+
+function openAdminPanel(){
+  const modal = document.getElementById('admin-modal');
+  if (!modal) {
+    alert('Admin panel markup is missing.');
+    return;
+  }
+
+  adminPopulateSelect();
+  adminLoadSelected();
+
+  modal.hidden = false;
+  modal.removeAttribute('hidden');
+  modal.setAttribute('aria-hidden', 'false');
+  modal.style.display = 'flex';
+  modal.classList.add('visible');
+
+  const first = document.getElementById('admin-resource-select');
+  if (first) setTimeout(() => first.focus(), 100);
+}
+
+function showAdmin(){
+  (async function(){
+    const verified = sessionStorage.getItem('resource_admin_verified') === 'true'
+      || await window.secureAdminLogin();
+
+    if (!verified) return;
+
+    sessionStorage.setItem('resource_admin_verified', 'true');
+    openAdminPanel();
+  })();
+}
+
+function adminGetResources(){
+  try {
+    if (Array.isArray(window.R)) return window.R;
+    if (typeof R !== 'undefined' && Array.isArray(R)) return R;
+  } catch(e) {}
+  return [];
+}
+
+function adminSetResources(newResources){
+  try {
+    if (Array.isArray(window.R)) {
+      window.R = newResources;
+    }
+    if (typeof R !== 'undefined') {
+      R = newResources;
+    }
+  } catch(e) {}
+}
+
+function adminPopulateSelect(){
+  const select = document.getElementById('admin-resource-select');
+  if (!select) return;
+
+  const resources = adminGetResources();
+
+  select.innerHTML = resources.map((r, index) => {
+    const title = r.title || `Untitled ${index + 1}`;
+    const id = r.id || index;
+    return `<option value="${index}">${id} - ${title}</option>`;
+  }).join('');
+}
+
+function adminLoadSelected(){
+  const resources = adminGetResources();
+  const select = document.getElementById('admin-resource-select');
+  const index = select ? Number(select.value || 0) : 0;
+  const r = resources[index] || {};
+
+  document.getElementById('admin-id').value = r.id ?? Date.now();
+  document.getElementById('admin-src').value = r.src ?? 'general';
+  document.getElementById('admin-title-input').value = r.title ?? '';
+  document.getElementById('admin-cat').value = r.cat ?? '';
+  document.getElementById('admin-catL').value = r.catL ?? '';
+  document.getElementById('admin-icon').value = r.icon ?? '📌';
+  document.getElementById('admin-th').value = r.th ?? 'th-teal';
+  document.getElementById('admin-ages').value = r.ages ?? '';
+  document.getElementById('admin-link').value = r.link ?? '#';
+  document.getElementById('admin-desc').value = r.desc ?? '';
+  document.getElementById('admin-tags').value = Array.isArray(r.tags) ? r.tags.join(', ') : '';
+  document.getElementById('admin-contact').value = r.contact ?? '';
+  document.getElementById('admin-addr').value = r.addr ?? '';
+  document.getElementById('admin-avail').value = r.avail ?? '';
+  document.getElementById('admin-srcL').value = r.srcL ?? '';
+}
+
+function adminBuildResourceFromForm(){
+  const idValue = document.getElementById('admin-id').value;
+
+  return {
+    id: Number(idValue) || Date.now(),
+    src: document.getElementById('admin-src').value.trim() || 'general',
+    title: document.getElementById('admin-title-input').value.trim(),
+    cat: document.getElementById('admin-cat').value.trim() || 'general',
+    catL: document.getElementById('admin-catL').value.trim() || 'General',
+    icon: document.getElementById('admin-icon').value.trim() || '📌',
+    th: document.getElementById('admin-th').value.trim() || 'th-teal',
+    ages: document.getElementById('admin-ages').value.trim() || 'All ages',
+    ageMin: null,
+    ageMax: null,
+    genders: ['all'],
+    riskFactors: [],
+    populations: [],
+    urgency: 'any',
+    zipcodes: 'all',
+    desc: document.getElementById('admin-desc').value.trim(),
+    tags: document.getElementById('admin-tags').value
+      .split(',')
+      .map(t => t.trim())
+      .filter(Boolean),
+    contact: document.getElementById('admin-contact').value.trim(),
+    addr: document.getElementById('admin-addr').value.trim(),
+    avail: document.getElementById('admin-avail').value.trim(),
+    link: document.getElementById('admin-link').value.trim() || '#',
+    srcL: document.getElementById('admin-srcL').value.trim() || 'General'
+  };
+}
+
+async function adminSaveResource(){
+  const status = document.getElementById('admin-status');
+  const resources = adminGetResources();
+  const select = document.getElementById('admin-resource-select');
+  const index = select && select.value !== '' ? Number(select.value) : -1;
+  const updated = adminBuildResourceFromForm();
+
+  if (!updated.title) {
+    alert('Title is required.');
+    return;
+  }
+
+  if (index >= 0 && resources[index]) {
+    resources[index] = { ...resources[index], ...updated };
+  } else {
+    resources.push(updated);
+  }
+
+  adminSetResources(resources);
+
+  if (status) status.textContent = 'Saving to GitHub...';
+
+  const res = await fetch('/api/updateResources', {
+    method:'POST',
+    headers:{ 'Content-Type':'application/json' },
+    body: JSON.stringify({
+      password: sessionStorage.getItem('resource_admin_password'),
+      resources
+    })
+  });
+
+  const result = await res.json().catch(() => ({}));
+
+  if (!res.ok || !result.success) {
+    if (status) status.textContent = 'Save failed: ' + (result.error || res.statusText);
+    alert('Save failed: ' + (result.error || res.statusText));
+    return;
+  }
+
+  if (typeof renderBrowse === 'function') renderBrowse();
+  if (typeof renderCards === 'function') renderCards();
+  if (typeof updateHeroResourceCount === 'function') updateHeroResourceCount();
+
+  adminPopulateSelect();
+
+  if (status) status.textContent = 'Saved to GitHub successfully.';
+}
+
+function adminNewResource(){
+  const resources = adminGetResources();
+  const newItem = {
+    id: Date.now(),
+    src:'general',
+    title:'',
+    cat:'general',
+    catL:'General',
+    icon:'📌',
+    th:'th-teal',
+    ages:'All ages',
+    ageMin:null,
+    ageMax:null,
+    genders:['all'],
+    riskFactors:[],
+    populations:[],
+    urgency:'any',
+    zipcodes:'all',
+    desc:'',
+    tags:[],
+    contact:'',
+    addr:'',
+    avail:'',
+    link:'#',
+    srcL:'General'
+  };
+
+  resources.push(newItem);
+  adminSetResources(resources);
+  adminPopulateSelect();
+
+  const select = document.getElementById('admin-resource-select');
+  if (select) select.value = String(resources.length - 1);
+
+  adminLoadSelected();
+}
+
+async function adminDeleteResource(){
+  const resources = adminGetResources();
+  const select = document.getElementById('admin-resource-select');
+  const index = select ? Number(select.value) : -1;
+
+  if (index < 0 || !resources[index]) return;
+
+  if (!confirm('Delete this resource?')) return;
+
+  resources.splice(index, 1);
+  adminSetResources(resources);
+
+  const status = document.getElementById('admin-status');
+  if (status) status.textContent = 'Deleting and saving to GitHub...';
+
+  const res = await fetch('/api/updateResources', {
+    method:'POST',
+    headers:{ 'Content-Type':'application/json' },
+    body: JSON.stringify({
+      password: sessionStorage.getItem('resource_admin_password'),
+      resources
+    })
+  });
+
+  const result = await res.json().catch(() => ({}));
+
+  if (!res.ok || !result.success) {
+    if (status) status.textContent = 'Delete failed: ' + (result.error || res.statusText);
+    alert('Delete failed: ' + (result.error || res.statusText));
+    return;
+  }
+
+  adminPopulateSelect();
+  adminLoadSelected();
+
+  if (typeof renderBrowse === 'function') renderBrowse();
+  if (typeof renderCards === 'function') renderCards();
+  if (typeof updateHeroResourceCount === 'function') updateHeroResourceCount();
+
+  if (status) status.textContent = 'Deleted and saved to GitHub.';
+}
 </script>
 
 </body>
