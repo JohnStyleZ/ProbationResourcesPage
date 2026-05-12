@@ -4158,33 +4158,23 @@
   },
   {
     "id": 112,
-    "src": "probation-county",
     "title": "Seneca Family of Agencies",
     "cat": "health",
     "catL": "Health & Wellness",
     "icon": "🌲",
     "th": "th-teal",
     "ages": "All ages",
-    "ageMin": null,
-    "ageMax": null,
-    "genders": [
-      "all"
-    ],
-    "riskFactors": [
-      "mental-health",
-      "housing",
-      "crisis",
-      "justice-involved",
-      "foster-care"
-    ],
-    "populations": [
-      "at-risk",
-      "justice-involved",
-      "foster"
-    ],
     "urgency": "any",
     "zipcodes": "all",
-    "desc": "Comprehensive mental health, housing, case management, crisis, and life skills services for at-promise, justice-involved, and foster youth across all ages in Alameda County. YSC case management contact: AlamedaICMReferrals@senecacenter.org | (510) 504-6836.",
+    "ageMin": null,
+    "ageMax": null,
+    "desc": "Comprehensive mental health, housing, case management, crisis, and life skills services for at-promise, justice-involved, and foster youth across all ages in Alameda County. YSC case management contact: AlamedaICMReferrals@senecacenter.org (510) 504-6836.",
+    "contact": "AlamedaICMReferrals@senecacenter.org | (510) 504-6836",
+    "addr": "8945 Golf Links Rd, Oakland, CA 94605",
+    "avail": "Contact for referral",
+    "link": "https://senecafoa.org",
+    "src": "probation-county",
+    "srcL": "AC Probation – County",
     "tags": [
       "Mental Health",
       "Housing",
@@ -4193,11 +4183,21 @@
       "Crisis",
       "All Ages"
     ],
-    "contact": "AlamedaICMReferrals@senecacenter.org | (510) 504-6836",
-    "addr": "8945 Golf Links Rd, Oakland, CA 94605",
-    "avail": "Contact for referral",
-    "link": "https://senecafoa.org",
-    "srcL": "AC Probation – County"
+    "genders": [
+      "all"
+    ],
+    "riskFactors": [
+      "mental-health",
+      "justice-involved",
+      "housing",
+      "crisis",
+      "foster-care"
+    ],
+    "populations": [
+      "justice-involved",
+      "foster",
+      "at-risk"
+    ]
   },
   {
     "id": 113,
