@@ -832,8 +832,12 @@ async function saveResourcesToGitHub(actionLabel) {
   const statusEl = document.getElementById('admin-conn-status');
 
   if (!adminSessionPassword) {
-    alert('Admin session expired. Please click Admin and sign in again.');
-    throw new Error('Admin session expired');
+    const msg = 'Admin session expired. Please close and reopen Admin, then sign in again.';
+    if (statusEl) {
+      statusEl.textContent = '⚠ ' + msg;
+      statusEl.style.color = 'var(--red)';
+    }
+    throw new Error(msg);
   }
 
   if (statusEl) {
@@ -868,9 +872,11 @@ async function saveResourcesToGitHub(actionLabel) {
   return result;
 }
 
-
 let adminUnlocked = false;
 let adminSessionPassword = '';
+const ALL_RISK = ["mental-health","substance-use","justice-involved","violence","gang","housing","school-dropout","unemployment","family","mentorship","immigration","crisis","truancy","school-disconnected","credit-deficiency","IEP-sped","foster-care","aging-out","first-offense","parent"];
+const ALL_POP  = ["justice-involved","foster","pregnant","parent","veteran","immigrant","unhoused","survivor","at-risk","african-american"];
+
 
 async function verifyAdminPassword(password) {
   const response = await fetch('/api/login', {
@@ -898,25 +904,20 @@ async function showAdmin() {
   adminUnlocked = true;
   adminSessionPassword = c;
 
-  const ov = document.getElementById('admin-ov');
-  if (ov) ov.classList.add('open');
-
-  const urlInp = document.getElementById('admin-url-inp');
-  if (urlInp) urlInp.value = SHEET_URL || '';
-
+  document.getElementById('admin-ov').classList.add('open');
+  document.getElementById('admin-url-inp').value = SHEET_URL || '';
   renderResourceTable();
 }
 
 function closeAdmin() {
-  const ov = document.getElementById('admin-ov');
-  if (ov) ov.classList.remove('open');
-
+  document.getElementById('admin-ov').classList.remove('open');
   resetAdminForm();
 
-  // Clear login after closing the modal so next click asks again.
+  // Require login again next time the modal is opened.
   adminUnlocked = false;
   adminSessionPassword = '';
 }
+
 
 async function adminConnect() {
   const url = (document.getElementById('admin-url-inp').value||'').trim();
@@ -1574,10 +1575,11 @@ textarea.afi{resize:vertical;min-height:72px;line-height:1.5}
     <!-- SHEET SETUP -->
     <div style="background:#f0faf6;border:1px solid rgba(13,158,117,.2);border-radius:12px;padding:1.15rem;margin-bottom:1.35rem">
       <h3 style="font-family:var(--font-head);font-size:.9rem;font-weight:700;color:var(--teal-dark);margin-bottom:.55rem">GitHub JSON Connection</h3>
-      <p style="font-size:.78rem;color:#555;margin-bottom:.75rem;line-height:1.6">This admin panel saves changes to GitHub through the backend function at <strong>/api/updateResources</strong>. You will be asked for the admin access code each time you open this panel. Add your GitHub token as a Vercel environment variable. Do not place the token in this HTML file.</p>
+      <p style="font-size:.78rem;color:#555;margin-bottom:.75rem;line-height:1.6">This admin panel saves changes to GitHub through the backend function at <strong>/api/updateResources</strong>. The admin access code is checked by the backend through <strong>ADMIN_PASSWORD</strong> in Vercel. Do not place the admin code or GitHub token in this HTML file.</p>
       <details style="margin-bottom:.75rem">
         <summary style="font-size:.78rem;font-weight:600;cursor:pointer;color:var(--teal-dark);user-select:none">Required Vercel Environment Variables ↓</summary>
-        <div style="margin-top:.5rem;background:#1a1a2e;color:#7effd4;font-family:monospace;font-size:.72rem;border-radius:8px;padding:.75rem;line-height:1.75;white-space:pre-wrap">GITHUB_TOKEN=github_pat_your_token_here
+        <div style="margin-top:.5rem;background:#1a1a2e;color:#7effd4;font-family:monospace;font-size:.72rem;border-radius:8px;padding:.75rem;line-height:1.75;white-space:pre-wrap">ADMIN_PASSWORD=your_admin_code_here
+GITHUB_TOKEN=github_pat_your_token_here
 GITHUB_OWNER=JohnStyleZ
 GITHUB_REPO=ProbationResourcesPage
 GITHUB_BRANCH=main</div>

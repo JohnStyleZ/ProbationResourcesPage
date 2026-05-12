@@ -1,14 +1,24 @@
-# Secure Admin With Original Modal
+# Probation Resources Page
 
-This version keeps the original in-page admin modal design.
+This version keeps the original admin modal and all original admin features:
 
-## Behavior
+- Resource table
+- Search
+- Add Resource
+- Edit Resource
+- Delete Resource
+- Full edit form
+- Risk factor checkboxes
+- Population checkboxes
+- Reload JSON
+- Save to GitHub
 
-- Admin code is not hardcoded in index.html.
-- The Admin button checks /api/login.
-- The password is stored only in a JavaScript variable while the modal is open.
-- Closing the admin modal clears the login, so the next Admin click asks again.
-- Saving sends the password to /api/updateResources for backend validation.
+The only admin change is security:
+
+- The admin access code is no longer hardcoded in index.html.
+- /api/login checks ADMIN_PASSWORD from Vercel.
+- /api/updateResources also checks ADMIN_PASSWORD before writing to GitHub.
+- Closing the admin modal clears the login, so Admin asks for the code again next time.
 
 ## Vercel Environment Variables
 
