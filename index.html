@@ -513,6 +513,25 @@ footer [style*="color"]{
   color:#ffffff !important;
 }
 
+
+/* ================================
+   ADMIN PANEL DISPLAY FIX
+================================ */
+#admin-modal.visible,
+#adminModal.visible,
+.admin-modal.visible{
+  display:flex !important;
+}
+
+#admin-panel.visible,
+#adminPanel.visible,
+#admin-view.visible,
+#adminView.visible,
+.admin-panel.visible,
+.admin-view.visible{
+  display:block !important;
+}
+
 </style>
 
 <style id="footer-contrast-fix">
@@ -828,7 +847,7 @@ async function loadResources() {
 // ════════════════════════════════════════
 //  ADMIN PANEL
 // ════════════════════════════════════════
-
+const ADMIN_CODE = 'FUTURE2025';
 async function saveResourcesToGitHub(actionLabel) {
   const statusEl = document.getElementById('admin-conn-status');
 
@@ -840,7 +859,7 @@ async function saveResourcesToGitHub(actionLabel) {
   const response = await fetch(UPDATE_API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ resources: R })
+    body: JSON.stringify({ password: sessionStorage.getItem('resource_admin_password'), resources: R })
   });
 
   const result = await response.json().catch(() => ({}));
@@ -876,30 +895,49 @@ function showAdmin(){
 
     if (!verified) return;
 
-    const adminModal = document.getElementById('admin-modal');
-    const adminPanel = document.getElementById('admin-panel');
-    const adminView = document.getElementById('admin-view');
+    sessionStorage.setItem('resource_admin_verified', 'true');
 
-    if (adminModal) {
-      adminModal.style.display = 'flex';
-      adminModal.removeAttribute('hidden');
-      adminModal.setAttribute('aria-hidden', 'false');
-      return;
+    const possibleSelectors = [
+      '#admin-modal',
+      '#adminModal',
+      '#admin-panel',
+      '#adminPanel',
+      '#admin-view',
+      '#adminView',
+      '.admin-modal',
+      '.admin-panel',
+      '.admin-view'
+    ];
+
+    let opened = false;
+
+    possibleSelectors.forEach(selector => {
+      document.querySelectorAll(selector).forEach(el => {
+        el.style.display = selector.toLowerCase().includes('modal') ? 'flex' : 'block';
+        el.hidden = false;
+        el.removeAttribute('hidden');
+        el.setAttribute('aria-hidden', 'false');
+        el.classList.add('visible');
+        el.classList.add('open');
+        opened = true;
+      });
+    });
+
+    if (typeof renderAdminList === 'function') renderAdminList();
+    if (typeof renderAdmin === 'function') renderAdmin();
+    if (typeof populateAdmin === 'function') populateAdmin();
+
+    const firstAdminInput = document.querySelector(
+      '#admin-modal input, #adminModal input, #admin-panel input, #adminPanel input, .admin-modal input, .admin-panel input'
+    );
+
+    if (firstAdminInput) {
+      setTimeout(() => firstAdminInput.focus(), 100);
     }
 
-    if (adminPanel) {
-      adminPanel.style.display = 'block';
-      adminPanel.removeAttribute('hidden');
-      return;
+    if (!opened) {
+      alert('Admin verified, but no admin panel container was found. The login worked, but the admin panel markup may be missing.');
     }
-
-    if (adminView) {
-      adminView.style.display = 'block';
-      adminView.removeAttribute('hidden');
-      return;
-    }
-
-    alert('Admin verified. Admin panel was not found on this page.');
   })();
 }
 
@@ -1020,7 +1058,6 @@ function resetAdminForm() {
 function afV(id) { const e=document.getElementById(id); return e?(e.value||'').trim():''; }
 
 async function saveResource() {
-  if (window.requireAdminBeforeSave && !(await window.requireAdminBeforeSave())) return;
   const title = afV('af-title');
   if (!title) { alert('Name is required.'); return; }
 
@@ -1062,7 +1099,6 @@ async function saveResource() {
 }
 
 async function deleteResource(id) {
-  if (window.requireAdminBeforeSave && !(await window.requireAdminBeforeSave())) return;
   const r = R.find(x => String(x.id) === String(id));
   if (!r || !confirm('Delete "' + r.title + '"? This cannot be undone.')) return;
 
@@ -1740,8 +1776,8 @@ GITHUB_BRANCH=main</div>
 
 <script>
 /* ================================
-   SECURE ADMIN LOGIN
-   Password is validated by /api/login using ADMIN_PASSWORD in Vercel.
+   SECURE ADMIN LOGIN FIX
+   Password is validated by /api/login. The admin panel remains on the same page.
 ================================ */
 async function verifyAdminPassword(password){
   const res = await fetch('/api/login', {
@@ -1773,6 +1809,7 @@ window.secureAdminLogin = async function(){
   }
 
   sessionStorage.setItem('resource_admin_verified', 'true');
+  sessionStorage.setItem('resource_admin_password', password);
   return true;
 };
 
