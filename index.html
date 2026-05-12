@@ -271,7 +271,7 @@ footer a{text-decoration:underline!important;text-underline-offset:3px}
 #ad-list td,#ad-list th{color:#1f2937!important}
 [style*="color:#777"],[style*="color:#888"],[style*="color:#999"],[style*="color:#aaa"],[style*="color:#bbb"]{color:#334155!important}
 [style*="rgba(255,255,255,.3)"],[style*="rgba(255,255,255,.35)"],[style*="rgba(255,255,255,.5)"],[style*="rgba(255,255,255,.55)"],[style*="rgba(255,255,255,.6)"],[style*="rgba(255,255,255,.62)"],[style*="rgba(255,255,255,.65)"],[style*="rgba(255,255,255,.7)"],[style*="rgba(255,255,255,.75)"],[style*="rgba(255,255,255,.8)"]{color:#fff!important}
-[style*="color:#F5BB4C"],[style*="color:#FFE08A"]{color:#fff!important}
+[style*="color:#FFFFFF"],[style*="color:#FFE08A"]{color:#fff!important}
 
 
 /* Final WCAG contrast overrides */
@@ -489,11 +489,35 @@ footer a{
   font-weight:800 !important;
 }
 
+
+/* ================================
+   FINAL FOOTER CONTRAST OVERRIDE
+   Forces all footer text to meet contrast on dark teal.
+================================ */
+footer,
+footer *{
+  color:#ffffff !important;
+}
+
+footer{
+  background:#063b47 !important;
+}
+
+footer a{
+  color:#ffffff !important;
+  text-decoration:underline !important;
+  font-weight:800 !important;
+}
+
+footer [style*="color"]{
+  color:#ffffff !important;
+}
+
 </style>
 
 <style id="footer-contrast-fix">
 footer div[style*="Our Vision"],
-footer [style*="color:#F5BB4C"]{
+footer [style*="color:#FFFFFF"]{
   color:#ffffff !important;
 }
 </style>
@@ -513,9 +537,9 @@ footer [style*="color:#F5BB4C"]{
         </svg>
       </div>
       <div>
-        <div style="font-family:var(--font-head);font-weight:800;font-size:1rem;color:white;letter-spacing:-.01em;line-height:1.2">Alameda County <span style="color:#F5BB4C">Resource Hub</span></div>
+        <div style="font-family:var(--font-head);font-weight:800;font-size:1rem;color:white;letter-spacing:-.01em;line-height:1.2">Alameda County <span style="color:#FFFFFF">Resource Hub</span></div>
         <div style="font-size:.66rem;color:rgba(255,255,255,.65);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-top:2px;display:flex;align-items:center;gap:6px">
-          <span style="background:rgba(245,187,76,.2);border:1px solid rgba(245,187,76,.4);border-radius:3px;padding:1px 5px;color:#F5BB4C">ACOE</span>
+          <span style="background:rgba(245,187,76,.2);border:1px solid rgba(245,187,76,.4);border-radius:3px;padding:1px 5px;color:#FFFFFF">ACOE</span>
           <span style="color:rgba(255,255,255,.35)">+</span>
           <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:3px;padding:1px 5px;color:rgba(255,255,255,.8)">AC Probation</span>
           <span style="color:rgba(255,255,255,.35)">·</span>
@@ -533,8 +557,8 @@ footer [style*="color:#F5BB4C"]{
   <div style="margin-top:.5rem;padding:.35rem 0 0;border-top:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem">
     <div style="font-size:.7rem;color:rgba(255,255,255,.5);font-style:italic">A joint initiative of the Alameda County Office of Education &amp; the Alameda County Probation Department &nbsp;·&nbsp; acoe.org</div>
     <div style="display:flex;align-items:center;gap:.5rem">
-      <span style="font-size:.65rem;font-weight:700;color:#F5BB4C;text-transform:uppercase;letter-spacing:.06em">Co-led by</span>
-      <span style="font-size:.68rem;background:rgba(245,187,76,.15);border:1px solid rgba(245,187,76,.3);border-radius:4px;padding:2px 7px;color:#F5BB4C;font-weight:600">ACOE</span>
+      <span style="font-size:.65rem;font-weight:700;color:#FFFFFF;text-transform:uppercase;letter-spacing:.06em">Co-led by</span>
+      <span style="font-size:.68rem;background:rgba(245,187,76,.15);border:1px solid rgba(245,187,76,.3);border-radius:4px;padding:2px 7px;color:#FFFFFF;font-weight:600">ACOE</span>
       <span style="font-size:.65rem;color:rgba(255,255,255,.3)">&amp;</span>
       <span style="font-size:.68rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:2px 7px;color:rgba(255,255,255,.75);font-weight:600">AC Probation</span>
     </div>
@@ -676,7 +700,7 @@ footer [style*="color:#F5BB4C"]{
       </div>
       <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
         <div style="background:rgba(245,187,76,.12);border:1.5px solid rgba(245,187,76,.4);border-radius:8px;padding:.5rem .85rem;text-align:center">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#F5BB4C;margin-bottom:.15rem">Co-Led by</div>
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#FFFFFF;margin-bottom:.15rem">Co-Led by</div>
           <div style="font-size:.82rem;font-weight:800;color:white">ACOE</div>
           <div style="font-size:.65rem;color:rgba(255,255,255,.5)">Office of Education</div>
         </div>
@@ -692,14 +716,14 @@ footer [style*="color:#F5BB4C"]{
     <!-- Three columns -->
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;flex-wrap:wrap">
       <div>
-        <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#F5BB4C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">About ACOE</div>
+        <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#FFFFFF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">About ACOE</div>
         <div style="font-size:.76rem;color:rgba(255,255,255,.62);line-height:1.65">The Alameda County Office of Education, under Superintendent Alysse Castro, operates schools serving the county's most vulnerable students — including Court Schools at the JJC, Quest Academies, Community Schools, and the Parenting Teens Program.</div>
-        <div style="margin-top:.65rem"><a href="https://www.acoe.org" target="_blank" aria-label="www.acoe.org opens in a new window" title="Opens in a new window" rel="noopener noreferrer" style="color:#F5BB4C;text-decoration:none;font-weight:600;font-size:.78rem">www.acoe.org <span class="sr-only">opens in a new window</span>↗</a></div>
+        <div style="margin-top:.65rem"><a href="https://www.acoe.org" target="_blank" aria-label="www.acoe.org opens in a new window" title="Opens in a new window" rel="noopener noreferrer" style="color:#FFFFFF;text-decoration:none;font-weight:600;font-size:.78rem">www.acoe.org <span class="sr-only">opens in a new window</span>↗</a></div>
       </div>
       <div>
-        <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#F5BB4C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">About AC Probation</div>
+        <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#FFFFFF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">About AC Probation</div>
         <div style="font-size:.76rem;color:rgba(255,255,255,.62);line-height:1.65">The Alameda County Probation Department, under Chief Brian K. Ford, provides supervision, intervention, and support for justice-involved youth through its Positive Youth Development division — including YVRC, the Ubuntu Justice Initiative, and the My FUTURE Center.</div>
-        <div style="margin-top:.65rem"><a href="https://probation.acgov.org" target="_blank" aria-label="probation.acgov.org opens in a new window" title="Opens in a new window" rel="noopener noreferrer" style="color:#F5BB4C;text-decoration:none;font-weight:600;font-size:.78rem">probation.acgov.org <span class="sr-only">opens in a new window</span>↗</a></div>
+        <div style="margin-top:.65rem"><a href="https://probation.acgov.org" target="_blank" aria-label="probation.acgov.org opens in a new window" title="Opens in a new window" rel="noopener noreferrer" style="color:#FFFFFF;text-decoration:none;font-weight:600;font-size:.78rem">probation.acgov.org <span class="sr-only">opens in a new window</span>↗</a></div>
       </div>
       <div>
         <div style="font-family:var(--font-head);font-weight:700;font-size:.8rem;color:#FFFFFF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.55rem">Our Vision</div>
