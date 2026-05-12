@@ -461,7 +461,7 @@ footer strong{color:white;font-family:var(--font-head)}
 let SHEET_URL = localStorage.getItem('rm_sheet_url') || '';
 // Change this if your data file is hosted somewhere else, for example:
 // const DATA_URL = 'https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/resources.json';
-const DATA_URL = 'https://raw.githubusercontent.com/JohnStyleZ/ProbationResourcesPage/refs/heads/main/resources.json';
+const DATA_URL = 'https://raw.githubusercontent.com/JohnStyleZ/ProbationResourcesPage/main/resources.json';
 const UPDATE_API_URL = '/api/updateResources';
 let R = [];
 let sheetLoaded = false;
@@ -492,35 +492,42 @@ function callSheet(params) {
 async function loadResources() {
   const statusEl = document.getElementById('sheet-status');
 
-  // 1) If Google Sheet is connected, use it first.
-  if (SHEET_URL) {
-    if (statusEl) { statusEl.textContent = '⟳ Loading resources from Sheet…'; statusEl.style.color = 'var(--teal)'; }
-    const data = await callSheet({action:'read'});
-    if (Array.isArray(data) && data.length > 0) {
-      R = data; sheetLoaded = true;
-      localStorage.setItem('rm_cache', JSON.stringify(R));
-      if (statusEl) { statusEl.textContent = '✓ ' + R.length + ' resources loaded live from Google Sheet'; statusEl.style.color = 'var(--teal)'; }
-      renderBrowse();
-      return;
-    }
-  }
-
-  // 2) Otherwise fetch the static JSON file from GitHub / GitHub Pages.
   try {
-    if (statusEl) { statusEl.textContent = '⟳ Loading resources…'; statusEl.style.color = 'var(--teal)'; }
-    const res = await fetch(DATA_URL, { cache: 'no-store' });
+    if (statusEl) {
+      statusEl.textContent = '⟳ Loading latest resources from GitHub…';
+      statusEl.style.color = 'var(--teal)';
+    }
+
+    const freshUrl = DATA_URL + '?v=' + Date.now();
+    const res = await fetch(freshUrl, {
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache'
+      }
+    });
+
     if (!res.ok) throw new Error('HTTP ' + res.status);
+
     const data = await res.json();
     if (!Array.isArray(data)) throw new Error('resources.json must be an array');
+
     R = data;
     localStorage.setItem('rm_cache', JSON.stringify(R));
-    if (statusEl) { statusEl.textContent = '✓ Loaded ' + R.length + ' resources'; statusEl.style.color = 'var(--teal)'; }
+
+    if (statusEl) {
+      statusEl.textContent = '✓ Loaded ' + R.length + ' resources from GitHub';
+      statusEl.style.color = 'var(--teal)';
+    }
   } catch (e) {
     const cached = localStorage.getItem('rm_cache');
     if (cached) {
       try { R = JSON.parse(cached); } catch(err) { R = []; }
     }
-    if (statusEl) { statusEl.textContent = '⚠ Could not load resources.json — showing ' + R.length + ' cached resources'; statusEl.style.color = 'var(--amber)'; }
+
+    if (statusEl) {
+      statusEl.textContent = '⚠ Could not load latest GitHub JSON. Showing ' + R.length + ' cached resources.';
+      statusEl.style.color = 'var(--amber)';
+    }
   }
 
   renderBrowse();
@@ -532,6 +539,7 @@ async function loadResources() {
 const ADMIN_CODE = 'FUTURE2025';
 async function saveResourcesToGitHub(actionLabel) {
   const statusEl = document.getElementById('admin-conn-status');
+
   if (statusEl) {
     statusEl.textContent = '⟳ Saving to GitHub resources.json…';
     statusEl.style.color = 'var(--teal)';
@@ -557,7 +565,7 @@ async function saveResourcesToGitHub(actionLabel) {
   localStorage.setItem('rm_cache', JSON.stringify(R));
 
   if (statusEl) {
-    statusEl.textContent = '✓ ' + actionLabel + ' saved to GitHub. Refresh page to confirm latest JSON.';
+    statusEl.textContent = '✓ ' + actionLabel + ' saved to GitHub. The page now loads the latest JSON after refresh.';
     statusEl.style.color = 'var(--teal)';
   }
 
@@ -779,7 +787,7 @@ function renderBrowse(){
   grid.innerHTML=f.map((r,i)=>cardHTML(r,i,null)).join('');
 }
 
-function setFilter(f,el){aF=f;document.querySelectorAll('.fpill').forEach(p=>p.classList.remove('active'));el.classList.add('active');loadResources();}
+function setFilter(f,el){aF=f;document.querySelectorAll('.fpill').forEach(p=>p.classList.remove('active'));el.classList.add('active');renderBrowse();}
 function setSrc(s,el){aS=s;document.querySelectorAll('#browse-view .stab').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderBrowse();}
 document.getElementById('sinput').addEventListener('input',e=>{searchQ=e.target.value;renderBrowse();});
 
