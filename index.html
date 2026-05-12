@@ -828,7 +828,7 @@ async function loadResources() {
 // ════════════════════════════════════════
 //  ADMIN PANEL
 // ════════════════════════════════════════
-const ADMIN_CODE = 'FUTURE2025';
+
 async function saveResourcesToGitHub(actionLabel) {
   const statusEl = document.getElementById('admin-conn-status');
 
@@ -868,16 +868,41 @@ let adminUnlocked = false;
 const ALL_RISK = ["mental-health","substance-use","justice-involved","violence","gang","housing","school-dropout","unemployment","family","mentorship","immigration","crisis","truancy","school-disconnected","credit-deficiency","IEP-sped","foster-care","aging-out","first-offense","parent"];
 const ALL_POP  = ["justice-involved","foster","pregnant","parent","veteran","immigrant","unhoused","survivor","at-risk","african-american"];
 
-function showAdmin() {
-  if (!adminUnlocked) {
-    const c = prompt('Admin access code:');
-    if (c !== ADMIN_CODE) { alert('Incorrect code.'); return; }
-    adminUnlocked = true;
-  }
-  document.getElementById('admin-ov').classList.add('open');
-  document.getElementById('admin-url-inp').value = SHEET_URL || '';
-  renderResourceTable();
+
+function showAdmin(){
+  (async function(){
+    const verified = sessionStorage.getItem('resource_admin_verified') === 'true'
+      || await window.secureAdminLogin();
+
+    if (!verified) return;
+
+    const adminModal = document.getElementById('admin-modal');
+    const adminPanel = document.getElementById('admin-panel');
+    const adminView = document.getElementById('admin-view');
+
+    if (adminModal) {
+      adminModal.style.display = 'flex';
+      adminModal.removeAttribute('hidden');
+      adminModal.setAttribute('aria-hidden', 'false');
+      return;
+    }
+
+    if (adminPanel) {
+      adminPanel.style.display = 'block';
+      adminPanel.removeAttribute('hidden');
+      return;
+    }
+
+    if (adminView) {
+      adminView.style.display = 'block';
+      adminView.removeAttribute('hidden');
+      return;
+    }
+
+    alert('Admin verified. Admin panel was not found on this page.');
+  })();
 }
+
 function closeAdmin() { document.getElementById('admin-ov').classList.remove('open'); resetAdminForm(); }
 
 async function adminConnect() {
@@ -995,6 +1020,7 @@ function resetAdminForm() {
 function afV(id) { const e=document.getElementById(id); return e?(e.value||'').trim():''; }
 
 async function saveResource() {
+  if (window.requireAdminBeforeSave && !(await window.requireAdminBeforeSave())) return;
   const title = afV('af-title');
   if (!title) { alert('Name is required.'); return; }
 
@@ -1036,6 +1062,7 @@ async function saveResource() {
 }
 
 async function deleteResource(id) {
+  if (window.requireAdminBeforeSave && !(await window.requireAdminBeforeSave())) return;
   const r = R.find(x => String(x.id) === String(id));
   if (!r || !confirm('Delete "' + r.title + '"? This cannot be undone.')) return;
 
@@ -1708,6 +1735,54 @@ GITHUB_BRANCH=main</div>
 
   window.updateHeroResourceCount = updateHeroResourceCount;
 })();
+</script>
+
+
+<script>
+/* ================================
+   SECURE ADMIN LOGIN
+   Password is validated by /api/login using ADMIN_PASSWORD in Vercel.
+================================ */
+async function verifyAdminPassword(password){
+  const res = await fetch('/api/login', {
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify({ password })
+  });
+
+  let result = {};
+  try {
+    result = await res.json();
+  } catch(e) {}
+
+  return res.ok && result.success === true;
+}
+
+window.secureAdminLogin = async function(){
+  const password = prompt('Enter admin access code:');
+
+  if (!password) return false;
+
+  const ok = await verifyAdminPassword(password);
+
+  if (!ok) {
+    alert('Invalid admin access code.');
+    return false;
+  }
+
+  sessionStorage.setItem('resource_admin_verified', 'true');
+  return true;
+};
+
+window.requireAdminBeforeSave = async function(){
+  if (sessionStorage.getItem('resource_admin_verified') === 'true') {
+    return true;
+  }
+
+  return await window.secureAdminLogin();
+};
 </script>
 
 </body>
