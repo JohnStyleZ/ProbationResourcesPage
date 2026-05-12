@@ -245,6 +245,34 @@ header button{color:#fff!important}
 .cicon{font-size:22px;line-height:1}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 
+
+
+/* ADA/WCAG contrast hardening */
+:root{
+  --ink-faint:#4a5568;
+  --ink-soft:#334155;
+}
+.search-wrap input::placeholder,.wiz-input::placeholder{color:#555!important;opacity:1!important}
+.wiz-step-label,.wiz-step-num,.wiz-opt .opt-sub,.card-meta,.card-addr,.src-lbl{color:#334155!important}
+.card-contact,.card p,.tag,.cnt,.stab,.fpill,.vtab,.wiz-back,.input-label,.match-header-left p,.start-card p,.nores{color:#334155!important}
+.cta-gray{background:#e2e8f0!important;color:#1f2937!important}
+.score-badge,.match-reason{color:#064e3b!important;background:#d1fae5!important;border-color:#047857!important}
+header,header *,header button,header a,header span,header div{color:#fff!important}
+header button{border-color:rgba(255,255,255,.75)!important}
+header button.nav-active{background:rgba(255,255,255,.25)!important}
+footer,footer *,footer a,footer div,footer span{color:#fff!important}
+footer a{text-decoration:underline!important;text-underline-offset:3px}
+.eyebrow{color:#5c3b00!important}
+.hero h1{color:#07566b!important}
+.hero h1 em{color:#a33100!important}
+#sheet-status{color:#06495a!important}
+.abtn-d{color:#9f2a12!important;background:#fff1ed!important;border-color:#9f2a12!important}
+/* Admin table and small muted text */
+#ad-list td,#ad-list th{color:#1f2937!important}
+[style*="color:#777"],[style*="color:#888"],[style*="color:#999"],[style*="color:#aaa"],[style*="color:#bbb"]{color:#334155!important}
+[style*="rgba(255,255,255,.3)"],[style*="rgba(255,255,255,.35)"],[style*="rgba(255,255,255,.5)"],[style*="rgba(255,255,255,.55)"],[style*="rgba(255,255,255,.6)"],[style*="rgba(255,255,255,.62)"],[style*="rgba(255,255,255,.65)"],[style*="rgba(255,255,255,.7)"],[style*="rgba(255,255,255,.75)"],[style*="rgba(255,255,255,.8)"]{color:#fff!important}
+[style*="color:#F5BB4C"],[style*="color:#FFE08A"]{color:#fff!important}
+
 </style>
 </head>
 <body>
