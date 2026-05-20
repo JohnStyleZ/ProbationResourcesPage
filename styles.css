@@ -564,3 +564,24 @@ textarea.afi{resize:vertical;min-height:72px;line-height:1.5}
   color:#063b47;
   border-color:#ffffff;
 }
+
+
+
+/* ========================================
+   GOOGLE TRANSLATE CLEANUP
+======================================== */
+#google_translate_element,
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover{
+  display:none !important;
+}
+
+body{
+  top:0 !important;
+}
+
+.skiptranslate{
+  display:none !important;
+}

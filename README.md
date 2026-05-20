@@ -58,3 +58,20 @@ Resource cards support translated JSON fields:
 }
 
 Old string-based title and desc values still work.
+
+
+## Full Page Language Toggle
+
+This version uses Google Website Translate so the language buttons translate the full visible page, including resource cards loaded from resources.json.
+
+Behavior:
+
+- EN clears translation and reloads English.
+- ES translates the whole page to Spanish.
+- 中文 translates the whole page to Traditional Chinese.
+- The selected language is saved in localStorage.
+- Page reload after selecting a language is intentional because the translation layer needs to process the full DOM.
+
+Note:
+
+The browser must be online and able to load Google's translate script.
