@@ -524,3 +524,43 @@ footer [style*="color:#FFFFFF"]{
 textarea.afi{resize:vertical;min-height:72px;line-height:1.5}
 #admin-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.52);z-index:800;overflow-y:auto;padding:1.5rem}
 #admin-ov.open{display:block}
+
+
+
+/* ========================================
+   LANGUAGE TOGGLE
+======================================== */
+.lang-toggle{
+  display:flex;
+  align-items:center;
+  gap:.45rem;
+  flex-wrap:wrap;
+}
+
+.lang-btn{
+  border:2px solid #ffffff;
+  background:#063b47;
+  color:#ffffff;
+  border-radius:999px;
+  padding:.42rem .72rem;
+  font-size:.78rem;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s;
+  line-height:1;
+}
+
+.lang-btn:hover,
+.lang-btn:focus{
+  background:#ffffff;
+  color:#063b47;
+  outline:3px solid #ffffff;
+  outline-offset:2px;
+}
+
+.lang-btn.active,
+.lang-btn[aria-pressed="true"]{
+  background:#ffffff;
+  color:#063b47;
+  border-color:#ffffff;
+}

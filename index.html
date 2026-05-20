@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
+<script src="translations.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -36,6 +37,13 @@
       <button type="button" class="nav-active" aria-pressed="true" onclick="showView('browse',this)" style="color:white;background:#021f26;border:2px solid #ffffff;border-radius:var(--pill);padding:6px 16px;font-family:var(--font-body);font-size:.82rem;font-weight:600;cursor:pointer;transition:all .15s">Browse All</button>
       <button type="button" aria-pressed="false" onclick="showView('matcher',this)" style="color:rgba(255,255,255,.8);background:#063b47;border:2px solid #ffffff;border-radius:var(--pill);padding:6px 16px;font-family:var(--font-body);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s">Smart Match</button>
       <button type="button" aria-label="Open admin panel" onclick="showAdmin()" style="color:rgba(255,255,255,.65);background:#063b47;border:2px solid #ffffff;border-radius:var(--pill);padding:5px 14px;font-family:var(--font-body);font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s">⚙ Admin</button>
+    
+      <div class="lang-toggle" role="group" aria-label="Language selector">
+        <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')" aria-pressed="false">EN</button>
+        <button type="button" class="lang-btn" data-lang="es" onclick="setLanguage('es')" aria-pressed="false">ES</button>
+        <button type="button" class="lang-btn" data-lang="zh" onclick="setLanguage('zh')" aria-pressed="false">中文</button>
+      </div>
+
     </nav>
   </div>
   <!-- Co-brand tagline bar -->
@@ -57,7 +65,7 @@
     A joint initiative of ACOE &amp; Alameda County Probation · <span id="hero-resource-count">Loading resources</span>
   </div>
   <h1 id="hero-title" style="color:#0B7691">Find resources built<br>for <em style="font-style:normal;color:#E5763A">your</em> situation</h1>
-  <p>Answer a few questions and we'll surface the programs most relevant to your age, location, and needs — across all of Alameda County.</p>
+  <p id="hero-desc">Answer a few questions and we\'ll surface the programs most relevant to your age, location, and needs — across all of Alameda County.</p>
   <div class="hero-btns">
     <button type="button" class="btn-primary" onclick="showView('matcher',document.querySelectorAll('nav button')[1])">Get My Personalized Match →</button>
     <button type="button" class="btn-secondary" onclick="showView('browse',document.querySelectorAll('nav button')[0])">Browse All Resources</button>
@@ -75,8 +83,8 @@
   <div id="wizard-shell">
     <div class="start-card" id="wizard-start">
       <div class="big-icon">🎯</div>
-      <h2>Let's find your best resources</h2>
-      <p>Answer 5 quick steps about who you are and what you need. We'll score every resource and show you the ones that fit best — ranked for you.</p>
+      <h2 id="wizard-start-title">Let's find your best resources</h2>
+      <p id="wizard-start-desc">Answer 5 quick steps about who you are and what you need. We'll score every resource and show you the ones that fit best — ranked for you.</p>
       <button type="button" class="btn-primary" onclick="startWizard()">Start Matching →</button>
     </div>
     <div id="wizard" style="display:none">
@@ -164,11 +172,11 @@
       <button type="button" class="stab" onclick="setSrc('general',this)"><span class="sdot" style="background:#888"></span>General</button>
     </div>
     <div class="sec-hdr">
-      <h2>All Resources</h2>
+      <h2 id="browse-title">All Resources</h2>
       <span class="cnt" id="browse-cnt" role="status" aria-live="polite">—</span>
     </div>
     <div class="grid" id="browse-grid"></div>
-    <div class="nores" id="browse-nores"><h3>No resources found</h3><p>Try a different search or filter.</p></div>
+    <div class="nores" id="browse-nores"><h3 id="browse-nores-title">No resources found</h3><p id="browse-nores-desc">Try a different search or filter.</p></div>
   </div>
 </div>
 
@@ -237,7 +245,7 @@
 let SHEET_URL = localStorage.getItem('rm_sheet_url') || '';
 // Change this if your data file is hosted somewhere else, for example:
 // const DATA_URL = 'https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/resources.json';
-const DATA_URL = '/resources.json';
+const DATA_URL = 'https://raw.githubusercontent.com/JohnStyleZ/ProbationResourcesPage/main/resources.json';
 const UPDATE_API_URL = '/api/updateResources';
 let R = [];
 let sheetLoaded = false;
@@ -468,12 +476,12 @@ function renderResourceTable() {
   const tbody = document.getElementById('admin-tbody');
   if (!tbody) return;
   const q = (document.getElementById('admin-search').value||'').toLowerCase();
-  const filtered = q ? R.filter(r=>(r.title||'').toLowerCase().includes(q)||(r.srcL||'').toLowerCase().includes(q)) : R;
+  const filtered = q ? R.filter(r=>resourceText(r,'title').toLowerCase().includes(q)||(r.srcL||'').toLowerCase().includes(q)) : R;
   const cnt = document.getElementById('admin-cnt');
   if (cnt) cnt.textContent = R.length;
   tbody.innerHTML = filtered.map(r =>
     '<tr style="border-bottom:1px solid #f1f5f9">' +
-    '<td style="padding:.5rem .8rem;font-weight:500;color:var(--ink)">' + (r.title||'') + '</td>' +
+    '<td style="padding:.5rem .8rem;font-weight:500;color:var(--ink)">' + resourceText(r,'title') + '</td>' +
     '<td style="padding:.5rem .8rem;color:#555;font-size:.76rem">' + (r.catL||r.cat||'') + '</td>' +
     '<td style="padding:.5rem .8rem;color:#777;font-size:.72rem;font-family:monospace;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + (r.contact||'') + '</td>' +
     '<td style="padding:.5rem .8rem;color:#888;font-size:.72rem">' + (r.srcL||'') + '</td>' +
@@ -495,7 +503,7 @@ function newResource() {
 function editResource(id) {
   const r = R.find(x => x.id == id); if (!r) return;
   editingId = r.id;
-  document.getElementById('admin-form-title').textContent = 'Edit: ' + r.title;
+  document.getElementById('admin-form-title').textContent = 'Edit: ' + resourceText(r,'title');
   document.getElementById('af-id').value = r.id;
   ['title','cat','catL','icon','th','ages','urgency','zipcodes','desc','contact','addr','avail','link','src','srcL'].forEach(k => {
     const el = document.getElementById('af-'+k); if (el) el.value = r[k]||'';
@@ -561,7 +569,7 @@ async function saveResource() {
 
 async function deleteResource(id) {
   const r = R.find(x => String(x.id) === String(id));
-  if (!r || !confirm('Delete "' + r.title + '"? This cannot be undone.')) return;
+  if (!r || !confirm('Delete "' + resourceText(r,'title') + '"? This cannot be undone.')) return;
 
   const previous = JSON.stringify(R);
   R = R.filter(x => String(x.id) !== String(id));
@@ -594,7 +602,7 @@ function renderBrowse(){
     const mf=aF==='all'||r.cat===aF;
     const ms=aS==='all'||r.src===aS;
     const q=searchQ.toLowerCase();
-    const mq=!q||r.title.toLowerCase().includes(q)||r.desc.toLowerCase().includes(q)||r.tags.some(t=>t.toLowerCase().includes(q))||r.srcL.toLowerCase().includes(q);
+    const mq=!q||resourceSearchText(r).includes(q);
     return mf&&ms&&mq;
   });
   cnt.textContent=f.length+' resource'+(f.length!==1?'s':'');
@@ -628,10 +636,10 @@ function cardHTML(r,i,scoreInfo){
       </div>
     </div>
     <div>
-      <h3 id="resource-title-${r.id}">${r.title}</h3>
+      <h3 id="resource-title-${r.id}">${resourceText(r,'title')}</h3>
       ${r.ages?`<span class="ages-pill">Ages: ${r.ages}</span>`:''}
     </div>
-    <p>${r.desc}</p>
+    <p>${resourceText(r,'desc')}</p>
     <div class="tags">
       ${r.tags.map(t=>`<span class="tag">${t}</span>`).join('')}
       ${reasonTags}
@@ -642,7 +650,7 @@ function cardHTML(r,i,scoreInfo){
         ${r.contact?`<div class="card-contact">${r.contact}</div>`:''}
         ${r.addr?`<div class="card-addr">${r.addr}</div>`:''}
       </div>
-      ${r.link&&r.link!=='#'?`<a href="${r.link}" target="_blank" rel="noopener noreferrer" class="cta" aria-label="Learn more about ${r.title}">Learn more</a>`:`<span class="cta cta-gray" role="note">Contact us</span>`}
+      ${r.link&&r.link!=='#'?`<a href="${r.link}" target="_blank" rel="noopener noreferrer" class="cta" aria-label="Learn more about ${resourceText(r,'title')}">Learn more</a>`:`<span class="cta cta-gray" role="note">Contact us</span>`}
     </div>
   </article>`;
 }
@@ -1217,6 +1225,104 @@ GITHUB_BRANCH=main</div>
 
   window.updateHeroResourceCount = updateHeroResourceCount;
 })();
+</script>
+
+
+<script>
+/* ========================================
+   TRANSLATED RESOURCE HELPERS
+======================================== */
+function getTranslatedValue(value){
+  if (typeof value === 'string') return value;
+
+  if (typeof value === 'object' && value !== null) {
+    return value[CURRENT_LANGUAGE]
+      || value.en
+      || Object.values(value)[0]
+      || '';
+  }
+
+  return '';
+}
+
+function resourceText(resource, key){
+  return getTranslatedValue(resource ? resource[key] : '');
+}
+
+function resourceSearchText(resource){
+  const title = resourceText(resource, 'title');
+  const desc = resourceText(resource, 'desc');
+  const tags = Array.isArray(resource.tags) ? resource.tags.join(' ') : '';
+  return `${title} ${desc} ${tags} ${resource.srcL || ''} ${resource.catL || ''} ${resource.contact || ''} ${resource.addr || ''}`.toLowerCase();
+}
+</script>
+
+
+<script>
+/* ========================================
+   LANGUAGE TOGGLE LOGIC
+======================================== */
+let CURRENT_LANGUAGE = localStorage.getItem('resource_lang') || 'en';
+
+function t(key){
+  return (window.TRANSLATIONS && TRANSLATIONS[CURRENT_LANGUAGE] && TRANSLATIONS[CURRENT_LANGUAGE][key])
+    || (window.TRANSLATIONS && TRANSLATIONS.en && TRANSLATIONS.en[key])
+    || key;
+}
+
+function setTextById(id, value){
+  const el = document.getElementById(id);
+  if (el) el.textContent = value;
+}
+
+function setHtmlById(id, value){
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = value;
+}
+
+function applyTranslations(){
+  document.documentElement.lang = CURRENT_LANGUAGE === 'zh' ? 'zh-Hant' : CURRENT_LANGUAGE;
+
+  setHtmlById('hero-title', t('heroTitleHtml'));
+  setTextById('hero-desc', t('heroDesc'));
+  setTextById('hero-match-btn', t('heroMatchButton'));
+  setTextById('hero-browse-btn', t('heroBrowseButton'));
+  setTextById('browse-title', t('browseTitle'));
+  setTextById('browse-nores-title', t('noResultsTitle'));
+  setTextById('browse-nores-desc', t('noResultsDesc'));
+  setTextById('wizard-start-title', t('wizardStartTitle'));
+  setTextById('wizard-start-desc', t('wizardStartDesc'));
+  setTextById('wizard-start-btn', t('wizardStartButton'));
+
+  const searchInput = document.getElementById('sinput');
+  if (searchInput) searchInput.placeholder = t('searchPlaceholder');
+
+  const adminBtn = document.getElementById('admin-btn');
+  if (adminBtn) adminBtn.textContent = '⚙ ' + t('admin');
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const active = btn.dataset.lang === CURRENT_LANGUAGE;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+
+  if (typeof updateHeroResourceCount === 'function') {
+    updateHeroResourceCount();
+  }
+}
+
+function setLanguage(lang){
+  CURRENT_LANGUAGE = lang;
+  localStorage.setItem('resource_lang', lang);
+  applyTranslations();
+
+  if (typeof renderBrowse === 'function') renderBrowse();
+  if (typeof renderResourceTable === 'function') renderResourceTable();
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  applyTranslations();
+});
 </script>
 
 </body>
