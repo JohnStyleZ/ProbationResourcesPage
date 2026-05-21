@@ -1791,5 +1791,142 @@ async function adminImportExcelFile(event){
 }
 </script>
 
+
+<button type="button" class="a11y-fab" id="a11y-toggle" onclick="toggleA11yPanel()" aria-controls="a11y-panel" aria-expanded="false">
+  ♿ Accessibility
+</button>
+
+<div class="a11y-panel" id="a11y-panel" role="dialog" aria-modal="false" aria-labelledby="a11y-title">
+  <div class="a11y-panel-head">
+    <h2 id="a11y-title">Accessibility Options</h2>
+    <button type="button" class="a11y-close" onclick="toggleA11yPanel(false)" aria-label="Close accessibility options">✕</button>
+  </div>
+
+  <div class="a11y-options">
+    <div class="a11y-option">
+      <span>High Contrast</span>
+      <button type="button" id="a11y-btn-contrast" onclick="toggleA11ySetting('contrast')" aria-pressed="false">Off</button>
+    </div>
+
+    <div class="a11y-option">
+      <span>Large Text</span>
+      <button type="button" id="a11y-btn-largeText" onclick="toggleA11ySetting('largeText')" aria-pressed="false">Off</button>
+    </div>
+
+    <div class="a11y-option">
+      <span>Reduce Motion</span>
+      <button type="button" id="a11y-btn-reduceMotion" onclick="toggleA11ySetting('reduceMotion')" aria-pressed="false">Off</button>
+    </div>
+
+    <div class="a11y-option">
+      <span>Readable Font</span>
+      <button type="button" id="a11y-btn-readableFont" onclick="toggleA11ySetting('readableFont')" aria-pressed="false">Off</button>
+    </div>
+
+    <div class="a11y-option">
+      <span>Underline Links</span>
+      <button type="button" id="a11y-btn-underlineLinks" onclick="toggleA11ySetting('underlineLinks')" aria-pressed="false">Off</button>
+    </div>
+
+    <button type="button" class="a11y-reset" onclick="resetA11ySettings()">Reset Accessibility</button>
+  </div>
+</div>
+
+
+<script>
+/* ========================================
+   ACCESSIBILITY TOOLBAR LOGIC
+======================================== */
+const A11Y_STORAGE_KEY = 'resource_a11y_settings';
+
+const A11Y_DEFAULTS = {
+  contrast: false,
+  largeText: false,
+  reduceMotion: false,
+  readableFont: false,
+  underlineLinks: false
+};
+
+function getA11ySettings(){
+  try {
+    return {
+      ...A11Y_DEFAULTS,
+      ...(JSON.parse(localStorage.getItem(A11Y_STORAGE_KEY)) || {})
+    };
+  } catch(e) {
+    return { ...A11Y_DEFAULTS };
+  }
+}
+
+function saveA11ySettings(settings){
+  localStorage.setItem(A11Y_STORAGE_KEY, JSON.stringify(settings));
+}
+
+function applyA11ySettings(){
+  const settings = getA11ySettings();
+  const root = document.documentElement;
+
+  root.classList.toggle('a11y-high-contrast', settings.contrast);
+  root.classList.toggle('a11y-large-text', settings.largeText);
+  root.classList.toggle('a11y-reduce-motion', settings.reduceMotion);
+  root.classList.toggle('a11y-readable-font', settings.readableFont);
+  root.classList.toggle('a11y-underline-links', settings.underlineLinks);
+
+  const map = {
+    contrast: 'a11y-btn-contrast',
+    largeText: 'a11y-btn-largeText',
+    reduceMotion: 'a11y-btn-reduceMotion',
+    readableFont: 'a11y-btn-readableFont',
+    underlineLinks: 'a11y-btn-underlineLinks'
+  };
+
+  Object.entries(map).forEach(([key, id]) => {
+    const btn = document.getElementById(id);
+    if (!btn) return;
+    const active = !!settings[key];
+    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    btn.textContent = active ? 'On' : 'Off';
+  });
+}
+
+function toggleA11ySetting(key){
+  const settings = getA11ySettings();
+  settings[key] = !settings[key];
+  saveA11ySettings(settings);
+  applyA11ySettings();
+}
+
+function resetA11ySettings(){
+  saveA11ySettings({ ...A11Y_DEFAULTS });
+  applyA11ySettings();
+}
+
+function toggleA11yPanel(force){
+  const panel = document.getElementById('a11y-panel');
+  const toggle = document.getElementById('a11y-toggle');
+  if (!panel || !toggle) return;
+
+  const open = typeof force === 'boolean' ? force : !panel.classList.contains('open');
+  panel.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+
+  if (open) {
+    const first = panel.querySelector('button');
+    if (first) setTimeout(() => first.focus(), 50);
+  } else {
+    toggle.focus();
+  }
+}
+
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') {
+    toggleA11yPanel(false);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', applyA11ySettings);
+applyA11ySettings();
+</script>
+
 </body>
 </html>

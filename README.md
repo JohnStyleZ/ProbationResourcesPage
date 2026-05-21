@@ -120,3 +120,21 @@ Examples:
 - youth / mentoring → 🌱
 
 Fallback icon: 📌
+
+
+## Accessibility Toolbar
+
+A lightweight custom accessibility toolbar was added.
+
+Features:
+
+- High Contrast
+- Large Text
+- Reduce Motion
+- Readable Font
+- Underline Links
+- Reset Accessibility
+
+Preferences are saved in localStorage.
+
+This toolbar is an enhancement and does not replace WCAG compliance work.
