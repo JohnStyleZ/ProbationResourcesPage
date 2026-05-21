@@ -75,3 +75,48 @@ Behavior:
 Note:
 
 The browser must be online and able to load Google's translate script.
+
+
+## Bulk Excel Import / Export
+
+The admin panel now includes:
+
+- Export Excel
+- Import Excel
+- Find Duplicates
+
+Duplicate detection checks:
+
+- Same title + source
+- Same title + address
+- Same title + contact
+- Same link
+
+During import, possible duplicate rows are skipped before saving to GitHub.
+
+Excel columns:
+
+id, title, cat, catL, icon, th, ages, ageMin, ageMax, genders,
+riskFactors, populations, urgency, zipcodes, desc, tags, contact,
+addr, avail, link, src, srcL
+
+Use `|` to separate multiple values in genders, riskFactors, populations, and tags.
+
+
+## Auto Icon Assignment During Excel Import
+
+If the `icon` column is empty during Excel import, the admin panel now assigns an icon automatically.
+
+It checks category, category label, title, description, tags, risk factors, and populations.
+
+Examples:
+- mental health / counseling → 🧠
+- housing / shelter → 🏠
+- workforce / jobs → 💼
+- education / school → 🎓
+- legal / court / probation → ⚖️
+- crisis / emergency → 🚨
+- family / parenting → 👨‍👩‍👧
+- youth / mentoring → 🌱
+
+Fallback icon: 📌

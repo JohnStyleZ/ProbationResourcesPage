@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 <div id="google_translate_element" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px"></div>
@@ -549,6 +550,8 @@ async function saveResource() {
     populations: ALL_POP.filter(v=>{const e=document.getElementById('pop-'+v);return e&&e.checked;}),
   };
 
+  adminEnsureIcon(r);
+
   const previous = JSON.stringify(R);
   const idx = R.findIndex(x => String(x.id) === String(r.id));
   if (idx >= 0) R[idx] = r; else R.push(r);
@@ -1065,9 +1068,14 @@ GITHUB_BRANCH=main</div>
       <div style="display:flex;gap:.4rem;flex-wrap:wrap">
         <button type="button" class="abtn" onclick="adminReload()">↻ Reload JSON</button>
         <button type="button" class="abtn abtn-p" onclick="newResource()">+ Add Resource</button>
+        <button type="button" class="abtn" onclick="adminExportExcel()">⇩ Export Excel</button>
+        <button type="button" class="abtn" onclick="document.getElementById('admin-excel-import').click()">⇧ Import Excel</button>
+        <button type="button" class="abtn" onclick="adminFindDuplicates()">⚠ Find Duplicates</button>
+        <input id="admin-excel-import" type="file" accept=".xlsx,.xls,.csv" style="display:none" onchange="adminImportExcelFile(event)">
       </div>
       <input id="admin-url-inp" type="hidden">
       <div id="admin-conn-status" role="status" aria-live="polite" style="font-size:.74rem;margin-top:.4rem;color:#888"></div>
+      <div id="admin-duplicate-report" aria-live="polite" style="display:none;margin-top:.65rem;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:.65rem;font-size:.76rem;color:#7c2d12;line-height:1.5"></div>
     </div>
 
     <!-- RESOURCE TABLE -->
@@ -1328,6 +1336,460 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+<script>
+/* ========================================
+   BULK EXCEL IMPORT / EXPORT
+   Requires SheetJS: xlsx.full.min.js
+======================================== */
+
+const EXCEL_COLUMNS = [
+  'id','title','cat','catL','icon','th','ages','ageMin','ageMax','genders',
+  'riskFactors','populations','urgency','zipcodes','desc','tags','contact',
+  'addr','avail','link','src','srcL'
+];
+
+
+function adminAutoIconForResource(resource){
+  const text = [
+    resource.cat,
+    resource.catL,
+    getTranslatedValue(resource.title),
+    getTranslatedValue(resource.desc),
+    Array.isArray(resource.tags) ? resource.tags.join(' ') : resource.tags,
+    Array.isArray(resource.riskFactors) ? resource.riskFactors.join(' ') : resource.riskFactors,
+    Array.isArray(resource.populations) ? resource.populations.join(' ') : resource.populations
+  ].join(' ').toLowerCase();
+
+  const rules = [
+    { icon:'🚨', words:['crisis','emergency','urgent','immediate','24/7','hotline'] },
+    { icon:'🧠', words:['mental','counseling','therapy','behavioral','wellness','trauma'] },
+    { icon:'🏠', words:['housing','shelter','homeless','unhoused','motel','rental'] },
+    { icon:'💼', words:['workforce','job','career','employment','internship','resume','training'] },
+    { icon:'🎓', words:['education','school','ged','college','academic','tutoring','student'] },
+    { icon:'⚖️', words:['legal','justice','court','probation','reentry','record','law'] },
+    { icon:'🍽️', words:['food','meal','nutrition','pantry','basic needs'] },
+    { icon:'🏥', words:['medical','health clinic','hospital','doctor','nurse'] },
+    { icon:'👨‍👩‍👧', words:['family','parent','parenting','caregiver','children'] },
+    { icon:'🌱', words:['youth','teen','young adult','mentoring','life skills'] },
+    { icon:'🚌', words:['transport','transportation','bus','transit','ride'] },
+    { icon:'💊', words:['substance','drug','alcohol','recovery','treatment'] },
+    { icon:'🕊️', words:['violence','healing','survivor','grief','homicide','safety'] },
+    { icon:'💵', words:['financial','benefit','cash','aid','grant','money'] },
+    { icon:'🌎', words:['immigrant','immigration','refugee','language'] },
+    { icon:'📄', words:['document','application','case management','referral'] }
+  ];
+
+  for (const rule of rules) {
+    if (rule.words.some(word => text.includes(word))) {
+      return rule.icon;
+    }
+  }
+
+  const cat = String(resource.cat || '').toLowerCase();
+
+  const categoryIcons = {
+    health: '🧠',
+    housing: '🏠',
+    workforce: '💼',
+    education: '🎓',
+    legal: '⚖️',
+    family: '👨‍👩‍👧',
+    youth: '🌱',
+    violence: '🕊️',
+    food: '🍽️',
+    financial: '💵',
+    transportation: '🚌'
+  };
+
+  return categoryIcons[cat] || '📌';
+}
+
+function adminEnsureIcon(resource){
+  if (!resource.icon || !String(resource.icon).trim()) {
+    resource.icon = adminAutoIconForResource(resource);
+  }
+  return resource;
+}
+
+
+function adminNormalizeText(value){
+  return String(value || '')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .replace(/[^\w\s@./:-]/g, '')
+    .trim();
+}
+
+function adminArrayToText(value){
+  if (Array.isArray(value)) return value.join('|');
+  if (typeof value === 'object' && value !== null) return JSON.stringify(value);
+  return value == null ? '' : String(value);
+}
+
+function adminTextToArray(value){
+  if (Array.isArray(value)) return value;
+  return String(value || '')
+    .split(/[|,;]/)
+    .map(v => v.trim())
+    .filter(Boolean);
+}
+
+function adminTitleForExcel(r){
+  return getTranslatedValue(r.title);
+}
+
+function adminDescForExcel(r){
+  return getTranslatedValue(r.desc);
+}
+
+function adminResourceToExcelRow(r){
+  return {
+    id: r.id ?? '',
+    title: adminTitleForExcel(r),
+    cat: r.cat ?? '',
+    catL: r.catL ?? '',
+    icon: r.icon ?? '',
+    th: r.th ?? '',
+    ages: r.ages ?? '',
+    ageMin: r.ageMin ?? '',
+    ageMax: r.ageMax ?? '',
+    genders: adminArrayToText(r.genders),
+    riskFactors: adminArrayToText(r.riskFactors),
+    populations: adminArrayToText(r.populations),
+    urgency: r.urgency ?? '',
+    zipcodes: Array.isArray(r.zipcodes) ? r.zipcodes.join('|') : (r.zipcodes ?? ''),
+    desc: adminDescForExcel(r),
+    tags: adminArrayToText(r.tags),
+    contact: r.contact ?? '',
+    addr: r.addr ?? '',
+    avail: r.avail ?? '',
+    link: r.link ?? '',
+    src: r.src ?? '',
+    srcL: r.srcL ?? ''
+  };
+}
+
+function adminExcelRowToResource(row){
+  const clean = {};
+  Object.keys(row || {}).forEach(k => {
+    const normalized = String(k).trim();
+    clean[normalized] = row[k];
+  });
+
+  const idRaw = clean.id || clean.ID || clean.Id;
+  const ageMinRaw = clean.ageMin ?? clean['age min'] ?? clean.AgeMin;
+  const ageMaxRaw = clean.ageMax ?? clean['age max'] ?? clean.AgeMax;
+
+  const resource = {
+    id: idRaw ? Number(idRaw) : Date.now() + Math.floor(Math.random() * 100000),
+    title: String(clean.title || clean.Title || '').trim(),
+    cat: String(clean.cat || clean.category || clean.Category || 'general').trim(),
+    catL: String(clean.catL || clean.categoryLabel || clean['category label'] || clean.CategoryLabel || clean.cat || 'General').trim(),
+    icon: String(clean.icon || clean.Icon || '').trim(),
+    th: String(clean.th || clean.theme || clean.Theme || 'th-teal').trim(),
+    ages: String(clean.ages || clean.Ages || 'All ages').trim(),
+    ageMin: ageMinRaw === '' || ageMinRaw == null ? null : Number(ageMinRaw),
+    ageMax: ageMaxRaw === '' || ageMaxRaw == null ? null : Number(ageMaxRaw),
+    genders: adminTextToArray(clean.genders || clean.Genders || 'all'),
+    riskFactors: adminTextToArray(clean.riskFactors || clean['risk factors'] || clean.RiskFactors || ''),
+    populations: adminTextToArray(clean.populations || clean.Populations || ''),
+    urgency: String(clean.urgency || clean.Urgency || 'any').trim(),
+    zipcodes: String(clean.zipcodes || clean.Zipcodes || clean.coverage || 'all').trim(),
+    desc: String(clean.desc || clean.description || clean.Description || '').trim(),
+    tags: adminTextToArray(clean.tags || clean.Tags || ''),
+    contact: String(clean.contact || clean.Contact || '').trim(),
+    addr: String(clean.addr || clean.address || clean.Address || '').trim(),
+    avail: String(clean.avail || clean.availability || clean.Availability || '').trim(),
+    link: String(clean.link || clean.url || clean.URL || clean.Link || '#').trim(),
+    src: String(clean.src || clean.source || clean.Source || 'general').trim(),
+    srcL: String(clean.srcL || clean.sourceLabel || clean['source label'] || clean.SourceLabel || 'General').trim()
+  };
+
+  return adminEnsureIcon(resource);
+}
+
+function adminDuplicateKey(r){
+  const title = adminNormalizeText(getTranslatedValue(r.title));
+  const addr = adminNormalizeText(r.addr);
+  const contact = adminNormalizeText(r.contact);
+  const link = adminNormalizeText(r.link);
+  const src = adminNormalizeText(r.src || r.srcL);
+
+  const strongest = [
+    title && src ? `title_source:${title}|${src}` : '',
+    title && addr ? `title_addr:${title}|${addr}` : '',
+    title && contact ? `title_contact:${title}|${contact}` : '',
+    link && link !== '#' ? `link:${link}` : ''
+  ].filter(Boolean);
+
+  return strongest;
+}
+
+function adminDetectDuplicates(existingResources, incomingResources){
+  const existingMap = new Map();
+  const importMap = new Map();
+  const duplicates = [];
+  const internalDuplicates = [];
+
+  existingResources.forEach((r, index) => {
+    adminDuplicateKey(r).forEach(key => {
+      if (!existingMap.has(key)) existingMap.set(key, []);
+      existingMap.get(key).push({ resource: r, index });
+    });
+  });
+
+  incomingResources.forEach((r, importIndex) => {
+    const keys = adminDuplicateKey(r);
+    let matchedExisting = null;
+
+    for (const key of keys) {
+      if (existingMap.has(key)) {
+        matchedExisting = {
+          key,
+          matches: existingMap.get(key)
+        };
+        break;
+      }
+    }
+
+    if (matchedExisting) {
+      duplicates.push({
+        importIndex,
+        incoming: r,
+        key: matchedExisting.key,
+        existing: matchedExisting.matches
+      });
+    }
+
+    for (const key of keys) {
+      if (!importMap.has(key)) {
+        importMap.set(key, []);
+      } else {
+        internalDuplicates.push({
+          importIndex,
+          incoming: r,
+          key,
+          previous: importMap.get(key)
+        });
+      }
+      importMap.get(key).push({ resource: r, importIndex });
+    }
+  });
+
+  return { duplicates, internalDuplicates };
+}
+
+function adminShowDuplicateReport(report, importedCount, addedCount){
+  const box = document.getElementById('admin-duplicate-report');
+  if (!box) return;
+
+  const duplicateCount = report.duplicates.length;
+  const internalCount = report.internalDuplicates.length;
+
+  if (!duplicateCount && !internalCount) {
+    box.style.display = 'block';
+    box.style.background = '#ecfdf5';
+    box.style.borderColor = '#86efac';
+    box.style.color = '#14532d';
+    box.innerHTML = `✓ No duplicates detected. ${addedCount || 0} of ${importedCount || 0} resource(s) ready/imported.`;
+    return;
+  }
+
+  const examples = report.duplicates.slice(0, 8).map(d => {
+    const incomingTitle = getTranslatedValue(d.incoming.title);
+    const existingTitle = getTranslatedValue(d.existing[0]?.resource?.title);
+    return `<li><strong>${incomingTitle}</strong> may duplicate <strong>${existingTitle}</strong></li>`;
+  }).join('');
+
+  const internalExamples = report.internalDuplicates.slice(0, 5).map(d => {
+    return `<li><strong>${getTranslatedValue(d.incoming.title)}</strong> appears more than once in the import file</li>`;
+  }).join('');
+
+  box.style.display = 'block';
+  box.style.background = '#fff7ed';
+  box.style.borderColor = '#fed7aa';
+  box.style.color = '#7c2d12';
+  box.innerHTML = `
+    <strong>Duplicate check:</strong><br>
+    Existing duplicates found: ${duplicateCount}<br>
+    Duplicates inside import file: ${internalCount}<br>
+    ${examples ? `<ul style="margin:.4rem 0 0 1rem">${examples}</ul>` : ''}
+    ${internalExamples ? `<ul style="margin:.4rem 0 0 1rem">${internalExamples}</ul>` : ''}
+  `;
+}
+
+function adminExportExcel(){
+  if (typeof XLSX === 'undefined') {
+    alert('Excel library did not load. Please check your internet connection.');
+    return;
+  }
+
+  const rows = R.map(adminResourceToExcelRow);
+  const ws = XLSX.utils.json_to_sheet(rows, { header: EXCEL_COLUMNS });
+  const wb = XLSX.utils.book_new();
+
+  ws['!cols'] = EXCEL_COLUMNS.map(col => {
+    if (['title','desc','contact','addr','link'].includes(col)) return { wch: 38 };
+    if (['riskFactors','populations','tags'].includes(col)) return { wch: 30 };
+    return { wch: 16 };
+  });
+
+  XLSX.utils.book_append_sheet(wb, ws, 'resources');
+
+  const instructions = [
+    ['Bulk Import Instructions'],
+    ['Keep the header names exactly the same.'],
+    ['Use | to separate multiple values in genders, riskFactors, populations, and tags.'],
+    ['Duplicate detection checks title + source, title + address, title + contact, and link.'],
+    ['Required field: title.'],
+    ['Recommended fields: cat, catL, desc, contact, link, src, srcL.']
+  ];
+
+  const wsInfo = XLSX.utils.aoa_to_sheet(instructions);
+  wsInfo['!cols'] = [{ wch: 90 }];
+  XLSX.utils.book_append_sheet(wb, wsInfo, 'instructions');
+
+  const date = new Date().toISOString().slice(0,10);
+  XLSX.writeFile(wb, `resources-export-${date}.xlsx`);
+}
+
+function adminFindDuplicates(){
+  const report = adminDetectDuplicates([], R);
+  const duplicates = [];
+
+  const seen = new Map();
+  R.forEach((r, index) => {
+    adminDuplicateKey(r).forEach(key => {
+      if (!seen.has(key)) {
+        seen.set(key, []);
+      }
+      seen.get(key).push({ resource: r, index });
+    });
+  });
+
+  seen.forEach((items, key) => {
+    if (items.length > 1) {
+      duplicates.push({ key, items });
+    }
+  });
+
+  const box = document.getElementById('admin-duplicate-report');
+  if (!box) return;
+
+  if (!duplicates.length) {
+    box.style.display = 'block';
+    box.style.background = '#ecfdf5';
+    box.style.borderColor = '#86efac';
+    box.style.color = '#14532d';
+    box.innerHTML = '✓ No duplicate resources detected in the current JSON.';
+    return;
+  }
+
+  const list = duplicates.slice(0, 12).map(group => {
+    const names = group.items.map(x => getTranslatedValue(x.resource.title)).join(' / ');
+    return `<li>${names}</li>`;
+  }).join('');
+
+  box.style.display = 'block';
+  box.style.background = '#fff7ed';
+  box.style.borderColor = '#fed7aa';
+  box.style.color = '#7c2d12';
+  box.innerHTML = `<strong>${duplicates.length} possible duplicate group(s) found:</strong><ul style="margin:.4rem 0 0 1rem">${list}</ul>`;
+}
+
+async function adminImportExcelFile(event){
+  const file = event.target.files && event.target.files[0];
+  event.target.value = '';
+
+  if (!file) return;
+
+  if (typeof XLSX === 'undefined') {
+    alert('Excel library did not load. Please check your internet connection.');
+    return;
+  }
+
+  const statusEl = document.getElementById('admin-conn-status');
+  if (statusEl) {
+    statusEl.textContent = 'Reading Excel file...';
+    statusEl.style.color = 'var(--teal)';
+  }
+
+  const buffer = await file.arrayBuffer();
+  const wb = XLSX.read(buffer, { type: 'array' });
+  const firstSheetName = wb.SheetNames[0];
+  const ws = wb.Sheets[firstSheetName];
+  const rows = XLSX.utils.sheet_to_json(ws, { defval: '' });
+
+  const incoming = rows
+    .map(adminExcelRowToResource)
+    .filter(r => getTranslatedValue(r.title).trim());
+
+  if (!incoming.length) {
+    alert('No valid rows found. Make sure the Excel file has a title column.');
+    if (statusEl) statusEl.textContent = 'No valid rows found.';
+    return;
+  }
+
+  const report = adminDetectDuplicates(R, incoming);
+  const duplicateImportIndexes = new Set([
+    ...report.duplicates.map(d => d.importIndex),
+    ...report.internalDuplicates.map(d => d.importIndex)
+  ]);
+
+  const cleanIncoming = incoming.filter((_, index) => !duplicateImportIndexes.has(index));
+
+  adminShowDuplicateReport(report, incoming.length, cleanIncoming.length);
+
+  let message = `Found ${incoming.length} row(s).\\n`;
+  message += `${cleanIncoming.length} new resource(s) can be imported.\\n`;
+  message += `${duplicateImportIndexes.size} possible duplicate row(s) will be skipped.\\n\\n`;
+  message += 'Continue import and save to GitHub?';
+
+  if (!confirm(message)) {
+    if (statusEl) statusEl.textContent = 'Import cancelled.';
+    return;
+  }
+
+  if (!cleanIncoming.length) {
+    alert('Nothing to import after duplicate check.');
+    if (statusEl) statusEl.textContent = 'Nothing imported because all rows looked like duplicates.';
+    return;
+  }
+
+  const previous = JSON.stringify(R);
+  R = R.concat(cleanIncoming);
+
+  try {
+    await saveResourcesToGitHub('Bulk Excel import');
+    renderResourceTable();
+    renderBrowse();
+
+    if (typeof updateHeroResourceCount === 'function') {
+      updateHeroResourceCount();
+    }
+
+    if (statusEl) {
+      statusEl.textContent = `✓ Imported ${cleanIncoming.length} resource(s) from Excel and saved to GitHub.`;
+      statusEl.style.color = 'var(--teal)';
+    }
+
+    alert(`✓ Imported ${cleanIncoming.length} resource(s). ${duplicateImportIndexes.size} duplicate row(s) skipped.`);
+  } catch (err) {
+    try { R = JSON.parse(previous); } catch(e) {}
+    renderResourceTable();
+    renderBrowse();
+
+    if (statusEl) {
+      statusEl.textContent = '⚠ Excel import failed: ' + err.message;
+      statusEl.style.color = 'var(--red)';
+    }
+
+    alert('Excel import failed: ' + err.message);
+  }
+}
+</script>
 
 </body>
 </html>
