@@ -173,3 +173,27 @@ It is now a Detail + Results List layout:
 Non-card layouts now force the browse grid container into full-width block mode.
 
 This fixes the issue where List, Accordion, Detail, and Grid layouts appeared as a narrow column on the left because they were being placed inside the original card grid.
+
+
+## Layout Persistence in JSON
+
+The selected public display layout is now saved into `resources.json` as:
+
+{
+  "settings": {
+    "displayLayout": "list"
+  },
+  "resources": [...]
+}
+
+The frontend remains backward compatible with the old array-only JSON format.
+
+## Smart Match Layout Support
+
+Smart Match results now use the same selected resource layout as Browse All:
+
+- Original Card View
+- Compact List View
+- Expandable Accordion
+- Detail + Results List
+- Data Grid

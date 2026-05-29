@@ -1260,3 +1260,41 @@ html.a11y-high-contrast .ages-pill{
     grid-template-columns:1fr;
   }
 }
+
+
+
+/* ========================================
+   SMART MATCH LAYOUT SUPPORT
+======================================== */
+#match-grid.layout-list,
+#match-grid.layout-accordion,
+#match-grid.layout-split,
+#match-grid.layout-grid,
+#results-grid.layout-list,
+#results-grid.layout-accordion,
+#results-grid.layout-split,
+#results-grid.layout-grid,
+.match-grid.layout-list,
+.match-grid.layout-accordion,
+.match-grid.layout-split,
+.match-grid.layout-grid{
+  display:block !important;
+  grid-template-columns:none !important;
+  width:100% !important;
+}
+
+#match-grid.layout-list > *,
+#match-grid.layout-accordion > *,
+#match-grid.layout-split > *,
+#match-grid.layout-grid > *,
+#results-grid.layout-list > *,
+#results-grid.layout-accordion > *,
+#results-grid.layout-split > *,
+#results-grid.layout-grid > *,
+.match-grid.layout-list > *,
+.match-grid.layout-accordion > *,
+.match-grid.layout-split > *,
+.match-grid.layout-grid > *{
+  width:100% !important;
+  max-width:none !important;
+}

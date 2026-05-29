@@ -343,7 +343,7 @@ async function saveResourcesToGitHub(actionLabel) {
   const response = await fetch(UPDATE_API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ password: adminSessionPassword, resources: R })
+    body: JSON.stringify({ password: adminSessionPassword, payload: buildResourcePayloadForSave(), resources: R })
   });
 
   const result = await response.json().catch(() => ({}));
@@ -1983,8 +1983,9 @@ function resourceMetaLine(r){
   return [r.catL || r.cat || 'General', r.ages || 'All ages', r.srcL || r.src || ''].filter(Boolean).join(' · ');
 }
 
-function setResourceLayout(layout, fromAdmin){
+async function setResourceLayout(layout, fromAdmin){
   RESOURCE_LAYOUT = layout || 'cards';
+  SITE_SETTINGS.displayLayout = RESOURCE_LAYOUT;
   localStorage.setItem('resource_display_layout', RESOURCE_LAYOUT);
 
   const adminSelect = document.getElementById('admin-layout-select');
@@ -1997,13 +1998,30 @@ function setResourceLayout(layout, fromAdmin){
   });
 
   applyResourceLayoutContainerClass();
+  applySmartMatchLayoutContainerClass();
+
   if (typeof renderBrowse === 'function') renderBrowse();
+  if (typeof refreshSmartMatchLayout === 'function') refreshSmartMatchLayout();
 
   if (fromAdmin) {
     const st = document.getElementById('admin-conn-status');
     if (st) {
-      st.textContent = '✓ Public display layout changed to ' + RESOURCE_LAYOUT + '.';
+      st.textContent = 'Saving display layout to GitHub...';
       st.style.color = 'var(--teal)';
+    }
+
+    try {
+      await saveResourcesToGitHub('Display layout setting');
+      if (st) {
+        st.textContent = '✓ Public display layout saved to GitHub: ' + RESOURCE_LAYOUT + '.';
+        st.style.color = 'var(--teal)';
+      }
+    } catch (err) {
+      if (st) {
+        st.textContent = '⚠ Layout changed locally, but GitHub save failed: ' + err.message;
+        st.style.color = 'var(--red)';
+      }
+      alert('Layout changed locally, but GitHub save failed: ' + err.message);
     }
   }
 }
@@ -2181,6 +2199,131 @@ function applyResourceLayoutContainerClass(){
 }
 
 document.addEventListener('DOMContentLoaded', applyResourceLayoutContainerClass);
+</script>
+
+
+<script>
+/* ========================================
+   JSON SITE CONFIG SUPPORT
+   Supports both old format:
+   [resource, resource]
+   and new format:
+   { "settings": {"displayLayout":"list"}, "resources": [...] }
+======================================== */
+let SITE_SETTINGS = {
+  displayLayout: localStorage.getItem('resource_display_layout') || 'cards'
+};
+
+function normalizeResourcePayload(payload){
+  if (Array.isArray(payload)) {
+    return {
+      settings: SITE_SETTINGS,
+      resources: payload
+    };
+  }
+
+  if (payload && Array.isArray(payload.resources)) {
+    SITE_SETTINGS = {
+      ...SITE_SETTINGS,
+      ...(payload.settings || {})
+    };
+
+    return {
+      settings: SITE_SETTINGS,
+      resources: payload.resources
+    };
+  }
+
+  return {
+    settings: SITE_SETTINGS,
+    resources: []
+  };
+}
+
+function buildResourcePayloadForSave(){
+  return {
+    settings: {
+      ...SITE_SETTINGS,
+      displayLayout: RESOURCE_LAYOUT || SITE_SETTINGS.displayLayout || 'cards'
+    },
+    resources: R
+  };
+}
+</script>
+
+
+<script>
+/* ========================================
+   SMART MATCH LAYOUT INTEGRATION
+======================================== */
+let LAST_SMART_MATCH_RESOURCES = [];
+
+function getSmartMatchContainer(){
+  return document.getElementById('match-grid')
+    || document.getElementById('results-grid')
+    || document.querySelector('.match-grid')
+    || document.querySelector('#match-results .grid')
+    || document.querySelector('#results .grid');
+}
+
+function applySmartMatchLayoutContainerClass(){
+  const grid = getSmartMatchContainer();
+  if (!grid) return;
+
+  grid.classList.remove('layout-cards','layout-list','layout-accordion','layout-split','layout-grid');
+  grid.classList.add('layout-' + (RESOURCE_LAYOUT || 'cards'));
+}
+
+function renderSmartMatchByLayout(resources){
+  LAST_SMART_MATCH_RESOURCES = resources || [];
+
+  const grid = getSmartMatchContainer();
+  if (!grid || !Array.isArray(resources)) return false;
+
+  applySmartMatchLayoutContainerClass();
+
+  if (RESOURCE_LAYOUT === 'cards') {
+    return false;
+  }
+
+  grid.innerHTML = renderResourcesByLayout(resources);
+  return true;
+}
+
+function refreshSmartMatchLayout(){
+  if (LAST_SMART_MATCH_RESOURCES && LAST_SMART_MATCH_RESOURCES.length) {
+    renderSmartMatchByLayout(LAST_SMART_MATCH_RESOURCES);
+  }
+}
+</script>
+
+
+<script>
+/* ========================================
+   SMART MATCH FALLBACK OBSERVER
+   If smart match renders cards first, this re-renders using selected layout.
+======================================== */
+(function(){
+  const observer = new MutationObserver(function(){
+    const grid = getSmartMatchContainer();
+    if (!grid || RESOURCE_LAYOUT === 'cards') return;
+
+    const isMatchVisible = document.getElementById('match-results')?.style.display !== 'none'
+      || document.getElementById('results-view')?.classList.contains('active')
+      || document.body.textContent.includes('Recommended');
+
+    if (LAST_SMART_MATCH_RESOURCES && LAST_SMART_MATCH_RESOURCES.length && isMatchVisible) {
+      if (!grid.dataset.layoutRendered || grid.dataset.layoutRendered !== RESOURCE_LAYOUT) {
+        grid.dataset.layoutRendered = RESOURCE_LAYOUT;
+        renderSmartMatchByLayout(LAST_SMART_MATCH_RESOURCES);
+      }
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function(){
+    observer.observe(document.body, { childList:true, subtree:true });
+  });
+})();
 </script>
 
 </body>

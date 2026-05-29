@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { password, resources } = req.body || {};
+    const { password, resources, payload } = req.body || {};
 
     if (!process.env.ADMIN_PASSWORD) {
       return res.status(500).json({
@@ -23,7 +23,11 @@ export default async function handler(req, res) {
       });
     }
 
-    if (!Array.isArray(resources)) {
+    const finalPayload = payload && Array.isArray(payload.resources)
+      ? payload
+      : { settings: {}, resources };
+
+    if (!Array.isArray(finalPayload.resources)) {
       return res.status(400).json({
         success: false,
         error: 'resources must be an array'
@@ -65,7 +69,7 @@ export default async function handler(req, res) {
     }
 
     const updatedContent = Buffer
-      .from(JSON.stringify(resources, null, 2))
+      .from(JSON.stringify(finalPayload, null, 2))
       .toString('base64');
 
     const githubResponse = await fetch(
