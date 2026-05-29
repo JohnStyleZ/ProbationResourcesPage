@@ -210,3 +210,33 @@ It now loads resource data from:
 The Vercel serverless function reads `resources.json` from GitHub using the GitHub API and returns it to the browser from the same domain.
 
 This avoids browser CORS/preflight issues.
+
+
+## Console-Clean Translation Fix
+
+Google Website Translate was removed because its iframe attempts to set cookies and creates browser console errors.
+
+This version uses a built-in translation layer:
+
+- No Google iframe
+- No translation cookies
+- No sandbox cookie console errors
+- UI labels translate through translations.js
+- Resource cards support translated JSON fields
+
+For resource card translation, use this JSON format:
+
+{
+  "title": {
+    "en": "Youth Counseling",
+    "es": "Consejería Juvenil",
+    "zh": "青少年心理輔導"
+  },
+  "desc": {
+    "en": "Counseling and crisis support.",
+    "es": "Consejería y apoyo en crisis.",
+    "zh": "心理輔導與危機支援。"
+  }
+}
+
+Plain string title/desc values still work, but they remain in English.
