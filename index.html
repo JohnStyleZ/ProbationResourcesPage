@@ -485,7 +485,7 @@ function renderResourceTable() {
   tbody.innerHTML = filtered.map(r =>
     '<tr style="border-bottom:1px solid #f1f5f9">' +
     '<td style="padding:.5rem .8rem;font-weight:500;color:var(--ink)">' + resourceText(r,'title') + '</td>' +
-    '<td style="padding:.5rem .8rem;color:#555;font-size:.76rem">' + (translateCategory(r.catL||r.cat||'')) + '</td>' +
+    '<td style="padding:.5rem .8rem;color:#555;font-size:.76rem">' + (r.catL||r.cat||'') + '</td>' +
     '<td style="padding:.5rem .8rem;color:#777;font-size:.72rem;font-family:monospace;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + (r.contact||'') + '</td>' +
     '<td style="padding:.5rem .8rem;color:#888;font-size:.72rem">' + (r.srcL||'') + '</td>' +
     '<td style="padding:.5rem .8rem;white-space:nowrap"><button type="button" class="abtn" onclick="editResource(' + r.id + ')" style="margin-right:.25rem">Edit</button><button type="button" class="abtn abtn-d" onclick="deleteResource(' + r.id + ')">✕</button></td>' +
@@ -1113,7 +1113,7 @@ GITHUB_BRANCH=main</div>
         <thead style="position:sticky;top:0;z-index:1"><tr style="background:#f8fafc">
           <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Name</th>
           <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Category</th>
-          <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">${translateStaticText('Contact')}</th>
+          <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Contact</th>
           <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Source</th>
           <th scope="col" aria-label="Actions" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#64748b;border-bottom:1px solid #e2e8f0;font-weight:600"></th>
         </tr></thead>
@@ -1143,10 +1143,10 @@ GITHUB_BRANCH=main</div>
           <div><label class="afl" for="af-zipcodes">Coverage</label>
             <select class="afi" id="af-zipcodes"><option value="all">All Alameda County</option><option value="north">North / Oakland</option><option value="south">South / Hayward</option><option value="east">East County</option></select>
           </div>
-          <div style="grid-column:1/-1"><label class="afl" for="af-desc">${translateStaticText('Description')}</label><textarea class="afi" id="af-desc" rows="2" placeholder="Brief description of services…"></textarea></div>
-          <div><label class="afl" for="af-contact">${translateStaticText('Contact')}</label><input class="afi" id="af-contact" placeholder="(510) 555-0000 | org@email.com"></div>
-          <div><label class="afl" for="af-addr">${translateStaticText('Address')}</label><input class="afi" id="af-addr" placeholder="123 Main St, Oakland"></div>
-          <div><label class="afl" for="af-avail">${translateStaticText('Availability')}</label><input class="afi" id="af-avail" placeholder="Open, Referrals accepted…"></div>
+          <div style="grid-column:1/-1"><label class="afl" for="af-desc">Description</label><textarea class="afi" id="af-desc" rows="2" placeholder="Brief description of services…"></textarea></div>
+          <div><label class="afl" for="af-contact">Contact</label><input class="afi" id="af-contact" placeholder="(510) 555-0000 | org@email.com"></div>
+          <div><label class="afl" for="af-addr">Address</label><input class="afi" id="af-addr" placeholder="123 Main St, Oakland"></div>
+          <div><label class="afl" for="af-avail">Availability</label><input class="afi" id="af-avail" placeholder="Open, Referrals accepted…"></div>
           <div><label class="afl" for="af-link">Link</label><input class="afi" id="af-link" placeholder="https:// or mailto:"></div>
           <div><label class="afl" for="af-src">Source ID</label><input class="afi" id="af-src" placeholder="probation-oakland"></div>
           <div><label class="afl" for="af-srcL">Source Label</label><input class="afi" id="af-srcL" placeholder="AC Probation – Oakland"></div>
@@ -1853,7 +1853,7 @@ applyA11ySettings();
 /* ========================================
    RESOURCE DISPLAY LAYOUT OPTIONS LOGIC
 ======================================== */
-let RESOURCE_LAYOUT = localStorage.getItem('resource_display_layout') || 'cards';
+var RESOURCE_LAYOUT = localStorage.getItem('resource_display_layout') || 'cards'; window.RESOURCE_LAYOUT = RESOURCE_LAYOUT;
 let splitSelectedResourceId = null;
 
 function safeText(value){
@@ -1940,8 +1940,8 @@ function renderResourceListLayout(resources){
         <div class="resource-detail-tags">${(r.tags || []).slice(0,5).map(t=>`<span class="resource-detail-tag">${safeText(translateTag(t))}</span>`).join('')}</div>
       </div>
       <div class="resource-list-actions">
-        <button type="button" class="cta" onclick="toggleAccordionResource('${safeText(r.id)}')">${translateStaticText('Details')}</button>
-        ${r.link && r.link !== '#' ? `<a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">${translateStaticText('Learn More')}</a>` : `<span class="cta cta-gray">${translateStaticText('No link')}</span>`}
+        <button type="button" class="cta" onclick="toggleAccordionResource('${safeText(r.id)}')">Details</button>
+        ${r.link && r.link !== '#' ? `<a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">Learn More</a>` : `<span class="cta cta-gray">No link</span>`}
       </div>
     </article>
   `).join('') + `</div>`;
@@ -1964,7 +1964,7 @@ function renderResourceAccordionLayout(resources){
         <p><strong>Address:</strong> ${safeText(r.addr || 'Not listed')}</p>
         <p><strong>Availability:</strong> ${safeText(r.avail || 'Contact for details')}</p>
         <div class="resource-detail-tags">${(r.tags || []).map(t=>`<span class="resource-detail-tag">${safeText(translateTag(t))}</span>`).join('')}</div>
-        ${r.link && r.link !== '#' ? `<p style="margin-top:.8rem"><a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">${translateStaticText('Learn More')}</a></p>` : ''}
+        ${r.link && r.link !== '#' ? `<p style="margin-top:.8rem"><a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">Learn More</a></p>` : ''}
       </div>
     </div>
   `).join('') + `</div>`;
@@ -1998,18 +1998,18 @@ function renderResourceSplitLayout(resources){
             <div class="resource-split-title">${safeText(selected.icon || '📌')} ${safeText(getResourceTitle(selected))}</div>
             <div class="resource-list-meta">${safeText(resourceMetaLine(selected))}</div>
           </div>
-          ${selected.link && selected.link !== '#' ? `<a class="cta" href="${safeText(selected.link)}" target="_blank" rel="noopener noreferrer">${translateStaticText('Learn More')}</a>` : ''}
+          ${selected.link && selected.link !== '#' ? `<a class="cta" href="${safeText(selected.link)}" target="_blank" rel="noopener noreferrer">Learn More</a>` : ''}
         </div>
 
-        <div class="resource-split-section"><strong>${translateStaticText('Description')}</strong>${safeText(getResourceDesc(selected))}</div>
-        <div class="resource-split-section"><strong>${translateStaticText('Contact')}</strong>${safeText(selected.contact || 'Not listed')}</div>
-        <div class="resource-split-section"><strong>${translateStaticText('Address')}</strong>${safeText(selected.addr || 'Not listed')}</div>
-        <div class="resource-split-section"><strong>${translateStaticText('Availability')}</strong>${safeText(selected.avail || 'Contact for details')}</div>
+        <div class="resource-split-section"><strong>Description</strong>${safeText(getResourceDesc(selected))}</div>
+        <div class="resource-split-section"><strong>Contact</strong>${safeText(selected.contact || 'Not listed')}</div>
+        <div class="resource-split-section"><strong>Address</strong>${safeText(selected.addr || 'Not listed')}</div>
+        <div class="resource-split-section"><strong>Availability</strong>${safeText(selected.avail || 'Contact for details')}</div>
 
-        <div class="resource-detail-tags">${(selected.tags || []).map(t=>`<span class="resource-detail-tag">${safeText(translateTag(t))}</span>`).join('')}</div>
+        <div class="resource-detail-tags">${(selected.tags || []).map(t=>`<span class="resource-detail-tag">${safeText(t)}</span>`).join('')}</div>
       </article>
 
-      <div class="resource-split-more-title">${translateStaticText('${translateStaticText('More matching resources')}')}</div>
+      <div class="resource-split-more-title">More matching resources</div>
       <div class="resource-split-results">
         ${otherResults.map(r => `
           <button type="button" class="resource-split-result" onclick="selectSplitResource('${safeText(r.id)}')">
@@ -2018,7 +2018,7 @@ function renderResourceSplitLayout(resources){
               <span class="resource-list-title">${safeText(getResourceTitle(r))}</span><br>
               <span class="resource-list-meta">${safeText(resourceMetaLine(r))}</span>
             </span>
-            <span class="cta">${translateStaticText('View')}</span>
+            <span class="cta">View</span>
           </button>
         `).join('')}
       </div>
@@ -2040,8 +2040,8 @@ function renderResourceGridLayout(resources){
             <th>Resource</th>
             <th>Category</th>
             <th>Ages</th>
-            <th>${translateStaticText('Contact')}</th>
-            <th>${translateStaticText('Availability')}</th>
+            <th>Contact</th>
+            <th>Availability</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -2053,7 +2053,7 @@ function renderResourceGridLayout(resources){
               <td>${safeText(r.ages || '')}</td>
               <td>${safeText(r.contact || '')}</td>
               <td>${safeText(r.avail || '')}</td>
-              <td>${r.link && r.link !== '#' ? `<a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">${translateStaticText('Open')}</a>` : `<span class="cta cta-gray">${translateStaticText('No link')}</span>`}</td>
+              <td>${r.link && r.link !== '#' ? `<a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">Open</a>` : `<span class="cta cta-gray">No link</span>`}</td>
             </tr>
           `).join('')}
         </tbody>
@@ -2233,18 +2233,15 @@ console.info('Resource data is loaded through /api/resources.');
 
 <script>
 /* ========================================
-   ENHANCED BUILT-IN LANGUAGE TOGGLE
-   Translates UI, categories, tags, common resource text, and supports translated JSON fields.
+   ENHANCED BUILT-IN LANGUAGE TOGGLE FIXED
+   No Google iframe. Supports UI translation, known tag/category translation, and translated JSON fields.
 ======================================== */
-let CURRENT_LANGUAGE = localStorage.getItem('resource_lang') || 'en';
+var CURRENT_LANGUAGE = localStorage.getItem('resource_lang') || 'en';
 
 const RESOURCE_TRANSLATION_DICTIONARY = {
   es: {
-    // Categories
     'Health & Wellness': 'Salud y bienestar',
-    'Health and Wellness': 'Salud y bienestar',
     'Legal & Justice': 'Legal y justicia',
-    'Legal and Justice': 'Legal y justicia',
     'Youth Services': 'Servicios para jóvenes',
     'Workforce': 'Empleo y capacitación',
     'Education': 'Educación',
@@ -2254,8 +2251,6 @@ const RESOURCE_TRANSLATION_DICTIONARY = {
     'Violence Prevention': 'Prevención de violencia',
     'Food & Basic Needs': 'Alimentos y necesidades básicas',
     'General': 'General',
-
-    // Common tags
     'Counseling': 'Consejería',
     'Crisis Intervention': 'Intervención en crisis',
     'Case Management': 'Manejo de casos',
@@ -2284,8 +2279,6 @@ const RESOURCE_TRANSLATION_DICTIONARY = {
     'Career': 'Carrera',
     'Arts': 'Artes',
     'Drop-In': 'Atención sin cita',
-
-    // Common phrases
     'Therapeutic counseling': 'Consejería terapéutica',
     'crisis intervention': 'intervención en crisis',
     'case management': 'manejo de casos',
@@ -2312,15 +2305,11 @@ const RESOURCE_TRANSLATION_DICTIONARY = {
     'Contact': 'Contacto',
     'Address': 'Dirección',
     'Availability': 'Disponibilidad',
-    '${translateStaticText('More matching resources')}': 'Más recursos relacionados'
+    'More matching resources': 'Más recursos relacionados'
   },
-
   zh: {
-    // Categories
-    'Health & Wellness': '健康與身心 wellness',
-    'Health and Wellness': '健康與身心 wellness',
+    'Health & Wellness': '健康與身心',
     'Legal & Justice': '法律與司法',
-    'Legal and Justice': '法律與司法',
     'Youth Services': '青少年服務',
     'Workforce': '就業與培訓',
     'Education': '教育',
@@ -2330,8 +2319,6 @@ const RESOURCE_TRANSLATION_DICTIONARY = {
     'Violence Prevention': '暴力預防',
     'Food & Basic Needs': '食物與基本需求',
     'General': '一般',
-
-    // Common tags
     'Counseling': '心理輔導',
     'Crisis Intervention': '危機介入',
     'Case Management': '個案管理',
@@ -2360,8 +2347,6 @@ const RESOURCE_TRANSLATION_DICTIONARY = {
     'Career': '職涯',
     'Arts': '藝術',
     'Drop-In': '免預約服務',
-
-    // Common phrases
     'Therapeutic counseling': '治療性心理輔導',
     'crisis intervention': '危機介入',
     'case management': '個案管理',
@@ -2388,7 +2373,7 @@ const RESOURCE_TRANSLATION_DICTIONARY = {
     'Contact': '聯絡',
     'Address': '地址',
     'Availability': '可用情況',
-    '${translateStaticText('More matching resources')}': '更多相關資源'
+    'More matching resources': '更多相關資源'
   }
 };
 
@@ -2397,32 +2382,23 @@ function translateStaticText(text){
   let output = String(text ?? '');
   const dict = RESOURCE_TRANSLATION_DICTIONARY[CURRENT_LANGUAGE] || {};
 
-  // Exact match first
   if (dict[output]) return dict[output];
 
-  // Case-insensitive exact match
   const exactKey = Object.keys(dict).find(k => k.toLowerCase() === output.toLowerCase());
   if (exactKey) return dict[exactKey];
 
-  // Phrase replacement for descriptions and combined text
-  Object.keys(dict)
-    .sort((a,b) => b.length - a.length)
-    .forEach(key => {
-      const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      output = output.replace(new RegExp(escaped, 'gi'), dict[key]);
-    });
+  Object.keys(dict).sort((a,b) => b.length - a.length).forEach(key => {
+    const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    output = output.replace(new RegExp(escaped, 'gi'), dict[key]);
+  });
 
   return output;
 }
 
 function getTranslatedValue(value){
   if (typeof value === 'object' && value !== null) {
-    return value[CURRENT_LANGUAGE]
-      || value.en
-      || Object.values(value)[0]
-      || '';
+    return value[CURRENT_LANGUAGE] || value.en || Object.values(value)[0] || '';
   }
-
   return translateStaticText(value);
 }
 
