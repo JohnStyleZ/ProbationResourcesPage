@@ -197,3 +197,16 @@ Smart Match results now use the same selected resource layout as Browse All:
 - Expandable Accordion
 - Detail + Results List
 - Data Grid
+
+
+## CORS Fix
+
+The frontend no longer fetches `raw.githubusercontent.com` directly.
+
+It now loads resource data from:
+
+/api/resources
+
+The Vercel serverless function reads `resources.json` from GitHub using the GitHub API and returns it to the browser from the same domain.
+
+This avoids browser CORS/preflight issues.
