@@ -240,3 +240,34 @@ For resource card translation, use this JSON format:
 }
 
 Plain string title/desc values still work, but they remain in English.
+
+
+## Enhanced Card and Tag Translation
+
+The built-in translation layer now translates more resource content without Google Translate:
+
+- category labels
+- source labels
+- tags
+- common resource phrases
+- section labels
+- list/grid/accordion/detail layout labels
+
+Important:
+
+Fully accurate title and description translation still requires translated JSON fields:
+
+{
+  "title": {
+    "en": "Youth Counseling",
+    "es": "Consejería Juvenil",
+    "zh": "青少年心理輔導"
+  },
+  "desc": {
+    "en": "Counseling and crisis support.",
+    "es": "Consejería y apoyo en crisis.",
+    "zh": "心理輔導與危機支援。"
+  }
+}
+
+If title/desc are plain English strings, the system translates only common phrases and known terms.

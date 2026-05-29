@@ -485,7 +485,7 @@ function renderResourceTable() {
   tbody.innerHTML = filtered.map(r =>
     '<tr style="border-bottom:1px solid #f1f5f9">' +
     '<td style="padding:.5rem .8rem;font-weight:500;color:var(--ink)">' + resourceText(r,'title') + '</td>' +
-    '<td style="padding:.5rem .8rem;color:#555;font-size:.76rem">' + (r.catL||r.cat||'') + '</td>' +
+    '<td style="padding:.5rem .8rem;color:#555;font-size:.76rem">' + (translateCategory(r.catL||r.cat||'')) + '</td>' +
     '<td style="padding:.5rem .8rem;color:#777;font-size:.72rem;font-family:monospace;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + (r.contact||'') + '</td>' +
     '<td style="padding:.5rem .8rem;color:#888;font-size:.72rem">' + (r.srcL||'') + '</td>' +
     '<td style="padding:.5rem .8rem;white-space:nowrap"><button type="button" class="abtn" onclick="editResource(' + r.id + ')" style="margin-right:.25rem">Edit</button><button type="button" class="abtn abtn-d" onclick="deleteResource(' + r.id + ')">✕</button></td>' +
@@ -650,7 +650,7 @@ function cardHTML(r,i,scoreInfo){
     </div>
     <p>${resourceText(r,'desc')}</p>
     <div class="tags">
-      ${r.tags.map(t=>`<span class="tag">${t}</span>`).join('')}
+      ${r.tags.map(t=>`<span class="tag">${translateTag(t)}</span>`).join('')}
       ${reasonTags}
     </div>
     <div class="card-foot">
@@ -1113,7 +1113,7 @@ GITHUB_BRANCH=main</div>
         <thead style="position:sticky;top:0;z-index:1"><tr style="background:#f8fafc">
           <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Name</th>
           <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Category</th>
-          <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Contact</th>
+          <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">${translateStaticText('Contact')}</th>
           <th scope="col" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;border-bottom:1px solid #e2e8f0;font-weight:600">Source</th>
           <th scope="col" aria-label="Actions" style="padding:.5rem .8rem;text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:#64748b;border-bottom:1px solid #e2e8f0;font-weight:600"></th>
         </tr></thead>
@@ -1143,10 +1143,10 @@ GITHUB_BRANCH=main</div>
           <div><label class="afl" for="af-zipcodes">Coverage</label>
             <select class="afi" id="af-zipcodes"><option value="all">All Alameda County</option><option value="north">North / Oakland</option><option value="south">South / Hayward</option><option value="east">East County</option></select>
           </div>
-          <div style="grid-column:1/-1"><label class="afl" for="af-desc">Description</label><textarea class="afi" id="af-desc" rows="2" placeholder="Brief description of services…"></textarea></div>
-          <div><label class="afl" for="af-contact">Contact</label><input class="afi" id="af-contact" placeholder="(510) 555-0000 | org@email.com"></div>
-          <div><label class="afl" for="af-addr">Address</label><input class="afi" id="af-addr" placeholder="123 Main St, Oakland"></div>
-          <div><label class="afl" for="af-avail">Availability</label><input class="afi" id="af-avail" placeholder="Open, Referrals accepted…"></div>
+          <div style="grid-column:1/-1"><label class="afl" for="af-desc">${translateStaticText('Description')}</label><textarea class="afi" id="af-desc" rows="2" placeholder="Brief description of services…"></textarea></div>
+          <div><label class="afl" for="af-contact">${translateStaticText('Contact')}</label><input class="afi" id="af-contact" placeholder="(510) 555-0000 | org@email.com"></div>
+          <div><label class="afl" for="af-addr">${translateStaticText('Address')}</label><input class="afi" id="af-addr" placeholder="123 Main St, Oakland"></div>
+          <div><label class="afl" for="af-avail">${translateStaticText('Availability')}</label><input class="afi" id="af-avail" placeholder="Open, Referrals accepted…"></div>
           <div><label class="afl" for="af-link">Link</label><input class="afi" id="af-link" placeholder="https:// or mailto:"></div>
           <div><label class="afl" for="af-src">Source ID</label><input class="afi" id="af-src" placeholder="probation-oakland"></div>
           <div><label class="afl" for="af-srcL">Source Label</label><input class="afi" id="af-srcL" placeholder="AC Probation – Oakland"></div>
@@ -1879,7 +1879,7 @@ function getResourceDesc(r){
 }
 
 function resourceMetaLine(r){
-  return [r.catL || r.cat || 'General', r.ages || 'All ages', r.srcL || r.src || ''].filter(Boolean).join(' · ');
+  return [translateCategory(r.catL || r.cat || 'General'), r.ages || 'All ages', translateCategory(r.srcL || r.src || '')].filter(Boolean).join(' · ');
 }
 
 async function setResourceLayout(layout, fromAdmin){
@@ -1937,11 +1937,11 @@ function renderResourceListLayout(resources){
         <div class="resource-list-title">${safeText(getResourceTitle(r))}</div>
         <div class="resource-list-meta">${safeText(resourceMetaLine(r))}</div>
         <div class="resource-list-desc">${safeText(getResourceDesc(r))}</div>
-        <div class="resource-detail-tags">${(r.tags || []).slice(0,5).map(t=>`<span class="resource-detail-tag">${safeText(t)}</span>`).join('')}</div>
+        <div class="resource-detail-tags">${(r.tags || []).slice(0,5).map(t=>`<span class="resource-detail-tag">${safeText(translateTag(t))}</span>`).join('')}</div>
       </div>
       <div class="resource-list-actions">
-        <button type="button" class="cta" onclick="toggleAccordionResource('${safeText(r.id)}')">Details</button>
-        ${r.link && r.link !== '#' ? `<a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">Learn More</a>` : `<span class="cta cta-gray">No link</span>`}
+        <button type="button" class="cta" onclick="toggleAccordionResource('${safeText(r.id)}')">${translateStaticText('Details')}</button>
+        ${r.link && r.link !== '#' ? `<a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">${translateStaticText('Learn More')}</a>` : `<span class="cta cta-gray">${translateStaticText('No link')}</span>`}
       </div>
     </article>
   `).join('') + `</div>`;
@@ -1963,8 +1963,8 @@ function renderResourceAccordionLayout(resources){
         <p><strong>Contact:</strong> ${safeText(r.contact || 'Not listed')}</p>
         <p><strong>Address:</strong> ${safeText(r.addr || 'Not listed')}</p>
         <p><strong>Availability:</strong> ${safeText(r.avail || 'Contact for details')}</p>
-        <div class="resource-detail-tags">${(r.tags || []).map(t=>`<span class="resource-detail-tag">${safeText(t)}</span>`).join('')}</div>
-        ${r.link && r.link !== '#' ? `<p style="margin-top:.8rem"><a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">Learn More</a></p>` : ''}
+        <div class="resource-detail-tags">${(r.tags || []).map(t=>`<span class="resource-detail-tag">${safeText(translateTag(t))}</span>`).join('')}</div>
+        ${r.link && r.link !== '#' ? `<p style="margin-top:.8rem"><a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">${translateStaticText('Learn More')}</a></p>` : ''}
       </div>
     </div>
   `).join('') + `</div>`;
@@ -1998,18 +1998,18 @@ function renderResourceSplitLayout(resources){
             <div class="resource-split-title">${safeText(selected.icon || '📌')} ${safeText(getResourceTitle(selected))}</div>
             <div class="resource-list-meta">${safeText(resourceMetaLine(selected))}</div>
           </div>
-          ${selected.link && selected.link !== '#' ? `<a class="cta" href="${safeText(selected.link)}" target="_blank" rel="noopener noreferrer">Learn More</a>` : ''}
+          ${selected.link && selected.link !== '#' ? `<a class="cta" href="${safeText(selected.link)}" target="_blank" rel="noopener noreferrer">${translateStaticText('Learn More')}</a>` : ''}
         </div>
 
-        <div class="resource-split-section"><strong>Description</strong>${safeText(getResourceDesc(selected))}</div>
-        <div class="resource-split-section"><strong>Contact</strong>${safeText(selected.contact || 'Not listed')}</div>
-        <div class="resource-split-section"><strong>Address</strong>${safeText(selected.addr || 'Not listed')}</div>
-        <div class="resource-split-section"><strong>Availability</strong>${safeText(selected.avail || 'Contact for details')}</div>
+        <div class="resource-split-section"><strong>${translateStaticText('Description')}</strong>${safeText(getResourceDesc(selected))}</div>
+        <div class="resource-split-section"><strong>${translateStaticText('Contact')}</strong>${safeText(selected.contact || 'Not listed')}</div>
+        <div class="resource-split-section"><strong>${translateStaticText('Address')}</strong>${safeText(selected.addr || 'Not listed')}</div>
+        <div class="resource-split-section"><strong>${translateStaticText('Availability')}</strong>${safeText(selected.avail || 'Contact for details')}</div>
 
-        <div class="resource-detail-tags">${(selected.tags || []).map(t=>`<span class="resource-detail-tag">${safeText(t)}</span>`).join('')}</div>
+        <div class="resource-detail-tags">${(selected.tags || []).map(t=>`<span class="resource-detail-tag">${safeText(translateTag(t))}</span>`).join('')}</div>
       </article>
 
-      <div class="resource-split-more-title">More matching resources</div>
+      <div class="resource-split-more-title">${translateStaticText('${translateStaticText('More matching resources')}')}</div>
       <div class="resource-split-results">
         ${otherResults.map(r => `
           <button type="button" class="resource-split-result" onclick="selectSplitResource('${safeText(r.id)}')">
@@ -2018,7 +2018,7 @@ function renderResourceSplitLayout(resources){
               <span class="resource-list-title">${safeText(getResourceTitle(r))}</span><br>
               <span class="resource-list-meta">${safeText(resourceMetaLine(r))}</span>
             </span>
-            <span class="cta">View</span>
+            <span class="cta">${translateStaticText('View')}</span>
           </button>
         `).join('')}
       </div>
@@ -2040,8 +2040,8 @@ function renderResourceGridLayout(resources){
             <th>Resource</th>
             <th>Category</th>
             <th>Ages</th>
-            <th>Contact</th>
-            <th>Availability</th>
+            <th>${translateStaticText('Contact')}</th>
+            <th>${translateStaticText('Availability')}</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -2053,7 +2053,7 @@ function renderResourceGridLayout(resources){
               <td>${safeText(r.ages || '')}</td>
               <td>${safeText(r.contact || '')}</td>
               <td>${safeText(r.avail || '')}</td>
-              <td>${r.link && r.link !== '#' ? `<a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">Open</a>` : `<span class="cta cta-gray">No link</span>`}</td>
+              <td>${r.link && r.link !== '#' ? `<a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">${translateStaticText('Open')}</a>` : `<span class="cta cta-gray">${translateStaticText('No link')}</span>`}</td>
             </tr>
           `).join('')}
         </tbody>
@@ -2230,16 +2230,192 @@ function refreshSmartMatchLayout(){
 console.info('Resource data is loaded through /api/resources.');
 </script>
 
+
 <script>
 /* ========================================
-   SAFE BUILT-IN LANGUAGE TOGGLE
-   No iframe, no cookies, no Google Translate console errors.
+   ENHANCED BUILT-IN LANGUAGE TOGGLE
+   Translates UI, categories, tags, common resource text, and supports translated JSON fields.
 ======================================== */
 let CURRENT_LANGUAGE = localStorage.getItem('resource_lang') || 'en';
 
-function getTranslatedValue(value){
-  if (typeof value === 'string') return value;
+const RESOURCE_TRANSLATION_DICTIONARY = {
+  es: {
+    // Categories
+    'Health & Wellness': 'Salud y bienestar',
+    'Health and Wellness': 'Salud y bienestar',
+    'Legal & Justice': 'Legal y justicia',
+    'Legal and Justice': 'Legal y justicia',
+    'Youth Services': 'Servicios para jóvenes',
+    'Workforce': 'Empleo y capacitación',
+    'Education': 'Educación',
+    'Housing': 'Vivienda',
+    'Family': 'Familia',
+    'Financial Aid': 'Ayuda financiera',
+    'Violence Prevention': 'Prevención de violencia',
+    'Food & Basic Needs': 'Alimentos y necesidades básicas',
+    'General': 'General',
 
+    // Common tags
+    'Counseling': 'Consejería',
+    'Crisis Intervention': 'Intervención en crisis',
+    'Case Management': 'Manejo de casos',
+    'Diversion': 'Desviación',
+    'Youth Court': 'Tribunal juvenil',
+    'Restorative Justice': 'Justicia restaurativa',
+    'Parenting': 'Crianza',
+    'Housing Assistance': 'Asistencia de vivienda',
+    'Shelter': 'Refugio',
+    'Mental Health': 'Salud mental',
+    'Therapy': 'Terapia',
+    'Job Training': 'Capacitación laboral',
+    'Employment': 'Empleo',
+    'Internships': 'Pasantías',
+    'Education Support': 'Apoyo educativo',
+    'Tutoring': 'Tutoría',
+    'Mentoring': 'Mentoría',
+    'Legal Support': 'Apoyo legal',
+    'Reentry': 'Reingreso',
+    'Family Support': 'Apoyo familiar',
+    'Food': 'Alimentos',
+    'Transportation': 'Transporte',
+    'Medical': 'Médico',
+    'Substance Use': 'Uso de sustancias',
+    'Life Skills': 'Habilidades para la vida',
+    'Career': 'Carrera',
+    'Arts': 'Artes',
+    'Drop-In': 'Atención sin cita',
+
+    // Common phrases
+    'Therapeutic counseling': 'Consejería terapéutica',
+    'crisis intervention': 'intervención en crisis',
+    'case management': 'manejo de casos',
+    'and diversion': 'y desviación',
+    'for Oakland youth': 'para jóvenes de Oakland',
+    'Youth court': 'Tribunal juvenil',
+    'for first-time juvenile offenders': 'para jóvenes infractores por primera vez',
+    'Restorative justice education': 'Educación sobre justicia restaurativa',
+    'parenting classes': 'clases de crianza',
+    'and justice system education': 'y educación sobre el sistema de justicia',
+    'Referrals accepted': 'Se aceptan referencias',
+    'Contact for referral': 'Contactar para referencia',
+    'Open enrollment': 'Inscripción abierta',
+    'Appointments available weekly': 'Citas disponibles semanalmente',
+    'Referral required': 'Referencia requerida',
+    'Not listed': 'No indicado',
+    'Contact for details': 'Contactar para más detalles',
+    'Learn More': 'Más información',
+    'Details': 'Detalles',
+    'View': 'Ver',
+    'Open': 'Abrir',
+    'No link': 'Sin enlace',
+    'Description': 'Descripción',
+    'Contact': 'Contacto',
+    'Address': 'Dirección',
+    'Availability': 'Disponibilidad',
+    '${translateStaticText('More matching resources')}': 'Más recursos relacionados'
+  },
+
+  zh: {
+    // Categories
+    'Health & Wellness': '健康與身心 wellness',
+    'Health and Wellness': '健康與身心 wellness',
+    'Legal & Justice': '法律與司法',
+    'Legal and Justice': '法律與司法',
+    'Youth Services': '青少年服務',
+    'Workforce': '就業與培訓',
+    'Education': '教育',
+    'Housing': '住房',
+    'Family': '家庭',
+    'Financial Aid': '財務援助',
+    'Violence Prevention': '暴力預防',
+    'Food & Basic Needs': '食物與基本需求',
+    'General': '一般',
+
+    // Common tags
+    'Counseling': '心理輔導',
+    'Crisis Intervention': '危機介入',
+    'Case Management': '個案管理',
+    'Diversion': '分流服務',
+    'Youth Court': '青少年法庭',
+    'Restorative Justice': '修復式司法',
+    'Parenting': '育兒',
+    'Housing Assistance': '住房援助',
+    'Shelter': '庇護所',
+    'Mental Health': '心理健康',
+    'Therapy': '治療',
+    'Job Training': '職業培訓',
+    'Employment': '就業',
+    'Internships': '實習',
+    'Education Support': '教育支援',
+    'Tutoring': '補習輔導',
+    'Mentoring': '導師服務',
+    'Legal Support': '法律支援',
+    'Reentry': '重返社區支援',
+    'Family Support': '家庭支援',
+    'Food': '食物',
+    'Transportation': '交通',
+    'Medical': '醫療',
+    'Substance Use': '物質使用',
+    'Life Skills': '生活技能',
+    'Career': '職涯',
+    'Arts': '藝術',
+    'Drop-In': '免預約服務',
+
+    // Common phrases
+    'Therapeutic counseling': '治療性心理輔導',
+    'crisis intervention': '危機介入',
+    'case management': '個案管理',
+    'and diversion': '及分流服務',
+    'for Oakland youth': '為 Oakland 青少年提供服務',
+    'Youth court': '青少年法庭',
+    'for first-time juvenile offenders': '為首次青少年違規者提供服務',
+    'Restorative justice education': '修復式司法教育',
+    'parenting classes': '育兒課程',
+    'and justice system education': '及司法系統教育',
+    'Referrals accepted': '接受轉介',
+    'Contact for referral': '請聯絡以進行轉介',
+    'Open enrollment': '開放報名',
+    'Appointments available weekly': '每週可預約',
+    'Referral required': '需要轉介',
+    'Not listed': '未列出',
+    'Contact for details': '請聯絡了解詳情',
+    'Learn More': '了解更多',
+    'Details': '詳情',
+    'View': '查看',
+    'Open': '開啟',
+    'No link': '沒有連結',
+    'Description': '描述',
+    'Contact': '聯絡',
+    'Address': '地址',
+    'Availability': '可用情況',
+    '${translateStaticText('More matching resources')}': '更多相關資源'
+  }
+};
+
+function translateStaticText(text){
+  if (CURRENT_LANGUAGE === 'en') return String(text ?? '');
+  let output = String(text ?? '');
+  const dict = RESOURCE_TRANSLATION_DICTIONARY[CURRENT_LANGUAGE] || {};
+
+  // Exact match first
+  if (dict[output]) return dict[output];
+
+  // Case-insensitive exact match
+  const exactKey = Object.keys(dict).find(k => k.toLowerCase() === output.toLowerCase());
+  if (exactKey) return dict[exactKey];
+
+  // Phrase replacement for descriptions and combined text
+  Object.keys(dict)
+    .sort((a,b) => b.length - a.length)
+    .forEach(key => {
+      const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      output = output.replace(new RegExp(escaped, 'gi'), dict[key]);
+    });
+
+  return output;
+}
+
+function getTranslatedValue(value){
   if (typeof value === 'object' && value !== null) {
     return value[CURRENT_LANGUAGE]
       || value.en
@@ -2247,18 +2423,26 @@ function getTranslatedValue(value){
       || '';
   }
 
-  return '';
+  return translateStaticText(value);
 }
 
 function resourceText(resource, key){
   return getTranslatedValue(resource ? resource[key] : '');
 }
 
+function translateTag(tag){
+  return translateStaticText(tag);
+}
+
+function translateCategory(value){
+  return translateStaticText(value);
+}
+
 function resourceSearchText(resource){
   const title = resourceText(resource, 'title');
   const desc = resourceText(resource, 'desc');
-  const tags = Array.isArray(resource.tags) ? resource.tags.join(' ') : '';
-  return `${title} ${desc} ${tags} ${resource.srcL || ''} ${resource.catL || ''} ${resource.contact || ''} ${resource.addr || ''}`.toLowerCase();
+  const tags = Array.isArray(resource.tags) ? resource.tags.map(translateTag).join(' ') : '';
+  return `${title} ${desc} ${tags} ${translateCategory(resource.srcL || '')} ${translateCategory(resource.catL || '')} ${resource.contact || ''} ${resource.addr || ''}`.toLowerCase();
 }
 
 function t(key){
