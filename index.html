@@ -246,7 +246,7 @@
 let SHEET_URL = localStorage.getItem('rm_sheet_url') || '';
 // Change this if your data file is hosted somewhere else, for example:
 // const DATA_URL = 'https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/resources.json';
-const DATA_URL = './resources.json';
+const DATA_URL = 'https://raw.githubusercontent.com/JohnStyleZ/ProbationResourcesPage/main/resources.json';
 const UPDATE_API_URL = '/api/updateResources';
 let R = [];
 let sheetLoaded = false;
@@ -317,6 +317,7 @@ async function loadResources() {
 
   renderBrowse();
   applyAccessibilityState();
+  applyLayoutState();
 }
 
 // ════════════════════════════════════════
@@ -611,7 +612,7 @@ function renderBrowse(){
   cnt.textContent=f.length+' resource'+(f.length!==1?'s':'');
   if(!f.length){grid.innerHTML='';nores.style.display='block';return;}
   nores.style.display='none';
-  grid.innerHTML=f.map((r,i)=>cardHTML(r,i,null)).join('');
+  grid.innerHTML=renderResourcesByLayout(f);
   applyAccessibilityState();
 }
 
@@ -1073,6 +1074,22 @@ GITHUB_BRANCH=main</div>
         <button type="button" class="abtn" onclick="adminFindDuplicates()">⚠ Find Duplicates</button>
         <input id="admin-excel-import" type="file" accept=".xlsx,.xls,.csv" style="display:none" onchange="adminImportExcelFile(event)">
       </div>
+      
+      <div style="margin-top:.85rem;border-top:1px solid rgba(13,158,117,.18);padding-top:.85rem">
+        <label for="admin-layout-select" style="display:block;font-size:.76rem;font-weight:800;color:#0f172a;margin-bottom:.35rem">Public Resource Display Layout</label>
+        <div style="display:flex;gap:.45rem;flex-wrap:wrap;align-items:center">
+          <select id="admin-layout-select" onchange="setResourceLayout(this.value,true)" style="border:1.5px solid #94a3b8;border-radius:8px;padding:.45rem .65rem;font-size:.8rem;color:#0f172a;background:white">
+            <option value="cards">Original Card View</option>
+            <option value="list">Compact List View</option>
+            <option value="accordion">Expandable Accordion</option>
+            <option value="split">Split Panel Directory</option>
+            <option value="grid">Data Grid</option>
+          </select>
+          <button type="button" class="abtn" onclick="resetResourceLayout()">Reset Layout</button>
+        </div>
+        <div style="font-size:.72rem;color:#475569;margin-top:.35rem">This controls how the public resource results display. The setting is saved in this browser.</div>
+      </div>
+
       <input id="admin-url-inp" type="hidden">
       <div id="admin-conn-status" role="status" aria-live="polite" style="font-size:.74rem;margin-top:.4rem;color:#888"></div>
       <div id="admin-duplicate-report" aria-live="polite" style="display:none;margin-top:.65rem;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:.65rem;font-size:.76rem;color:#7c2d12;line-height:1.5"></div>
@@ -1926,6 +1943,208 @@ document.addEventListener('keydown', function(e){
 
 document.addEventListener('DOMContentLoaded', applyA11ySettings);
 applyA11ySettings();
+</script>
+
+
+<script>
+/* ========================================
+   RESOURCE DISPLAY LAYOUT OPTIONS LOGIC
+======================================== */
+let RESOURCE_LAYOUT = localStorage.getItem('resource_display_layout') || 'cards';
+let splitSelectedResourceId = null;
+
+function safeText(value){
+  return String(value ?? '').replace(/[&<>"']/g, function(ch){
+    return ({
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      '"':'&quot;',
+      "'":'&#39;'
+    })[ch];
+  });
+}
+
+function getResourceTitle(r){
+  if (typeof resourceText === 'function') return resourceText(r,'title');
+  return getTranslatedValue ? getTranslatedValue(r.title) : (r.title || '');
+}
+
+function getResourceDesc(r){
+  if (typeof resourceText === 'function') return resourceText(r,'desc');
+  return getTranslatedValue ? getTranslatedValue(r.desc) : (r.desc || '');
+}
+
+function resourceMetaLine(r){
+  return [r.catL || r.cat || 'General', r.ages || 'All ages', r.srcL || r.src || ''].filter(Boolean).join(' · ');
+}
+
+function setResourceLayout(layout, fromAdmin){
+  RESOURCE_LAYOUT = layout || 'cards';
+  localStorage.setItem('resource_display_layout', RESOURCE_LAYOUT);
+
+  const adminSelect = document.getElementById('admin-layout-select');
+  if (adminSelect) adminSelect.value = RESOURCE_LAYOUT;
+
+  document.querySelectorAll('.layout-btn').forEach(btn => {
+    const active = btn.dataset.layout === RESOURCE_LAYOUT;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+
+  if (typeof renderBrowse === 'function') renderBrowse();
+
+  if (fromAdmin) {
+    const st = document.getElementById('admin-conn-status');
+    if (st) {
+      st.textContent = '✓ Public display layout changed to ' + RESOURCE_LAYOUT + '.';
+      st.style.color = 'var(--teal)';
+    }
+  }
+}
+
+function resetResourceLayout(){
+  setResourceLayout('cards', true);
+}
+
+function renderResourceListLayout(resources){
+  return `<div class="resource-list-view">` + resources.map(r => `
+    <article class="resource-list-item">
+      <div class="resource-list-icon" aria-hidden="true">${safeText(r.icon || '📌')}</div>
+      <div>
+        <div class="resource-list-title">${safeText(getResourceTitle(r))}</div>
+        <div class="resource-list-meta">${safeText(resourceMetaLine(r))}</div>
+        <div class="resource-list-desc">${safeText(getResourceDesc(r))}</div>
+        <div class="resource-detail-tags">${(r.tags || []).slice(0,5).map(t=>`<span class="resource-detail-tag">${safeText(t)}</span>`).join('')}</div>
+      </div>
+      <div class="resource-list-actions">
+        <button type="button" class="cta" onclick="toggleAccordionResource('${safeText(r.id)}')">Details</button>
+        ${r.link && r.link !== '#' ? `<a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">Learn More</a>` : `<span class="cta cta-gray">No link</span>`}
+      </div>
+    </article>
+  `).join('') + `</div>`;
+}
+
+function renderResourceAccordionLayout(resources){
+  return `<div class="resource-accordion">` + resources.map((r, index) => `
+    <div class="resource-acc-item" id="acc-resource-${safeText(r.id)}">
+      <button type="button" class="resource-acc-summary" onclick="toggleAccordionResource('${safeText(r.id)}')" aria-expanded="false">
+        <span class="resource-acc-chevron">▶</span>
+        <span>
+          <span class="resource-list-title">${safeText(r.icon || '📌')} ${safeText(getResourceTitle(r))}</span><br>
+          <span class="resource-list-meta">${safeText(resourceMetaLine(r))}</span>
+        </span>
+        <span class="cta">Details</span>
+      </button>
+      <div class="resource-acc-details">
+        <p>${safeText(getResourceDesc(r))}</p>
+        <p><strong>Contact:</strong> ${safeText(r.contact || 'Not listed')}</p>
+        <p><strong>Address:</strong> ${safeText(r.addr || 'Not listed')}</p>
+        <p><strong>Availability:</strong> ${safeText(r.avail || 'Contact for details')}</p>
+        <div class="resource-detail-tags">${(r.tags || []).map(t=>`<span class="resource-detail-tag">${safeText(t)}</span>`).join('')}</div>
+        ${r.link && r.link !== '#' ? `<p style="margin-top:.8rem"><a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">Learn More</a></p>` : ''}
+      </div>
+    </div>
+  `).join('') + `</div>`;
+}
+
+function toggleAccordionResource(id){
+  const item = document.getElementById('acc-resource-' + id);
+  if (!item) return;
+  const isOpen = item.classList.toggle('open');
+  const btn = item.querySelector('.resource-acc-summary');
+  const chev = item.querySelector('.resource-acc-chevron');
+  if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  if (chev) chev.textContent = isOpen ? '▼' : '▶';
+}
+
+function renderResourceSplitLayout(resources){
+  if (!resources.length) return '';
+  if (!splitSelectedResourceId || !resources.some(r => String(r.id) === String(splitSelectedResourceId))) {
+    splitSelectedResourceId = resources[0].id;
+  }
+  const selected = resources.find(r => String(r.id) === String(splitSelectedResourceId)) || resources[0];
+
+  return `
+    <div class="resource-split-view">
+      <div class="resource-split-list">
+        ${resources.map(r => `
+          <button type="button" class="resource-split-row ${String(r.id) === String(splitSelectedResourceId) ? 'active' : ''}" onclick="selectSplitResource('${safeText(r.id)}')">
+            <span class="resource-list-title">${safeText(r.icon || '📌')} ${safeText(getResourceTitle(r))}</span><br>
+            <span class="resource-list-meta">${safeText(resourceMetaLine(r))}</span>
+          </button>
+        `).join('')}
+      </div>
+      <div class="resource-split-detail">
+        <div class="resource-split-title">${safeText(selected.icon || '📌')} ${safeText(getResourceTitle(selected))}</div>
+        <div class="resource-list-meta">${safeText(resourceMetaLine(selected))}</div>
+        <div class="resource-split-section"><strong>Description</strong>${safeText(getResourceDesc(selected))}</div>
+        <div class="resource-split-section"><strong>Contact</strong>${safeText(selected.contact || 'Not listed')}</div>
+        <div class="resource-split-section"><strong>Address</strong>${safeText(selected.addr || 'Not listed')}</div>
+        <div class="resource-split-section"><strong>Availability</strong>${safeText(selected.avail || 'Contact for details')}</div>
+        <div class="resource-detail-tags">${(selected.tags || []).map(t=>`<span class="resource-detail-tag">${safeText(t)}</span>`).join('')}</div>
+        ${selected.link && selected.link !== '#' ? `<p style="margin-top:1rem"><a class="cta" href="${safeText(selected.link)}" target="_blank" rel="noopener noreferrer">Learn More</a></p>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+function selectSplitResource(id){
+  splitSelectedResourceId = id;
+  if (typeof renderBrowse === 'function') renderBrowse();
+}
+
+function renderResourceGridLayout(resources){
+  return `
+    <div class="resource-grid-table-wrap">
+      <table class="resource-grid-table">
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>Category</th>
+            <th>Ages</th>
+            <th>Contact</th>
+            <th>Availability</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${resources.map(r => `
+            <tr>
+              <td><strong>${safeText(r.icon || '📌')} ${safeText(getResourceTitle(r))}</strong><br><span>${safeText((getResourceDesc(r) || '').slice(0,110))}${getResourceDesc(r).length > 110 ? '...' : ''}</span></td>
+              <td>${safeText(r.catL || r.cat || '')}</td>
+              <td>${safeText(r.ages || '')}</td>
+              <td>${safeText(r.contact || '')}</td>
+              <td>${safeText(r.avail || '')}</td>
+              <td>${r.link && r.link !== '#' ? `<a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">Open</a>` : `<span class="cta cta-gray">No link</span>`}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderResourcesByLayout(resources){
+  if (RESOURCE_LAYOUT === 'list') return renderResourceListLayout(resources);
+  if (RESOURCE_LAYOUT === 'accordion') return renderResourceAccordionLayout(resources);
+  if (RESOURCE_LAYOUT === 'split') return renderResourceSplitLayout(resources);
+  if (RESOURCE_LAYOUT === 'grid') return renderResourceGridLayout(resources);
+  return resources.map((r,i)=>cardHTML(r,i,null)).join('');
+}
+
+function applyLayoutState(){
+  const adminSelect = document.getElementById('admin-layout-select');
+  if (adminSelect) adminSelect.value = RESOURCE_LAYOUT;
+
+  document.querySelectorAll('.layout-btn').forEach(btn => {
+    const active = btn.dataset.layout === RESOURCE_LAYOUT;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', applyLayoutState);
 </script>
 
 </body>

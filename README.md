@@ -138,3 +138,20 @@ Features:
 Preferences are saved in localStorage.
 
 This toolbar is an enhancement and does not replace WCAG compliance work.
+
+
+## Resource Display Layout Options
+
+The admin panel now includes a Public Resource Display Layout selector.
+
+Available layouts:
+
+1. Original Card View
+2. Compact List View
+3. Expandable Accordion
+4. Split Panel Directory
+5. Data Grid
+
+The selected layout is saved in localStorage and controls how the public resource results display.
+
+There is also a small public layout toggle near the resource count for quick preview/testing.
