@@ -247,3 +247,18 @@ Plain string title/desc values still work, but they remain in English.
 This build fixes the previous JavaScript syntax error and keeps the console-clean, no-Google-iframe translation system.
 
 It translates known categories, tags, source labels, and common resource phrases. For full card title and description translation, use translated JSON fields.
+
+
+## Google Translate Restored
+
+Language support now uses Google Website Translate again.
+
+Reason:
+
+- Translates the full page automatically
+- Handles cards, tags, descriptions, filters, and admin-added resources
+- Works better for Excel-imported resources without manually translated JSON fields
+
+Note:
+
+You may still see browser console warnings from Google's iframe cookie behavior. Those warnings come from Google's embedded translate script and do not affect normal users or site functionality.

@@ -8,9 +8,9 @@
 
 <link rel="stylesheet" href="styles.css">
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-<script src="translations.js"></script>
 </head>
 <body>
+<div id="google_translate_element" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px"></div>
 
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
@@ -2231,175 +2231,17 @@ console.info('Resource data is loaded through /api/resources.');
 </script>
 
 
+
 <script>
 /* ========================================
-   ENHANCED BUILT-IN LANGUAGE TOGGLE FIXED
-   No Google iframe. Supports UI translation, known tag/category translation, and translated JSON fields.
+   RESOURCE TEXT HELPERS
+   Google Translate handles visible translation after rendering.
 ======================================== */
-var CURRENT_LANGUAGE = localStorage.getItem('resource_lang') || 'en';
-
-const RESOURCE_TRANSLATION_DICTIONARY = {
-  es: {
-    'Health & Wellness': 'Salud y bienestar',
-    'Legal & Justice': 'Legal y justicia',
-    'Youth Services': 'Servicios para jóvenes',
-    'Workforce': 'Empleo y capacitación',
-    'Education': 'Educación',
-    'Housing': 'Vivienda',
-    'Family': 'Familia',
-    'Financial Aid': 'Ayuda financiera',
-    'Violence Prevention': 'Prevención de violencia',
-    'Food & Basic Needs': 'Alimentos y necesidades básicas',
-    'General': 'General',
-    'Counseling': 'Consejería',
-    'Crisis Intervention': 'Intervención en crisis',
-    'Case Management': 'Manejo de casos',
-    'Diversion': 'Desviación',
-    'Youth Court': 'Tribunal juvenil',
-    'Restorative Justice': 'Justicia restaurativa',
-    'Parenting': 'Crianza',
-    'Housing Assistance': 'Asistencia de vivienda',
-    'Shelter': 'Refugio',
-    'Mental Health': 'Salud mental',
-    'Therapy': 'Terapia',
-    'Job Training': 'Capacitación laboral',
-    'Employment': 'Empleo',
-    'Internships': 'Pasantías',
-    'Education Support': 'Apoyo educativo',
-    'Tutoring': 'Tutoría',
-    'Mentoring': 'Mentoría',
-    'Legal Support': 'Apoyo legal',
-    'Reentry': 'Reingreso',
-    'Family Support': 'Apoyo familiar',
-    'Food': 'Alimentos',
-    'Transportation': 'Transporte',
-    'Medical': 'Médico',
-    'Substance Use': 'Uso de sustancias',
-    'Life Skills': 'Habilidades para la vida',
-    'Career': 'Carrera',
-    'Arts': 'Artes',
-    'Drop-In': 'Atención sin cita',
-    'Therapeutic counseling': 'Consejería terapéutica',
-    'crisis intervention': 'intervención en crisis',
-    'case management': 'manejo de casos',
-    'and diversion': 'y desviación',
-    'for Oakland youth': 'para jóvenes de Oakland',
-    'Youth court': 'Tribunal juvenil',
-    'for first-time juvenile offenders': 'para jóvenes infractores por primera vez',
-    'Restorative justice education': 'Educación sobre justicia restaurativa',
-    'parenting classes': 'clases de crianza',
-    'and justice system education': 'y educación sobre el sistema de justicia',
-    'Referrals accepted': 'Se aceptan referencias',
-    'Contact for referral': 'Contactar para referencia',
-    'Open enrollment': 'Inscripción abierta',
-    'Appointments available weekly': 'Citas disponibles semanalmente',
-    'Referral required': 'Referencia requerida',
-    'Not listed': 'No indicado',
-    'Contact for details': 'Contactar para más detalles',
-    'Learn More': 'Más información',
-    'Details': 'Detalles',
-    'View': 'Ver',
-    'Open': 'Abrir',
-    'No link': 'Sin enlace',
-    'Description': 'Descripción',
-    'Contact': 'Contacto',
-    'Address': 'Dirección',
-    'Availability': 'Disponibilidad',
-    'More matching resources': 'Más recursos relacionados'
-  },
-  zh: {
-    'Health & Wellness': '健康與身心',
-    'Legal & Justice': '法律與司法',
-    'Youth Services': '青少年服務',
-    'Workforce': '就業與培訓',
-    'Education': '教育',
-    'Housing': '住房',
-    'Family': '家庭',
-    'Financial Aid': '財務援助',
-    'Violence Prevention': '暴力預防',
-    'Food & Basic Needs': '食物與基本需求',
-    'General': '一般',
-    'Counseling': '心理輔導',
-    'Crisis Intervention': '危機介入',
-    'Case Management': '個案管理',
-    'Diversion': '分流服務',
-    'Youth Court': '青少年法庭',
-    'Restorative Justice': '修復式司法',
-    'Parenting': '育兒',
-    'Housing Assistance': '住房援助',
-    'Shelter': '庇護所',
-    'Mental Health': '心理健康',
-    'Therapy': '治療',
-    'Job Training': '職業培訓',
-    'Employment': '就業',
-    'Internships': '實習',
-    'Education Support': '教育支援',
-    'Tutoring': '補習輔導',
-    'Mentoring': '導師服務',
-    'Legal Support': '法律支援',
-    'Reentry': '重返社區支援',
-    'Family Support': '家庭支援',
-    'Food': '食物',
-    'Transportation': '交通',
-    'Medical': '醫療',
-    'Substance Use': '物質使用',
-    'Life Skills': '生活技能',
-    'Career': '職涯',
-    'Arts': '藝術',
-    'Drop-In': '免預約服務',
-    'Therapeutic counseling': '治療性心理輔導',
-    'crisis intervention': '危機介入',
-    'case management': '個案管理',
-    'and diversion': '及分流服務',
-    'for Oakland youth': '為 Oakland 青少年提供服務',
-    'Youth court': '青少年法庭',
-    'for first-time juvenile offenders': '為首次青少年違規者提供服務',
-    'Restorative justice education': '修復式司法教育',
-    'parenting classes': '育兒課程',
-    'and justice system education': '及司法系統教育',
-    'Referrals accepted': '接受轉介',
-    'Contact for referral': '請聯絡以進行轉介',
-    'Open enrollment': '開放報名',
-    'Appointments available weekly': '每週可預約',
-    'Referral required': '需要轉介',
-    'Not listed': '未列出',
-    'Contact for details': '請聯絡了解詳情',
-    'Learn More': '了解更多',
-    'Details': '詳情',
-    'View': '查看',
-    'Open': '開啟',
-    'No link': '沒有連結',
-    'Description': '描述',
-    'Contact': '聯絡',
-    'Address': '地址',
-    'Availability': '可用情況',
-    'More matching resources': '更多相關資源'
-  }
-};
-
-function translateStaticText(text){
-  if (CURRENT_LANGUAGE === 'en') return String(text ?? '');
-  let output = String(text ?? '');
-  const dict = RESOURCE_TRANSLATION_DICTIONARY[CURRENT_LANGUAGE] || {};
-
-  if (dict[output]) return dict[output];
-
-  const exactKey = Object.keys(dict).find(k => k.toLowerCase() === output.toLowerCase());
-  if (exactKey) return dict[exactKey];
-
-  Object.keys(dict).sort((a,b) => b.length - a.length).forEach(key => {
-    const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    output = output.replace(new RegExp(escaped, 'gi'), dict[key]);
-  });
-
-  return output;
-}
-
 function getTranslatedValue(value){
   if (typeof value === 'object' && value !== null) {
-    return value[CURRENT_LANGUAGE] || value.en || Object.values(value)[0] || '';
+    return value.en || Object.values(value)[0] || '';
   }
-  return translateStaticText(value);
+  return value == null ? '' : String(value);
 }
 
 function resourceText(resource, key){
@@ -2407,77 +2249,90 @@ function resourceText(resource, key){
 }
 
 function translateTag(tag){
-  return translateStaticText(tag);
+  return tag == null ? '' : String(tag);
 }
 
 function translateCategory(value){
-  return translateStaticText(value);
+  return value == null ? '' : String(value);
 }
 
 function resourceSearchText(resource){
   const title = resourceText(resource, 'title');
   const desc = resourceText(resource, 'desc');
-  const tags = Array.isArray(resource.tags) ? resource.tags.map(translateTag).join(' ') : '';
-  return `${title} ${desc} ${tags} ${translateCategory(resource.srcL || '')} ${translateCategory(resource.catL || '')} ${resource.contact || ''} ${resource.addr || ''}`.toLowerCase();
+  const tags = Array.isArray(resource.tags) ? resource.tags.join(' ') : '';
+  return `${title} ${desc} ${tags} ${resource.srcL || ''} ${resource.catL || ''} ${resource.contact || ''} ${resource.addr || ''}`.toLowerCase();
+}
+</script>
+
+
+<script>
+/* ========================================
+   GOOGLE TRANSLATE LANGUAGE TOGGLE
+   Full-page translation for resources, tags, cards, filters, and admin-added content.
+======================================== */
+window.googleTranslateElementInit = function(){
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,es,zh-TW',
+    autoDisplay: false
+  }, 'google_translate_element');
+};
+
+function setGoogleTranslateCookie(value){
+  const expires = 'expires=Fri, 31 Dec 9999 23:59:59 GMT';
+  const host = location.hostname;
+
+  document.cookie = 'googtrans=' + value + '; path=/; ' + expires;
+  document.cookie = 'googtrans=' + value + '; path=/; domain=' + host + '; ' + expires;
+
+  const parts = host.split('.');
+  if (parts.length > 2) {
+    const rootDomain = '.' + parts.slice(-2).join('.');
+    document.cookie = 'googtrans=' + value + '; path=/; domain=' + rootDomain + '; ' + expires;
+  }
 }
 
-function t(key){
-  return (window.TRANSLATIONS && TRANSLATIONS[CURRENT_LANGUAGE] && TRANSLATIONS[CURRENT_LANGUAGE][key])
-    || (window.TRANSLATIONS && TRANSLATIONS.en && TRANSLATIONS.en[key])
-    || key;
+function clearGoogleTranslateCookie(){
+  const host = location.hostname;
+
+  document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+  document.cookie = 'googtrans=; path=/; domain=' + host + '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+
+  const parts = host.split('.');
+  if (parts.length > 2) {
+    const rootDomain = '.' + parts.slice(-2).join('.');
+    document.cookie = 'googtrans=; path=/; domain=' + rootDomain + '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+  }
 }
 
-function setTextById(id, value){
-  const el = document.getElementById(id);
-  if (el) el.textContent = value;
-}
-
-function setHtmlById(id, value){
-  const el = document.getElementById(id);
-  if (el) el.innerHTML = value;
-}
-
-function applyTranslations(){
-  document.documentElement.lang = CURRENT_LANGUAGE === 'zh' ? 'zh-Hant' : CURRENT_LANGUAGE;
-
-  setHtmlById('hero-title', t('heroTitleHtml'));
-  setTextById('hero-desc', t('heroDesc'));
-  setTextById('hero-match-btn', t('heroMatchButton'));
-  setTextById('hero-browse-btn', t('heroBrowseButton'));
-  setTextById('browse-title', t('browseTitle'));
-  setTextById('browse-nores-title', t('noResultsTitle'));
-  setTextById('browse-nores-desc', t('noResultsDesc'));
-  setTextById('wizard-start-title', t('wizardStartTitle'));
-  setTextById('wizard-start-desc', t('wizardStartDesc'));
-  setTextById('wizard-start-btn', t('wizardStartButton'));
-
-  const searchInput = document.getElementById('sinput');
-  if (searchInput) searchInput.placeholder = t('searchPlaceholder');
-
-  const adminBtn = document.getElementById('admin-btn');
-  if (adminBtn) adminBtn.textContent = '⚙ ' + t('admin');
-
+function updateLanguageButtons(lang){
   document.querySelectorAll('.lang-btn').forEach(btn => {
-    const active = btn.dataset.lang === CURRENT_LANGUAGE;
+    const active = btn.dataset.lang === lang;
     btn.classList.toggle('active', active);
     btn.setAttribute('aria-pressed', active ? 'true' : 'false');
   });
-
-  if (typeof updateHeroResourceCount === 'function') updateHeroResourceCount();
 }
 
 function setLanguage(lang){
-  CURRENT_LANGUAGE = lang;
   localStorage.setItem('resource_lang', lang);
-  applyTranslations();
+  updateLanguageButtons(lang);
 
-  if (typeof renderBrowse === 'function') renderBrowse();
-  if (typeof refreshSmartMatchLayout === 'function') refreshSmartMatchLayout();
-  if (typeof renderResourceTable === 'function') renderResourceTable();
+  if (lang === 'en') {
+    clearGoogleTranslateCookie();
+  } else {
+    const googleLang = lang === 'zh' ? 'zh-TW' : lang;
+    setGoogleTranslateCookie('/en/' + googleLang);
+  }
+
+  window.location.reload();
 }
 
-document.addEventListener('DOMContentLoaded', applyTranslations);
+document.addEventListener('DOMContentLoaded', function(){
+  const saved = localStorage.getItem('resource_lang') || 'en';
+  updateLanguageButtons(saved);
+});
 </script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
