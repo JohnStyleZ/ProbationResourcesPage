@@ -11,7 +11,6 @@
 </head>
 <body>
 <div id="google_translate_element" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px"></div>
-
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header style="background:linear-gradient(135deg,#0B7691 0%,#085566 100%);border-bottom:3px solid #F5BB4C;height:auto;padding:.6rem 2rem;flex-direction:column;align-items:stretch;gap:0">
@@ -650,7 +649,7 @@ function cardHTML(r,i,scoreInfo){
     </div>
     <p>${resourceText(r,'desc')}</p>
     <div class="tags">
-      ${r.tags.map(t=>`<span class="tag">${translateTag(t)}</span>`).join('')}
+      ${r.tags.map(t=>`<span class="tag">${t}</span>`).join('')}
       ${reasonTags}
     </div>
     <div class="card-foot">
@@ -1257,6 +1256,106 @@ GITHUB_BRANCH=main</div>
 })();
 </script>
 
+
+<script>
+/* ========================================
+   TRANSLATED RESOURCE HELPERS
+======================================== */
+function getTranslatedValue(value){
+  if (typeof value === 'string') return value;
+
+  if (typeof value === 'object' && value !== null) {
+    return value[CURRENT_LANGUAGE]
+      || value.en
+      || Object.values(value)[0]
+      || '';
+  }
+
+  return '';
+}
+
+function resourceText(resource, key){
+  return getTranslatedValue(resource ? resource[key] : '');
+}
+
+function resourceSearchText(resource){
+  const title = resourceText(resource, 'title');
+  const desc = resourceText(resource, 'desc');
+  const tags = Array.isArray(resource.tags) ? resource.tags.join(' ') : '';
+  return `${title} ${desc} ${tags} ${resource.srcL || ''} ${resource.catL || ''} ${resource.contact || ''} ${resource.addr || ''}`.toLowerCase();
+}
+</script>
+
+
+
+<script>
+/* ========================================
+   FULL PAGE LANGUAGE TOGGLE
+   Uses Google Website Translate so cards and dynamic content translate too.
+======================================== */
+window.googleTranslateElementInit = function(){
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,es,zh-TW',
+    autoDisplay: false
+  }, 'google_translate_element');
+};
+
+function setGoogleTranslateCookie(value){
+  const expires = 'expires=Fri, 31 Dec 9999 23:59:59 GMT';
+  const host = location.hostname;
+
+  document.cookie = 'googtrans=' + value + '; path=/; ' + expires;
+  document.cookie = 'googtrans=' + value + '; path=/; domain=' + host + '; ' + expires;
+
+  const parts = host.split('.');
+  if (parts.length > 2) {
+    const rootDomain = '.' + parts.slice(-2).join('.');
+    document.cookie = 'googtrans=' + value + '; path=/; domain=' + rootDomain + '; ' + expires;
+  }
+}
+
+function clearGoogleTranslateCookie(){
+  const host = location.hostname;
+  document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+  document.cookie = 'googtrans=; path=/; domain=' + host + '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+
+  const parts = host.split('.');
+  if (parts.length > 2) {
+    const rootDomain = '.' + parts.slice(-2).join('.');
+    document.cookie = 'googtrans=; path=/; domain=' + rootDomain + '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+  }
+}
+
+function updateLanguageButtons(lang){
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+}
+
+function setLanguage(lang){
+  localStorage.setItem('resource_lang', lang);
+  updateLanguageButtons(lang);
+
+  if (lang === 'en') {
+    clearGoogleTranslateCookie();
+  } else {
+    const googleLang = lang === 'zh' ? 'zh-TW' : lang;
+    setGoogleTranslateCookie('/en/' + googleLang);
+  }
+
+  // Reload is intentional. It lets Google Translate process the full page,
+  // including resource cards that are loaded dynamically from JSON.
+  window.location.reload();
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  const saved = localStorage.getItem('resource_lang') || 'en';
+  updateLanguageButtons(saved);
+});
+</script>
 
 <script>
 /* ========================================
@@ -1879,7 +1978,7 @@ function getResourceDesc(r){
 }
 
 function resourceMetaLine(r){
-  return [translateCategory(r.catL || r.cat || 'General'), r.ages || 'All ages', translateCategory(r.srcL || r.src || '')].filter(Boolean).join(' · ');
+  return [r.catL || r.cat || 'General', r.ages || 'All ages', r.srcL || r.src || ''].filter(Boolean).join(' · ');
 }
 
 async function setResourceLayout(layout, fromAdmin){
@@ -1937,7 +2036,7 @@ function renderResourceListLayout(resources){
         <div class="resource-list-title">${safeText(getResourceTitle(r))}</div>
         <div class="resource-list-meta">${safeText(resourceMetaLine(r))}</div>
         <div class="resource-list-desc">${safeText(getResourceDesc(r))}</div>
-        <div class="resource-detail-tags">${(r.tags || []).slice(0,5).map(t=>`<span class="resource-detail-tag">${safeText(translateTag(t))}</span>`).join('')}</div>
+        <div class="resource-detail-tags">${(r.tags || []).slice(0,5).map(t=>`<span class="resource-detail-tag">${safeText(t)}</span>`).join('')}</div>
       </div>
       <div class="resource-list-actions">
         <button type="button" class="cta" onclick="toggleAccordionResource('${safeText(r.id)}')">Details</button>
@@ -1963,7 +2062,7 @@ function renderResourceAccordionLayout(resources){
         <p><strong>Contact:</strong> ${safeText(r.contact || 'Not listed')}</p>
         <p><strong>Address:</strong> ${safeText(r.addr || 'Not listed')}</p>
         <p><strong>Availability:</strong> ${safeText(r.avail || 'Contact for details')}</p>
-        <div class="resource-detail-tags">${(r.tags || []).map(t=>`<span class="resource-detail-tag">${safeText(translateTag(t))}</span>`).join('')}</div>
+        <div class="resource-detail-tags">${(r.tags || []).map(t=>`<span class="resource-detail-tag">${safeText(t)}</span>`).join('')}</div>
         ${r.link && r.link !== '#' ? `<p style="margin-top:.8rem"><a class="cta" href="${safeText(r.link)}" target="_blank" rel="noopener noreferrer">Learn More</a></p>` : ''}
       </div>
     </div>
@@ -2227,40 +2326,48 @@ function refreshSmartMatchLayout(){
 
 <script>
 /* DATA SOURCE PROXY NOTE */
-console.info('Resource data is loaded through /api/resources.');
+console.info('Resource data is loaded through /api/resources to avoid browser CORS issues with raw.githubusercontent.com.');
 </script>
-
-
 
 <script>
 /* ========================================
    RESOURCE TEXT HELPERS
-   Google Translate handles visible translation after rendering.
+   Google Translate translates the rendered page.
 ======================================== */
-function getTranslatedValue(value){
-  if (typeof value === 'object' && value !== null) {
-    return value.en || Object.values(value)[0] || '';
+if (typeof getTranslatedValue !== 'function') {
+  function getTranslatedValue(value){
+    if (typeof value === 'object' && value !== null) {
+      return value.en || Object.values(value)[0] || '';
+    }
+    return value == null ? '' : String(value);
   }
-  return value == null ? '' : String(value);
 }
 
-function resourceText(resource, key){
-  return getTranslatedValue(resource ? resource[key] : '');
+if (typeof resourceText !== 'function') {
+  function resourceText(resource, key){
+    return getTranslatedValue(resource ? resource[key] : '');
+  }
 }
 
-function translateTag(tag){
-  return tag == null ? '' : String(tag);
+if (typeof translateTag !== 'function') {
+  function translateTag(tag){
+    return tag == null ? '' : String(tag);
+  }
 }
 
-function translateCategory(value){
-  return value == null ? '' : String(value);
+if (typeof translateCategory !== 'function') {
+  function translateCategory(value){
+    return value == null ? '' : String(value);
+  }
 }
 
-function resourceSearchText(resource){
-  const title = resourceText(resource, 'title');
-  const desc = resourceText(resource, 'desc');
-  const tags = Array.isArray(resource.tags) ? resource.tags.join(' ') : '';
-  return `${title} ${desc} ${tags} ${resource.srcL || ''} ${resource.catL || ''} ${resource.contact || ''} ${resource.addr || ''}`.toLowerCase();
+if (typeof resourceSearchText !== 'function') {
+  function resourceSearchText(resource){
+    const title = resourceText(resource, 'title');
+    const desc = resourceText(resource, 'desc');
+    const tags = Array.isArray(resource.tags) ? resource.tags.join(' ') : '';
+    return `${title} ${desc} ${tags} ${resource.srcL || ''} ${resource.catL || ''} ${resource.contact || ''} ${resource.addr || ''}`.toLowerCase();
+  }
 }
 </script>
 
@@ -2268,7 +2375,6 @@ function resourceSearchText(resource){
 <script>
 /* ========================================
    GOOGLE TRANSLATE LANGUAGE TOGGLE
-   Full-page translation for resources, tags, cards, filters, and admin-added content.
 ======================================== */
 window.googleTranslateElementInit = function(){
   new google.translate.TranslateElement({
@@ -2328,8 +2434,7 @@ function setLanguage(lang){
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-  const saved = localStorage.getItem('resource_lang') || 'en';
-  updateLanguageButtons(saved);
+  updateLanguageButtons(localStorage.getItem('resource_lang') || 'en');
 });
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

@@ -212,53 +212,11 @@ The Vercel serverless function reads `resources.json` from GitHub using the GitH
 This avoids browser CORS/preflight issues.
 
 
-## Console-Clean Translation Fix
+## Clean Google Translate Rebuild
 
-Google Website Translate was removed because its iframe attempts to set cookies and creates browser console errors.
+This rebuild restores Google Translate from a stable source and removes the broken custom translation code.
 
-This version uses a built-in translation layer:
+Expected console behavior:
 
-- No Google iframe
-- No translation cookies
-- No sandbox cookie console errors
-- UI labels translate through translations.js
-- Resource cards support translated JSON fields
-
-For resource card translation, use this JSON format:
-
-{
-  "title": {
-    "en": "Youth Counseling",
-    "es": "Consejería Juvenil",
-    "zh": "青少年心理輔導"
-  },
-  "desc": {
-    "en": "Counseling and crisis support.",
-    "es": "Consejería y apoyo en crisis.",
-    "zh": "心理輔導與危機支援。"
-  }
-}
-
-Plain string title/desc values still work, but they remain in English.
-
-
-## Enhanced Translation Fixed
-
-This build fixes the previous JavaScript syntax error and keeps the console-clean, no-Google-iframe translation system.
-
-It translates known categories, tags, source labels, and common resource phrases. For full card title and description translation, use translated JSON fields.
-
-
-## Google Translate Restored
-
-Language support now uses Google Website Translate again.
-
-Reason:
-
-- Translates the full page automatically
-- Handles cards, tags, descriptions, filters, and admin-added resources
-- Works better for Excel-imported resources without manually translated JSON fields
-
-Note:
-
-You may still see browser console warnings from Google's iframe cookie behavior. Those warnings come from Google's embedded translate script and do not affect normal users or site functionality.
+- Google iframe cookie warnings may appear. These are from Google's translate script and do not break the site.
+- JavaScript syntax errors and `RESOURCE_LAYOUT is not defined` should not appear.
