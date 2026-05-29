@@ -166,3 +166,10 @@ It is now a Detail + Results List layout:
 - One selected resource is featured at the top
 - Matching resources appear below in a compact list
 - No full left-side resource sidebar
+
+
+## Layout Full-Width Fix
+
+Non-card layouts now force the browse grid container into full-width block mode.
+
+This fixes the issue where List, Accordion, Detail, and Grid layouts appeared as a narrow column on the left because they were being placed inside the original card grid.

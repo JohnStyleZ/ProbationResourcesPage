@@ -1179,3 +1179,84 @@ html.a11y-high-contrast .ages-pill{
     grid-template-columns:auto 1fr;
   }
 }
+
+
+
+/* ========================================
+   FULL-WIDTH FIX FOR NON-CARD LAYOUTS
+   The original resource area is a card grid. Non-card layouts need to occupy full width.
+======================================== */
+#browse-grid.layout-list,
+#browse-grid.layout-accordion,
+#browse-grid.layout-split,
+#browse-grid.layout-grid{
+  display:block !important;
+  grid-template-columns:none !important;
+  width:100% !important;
+}
+
+#browse-grid.layout-list > *,
+#browse-grid.layout-accordion > *,
+#browse-grid.layout-split > *,
+#browse-grid.layout-grid > *{
+  width:100% !important;
+  max-width:none !important;
+}
+
+#browse-grid.layout-cards{
+  display:grid;
+}
+
+/* Make the result section use available page width */
+#browse-view .section-head,
+#browse-view #browse-grid,
+#browse-view .nores{
+  width:100%;
+}
+
+/* Improve detail layout width */
+.resource-split-featured,
+.resource-split-results,
+.resource-list-view,
+.resource-accordion,
+.resource-grid-table-wrap{
+  width:100% !important;
+  max-width:none !important;
+}
+
+/* Better featured detail proportions */
+.resource-split-featured{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr);
+}
+
+/* Keep the detail layout from looking like a narrow card */
+.layout-split .resource-split-featured{
+  max-width:100% !important;
+}
+
+.layout-split .resource-split-results{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:.75rem;
+}
+
+.layout-list .resource-list-view{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.85rem;
+}
+
+.layout-accordion .resource-accordion{
+  width:100%;
+}
+
+.layout-grid .resource-grid-table-wrap{
+  width:100%;
+}
+
+@media(max-width:760px){
+  .layout-split .resource-split-results{
+    grid-template-columns:1fr;
+  }
+}
