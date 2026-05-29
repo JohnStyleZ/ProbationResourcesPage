@@ -155,3 +155,14 @@ Available layouts:
 The selected layout is saved in localStorage and controls how the public resource results display.
 
 There is also a small public layout toggle near the resource count for quick preview/testing.
+
+
+## Layout Update
+
+The previous Split Panel layout was changed because showing all resources in a left sidebar was not ideal for a large resource directory.
+
+It is now a Detail + Results List layout:
+
+- One selected resource is featured at the top
+- Matching resources appear below in a compact list
+- No full left-side resource sidebar

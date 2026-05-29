@@ -1082,7 +1082,7 @@ GITHUB_BRANCH=main</div>
             <option value="cards">Original Card View</option>
             <option value="list">Compact List View</option>
             <option value="accordion">Expandable Accordion</option>
-            <option value="split">Split Panel Directory</option>
+            <option value="split">Detail + Results List</option>
             <option value="grid">Data Grid</option>
           </select>
           <button type="button" class="abtn" onclick="resetResourceLayout()">Reset Layout</button>
@@ -2060,30 +2060,45 @@ function toggleAccordionResource(id){
 
 function renderResourceSplitLayout(resources){
   if (!resources.length) return '';
+
   if (!splitSelectedResourceId || !resources.some(r => String(r.id) === String(splitSelectedResourceId))) {
     splitSelectedResourceId = resources[0].id;
   }
+
   const selected = resources.find(r => String(r.id) === String(splitSelectedResourceId)) || resources[0];
+  const otherResults = resources.filter(r => String(r.id) !== String(selected.id)).slice(0, 20);
 
   return `
     <div class="resource-split-view">
-      <div class="resource-split-list">
-        ${resources.map(r => `
-          <button type="button" class="resource-split-row ${String(r.id) === String(splitSelectedResourceId) ? 'active' : ''}" onclick="selectSplitResource('${safeText(r.id)}')">
-            <span class="resource-list-title">${safeText(r.icon || '📌')} ${safeText(getResourceTitle(r))}</span><br>
-            <span class="resource-list-meta">${safeText(resourceMetaLine(r))}</span>
-          </button>
-        `).join('')}
-      </div>
-      <div class="resource-split-detail">
-        <div class="resource-split-title">${safeText(selected.icon || '📌')} ${safeText(getResourceTitle(selected))}</div>
-        <div class="resource-list-meta">${safeText(resourceMetaLine(selected))}</div>
+      <article class="resource-split-featured">
+        <div class="resource-split-featured-head">
+          <div>
+            <div class="resource-split-title">${safeText(selected.icon || '📌')} ${safeText(getResourceTitle(selected))}</div>
+            <div class="resource-list-meta">${safeText(resourceMetaLine(selected))}</div>
+          </div>
+          ${selected.link && selected.link !== '#' ? `<a class="cta" href="${safeText(selected.link)}" target="_blank" rel="noopener noreferrer">Learn More</a>` : ''}
+        </div>
+
         <div class="resource-split-section"><strong>Description</strong>${safeText(getResourceDesc(selected))}</div>
         <div class="resource-split-section"><strong>Contact</strong>${safeText(selected.contact || 'Not listed')}</div>
         <div class="resource-split-section"><strong>Address</strong>${safeText(selected.addr || 'Not listed')}</div>
         <div class="resource-split-section"><strong>Availability</strong>${safeText(selected.avail || 'Contact for details')}</div>
+
         <div class="resource-detail-tags">${(selected.tags || []).map(t=>`<span class="resource-detail-tag">${safeText(t)}</span>`).join('')}</div>
-        ${selected.link && selected.link !== '#' ? `<p style="margin-top:1rem"><a class="cta" href="${safeText(selected.link)}" target="_blank" rel="noopener noreferrer">Learn More</a></p>` : ''}
+      </article>
+
+      <div class="resource-split-more-title">More matching resources</div>
+      <div class="resource-split-results">
+        ${otherResults.map(r => `
+          <button type="button" class="resource-split-result" onclick="selectSplitResource('${safeText(r.id)}')">
+            <span class="resource-split-result-icon" aria-hidden="true">${safeText(r.icon || '📌')}</span>
+            <span>
+              <span class="resource-list-title">${safeText(getResourceTitle(r))}</span><br>
+              <span class="resource-list-meta">${safeText(resourceMetaLine(r))}</span>
+            </span>
+            <span class="cta">View</span>
+          </button>
+        `).join('')}
       </div>
     </div>
   `;
