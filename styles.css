@@ -3,7 +3,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   /* ── ACOE Primary Colors ── */
-  --teal:#0B7691;--teal-light:#E0F3F8;--teal-dark:#085566;--teal-mid:#0e8dac;
+  --teal:#0B7691;--teal-light:#E0F3F8;--teal-dark:#001a45;--teal-mid:#0e8dac;
   --amber:#F5BB4C;--amber-light:#FEF6DC;
   --coral:#E5763A;--coral-light:#FDEDE3;
   /* ── ACOE Secondary Colors ── */
