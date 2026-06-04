@@ -272,7 +272,7 @@ footer a{text-decoration:underline!important;text-underline-offset:3px}
 .fpill.active, button.fpill.active{background:#085566!important;border-color:#085566!important;color:#ffffff!important;}
 .btn-primary, .wiz-next, .cta{background:#085566!important;color:#ffffff!important;}
 .btn-primary:hover, .wiz-next:hover, .cta:hover{background:#043f4d!important;}
-header[style], footer[style]{background:#043f4d!important;}
+header[style], footer[style]{background:#001a45!important;}
 footer, footer *, footer div, footer span, footer p{color:#ffffff!important;}
 footer a{color:#ffffff!important;text-decoration:underline!important;text-underline-offset:3px;}
 
