@@ -257,7 +257,7 @@ header button.nav-active{background:rgba(255,255,255,.25)!important}
 footer,footer *,footer a,footer div,footer span{color:#fff!important}
 footer a{text-decoration:underline!important;text-underline-offset:3px}
 .eyebrow{color:#5c3b00!important}
-.hero h1{color:#07566b!important}
+.hero h1{color:#17175D!important}
 .hero h1 em{color:#a33100!important}
 #sheet-status{color:#06495a!important}
 .abtn-d{color:#9f2a12!important;background:#fff1ed!important;border-color:#9f2a12!important}
@@ -347,7 +347,7 @@ footer a{color:#ffffff!important;text-decoration:underline!important;text-underl
 }
 
 .cta{
-  background:#0b5f73 !important;
+  background:#17175D !important;
   color:#ffffff !important;
   font-size:.82rem !important;
   font-weight:700 !important;
@@ -397,14 +397,14 @@ footer a{color:#ffffff!important;text-decoration:underline!important;text-underl
 /* Filter pill active fix */
 .fpill.active,
 button.fpill.active{
-  background:#084c5c !important;
-  border-color:#084c5c !important;
+  background:#17175D !important;
+  border-color:#17175D !important;
   color:#ffffff !important;
 }
 
 /* Keep primary teal buttons AAA-friendlier */
 .btn-primary{
-  background:#084c5c !important;
+  background:#17175D !important;
   color:#ffffff !important;
 }
 
