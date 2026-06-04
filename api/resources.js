@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     if (!githubRes.ok) {
       return res.status(githubRes.status).json({
         success: false,
-        error: 'Could not load resources.json from GitHub',
+        error: data.message || 'Could not load resources.json from GitHub',
         github: data
       });
     }

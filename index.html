@@ -291,13 +291,29 @@ async function loadResources() {
       }
     });
 
-    if (!res.ok) throw new Error('HTTP ' + res.status);
+    let data = {};
+    try {
+      data = await res.json();
+    } catch(parseErr) {
+      throw new Error('Could not parse resources response');
+    }
 
-    const data = await res.json();
-    if (!Array.isArray(data)) throw new Error('resources.json must be an array');
+    if (!res.ok) {
+      throw new Error(data.error || ('HTTP ' + res.status));
+    }
 
-    R = data;
-    localStorage.setItem('rm_cache', JSON.stringify(R));
+    const payload = normalizeResourcePayload(data);
+
+    R = payload.resources || [];
+    SITE_SETTINGS = payload.settings || SITE_SETTINGS || {};
+    RESOURCE_LAYOUT = SITE_SETTINGS.displayLayout || RESOURCE_LAYOUT || 'cards';
+    window.RESOURCE_LAYOUT = RESOURCE_LAYOUT;
+
+    localStorage.setItem('resource_display_layout', RESOURCE_LAYOUT);
+    localStorage.setItem('rm_cache', JSON.stringify({
+      settings: SITE_SETTINGS,
+      resources: R
+    }));
 
     if (statusEl) {
       statusEl.textContent = '✓ Loaded ' + R.length + ' resources from GitHub';
@@ -305,19 +321,39 @@ async function loadResources() {
     }
   } catch (e) {
     const cached = localStorage.getItem('rm_cache');
+
     if (cached) {
-      try { R = JSON.parse(cached); } catch(err) { R = []; }
+      try {
+        const payload = normalizeResourcePayload(JSON.parse(cached));
+        R = payload.resources || [];
+        SITE_SETTINGS = payload.settings || SITE_SETTINGS || {};
+        RESOURCE_LAYOUT = SITE_SETTINGS.displayLayout || RESOURCE_LAYOUT || 'cards';
+        window.RESOURCE_LAYOUT = RESOURCE_LAYOUT;
+      } catch(err) {
+        R = [];
+      }
+    } else {
+      R = [];
     }
 
     if (statusEl) {
-      statusEl.textContent = 'Loaded ' + R.length + ' resources from GitHub.';
-      statusEl.style.color = 'var(--amber)';
+      if (R.length > 0) {
+        statusEl.textContent = '⚠ Could not load latest GitHub JSON. Showing ' + R.length + ' cached resources. Error: ' + e.message;
+        statusEl.style.color = 'var(--amber)';
+      } else {
+        statusEl.textContent = '⚠ Could not load resources. Error: ' + e.message;
+        statusEl.style.color = 'var(--red)';
+      }
     }
+
+    console.error('Resource load failed:', e);
   }
 
   renderBrowse();
-  applyAccessibilityState();
-  applyLayoutState();
+
+  if (typeof applyAccessibilityState === 'function') applyAccessibilityState();
+  if (typeof applyLayoutState === 'function') applyLayoutState();
+  if (typeof applyResourceLayoutContainerClass === 'function') applyResourceLayoutContainerClass();
 }
 
 // ════════════════════════════════════════
@@ -2208,7 +2244,7 @@ document.addEventListener('DOMContentLoaded', applyResourceLayoutContainerClass)
    and new format:
    { "settings": {"displayLayout":"list"}, "resources": [...] }
 ======================================== */
-let SITE_SETTINGS = {
+var SITE_SETTINGS = {
   displayLayout: localStorage.getItem('resource_display_layout') || 'cards'
 };
 

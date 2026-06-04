@@ -220,3 +220,27 @@ Expected console behavior:
 
 - Google iframe cookie warnings may appear. These are from Google's translate script and do not break the site.
 - JavaScript syntax errors and `RESOURCE_LAYOUT is not defined` should not appear.
+
+
+## Resource Loading Fix
+
+`loadResources()` now supports both JSON formats:
+
+Old format:
+
+[
+  { "title": "Resource" }
+]
+
+New format:
+
+{
+  "settings": {
+    "displayLayout": "list"
+  },
+  "resources": [
+    { "title": "Resource" }
+  ]
+}
+
+This fixes the issue where the page stopped loading resources after layout settings were saved into JSON.
