@@ -1298,28 +1298,3 @@ html.a11y-high-contrast .ages-pill{
   width:100% !important;
   max-width:none !important;
 }
-
-
-/* Alameda County Probation Branding Update */
-:root{
-  --teal: #0B7691;
-  --teal-dark: #085D72;
-  --navy: #08485A;
-  --gold: #C8A97C;
-  --bg: #F7F9FB;
-  --surface: #FFFFFF;
-  --text: #1F2937;
-  --text-muted: #4B5563;
-  --border: #D1D5DB;
-}
-.site-header,.top-nav{background:var(--navy)!important;color:#fff!important;}
-.btn-primary,.learn-btn,.resource-action{background:var(--teal)!important;color:#fff!important;}
-.btn-primary:hover,.learn-btn:hover,.resource-action:hover{background:var(--teal-dark)!important;}
-.fpill.active{background:var(--teal)!important;color:#fff!important;border-color:var(--teal)!important;}
-.resource-count{background:#fff!important;color:var(--teal)!important;border:1px solid var(--teal)!important;}
-.resource-card{border-top:4px solid var(--teal)!important;}
-.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--teal) 100%)!important;}
-.gold-accent,.hero-divider,.section-divider{background:var(--gold)!important;}
-footer{background:var(--navy)!important;color:#fff!important;}
-footer h3,footer h4,footer .footer-title{color:#fff!important;}
-footer .footer-accent{color:#F8D9A6!important;}
