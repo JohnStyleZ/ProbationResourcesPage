@@ -2390,39 +2390,38 @@
     },
     {
       "id": 66,
-      "src": "general",
       "title": "Food Pantry Network",
       "cat": "family",
       "catL": "Family",
       "icon": "🥦",
       "th": "th-teal",
       "ages": "All ages",
-      "ageMin": null,
-      "ageMax": null,
-      "genders": [
-        "all"
-      ],
-      "riskFactors": [
-        "food-insecurity",
-        "family"
-      ],
-      "populations": [
-        "at-risk",
-        "parent"
-      ],
       "urgency": "immediate",
       "zipcodes": "all",
+      "ageMin": null,
+      "ageMax": null,
       "desc": "Fresh produce, shelf-stable groceries, and hot meals at community pantries across the region.",
+      "contact": "",
+      "addr": "",
+      "avail": "Daily hours",
+      "link": "https://socialservices.alamedacountyca.gov/our-services/Health-and-Food/Other-Support/Other-Food-Assistance",
+      "src": "general",
+      "srcL": "General",
       "tags": [
         "Food Access",
         "Fresh Produce",
         "Community"
       ],
-      "contact": "",
-      "addr": "",
-      "avail": "Daily hours",
-      "link": "#",
-      "srcL": "General"
+      "genders": [
+        "all"
+      ],
+      "riskFactors": [
+        "family"
+      ],
+      "populations": [
+        "parent",
+        "at-risk"
+      ]
     },
     {
       "id": 67,
