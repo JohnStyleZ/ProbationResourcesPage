@@ -2250,15 +2250,28 @@
     },
     {
       "id": 62,
-      "src": "general",
       "title": "Small Business Launch Grant",
-      "cat": "financial",
+      "cat": "",
       "catL": "Financial Aid",
       "icon": "💡",
       "th": "th-amber",
       "ages": "Adults",
+      "urgency": "planning",
+      "zipcodes": "all",
       "ageMin": 18,
       "ageMax": null,
+      "desc": "Up to $5,000 in seed funding plus free mentoring to help local entrepreneurs start or grow a small business.",
+      "contact": "",
+      "addr": "",
+      "avail": "Applications open",
+      "link": "https://microbizinsocal.org/small-business-grants/",
+      "src": "general",
+      "srcL": "General",
+      "tags": [
+        "Grants",
+        "Entrepreneurship",
+        "Mentoring"
+      ],
       "genders": [
         "all"
       ],
@@ -2267,20 +2280,7 @@
       ],
       "populations": [
         "at-risk"
-      ],
-      "urgency": "planning",
-      "zipcodes": "all",
-      "desc": "Up to $5,000 in seed funding plus free mentoring to help local entrepreneurs start or grow a small business.",
-      "tags": [
-        "Grants",
-        "Entrepreneurship",
-        "Mentoring"
-      ],
-      "contact": "",
-      "addr": "",
-      "avail": "Applications open",
-      "link": "#",
-      "srcL": "General"
+      ]
     },
     {
       "id": 63,
