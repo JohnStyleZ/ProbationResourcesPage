@@ -2213,15 +2213,28 @@
     },
     {
       "id": 61,
-      "src": "general",
       "title": "Emergency Rental Assistance",
-      "cat": "financial",
+      "cat": "",
       "catL": "Financial Aid",
       "icon": "🏠",
       "th": "th-coral",
       "ages": "Adults",
+      "urgency": "immediate",
+      "zipcodes": "all",
       "ageMin": 18,
       "ageMax": null,
+      "desc": "Short-term rental relief grants for households facing eviction due to job loss or medical hardship.",
+      "contact": "",
+      "addr": "",
+      "avail": "Limited slots",
+      "link": "https://www.alamedarentprogram.org/Resources/Additional-Housing-Resources/Financial-Housing-Assistance",
+      "src": "general",
+      "srcL": "General",
+      "tags": [
+        "Rental Aid",
+        "Eviction Prevention",
+        "Emergency"
+      ],
       "genders": [
         "all"
       ],
@@ -2231,22 +2244,9 @@
         "crisis"
       ],
       "populations": [
-        "at-risk",
-        "parent"
-      ],
-      "urgency": "immediate",
-      "zipcodes": "all",
-      "desc": "Short-term rental relief grants for households facing eviction due to job loss or medical hardship.",
-      "tags": [
-        "Rental Aid",
-        "Eviction Prevention",
-        "Emergency"
-      ],
-      "contact": "",
-      "addr": "",
-      "avail": "Limited slots",
-      "link": "#",
-      "srcL": "General"
+        "parent",
+        "at-risk"
+      ]
     },
     {
       "id": 62,
