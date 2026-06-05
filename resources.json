@@ -2354,15 +2354,28 @@
     },
     {
       "id": 65,
-      "src": "general",
       "title": "Mental Health & Counseling",
       "cat": "health",
       "catL": "Health & Wellness",
       "icon": "🧠",
       "th": "th-purple",
       "ages": "All ages",
+      "urgency": "any",
+      "zipcodes": "all",
       "ageMin": null,
       "ageMax": null,
+      "desc": "Sliding-scale therapy, support groups, and crisis intervention in English and Spanish.",
+      "contact": "",
+      "addr": "",
+      "avail": "Same-week appts",
+      "link": "https://newcomerswelcome.acgov.org/resource-directory/ncw-category/mental-health-support/",
+      "src": "general",
+      "srcL": "General",
+      "tags": [
+        "Therapy",
+        "Crisis Line",
+        "Bilingual"
+      ],
       "genders": [
         "all"
       ],
@@ -2371,22 +2384,9 @@
         "crisis"
       ],
       "populations": [
-        "at-risk",
-        "survivor"
-      ],
-      "urgency": "any",
-      "zipcodes": "all",
-      "desc": "Sliding-scale therapy, support groups, and crisis intervention in English and Spanish.",
-      "tags": [
-        "Therapy",
-        "Crisis Line",
-        "Bilingual"
-      ],
-      "contact": "",
-      "addr": "",
-      "avail": "Same-week appts",
-      "link": "#",
-      "srcL": "General"
+        "survivor",
+        "at-risk"
+      ]
     },
     {
       "id": 66,
