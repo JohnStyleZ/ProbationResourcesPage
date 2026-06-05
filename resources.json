@@ -2319,15 +2319,28 @@
     },
     {
       "id": 64,
-      "src": "general",
       "title": "Adult Education & GED Prep",
       "cat": "education",
       "catL": "Education",
       "icon": "📚",
       "th": "th-amber",
       "ages": "Adults",
+      "urgency": "planning",
+      "zipcodes": "all",
       "ageMin": 18,
       "ageMax": null,
+      "desc": "Free GED prep, ESL instruction, and adult literacy programs with evening and weekend schedules.",
+      "contact": "",
+      "addr": "",
+      "avail": "Enrolling now",
+      "link": "https://alamedacountyca.gov/probation/documents/GEDGuideJune2016.pdf",
+      "src": "general",
+      "srcL": "General",
+      "tags": [
+        "GED",
+        "ESL",
+        "Adult Literacy"
+      ],
       "genders": [
         "all"
       ],
@@ -2335,22 +2348,9 @@
         "school-dropout"
       ],
       "populations": [
-        "at-risk",
-        "immigrant"
-      ],
-      "urgency": "planning",
-      "zipcodes": "all",
-      "desc": "Free GED prep, ESL instruction, and adult literacy programs with evening and weekend schedules.",
-      "tags": [
-        "GED",
-        "ESL",
-        "Adult Literacy"
-      ],
-      "contact": "",
-      "addr": "",
-      "avail": "Enrolling now",
-      "link": "#",
-      "srcL": "General"
+        "immigrant",
+        "at-risk"
+      ]
     },
     {
       "id": 65,
