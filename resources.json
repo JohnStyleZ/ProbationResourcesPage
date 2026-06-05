@@ -2284,40 +2284,38 @@
     },
     {
       "id": 63,
-      "src": "general",
       "title": "Free Legal Aid Clinic",
       "cat": "legal",
       "catL": "Legal & Justice",
       "icon": "⚖️",
       "th": "th-purple",
       "ages": "Adults",
-      "ageMin": 18,
-      "ageMax": null,
-      "genders": [
-        "all"
-      ],
-      "riskFactors": [
-        "legal",
-        "housing",
-        "immigrant"
-      ],
-      "populations": [
-        "at-risk",
-        "immigrant"
-      ],
       "urgency": "any",
       "zipcodes": "all",
+      "ageMin": 18,
+      "ageMax": null,
       "desc": "Free consultations on immigration, landlord disputes, wage theft, and benefits appeals.",
+      "contact": "",
+      "addr": "",
+      "avail": "Thursdays 5–8pm",
+      "link": "https://baylegal.org/",
+      "src": "general",
+      "srcL": "General",
       "tags": [
         "Legal Help",
         "Immigration",
         "Tenant Rights"
       ],
-      "contact": "",
-      "addr": "",
-      "avail": "Thursdays 5–8pm",
-      "link": "#",
-      "srcL": "General"
+      "genders": [
+        "all"
+      ],
+      "riskFactors": [
+        "housing"
+      ],
+      "populations": [
+        "immigrant",
+        "at-risk"
+      ]
     },
     {
       "id": 64,
