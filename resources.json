@@ -5,7 +5,7 @@
   "resources": [
     {
       "id": 1,
-      "title": "Carl B. Metoyer Center for Family Counseling Test",
+      "title": "Carl B. Metoyer Center for Family Counseling",
       "cat": "health",
       "catL": "Health & Wellness",
       "icon": "🧠",
@@ -16,10 +16,10 @@
       "ageMin": 14,
       "ageMax": 21,
       "desc": "Therapeutic counseling, crisis intervention, case management, and diversion for Oakland youth.",
-      "contact": "(510) 562-3731",
-      "addr": "9925 International Blvd, Suite 6, Oakland",
+      "contact": "(510) 931-rjoy",
+      "addr": "1733 Broadway Oakland",
       "avail": "Referrals accepted",
-      "link": "mailto:admin@cbmcffc.org",
+      "link": "mailto:rjoy@rjoyoakland.org",
       "src": "probation-oakland",
       "srcL": "AC Probation – Oakland",
       "tags": [
