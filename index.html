@@ -2187,7 +2187,7 @@ function renderResourceGridLayout(resources){
         <tbody>
           ${resources.map(r => `
             <tr>
-              <td><strong>${safeText(r.icon || '📌')} ${safeText(getResourceTitle(r))}</strong><br><span>${safeText((getResourceDesc(r) || '')}</span></td>
+              <td><strong>${safeText(r.icon || '📌')} ${safeText(getResourceTitle(r))}</strong><br><span>${safeText((getResourceDesc(r) || '').slice(0,200)}${getResourceDesc(r).length > 200 ? '...' : ''}</span></td>
               <td>${safeText(r.catL || r.cat || '')}</td>
               <td>${safeText(r.ages || '')}</td>
               <td>${safeText(r.contact || '')}</td>
