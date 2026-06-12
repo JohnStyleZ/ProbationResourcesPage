@@ -2384,3 +2384,164 @@ header nav,
     justify-content:stretch !important;
   }
 }
+
+/* ========================================
+   ACCESSIBLE FONT SIZE UPDATE
+   Public-facing readable text minimum: 16px
+   Added 2026-06-12
+======================================== */
+
+html{
+  font-size:16px !important;
+}
+
+body{
+  font-size:16px !important;
+  line-height:1.65 !important;
+}
+
+/* Core readable text */
+.hero p,
+.card p,
+.resource-list-desc,
+.resource-list-meta,
+.resource-split-section,
+.resource-grid-table td,
+.resource-acc-details,
+.match-header-left p,
+.start-card p,
+.nores,
+footer,
+footer p,
+footer a{
+  font-size:1rem !important;
+  line-height:1.65 !important;
+}
+
+/* Small labels, pills, filters, tabs, and metadata */
+.eyebrow,
+.fpill,
+.stab,
+.vtab,
+.layout-btn,
+.profile-pill,
+.risk-chip,
+.tag,
+.resource-detail-tag,
+.match-reason,
+.score-badge,
+.cat,
+.src-lbl,
+.card-meta,
+.card-contact,
+.card-addr,
+.ages-pill,
+.cnt,
+.wiz-step-label,
+.wiz-step-num,
+.wiz-opt .opt-sub,
+.input-label,
+.abtn,
+.afl,
+.lang-btn{
+  font-size:1rem !important;
+  line-height:1.35 !important;
+}
+
+/* Buttons and form controls */
+button,
+input,
+select,
+textarea,
+.btn-primary,
+.btn-secondary,
+.cta,
+.wiz-back,
+.wiz-next,
+.match-again-btn,
+.search-wrap input,
+.wiz-input,
+.afi{
+  font-size:1rem !important;
+}
+
+/* Titles and hierarchy */
+.card h3,
+.resource-list-title{
+  font-size:1.15rem !important;
+  line-height:1.35 !important;
+}
+
+.sec-hdr h2,
+.wiz-body h2,
+.start-card h2,
+.match-header-left h2{
+  font-size:1.5rem !important;
+  line-height:1.25 !important;
+}
+
+.resource-split-title{
+  font-size:1.55rem !important;
+  line-height:1.25 !important;
+}
+
+/* Keep tags readable but prevent oversized pill crowding */
+.tags,
+.resource-detail-tags,
+.profile-pills{
+  gap:.45rem !important;
+}
+
+.tag,
+.resource-detail-tag,
+.profile-pill{
+  padding:5px 11px !important;
+}
+
+/* Mobile adjustments after increasing font size */
+@media(max-width:760px){
+  body{
+    font-size:16px !important;
+  }
+
+  .hero h1{
+    font-size:clamp(1.75rem,8vw,2.35rem) !important;
+  }
+
+  .eyebrow{
+    font-size:1rem !important;
+    padding:5px 10px !important;
+    line-height:1.25 !important;
+    gap:3px !important;
+  }
+
+  .fpill,
+  .stab,
+  .vtab,
+  .layout-btn,
+  .tag,
+  .resource-detail-tag,
+  .profile-pill{
+    font-size:1rem !important;
+  }
+
+  .card{
+    padding:1rem !important;
+  }
+
+  .card h3{
+    font-size:1.12rem !important;
+  }
+
+  .card p{
+    font-size:1rem !important;
+  }
+
+  .card-meta,
+  .card-contact,
+  .card-addr,
+  .src-lbl{
+    font-size:1rem !important;
+  }
+}
+
