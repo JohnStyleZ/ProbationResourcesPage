@@ -2862,3 +2862,136 @@ main{
     white-space:nowrap !important;
   }
 }
+
+
+/* ========================================
+   TABLET / MOBILE BREAKPOINT UPDATE
+   Added 2026-06-12
+   Switches compact mobile-style controls at 1046px and below.
+======================================== */
+
+@media(max-width:1046px){
+
+  /* Use compact mobile-style horizontal controls earlier */
+  .source-tabs,
+  .filters,
+  .layout-toggle,
+  .view-toggle{
+    width:100% !important;
+    max-width:100% !important;
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    justify-content:flex-start !important;
+    align-items:center !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+    gap:.4rem !important;
+  }
+
+  .source-tabs .stab,
+  .filters .fpill,
+  .layout-toggle .layout-btn,
+  .view-toggle .vtab,
+  .stab,
+  .fpill,
+  .layout-btn,
+  .vtab{
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+  }
+
+  /* Cards should stop trying to fit multiple columns once space is tight */
+  .grid,
+  #browse-grid.layout-cards,
+  #match-grid.layout-cards,
+  #results-grid.layout-cards{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+
+  /* Keep the page from feeling cramped */
+  main{
+    max-width:100% !important;
+    padding-left:1rem !important;
+    padding-right:1rem !important;
+  }
+
+  #browse-grid,
+  #match-grid,
+  #results-grid{
+    max-width:100% !important;
+  }
+
+  /* Make alternate resource layouts behave like mobile/tablet */
+  .resource-list-item,
+  .resource-split-result{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+
+  .layout-split .resource-split-results,
+  .resource-split-results{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+
+  .resource-list-actions{
+    justify-content:flex-start !important;
+  }
+
+  .resource-list-actions .cta,
+  .resource-split-featured .cta,
+  .resource-split-result .cta,
+  .resource-acc-details .cta{
+    width:100% !important;
+    text-align:center !important;
+    justify-content:center !important;
+  }
+
+  /* Header/navigation switches to compact mode earlier */
+  header nav,
+  header nav[style]{
+    display:flex !important;
+    width:100% !important;
+    gap:.45rem !important;
+    justify-content:flex-start !important;
+    overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch;
+    padding:.4rem 0 .15rem !important;
+    flex-wrap:nowrap !important;
+    scrollbar-width:thin;
+  }
+
+  header nav button,
+  header .lang-btn{
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+    min-height:40px !important;
+    padding:.55rem .85rem !important;
+    font-size:.86rem !important;
+  }
+
+  .hero{
+    padding:1.5rem 1rem 1.2rem !important;
+  }
+
+  .hero h1{
+    font-size:clamp(1.85rem,6vw,2.6rem) !important;
+  }
+}
+
+/* True desktop only: keep filters one line above the breakpoint */
+@media(min-width:1047px){
+
+  .source-tabs,
+  .filters{
+    flex-wrap:nowrap !important;
+    justify-content:center !important;
+    overflow:visible !important;
+  }
+
+  .source-tabs .stab,
+  .filters .fpill{
+    flex:0 1 auto !important;
+    white-space:nowrap !important;
+  }
+}
