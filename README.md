@@ -1,246 +1,124 @@
-# Probation Resources Page
+# Alameda County Probation Resource Hub
 
-This version keeps the original admin modal and all original admin features:
+A public-facing resource directory website for Alameda County Probation and community partners. The site displays youth, family, reentry, behavioral health, education, housing, employment, and community-based resources from a JSON data file.
 
-- Resource table
-- Search
-- Add Resource
-- Edit Resource
-- Delete Resource
-- Full edit form
-- Risk factor checkboxes
-- Population checkboxes
-- Reload JSON
-- Save to GitHub
+This package is stakeholder-ready. Documentation uses placeholders for all deployment credentials and does not include personal GitHub usernames, emails, passwords, tokens, or Vercel account information.
 
-The only admin change is security:
+## What This Site Does
 
-- The admin access code is no longer hardcoded in index.html.
-- /api/login checks ADMIN_PASSWORD from Vercel.
-- /api/updateResources also checks ADMIN_PASSWORD before writing to GitHub.
-- Closing the admin modal clears the login, so Admin asks for the code again next time.
+- Displays resource cards from `resources.json`
+- Supports search and category filtering
+- Provides multiple display layouts
+- Includes a Smart Match wizard to help users find resources
+- Includes an admin panel for editing resources
+- Saves admin changes back to GitHub through Vercel serverless API routes
+- Includes responsive mobile styling
+- Includes accessibility support and an accessibility toolbar
 
-## Vercel Environment Variables
+## Project Structure
 
-ADMIN_PASSWORD=your_admin_code_here
-GITHUB_TOKEN=your_github_token_here
-GITHUB_OWNER=JohnStyleZ
-GITHUB_REPO=ProbationResourcesPage
-GITHUB_BRANCH=main
-GITHUB_JSON_PATH=resources.json
+```text
+/
+├── index.html              # Main website and admin UI
+├── styles.css              # Site styling and responsive layout rules
+├── resources.json          # Resource data source
+├── translations.js         # Translation-related support file
+├── assets/
+│   └── ACPD_Logo_Color.png # Logo image
+├── api/
+│   ├── login.js            # Admin password verification
+│   ├── resources.js        # Reads resources.json from GitHub
+│   └── updateResources.js  # Writes updated resources.json to GitHub
+├── README.md
+├── SETUP.md
+└── OFFLINE_WIKI.html
+```
 
-Redeploy after changing environment variables.
+## Architecture
 
+```text
+User Browser
+   |
+   | loads index.html, styles.css, resources.json fallback
+   v
+Vercel Static Site
+   |
+   | /api/resources reads latest resources.json
+   | /api/login checks admin password
+   | /api/updateResources writes JSON updates
+   v
+GitHub Repository
+   |
+   v
+resources.json
+```
 
-## Language Toggle
+## Required Vercel Environment Variables
 
-This version adds an English / Spanish / Chinese language toggle.
+| Variable | Required | Example Value | Purpose |
+|---|---:|---|---|
+| `ADMIN_PASSWORD` | Yes | `<admin_password>` | Password used by the admin login modal |
+| `GITHUB_TOKEN` | Yes | `<github_personal_access_token>` | GitHub token with contents read/write permission |
+| `GITHUB_OWNER` | Yes | `<github_owner_or_org>` | GitHub username or organization that owns the repository |
+| `GITHUB_REPO` | Yes | `<repository_name>` | Repository containing `resources.json` |
+| `GITHUB_BRANCH` | Recommended | `main` | Branch where `resources.json` is stored |
+| `GITHUB_JSON_PATH` | Recommended | `resources.json` | Path to the data file inside the repository |
 
-Files added:
+Never commit real passwords, tokens, or account-specific values to GitHub. Store them only in Vercel Environment Variables.
 
-- translations.js
+## Hidden Admin Access
 
-The selected language is saved in localStorage.
+The visible Admin button is intentionally hidden from public users. The admin login modal can still be opened using these methods:
 
-Resource cards support translated JSON fields:
+| Method | How to Open |
+|---|---|
+| Desktop keyboard | Press `Ctrl + Shift + A` |
+| URL trigger | Open the site with `?admin=1` |
+| Mobile / touch | Tap or click the lower-right corner five times within three seconds |
 
-{
-  "title": {
-    "en": "Youth Mental Health Support",
-    "es": "Apoyo de Salud Mental Juvenil",
-    "zh": "青少年心理健康支援"
-  },
-  "desc": {
-    "en": "Free counseling and crisis intervention.",
-    "es": "Consejería gratuita e intervención en crisis.",
-    "zh": "免費心理輔導與危機支援。"
-  }
-}
+After the trigger is used, the normal admin login appears. The password is still verified by the backend through `ADMIN_PASSWORD`.
 
-Old string-based title and desc values still work.
+## Main Features
 
+### Public Resource Directory
 
-## Full Page Language Toggle
+Users can browse, search, and filter resource listings. Each resource can include name, category, description, age range, contact details, address, tags, source, and a website URL.
 
-This version uses Google Website Translate so the language buttons translate the full visible page, including resource cards loaded from resources.json.
+### Smart Match
 
-Behavior:
+The Smart Match wizard asks users a set of guided questions and recommends matching resources based on the resource data.
 
-- EN clears translation and reloads English.
-- ES translates the whole page to Spanish.
-- 中文 translates the whole page to Traditional Chinese.
-- The selected language is saved in localStorage.
-- Page reload after selecting a language is intentional because the translation layer needs to process the full DOM.
+### Multiple Layout Views
 
-Note:
+The site includes several presentation layouts, including card, list, accordion, detail/split-style, and table/grid-style views. Mobile styling has been adjusted so non-card layouts no longer force horizontal page scrolling.
 
-The browser must be online and able to load Google's translate script.
+### Admin Panel
 
+Admins can add, edit, delete, import, export, and save resources. Changes are written to GitHub through the backend API instead of exposing GitHub credentials in the browser.
 
-## Bulk Excel Import / Export
+### Accessibility
 
-The admin panel now includes:
+The site includes skip-link behavior, focus-visible outlines, stronger color contrast overrides, reduced-motion support, and an accessibility toolbar.
 
-- Export Excel
-- Import Excel
-- Find Duplicates
+## Data Source
 
-Duplicate detection checks:
+The site stores resource records in `resources.json`. The browser can load a local fallback, while the deployed site can fetch the latest version through `/api/resources`.
 
-- Same title + source
-- Same title + address
-- Same title + contact
-- Same link
+## Security Notes
 
-During import, possible duplicate rows are skipped before saving to GitHub.
+- Do not place `GITHUB_TOKEN` inside `index.html`, `styles.css`, `resources.json`, or client-side JavaScript.
+- Do not hard-code the admin password in the browser.
+- Keep GitHub token permissions limited to the repository and contents access required by this project.
+- Rotate the token if it is ever exposed.
+- Use Vercel Environment Variables for all deployment secrets.
 
-Excel columns:
+## Recommended Handoff Checklist
 
-id, title, cat, catL, icon, th, ages, ageMin, ageMax, genders,
-riskFactors, populations, urgency, zipcodes, desc, tags, contact,
-addr, avail, link, src, srcL
-
-Use `|` to separate multiple values in genders, riskFactors, populations, and tags.
-
-
-## Auto Icon Assignment During Excel Import
-
-If the `icon` column is empty during Excel import, the admin panel now assigns an icon automatically.
-
-It checks category, category label, title, description, tags, risk factors, and populations.
-
-Examples:
-- mental health / counseling → 🧠
-- housing / shelter → 🏠
-- workforce / jobs → 💼
-- education / school → 🎓
-- legal / court / probation → ⚖️
-- crisis / emergency → 🚨
-- family / parenting → 👨‍👩‍👧
-- youth / mentoring → 🌱
-
-Fallback icon: 📌
-
-
-## Accessibility Toolbar
-
-A lightweight custom accessibility toolbar was added.
-
-Features:
-
-- High Contrast
-- Large Text
-- Reduce Motion
-- Readable Font
-- Underline Links
-- Reset Accessibility
-
-Preferences are saved in localStorage.
-
-This toolbar is an enhancement and does not replace WCAG compliance work.
-
-
-## Resource Display Layout Options
-
-The admin panel now includes a Public Resource Display Layout selector.
-
-Available layouts:
-
-1. Original Card View
-2. Compact List View
-3. Expandable Accordion
-4. Split Panel Directory
-5. Data Grid
-
-The selected layout is saved in localStorage and controls how the public resource results display.
-
-There is also a small public layout toggle near the resource count for quick preview/testing.
-
-
-## Layout Update
-
-The previous Split Panel layout was changed because showing all resources in a left sidebar was not ideal for a large resource directory.
-
-It is now a Detail + Results List layout:
-
-- One selected resource is featured at the top
-- Matching resources appear below in a compact list
-- No full left-side resource sidebar
-
-
-## Layout Full-Width Fix
-
-Non-card layouts now force the browse grid container into full-width block mode.
-
-This fixes the issue where List, Accordion, Detail, and Grid layouts appeared as a narrow column on the left because they were being placed inside the original card grid.
-
-
-## Layout Persistence in JSON
-
-The selected public display layout is now saved into `resources.json` as:
-
-{
-  "settings": {
-    "displayLayout": "list"
-  },
-  "resources": [...]
-}
-
-The frontend remains backward compatible with the old array-only JSON format.
-
-## Smart Match Layout Support
-
-Smart Match results now use the same selected resource layout as Browse All:
-
-- Original Card View
-- Compact List View
-- Expandable Accordion
-- Detail + Results List
-- Data Grid
-
-
-## CORS Fix
-
-The frontend no longer fetches `raw.githubusercontent.com` directly.
-
-It now loads resource data from:
-
-/api/resources
-
-The Vercel serverless function reads `resources.json` from GitHub using the GitHub API and returns it to the browser from the same domain.
-
-This avoids browser CORS/preflight issues.
-
-
-## Clean Google Translate Rebuild
-
-This rebuild restores Google Translate from a stable source and removes the broken custom translation code.
-
-Expected console behavior:
-
-- Google iframe cookie warnings may appear. These are from Google's translate script and do not break the site.
-- JavaScript syntax errors and `RESOURCE_LAYOUT is not defined` should not appear.
-
-
-## Resource Loading Fix
-
-`loadResources()` now supports both JSON formats:
-
-Old format:
-
-[
-  { "title": "Resource" }
-]
-
-New format:
-
-{
-  "settings": {
-    "displayLayout": "list"
-  },
-  "resources": [
-    { "title": "Resource" }
-  ]
-}
-
-This fixes the issue where the page stopped loading resources after layout settings were saved into JSON.
+- [ ] Confirm the site loads on desktop and mobile
+- [ ] Confirm search and filters work
+- [ ] Confirm all display layouts work on mobile
+- [ ] Confirm hidden admin triggers work
+- [ ] Confirm admin login works
+- [ ] Confirm saving updates `resources.json` in GitHub
+- [ ] Confirm no real credentials are committed to the repository
+- [ ] Confirm README, SETUP, and OFFLINE_WIKI contain placeholder values only
