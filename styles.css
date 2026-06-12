@@ -2750,3 +2750,42 @@ main{
     white-space:nowrap !important;
   }
 }
+
+
+/* ========================================
+   DESKTOP WIDTH EXPANSION
+   No desktop scrolling for source/category filters
+   Added 2026-06-12
+======================================== */
+
+@media(min-width:761px){
+
+  main{
+    max-width:1700px !important;
+  }
+
+  #browse-grid,
+  #match-grid,
+  #results-grid{
+    max-width:1700px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  .source-tabs,
+  .filters{
+    width:100% !important;
+    max-width:1700px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    justify-content:center !important;
+    overflow:visible !important;
+    flex-wrap:wrap !important;
+  }
+
+  .source-tabs .stab,
+  .filters .fpill{
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+  }
+}
