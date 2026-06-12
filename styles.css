@@ -1877,3 +1877,21 @@ textarea{
     box-sizing:border-box !important;
   }
 }
+
+
+/* Mobile Hero Compact Update */
+
+@media(max-width:760px){
+  .eyebrow{
+    font-size:.62rem !important;
+    padding:4px 10px !important;
+    flex-direction:column !important;
+    gap:2px !important;
+    line-height:1.2 !important;
+    margin-bottom:.5rem !important;
+  }
+
+  .hero{
+    padding:1rem .75rem .9rem !important;
+  }
+}
