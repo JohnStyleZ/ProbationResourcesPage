@@ -2686,3 +2686,67 @@ main{
     grid-template-columns:minmax(0,1fr) !important;
   }
 }
+
+
+/* ========================================
+   SINGLE-LINE SOURCE FILTERS
+   Added 2026-06-12
+======================================== */
+
+@media(min-width:761px){
+
+  .source-tabs{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:.45rem !important;
+    overflow-x:auto !important;
+    scrollbar-width:none;
+  }
+
+  .source-tabs::-webkit-scrollbar{
+    display:none;
+  }
+
+  .stab{
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+  }
+
+  .filters{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:.4rem !important;
+    overflow-x:auto !important;
+    scrollbar-width:none;
+  }
+
+  .filters::-webkit-scrollbar{
+    display:none;
+  }
+
+  .fpill{
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+  }
+}
+
+@media(max-width:760px){
+
+  .source-tabs,
+  .filters{
+    flex-wrap:nowrap !important;
+    justify-content:flex-start !important;
+    overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .stab,
+  .fpill{
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+  }
+}
