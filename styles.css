@@ -1696,3 +1696,184 @@ textarea{
     flex:1 1 auto !important;
   }
 }
+
+/* ========================================
+   MOBILE NON-CARD LAYOUT FIX
+   Added 2026-06-12
+   Makes list, accordion, split, and grid/table layouts fit phones without horizontal scrolling.
+======================================== */
+@media(max-width:760px){
+  #browse-grid,
+  #match-grid,
+  #results-grid,
+  .match-grid,
+  .resource-list-view,
+  .resource-accordion,
+  .resource-split-view,
+  .resource-split-results,
+  .resource-grid-table-wrap{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    overflow-x:hidden !important;
+  }
+
+  .resource-list-item,
+  .resource-acc-summary,
+  .resource-split-result{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  .resource-list-item{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+  }
+
+  .resource-list-item > div,
+  .resource-list-actions{
+    width:100% !important;
+    min-width:0 !important;
+  }
+
+  .resource-list-actions{
+    justify-content:flex-start !important;
+  }
+
+  .resource-list-actions .cta,
+  .resource-acc-details .cta,
+  .resource-split-featured .cta{
+    width:100% !important;
+    text-align:center !important;
+    justify-content:center !important;
+    box-sizing:border-box !important;
+  }
+
+  .resource-acc-summary{
+    display:grid !important;
+    grid-template-columns:1.25rem minmax(0,1fr) !important;
+    gap:.6rem !important;
+    padding:.9rem !important;
+  }
+
+  .resource-acc-summary > .cta{
+    grid-column:1 / -1 !important;
+    width:100% !important;
+    text-align:center !important;
+    justify-content:center !important;
+    box-sizing:border-box !important;
+  }
+
+  .resource-acc-details{
+    padding:.85rem .9rem 1rem .9rem !important;
+  }
+
+  .resource-split-featured{
+    padding:1rem !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  .resource-split-result{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+  }
+
+  .resource-split-result > span{
+    width:100% !important;
+    min-width:0 !important;
+  }
+
+  .resource-split-result .cta{
+    width:100% !important;
+    text-align:center !important;
+    justify-content:center !important;
+    box-sizing:border-box !important;
+  }
+
+  .resource-grid-table-wrap{
+    overflow:visible !important;
+    border:0 !important;
+    background:transparent !important;
+  }
+
+  .resource-grid-table,
+  .resource-grid-table thead,
+  .resource-grid-table tbody,
+  .resource-grid-table tr,
+  .resource-grid-table th,
+  .resource-grid-table td{
+    display:block !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+  }
+
+  .resource-grid-table{
+    border-collapse:separate !important;
+    border-spacing:0 !important;
+  }
+
+  .resource-grid-table thead{
+    position:absolute !important;
+    width:1px !important;
+    height:1px !important;
+    overflow:hidden !important;
+    clip:rect(0 0 0 0) !important;
+    white-space:nowrap !important;
+  }
+
+  .resource-grid-table tr{
+    background:#ffffff !important;
+    border:1px solid #cfd8df !important;
+    border-radius:16px !important;
+    margin:0 0 .85rem 0 !important;
+    padding:.85rem !important;
+    box-shadow:0 2px 10px rgba(0,0,0,.06) !important;
+  }
+
+  .resource-grid-table td{
+    border:0 !important;
+    border-bottom:1px solid #e2e8f0 !important;
+    padding:.65rem 0 !important;
+    overflow-wrap:anywhere !important;
+    word-break:break-word !important;
+  }
+
+  .resource-grid-table td:last-child{
+    border-bottom:0 !important;
+    padding-bottom:0 !important;
+  }
+
+  .resource-grid-table td::before{
+    display:block;
+    margin-bottom:.2rem;
+    color:#0b5f73;
+    font-size:.72rem;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+  }
+
+  .resource-grid-table td:nth-child(1)::before{content:"Resource";}
+  .resource-grid-table td:nth-child(2)::before{content:"Category";}
+  .resource-grid-table td:nth-child(3)::before{content:"Ages";}
+  .resource-grid-table td:nth-child(4)::before{content:"Contact";}
+  .resource-grid-table td:nth-child(5)::before{content:"Availability";}
+  .resource-grid-table td:nth-child(6)::before{content:"Action";}
+
+  .resource-grid-table td .cta,
+  .resource-grid-table td a.cta{
+    width:100% !important;
+    text-align:center !important;
+    justify-content:center !important;
+    box-sizing:border-box !important;
+  }
+}
