@@ -12,6 +12,7 @@
 <body>
 <div id="google_translate_element" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px"></div>
 <a class="skip-link" href="#main-content">Skip to main content</a>
+<div id="secret-admin-trigger" aria-hidden="true" title="" tabindex="-1"></div>
 
 <header style="background:linear-gradient(135deg,#0B7691 0%,#085566 100%);border-bottom:3px solid #F5BB4C;height:auto;padding:.6rem 2rem;flex-direction:column;align-items:stretch;gap:0">
   <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
@@ -40,7 +41,7 @@
       <button type="button" aria-pressed="false" onclick="showView('matcher',this)" style="color:rgba(255,255,255,.8);background:#063b47;border:2px solid #ffffff;border-radius:var(--pill);padding:6px 16px;font-family:var(--font-body);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .15s">Smart Match</button>
     
       
-      <button type="button" aria-label="Open admin panel" onclick="showAdmin()" style="color:rgba(255,255,255,.65);background:#063b47;border:2px solid #ffffff;border-radius:var(--pill);padding:5px 14px;font-family:var(--font-body);font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s">⚙ Admin</button> 
+      <button type="button" id="admin-visible-btn" aria-label="Open admin panel" onclick="showAdmin()" style="display:none !important;color:rgba(255,255,255,.65);background:#063b47;border:2px solid #ffffff;border-radius:var(--pill);padding:5px 14px;font-family:var(--font-body);font-size:.78rem;font-weight:500;cursor:pointer;transition:all .15s" aria-hidden="true" tabindex="-1">⚙ Admin</button> 
 
       
     
@@ -66,8 +67,8 @@
 
 <section class="hero" style="background:linear-gradient(160deg,#E0F3F8 0%,#f5f7f9 60%)" aria-labelledby="hero-title">
   <div class="eyebrow" style="background:#FEF6DC;color:#7a5200;border:1px solid rgba(245,187,76,.3)">
-    <!--<svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
-     A joint initiative of ACOE &amp; Alameda County Probation · <span id="hero-resource-count">Loading resources</span> -->
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+    A joint initiative of ACOE &amp; Alameda County Probation · <span id="hero-resource-count">Loading resources</span>
   </div>
   <h1 id="hero-title" style="color:#0B7691">Find resources built<br>for <em style="font-style:normal;color:#E5763A">your</em> situation</h1>
   <p id="hero-desc">Answer a few questions and we'll surface the programs most relevant to your age, location, and needs — across all of Alameda County.</p>
@@ -443,6 +444,59 @@ async function showAdmin() {
   document.getElementById('admin-url-inp').value = SHEET_URL || '';
   renderResourceTable();
 }
+
+
+/* Hidden admin access triggers
+   - Desktop: Ctrl + Shift + A
+   - URL: add ?admin=1 or #admin to the page URL
+   - Mobile/desktop: click or tap the invisible bottom-right corner 5 times within 3 seconds
+*/
+function triggerHiddenAdmin() {
+  showAdmin();
+}
+
+(function setupHiddenAdminTriggers(){
+  let secretTapCount = 0;
+  let secretTapTimer = null;
+
+  function countSecretTap(event) {
+    if (event) event.preventDefault();
+    secretTapCount += 1;
+
+    clearTimeout(secretTapTimer);
+    secretTapTimer = setTimeout(() => {
+      secretTapCount = 0;
+    }, 3000);
+
+    if (secretTapCount >= 5) {
+      secretTapCount = 0;
+      clearTimeout(secretTapTimer);
+      triggerHiddenAdmin();
+    }
+  }
+
+  document.addEventListener('keydown', (event) => {
+    const key = (event.key || '').toLowerCase();
+    if (event.ctrlKey && event.shiftKey && key === 'a') {
+      event.preventDefault();
+      triggerHiddenAdmin();
+    }
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('admin') === '1' || params.get('admin') === 'true' || window.location.hash === '#admin') {
+    window.addEventListener('load', () => {
+      setTimeout(triggerHiddenAdmin, 200);
+    });
+  }
+
+  window.addEventListener('load', () => {
+    const hotspot = document.getElementById('secret-admin-trigger');
+    if (!hotspot) return;
+    hotspot.addEventListener('click', countSecretTap);
+    hotspot.addEventListener('touchend', countSecretTap, { passive:false });
+  });
+})();
 
 function closeAdmin() {
   document.getElementById('admin-ov').classList.remove('open');
