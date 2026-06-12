@@ -2633,3 +2633,56 @@ html.a11y-large-text .resource-split-title{
 html.a11y-large-text .hero h1{
   font-size:clamp(2.25rem,5.5vw,3.5rem) !important;
 }
+
+
+/* ========================================
+   POST-16PX LAYOUT BALANCE UPDATE
+   Added 2026-06-12
+======================================== */
+
+/* Wider content area */
+main{
+  max-width:1400px !important;
+}
+
+/* Resource sections get additional room */
+#browse-grid,
+#match-grid,
+#results-grid{
+  max-width:1450px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+/* Larger cards to match larger text */
+.grid{
+  grid-template-columns:repeat(auto-fill,minmax(360px,1fr)) !important;
+}
+
+/* Filters don't need to be full 16px */
+.fpill,
+.stab,
+.profile-pill,
+.layout-btn{
+  font-size:.9rem !important;
+}
+
+/* Keep source/filter sections centered */
+.filters,
+.source-tabs,
+.layout-toggle{
+  justify-content:center !important;
+}
+
+/* Mobile remains scrollable */
+@media(max-width:760px){
+  .filters,
+  .source-tabs,
+  .layout-toggle{
+    justify-content:flex-start !important;
+  }
+
+  .grid{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+}
