@@ -2388,16 +2388,17 @@ header nav,
 /* ========================================
    ACCESSIBLE FONT SIZE UPDATE
    Public-facing readable text minimum: 16px
+   Large Text accessibility mode preserved
    Added 2026-06-12
 ======================================== */
 
 html{
-  font-size:16px !important;
+  font-size:16px;
 }
 
 body{
-  font-size:16px !important;
-  line-height:1.65 !important;
+  font-size:16px;
+  line-height:1.65;
 }
 
 /* Core readable text */
@@ -2414,8 +2415,8 @@ body{
 footer,
 footer p,
 footer a{
-  font-size:1rem !important;
-  line-height:1.65 !important;
+  font-size:1rem;
+  line-height:1.65;
 }
 
 /* Small labels, pills, filters, tabs, and metadata */
@@ -2444,8 +2445,8 @@ footer a{
 .abtn,
 .afl,
 .lang-btn{
-  font-size:1rem !important;
-  line-height:1.35 !important;
+  font-size:1rem;
+  line-height:1.35;
 }
 
 /* Buttons and form controls */
@@ -2462,46 +2463,46 @@ textarea,
 .search-wrap input,
 .wiz-input,
 .afi{
-  font-size:1rem !important;
+  font-size:1rem;
 }
 
 /* Titles and hierarchy */
 .card h3,
 .resource-list-title{
-  font-size:1.15rem !important;
-  line-height:1.35 !important;
+  font-size:1.15rem;
+  line-height:1.35;
 }
 
 .sec-hdr h2,
 .wiz-body h2,
 .start-card h2,
 .match-header-left h2{
-  font-size:1.5rem !important;
-  line-height:1.25 !important;
+  font-size:1.5rem;
+  line-height:1.25;
 }
 
 .resource-split-title{
-  font-size:1.55rem !important;
-  line-height:1.25 !important;
+  font-size:1.55rem;
+  line-height:1.25;
 }
 
 /* Keep tags readable but prevent oversized pill crowding */
 .tags,
 .resource-detail-tags,
 .profile-pills{
-  gap:.45rem !important;
+  gap:.45rem;
 }
 
 .tag,
 .resource-detail-tag,
 .profile-pill{
-  padding:5px 11px !important;
+  padding:5px 11px;
 }
 
 /* Mobile adjustments after increasing font size */
 @media(max-width:760px){
   body{
-    font-size:16px !important;
+    font-size:16px;
   }
 
   .hero h1{
@@ -2509,9 +2510,9 @@ textarea,
   }
 
   .eyebrow{
-    font-size:1rem !important;
+    font-size:1rem;
     padding:5px 10px !important;
-    line-height:1.25 !important;
+    line-height:1.25;
     gap:3px !important;
   }
 
@@ -2522,7 +2523,7 @@ textarea,
   .tag,
   .resource-detail-tag,
   .profile-pill{
-    font-size:1rem !important;
+    font-size:1rem;
   }
 
   .card{
@@ -2530,18 +2531,105 @@ textarea,
   }
 
   .card h3{
-    font-size:1.12rem !important;
+    font-size:1.12rem;
   }
 
   .card p{
-    font-size:1rem !important;
+    font-size:1rem;
   }
 
   .card-meta,
   .card-contact,
   .card-addr,
   .src-lbl{
-    font-size:1rem !important;
+    font-size:1rem;
   }
 }
 
+/* ========================================
+   ACCESSIBILITY LARGE TEXT FIX
+   This must come AFTER the minimum 16px rules.
+======================================== */
+
+html.a11y-large-text{
+  font-size:120% !important;
+}
+
+html.a11y-large-text body{
+  font-size:1rem !important;
+}
+
+/* Scale common readable elements when Large Text is enabled */
+html.a11y-large-text .hero p,
+html.a11y-large-text .card p,
+html.a11y-large-text .resource-list-desc,
+html.a11y-large-text .resource-list-meta,
+html.a11y-large-text .resource-split-section,
+html.a11y-large-text .resource-grid-table td,
+html.a11y-large-text .resource-acc-details,
+html.a11y-large-text .match-header-left p,
+html.a11y-large-text .start-card p,
+html.a11y-large-text .nores,
+html.a11y-large-text footer,
+html.a11y-large-text footer p,
+html.a11y-large-text footer a,
+html.a11y-large-text .eyebrow,
+html.a11y-large-text .fpill,
+html.a11y-large-text .stab,
+html.a11y-large-text .vtab,
+html.a11y-large-text .layout-btn,
+html.a11y-large-text .profile-pill,
+html.a11y-large-text .risk-chip,
+html.a11y-large-text .tag,
+html.a11y-large-text .resource-detail-tag,
+html.a11y-large-text .match-reason,
+html.a11y-large-text .score-badge,
+html.a11y-large-text .cat,
+html.a11y-large-text .src-lbl,
+html.a11y-large-text .card-meta,
+html.a11y-large-text .card-contact,
+html.a11y-large-text .card-addr,
+html.a11y-large-text .ages-pill,
+html.a11y-large-text .cnt,
+html.a11y-large-text .wiz-step-label,
+html.a11y-large-text .wiz-step-num,
+html.a11y-large-text .wiz-opt .opt-sub,
+html.a11y-large-text .input-label,
+html.a11y-large-text .abtn,
+html.a11y-large-text .afl,
+html.a11y-large-text .lang-btn,
+html.a11y-large-text button,
+html.a11y-large-text input,
+html.a11y-large-text select,
+html.a11y-large-text textarea,
+html.a11y-large-text .btn-primary,
+html.a11y-large-text .btn-secondary,
+html.a11y-large-text .cta,
+html.a11y-large-text .wiz-back,
+html.a11y-large-text .wiz-next,
+html.a11y-large-text .match-again-btn,
+html.a11y-large-text .search-wrap input,
+html.a11y-large-text .wiz-input,
+html.a11y-large-text .afi{
+  font-size:1.12rem !important;
+}
+
+html.a11y-large-text .card h3,
+html.a11y-large-text .resource-list-title{
+  font-size:1.3rem !important;
+}
+
+html.a11y-large-text .sec-hdr h2,
+html.a11y-large-text .wiz-body h2,
+html.a11y-large-text .start-card h2,
+html.a11y-large-text .match-header-left h2{
+  font-size:1.7rem !important;
+}
+
+html.a11y-large-text .resource-split-title{
+  font-size:1.8rem !important;
+}
+
+html.a11y-large-text .hero h1{
+  font-size:clamp(2.25rem,5.5vw,3.5rem) !important;
+}
