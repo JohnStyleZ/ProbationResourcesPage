@@ -2789,3 +2789,76 @@ main{
     white-space:nowrap !important;
   }
 }
+
+
+/* ========================================
+   DESKTOP FILTERS TRUE SINGLE ROW
+   Added 2026-06-12
+   Keeps source/category filters on one desktop line.
+======================================== */
+
+@media(min-width:761px){
+
+  /* Let the content use almost the full desktop viewport */
+  main{
+    max-width:min(1900px, calc(100vw - 48px)) !important;
+    width:100% !important;
+  }
+
+  #browse-grid,
+  #match-grid,
+  #results-grid{
+    max-width:min(1900px, calc(100vw - 48px)) !important;
+    width:100% !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+
+  /* Force filter rows to stay one line on desktop */
+  .source-tabs,
+  .filters{
+    width:100% !important;
+    max-width:min(1900px, calc(100vw - 48px)) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    justify-content:center !important;
+    align-items:center !important;
+    overflow:visible !important;
+    gap:.28rem !important;
+  }
+
+  .source-tabs .stab,
+  .filters .fpill,
+  .stab,
+  .fpill{
+    flex:0 1 auto !important;
+    white-space:nowrap !important;
+    min-width:0 !important;
+    padding:6px 10px !important;
+    font-size:.86rem !important;
+    line-height:1.2 !important;
+  }
+}
+
+/* Keep mobile swipe behavior */
+@media(max-width:760px){
+  .source-tabs,
+  .filters{
+    flex-wrap:nowrap !important;
+    justify-content:flex-start !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .source-tabs .stab,
+  .filters .fpill,
+  .stab,
+  .fpill{
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+  }
+}
