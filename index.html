@@ -1157,10 +1157,10 @@ setTimeout(applyAccessibilityState,500);
       <p style="font-size:.78rem;color:#555;margin-bottom:.75rem;line-height:1.6">This admin panel saves changes to GitHub through the backend function at <strong>/api/updateResources</strong>. The admin access code is checked by the backend through <strong>ADMIN_PASSWORD</strong> in Vercel. Do not place the admin code or GitHub token in this HTML file.</p>
       <details style="margin-bottom:.75rem">
         <summary style="font-size:.78rem;font-weight:600;cursor:pointer;color:var(--teal-dark);user-select:none">Required Vercel Environment Variables ↓</summary>
-        <div style="margin-top:.5rem;background:#1a1a2e;color:#7effd4;font-family:monospace;font-size:.72rem;border-radius:8px;padding:.75rem;line-height:1.75;white-space:pre-wrap">ADMIN_PASSWORD=your_admin_code_here
-GITHUB_TOKEN=github_pat_your_token_here
-GITHUB_OWNER=JohnStyleZ
-GITHUB_REPO=ProbationResourcesPage
+        <div style="margin-top:.5rem;background:#1a1a2e;color:#7effd4;font-family:monospace;font-size:.72rem;border-radius:8px;padding:.75rem;line-height:1.75;white-space:pre-wrap">ADMIN_PASSWORD=&lt;admin_password&gt;
+GITHUB_TOKEN=&lt;github_personal_access_token&gt;
+GITHUB_OWNER=&lt;github_owner_or_org&gt;
+GITHUB_REPO=&lt;repository_name&gt;
 GITHUB_BRANCH=main</div>
         <p style="font-size:.73rem;color:#666;margin-top:.4rem">The token needs GitHub repository Contents permission set to Read and Write.</p>
       </details>
