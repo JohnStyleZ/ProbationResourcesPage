@@ -67,8 +67,8 @@
 
 <section class="hero" style="background:linear-gradient(160deg,#E0F3F8 0%,#f5f7f9 60%)" aria-labelledby="hero-title">
   <div class="eyebrow" style="background:#FEF6DC;color:#7a5200;border:1px solid rgba(245,187,76,.3)">
-    <!-- <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
-    A joint initiative of ACOE &amp; Alameda County Probation · <span id="hero-resource-count">Loading resources</span> -->
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+    A joint initiative of ACOE &amp; Alameda County Probation · <span id="hero-resource-count">Loading resources</span>
   </div>
   <h1 id="hero-title" style="color:#0B7691">Find resources built<br>for <em style="font-style:normal;color:#E5763A">your</em> situation</h1>
   <p id="hero-desc">Answer a few questions and we'll surface the programs most relevant to your age, location, and needs — across all of Alameda County.</p>
@@ -1157,10 +1157,10 @@ setTimeout(applyAccessibilityState,500);
       <p style="font-size:.78rem;color:#555;margin-bottom:.75rem;line-height:1.6">This admin panel saves changes to GitHub through the backend function at <strong>/api/updateResources</strong>. The admin access code is checked by the backend through <strong>ADMIN_PASSWORD</strong> in Vercel. Do not place the admin code or GitHub token in this HTML file.</p>
       <details style="margin-bottom:.75rem">
         <summary style="font-size:.78rem;font-weight:600;cursor:pointer;color:var(--teal-dark);user-select:none">Required Vercel Environment Variables ↓</summary>
-        <div style="margin-top:.5rem;background:#1a1a2e;color:#7effd4;font-family:monospace;font-size:.72rem;border-radius:8px;padding:.75rem;line-height:1.75;white-space:pre-wrap">ADMIN_PASSWORD=&lt;admin_password&gt;
-GITHUB_TOKEN=&lt;github_personal_access_token&gt;
-GITHUB_OWNER=&lt;github_owner_or_org&gt;
-GITHUB_REPO=&lt;repository_name&gt;
+        <div style="margin-top:.5rem;background:#1a1a2e;color:#7effd4;font-family:monospace;font-size:.72rem;border-radius:8px;padding:.75rem;line-height:1.75;white-space:pre-wrap">ADMIN_PASSWORD=your_admin_code_here
+GITHUB_TOKEN=github_pat_your_token_here
+GITHUB_OWNER=JohnStyleZ
+GITHUB_REPO=ProbationResourcesPage
 GITHUB_BRANCH=main</div>
         <p style="font-size:.73rem;color:#666;margin-top:.4rem">The token needs GitHub repository Contents permission set to Read and Write.</p>
       </details>
@@ -1905,12 +1905,12 @@ async function adminImportExcelFile(event){
 </script>
 
 
-<button type="button" class="a11y-fab" id="a11y-toggle" onclick="toggleA11yPanel()" aria-controls="a11y-panel" aria-expanded="false">
+<button aria-label="Open accessibility tools" aria-haspopup="dialog" type="button" class="a11y-fab" id="a11y-toggle" onclick="toggleA11yPanel()" aria-controls="a11y-panel" aria-expanded="false">
   ♿ Accessibility
 </button>
 
 <div class="a11y-panel" id="a11y-panel" role="dialog" aria-modal="false" aria-labelledby="a11y-title">
-  <div class="a11y-panel-head">
+  <div role="dialog" aria-label="Accessibility settings" aria-modal="false" class="a11y-panel-head">
     <h2 id="a11y-title">Accessibility Options</h2>
     <button type="button" class="a11y-close" onclick="toggleA11yPanel(false)" aria-label="Close accessibility options">✕</button>
   </div>
