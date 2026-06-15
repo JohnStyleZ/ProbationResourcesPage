@@ -2535,5 +2535,73 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+
+<script>
+/* ADA runtime cleanup
+   Fixes dynamically injected empty toast lists and enforces 44x44 "All" buttons.
+*/
+(function(){
+  function normalizeAllButtons(){
+    var buttons = document.querySelectorAll('button, a[role="button"], .fpill, .stab, .layout-btn, .vtab');
+    buttons.forEach(function(el){
+      var txt = (el.textContent || '').trim().toLowerCase();
+      var aria = (el.getAttribute('aria-label') || '').trim().toLowerCase();
+      var dataFilter = (el.getAttribute('data-filter') || el.getAttribute('data-source') || '').trim().toLowerCase();
+
+      if(txt === 'all' || txt === 'all sources' || aria === 'all' || aria === 'all sources' || dataFilter === 'all'){
+        el.classList.add('all-filter');
+        el.style.minWidth = '44px';
+        el.style.minHeight = '44px';
+      }
+    });
+  }
+
+  function fixEmptyToastLists(){
+    var lists = document.querySelectorAll('ol');
+    lists.forEach(function(ol){
+      var cls = ol.getAttribute('class') || '';
+      var looksLikeToast =
+        cls.indexOf('z-[999999]') !== -1 ||
+        cls.indexOf('pointer-events-none') !== -1 ||
+        (cls.indexOf('fixed') !== -1 && cls.indexOf('max-h-screen') !== -1 && cls.indexOf('w-[400px]') !== -1);
+
+      if(!looksLikeToast) return;
+
+      var hasItems = ol.children && ol.children.length > 0;
+
+      if(!hasItems){
+        ol.setAttribute('aria-hidden', 'true');
+        ol.setAttribute('role', 'presentation');
+        ol.setAttribute('tabindex', '-1');
+      }else{
+        ol.removeAttribute('aria-hidden');
+        ol.setAttribute('role', 'status');
+        ol.setAttribute('aria-live', 'polite');
+      }
+    });
+  }
+
+  function runAdaCleanup(){
+    normalizeAllButtons();
+    fixEmptyToastLists();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', runAdaCleanup);
+  }else{
+    runAdaCleanup();
+  }
+
+  var observer = new MutationObserver(function(){
+    runAdaCleanup();
+  });
+
+  observer.observe(document.documentElement, {
+    childList:true,
+    subtree:true
+  });
+})();
+</script>
+
 </body>
 </html>
