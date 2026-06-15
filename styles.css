@@ -3158,3 +3158,47 @@ header .lang-btn{
     bottom:.75rem;
   }
 }
+
+/* ========================================
+   ADA FIX V3
+   Empty dynamic toast list + "All" 44x44 target
+   Added 2026-06-15
+======================================== */
+
+/* Strong explicit target for All / All Sources buttons */
+.all-filter,
+button.all-filter,
+a.all-filter,
+.fpill.all-filter,
+.stab.all-filter,
+button[data-filter="all"],
+button[data-source="all"],
+.fpill[data-filter="all"],
+.stab[data-source="all"],
+.fpill:first-child,
+.stab:first-child{
+  min-width:44px !important;
+  min-height:44px !important;
+  width:auto !important;
+  box-sizing:border-box !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:10px 14px !important;
+  line-height:1.2 !important;
+}
+
+/* Runtime-injected empty toast ordered list should not be exposed as an empty list */
+ol[role="presentation"][aria-hidden="true"]{
+  pointer-events:none !important;
+}
+
+/* Keep all nav landmarks named and visible to assistive tech */
+nav[aria-label]{
+  display:flex;
+}
+
+/* Region wrappers should not change visual layout */
+[role="region"][aria-label]{
+  min-width:0;
+}
