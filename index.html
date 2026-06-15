@@ -123,7 +123,7 @@
     </div>
 
     <!-- Sub-filters for matched results -->
-    <div class="source-tabs" id="match-source-tabs">
+    <div class="source-tabs" id="match-source-tabs" role="region" aria-label="Resource source filters">
       <button type="button" class="stab active" onclick="setMatchSrc('all',this)">All Matched</button>
       <button type="button" class="stab" onclick="setMatchSrc('probation-oakland',this)"><span class="sdot" style="background:#0D9E75"></span>Probation – Oakland</button>
       <button type="button" class="stab" onclick="setMatchSrc('probation-county',this)"><span class="sdot" style="background:#378ADD"></span>Probation – County</button>
@@ -154,8 +154,8 @@
       <button type="button" class="search-btn" aria-label="Search resources"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
     </div>
   </div>
-  <div class="filters">
-    <button type="button" class="fpill active" onclick="setFilter('all',this)">All</button>
+  <div class="filters" role="region" aria-label="Resource category filters">
+    <button type="button" class="fpill active all-filter" onclick="setFilter('all',this)">All</button>
     <button type="button" class="fpill" onclick="setFilter('workforce',this)">Workforce</button>
     <button type="button" class="fpill" onclick="setFilter('education',this)">Education</button>
     <button type="button" class="fpill" onclick="setFilter('youth',this)">Youth Services</button>
@@ -167,8 +167,8 @@
     <button type="button" class="fpill" onclick="setFilter('financial',this)">Financial Aid</button>
   </div>
   <div style="margin-top:1.5rem">
-    <div class="source-tabs">
-      <button type="button" class="stab active" onclick="setSrc('all',this)">All Sources</button>
+    <div class="source-tabs" role="region" aria-label="Resource source filters">
+      <button type="button" class="stab active all-filter" onclick="setSrc('all',this)">All Sources</button>
       <button type="button" class="stab" onclick="setSrc('probation-oakland',this)"><span class="sdot" style="background:#0D9E75"></span>Probation – Oakland</button>
       <button type="button" class="stab" onclick="setSrc('probation-county',this)"><span class="sdot" style="background:#378ADD"></span>Probation – County</button>
       <button type="button" class="stab" onclick="setSrc('acoe',this)"><span class="sdot" style="background:#7F77DD"></span>ACOE Schools</button>
@@ -1905,9 +1905,11 @@ async function adminImportExcelFile(event){
 </script>
 
 
-<button aria-label="Open accessibility tools" aria-haspopup="dialog" type="button" class="a11y-fab" id="a11y-toggle" onclick="toggleA11yPanel()" aria-controls="a11y-panel" aria-expanded="false">
+<aside class="a11y-landmark" role="region" aria-label="Accessibility tools">
+  <button aria-label="Open accessibility tools" aria-haspopup="dialog" type="button" class="a11y-fab" id="a11y-toggle" onclick="toggleA11yPanel()" aria-controls="a11y-panel" aria-expanded="false">
   ♿ Accessibility
 </button>
+</aside>
 
 <div class="a11y-panel" id="a11y-panel" role="dialog" aria-modal="false" aria-labelledby="a11y-title">
   <div role="dialog" aria-label="Accessibility settings" aria-modal="false" class="a11y-panel-head">
