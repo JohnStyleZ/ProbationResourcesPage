@@ -417,32 +417,18 @@ const ALL_POP  = ["justice-involved","foster","pregnant","parent","veteran","imm
 async function verifyAdminPassword(password) {
   const response = await fetch('/api/login', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify({ password })
   });
 
   const result = await response.json().catch(() => ({}));
-  return response.ok && result.success === true;
-}
 
-async function showAdmin() {
-  const c = prompt('Admin access code:');
-
-  if (!c) return;
-
-  const ok = await verifyAdminPassword(c);
-
-  if (!ok) {
-    alert('Incorrect code.');
-    return;
-  }
-
-  adminUnlocked = true;
-  adminSessionPassword = c;
-
-  document.getElementById('admin-ov').classList.add('open');
-  document.getElementById('admin-url-inp').value = SHEET_URL || '';
-  renderResourceTable();
+  return {
+    success: response.ok && result.success === true,
+    error: result.error || "Login failed."
+  };
 }
 
 
