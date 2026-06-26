@@ -427,10 +427,29 @@ async function verifyAdminPassword(password) {
 
   return {
     success: response.ok && result.success === true,
-    error: result.error || "Login failed."
+    error: result.error || 'Login failed.'
   };
 }
 
+async function showAdmin() {
+  const c = prompt('Admin access code:');
+
+  if (!c) return;
+
+  const loginResult = await verifyAdminPassword(c);
+
+  if (!loginResult.success) {
+    alert(loginResult.error);
+    return;
+  }
+
+  adminUnlocked = true;
+  adminSessionPassword = c;
+
+  document.getElementById('admin-ov').classList.add('open');
+  document.getElementById('admin-url-inp').value = SHEET_URL || '';
+  renderResourceTable();
+}
 
 /* Hidden admin access triggers
    - Desktop: Ctrl + Shift + A
